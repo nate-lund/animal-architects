@@ -1,7 +1,7 @@
 ---
 title: "A Book?"
 author: "Nate Lund"
-date: "`r Sys.Date()`"
+date: "2024-12-01"
 site: bookdown::bookdown_site
 documentclass: book
 output:
