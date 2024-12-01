@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r}
-install.packages("bookdown")
+install.packages("bookdown", dependencies = TRUE)
 library(bookdown)
 bookdown::create_gitbook
 ```
