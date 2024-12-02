@@ -4,4 +4,4 @@ created by Nate Lund
 
 # file descriptions
 
-_bookdown.myl = 
+_bookdown.myl = sets some formatting for book creation
