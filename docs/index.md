@@ -1,5 +1,5 @@
 ---
-title: "A Book?"
+title: "Animal Architects"
 author: "Nate Lund"
 date: "2024-12-01"
 site: bookdown::bookdown_site
@@ -10,10 +10,12 @@ output:
 ---
 
 
-# Hello World
+# Introduction
+This is...
 
-Hi.
 
-Bye.
+## Technical Resources
 
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+Bookdown book: https://bookdown.org/yihui/bookdown/
+
+Setting up R and Git: https://happygitwithr.com/
