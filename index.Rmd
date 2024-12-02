@@ -19,3 +19,5 @@ This is...
 Bookdown book: https://bookdown.org/yihui/bookdown/
 
 Setting up R and Git: https://happygitwithr.com/
+
+Hava's book: https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html
