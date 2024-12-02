@@ -1,12 +1,5 @@
 introduction
 technical-resources
-chapter-title-about
+about
 r-markdown
 including-plots
-about
-section
-title-01_about
-author-nate-lund
-date-2024-12-02
-output-html_document
-section-1
