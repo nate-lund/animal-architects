@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Imapct of Vegetation Cover on Erosion | Animal Architects</title>
-  <meta name="description" content="Chapter 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <title>Chapter 6 Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development | Animal Architects</title>
+  <meta name="description" content="Chapter 6 Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development | Animal Architects" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <meta property="og:title" content="Chapter 6 Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development | Animal Architects" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <meta name="twitter:title" content="Chapter 6 Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development | Animal Architects" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hillslope-transects-erosion-pins-etc..html"/>
-<link rel="next" href="animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html"/>
+<link rel="prev" href="animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -115,17 +115,48 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="imapct-of-vegetation-cover-on-erosion" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Imapct of Vegetation Cover on Erosion<a href="imapct-of-vegetation-cover-on-erosion.html#imapct-of-vegetation-cover-on-erosion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development<a href="modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html#modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="purpose-and-goals-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Purpose and Goals<a href="modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html#purpose-and-goals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In a general sense, the purpose of this chapter is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.</p>
+<p>To this end, the goal primary goal is to construct a model that integrates bioturbation, erosion, and particle size distribution on soil-profile and landscape scales. More specifically, to create a simple model, with a limited number of input parameters that can…</p>
+<ol style="list-style-type: decimal">
+<li>Describe how bioturbation creates texture contrast in soils over time.
+<ol style="list-style-type: decimal">
+<li>E.g. stoneline development or clay homogenization. [does advection need to be included for clay?]</li>
+</ol></li>
+<li>Describe how erosion rate and particle-size sensitive erosion rate impact texture contrast development.
+<ol style="list-style-type: decimal">
+<li>E.g. quantitatively model the dynamic denudation framework of Johnson et al. (2005a and 2005b).</li>
+</ol></li>
+<li>Describe how bioturbation drives soil texture variabiliy across a landscape, including sediment supplied to streams.</li>
+<li>Accommodate changes in erosion and mixing rates at discrete time steps.
+<ol style="list-style-type: decimal">
+<li>E.g. to simulate the impact of an invasive species or landscape change or in the introduction of bioturbators.</li>
+</ol></li>
+<li>Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors (only one organism per model run, however).</li>
+</ol>
+</div>
+<div id="single-profile-diffusion" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Single-profile diffusion<a href="modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html#single-profile-diffusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="images/clipboard-62785000.png" width="414" /></p>
+<p>Figure 1. Visualization of a single layer, <em>i</em>, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]</p>
+</div>
+<div id="references-2" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> References<a href="modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html#references-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <a href="https://doi.org/10.1016/j.geomorph.2004.08.014" class="uri">https://doi.org/10.1016/j.geomorph.2004.08.014</a></p>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <a href="https://doi.org/10.1111/j.1467-8306.2005.00448.x" class="uri">https://doi.org/10.1111/j.1467-8306.2005.00448.x</a></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="hillslope-transects-erosion-pins-etc..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -6,7 +6,11 @@ imapct-of-vegetation-cover-on-erosion
 animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
 purpose-and-goals
 goal-1-bioturbation-across-organisms
-goal-2-bioturbation-modeling-landscape
-goal-3-modeling-building
-qualitative-goals
 references
+goal-2-bioturbation-modeling-landscape
+model-types
+references-1
+modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
+purpose-and-goals-1
+single-profile-diffusion
+references-2

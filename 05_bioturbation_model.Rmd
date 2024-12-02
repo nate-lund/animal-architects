@@ -1,0 +1,32 @@
+# Modeling Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development
+
+```{r setup, echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=FALSE, warning=FALSE)
+```
+
+## Purpose and Goals
+
+In a general sense, the purpose of this chapter is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.
+
+To this end, the goal primary goal is to construct a model that integrates bioturbation, erosion, and particle size distribution on soil-profile and landscape scales. More specifically, to create a simple model, with a limited number of input parameters that can...
+
+1.  Describe how bioturbation creates texture contrast in soils over time.
+    1.  E.g. stoneline development or clay homogenization. [does advection need to be included for clay?]
+2.  Describe how erosion rate and particle-size sensitive erosion rate impact texture contrast development.
+    1.  E.g. quantitatively model the dynamic denudation framework of Johnson et al. (2005a and 2005b).
+3.  Describe how bioturbation drives soil texture variabiliy across a landscape, including sediment supplied to streams.
+4.  Accommodate changes in erosion and mixing rates at discrete time steps.
+    1.  E.g. to simulate the impact of an invasive species or landscape change or in the introduction of bioturbators.
+5.  Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors (only one organism per model run, however).
+
+## Single-profile diffusion
+
+![](images/clipboard-62785000.png){width="414"}
+
+Figure 1. Visualization of a single layer, *i*, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]
+
+## References
+
+Johnson, D. L., Domier, J. E. J., & Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <https://doi.org/10.1016/j.geomorph.2004.08.014>
+
+Johnson, D. L., Domier, J. E. J., & Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <https://doi.org/10.1111/j.1467-8306.2005.00448.x>
