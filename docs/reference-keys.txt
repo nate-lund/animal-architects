@@ -1,5 +1,12 @@
 introduction
 technical-resources
 about
-r-markdown
-including-plots
+hillslope-transects-erosion-pins-etc.
+imapct-of-vegetation-cover-on-erosion
+animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
+purpose-and-goals
+goal-1-bioturbation-across-organisms
+goal-2-bioturbation-modeling-landscape
+goal-3-modeling-building
+qualitative-goals
+references

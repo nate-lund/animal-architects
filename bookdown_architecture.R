@@ -16,6 +16,7 @@ library(rmarkdown)
 
 # the function used to compile the book, run before commiting
 render_book("index.Rmd", output_format = "bookdown::gitbook", output_dir = "docs",  new_session = TRUE)
+print(done)
 
 ## alternative, untested funcitons
 # serve_book()

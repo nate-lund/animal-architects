@@ -1,6 +1,5 @@
-# About
+# Hillslope Transects: Erosion Pins, etc.
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, include=FALSE, warning=FALSE)
 ```
-
