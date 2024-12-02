@@ -1,4 +1,5 @@
-hello-world
+introduction
+technical-resources
 chapter-title-about
 r-markdown
 including-plots

@@ -1,0 +1,19 @@
+# a script with the packages and code needed to build the bookdown book
+
+## two invaluable resources used to set this up
+# https://bookdown.org/yihui/bookdown/
+# https://happygitwithr.com/
+  
+install.packages("bookdown", dependencies = TRUE)
+
+library(usethis)
+library(bookdown)
+
+
+# the function used to compile the book, run before commiting
+render_book("index.Rmd", output_format = "bookdown::gitbook", output_dir = "docs",  new_session = TRUE)
+
+## alternative, untested funcitons
+# serve_book()
+# preview_chapter()
+# ?render_book()
