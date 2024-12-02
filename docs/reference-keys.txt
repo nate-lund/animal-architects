@@ -3,3 +3,4 @@ technical-resources
 chapter-title-about
 r-markdown
 including-plots
+about

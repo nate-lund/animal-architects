@@ -5,9 +5,9 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-# Chapter Title about
+# About
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning=FALSE, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 

@@ -8,7 +8,7 @@ install.packages("bookdown", dependencies = TRUE)
 
 library(usethis)
 library(bookdown)
-
+library(knitr)
 
 # the function used to compile the book, run before commiting
 render_book("index.Rmd", output_format = "bookdown::gitbook", output_dir = "docs",  new_session = TRUE)

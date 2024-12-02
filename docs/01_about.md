@@ -1,11 +1,11 @@
 ---
 title: "01_about"
 author: "Nate Lund"
-date: "2024-12-01"
+date: "2024-12-02"
 output: html_document
 ---
 
-# Chapter Title about
+# About
 
 
 
