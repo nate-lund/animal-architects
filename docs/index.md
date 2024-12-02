@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "2024-12-01"
+date: "2024-12-02"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -19,3 +19,5 @@ This is...
 Bookdown book: https://bookdown.org/yihui/bookdown/
 
 Setting up R and Git: https://happygitwithr.com/
+
+Hava's book: https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html
