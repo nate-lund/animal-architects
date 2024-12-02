@@ -1,6 +1,5 @@
-# About
+# Imapct of Vegetation Cover on Erosion
 
 ```{r setup, echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE, include=FALSE, warning=FALSE)
 ```
-
