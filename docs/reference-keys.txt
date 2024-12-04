@@ -1,6 +1,6 @@
 introduction
 technical-resources
-about
+table-of-contents
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
 animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development-a-review
@@ -11,9 +11,10 @@ models
 references
 goal-2-bioturbation-across-organisms
 references-1
-modeling-building
+model-building
 purpose-and-goals-1
 single-profile-diffusion
 soil-mixing-via-diffusion
+code-follows
 erosion-and-soil-formation
 references-2

@@ -7,6 +7,10 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 library(tinytex)
 ```
 
+``` {r date}
+print(paste("Updated", format(Sys.time(), '%I:%M, %d %B, %Y')))
+```
+
 ## Purpose and Goals
 
 In a general sense, the purpose of this chapter is twofold: to review the current state of the study and modeling of bioturbation and to create a small data set of bioturbators for model verification.

@@ -1,10 +1,10 @@
-# Modeling Building
+# Model Building
 
 
 
 
 ```
-## [1] "Updated 04 December, 2024"
+## [1] "Updated 10:29, 04 December, 2024"
 ```
 
 ## Purpose and Goals
@@ -75,6 +75,10 @@ V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
 $$
 
 Where S is the concentration of material of a greater size class than movable by present bioturbators.
+
+### Code follows
+
+<img src="05_bioturbation_model_files/figure-html/diffusion-1.png" width="672" /><img src="05_bioturbation_model_files/figure-html/diffusion-2.png" width="672" />
 
 ### Erosion and Soil Formation
 
