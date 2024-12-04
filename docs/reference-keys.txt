@@ -14,3 +14,9 @@ modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscap
 purpose-and-goals-1
 single-profile-diffusion
 references-2
+eq:binom
+review-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
+goal-1-bioturbation-modeling-landscape
+models
+goal-2-bioturbation-across-organisms
+section
