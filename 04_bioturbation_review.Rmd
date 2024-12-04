@@ -24,7 +24,7 @@ To this end, there are two broad goals:
 
 ### Model types
 
-There are a number of bioturbation models present in the literature. (Michel et al., 2022) provides a review
+There are a number of bioturbation models present in the literature. (Michel et al., 2022) provides a review of...
 
 ### Models
 

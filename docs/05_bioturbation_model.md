@@ -57,7 +57,7 @@ $$
 placeholder.equation
 $$
 
-Where... Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistrobtuoion of material by bioturbation (Mudd and Yoo, 2010) [review this citation again]. Further study on the importance of modeling non-local mixing is required.
+Where... Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation (Mudd and Yoo, 2010) [review this citation again]. Further study on the importance of modeling non-local mixing is required.
 
 [note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]
 
