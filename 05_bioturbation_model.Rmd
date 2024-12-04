@@ -28,13 +28,11 @@ To this end, the goal primary goal is to construct a model that integrates biotu
     1.  E.g. to simulate the impact of an invasive species or introduction of bioturbators.
 5.  Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors (see Chapter \@ref(review-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development)).
 
-## Single-profile diffusion
-
-![Figure 1. Visualization of a single layer, i, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]](images/clipboard-62785000.png){width="414"}
-
-### Soil Mixing via Diffusion
+## Soil Mixing via Diffusion
 
 The model is based on a layer system to approximate diffusion at depth. At each time step, the soil properties for each layer are calculated based on input parameters and the properties of the layer directly above and below. The model [currently] assumes steady state conditions: that erosion and soil formation are equivalent, regardless of soil depth. [Citation] says this is okay...
+
+![Figure 1. Visualization of a single layer, i, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]](images/clipboard-62785000.png){width="414"}
 
 The first component is the change in diffusion with depth, a result of the decrease in bioturbation rate with depth noted by… (citations). Following Johnson et al. (2014), diffusion of bulk soil can be described by:
 
@@ -84,7 +82,7 @@ Where S is the concentration of material of a greater size class than movable by
 
 ### Code follows
 
-```{r diffusion}
+```{r diffusion, echo = TRUE}
 #'[run below]
 
 #'###################### [creating a data frame below] #######################
@@ -198,8 +196,7 @@ for(crow in 2:(rep_times)) {
 
 #'###################### [plotting below] #######################
 
-#' [more complex horizon plot below]
-
+#' [creating a dataframe to plot from]
 # convert df2 dataframes to long format, one data frame for each clay, stones, and z
 df2_clay_long <- df2[["clay"]] %>% 
   pivot_longer(cols = c("A", "B", "C", "D", "E"), names_to = "layer") %>% 
@@ -226,17 +223,27 @@ df2_long <- df2_long_join2 %>%
            time_step == (rep_times / 4) |
            time_step == (rep_times - 1))
 
-#plot
+#plot stones
 ggplot(data = df2_long, mapping = aes(y = value.z,
                                       x = value.stones, 
                                       group = time_step)) + 
   geom_line(orientation = "y") +
   scale_y_reverse(name = "depth (m)") +
   scale_x_continuous(name = "stones content (g/m2)") +
-  facet_wrap(~time_step)
+  facet_wrap(~time_step) +
+  ggtitle("Stone movement over time"
+          , subtitle = "1 timestep = 10 years")
 
-#'[run above]
-
+#plot clay
+ggplot(data = df2_long, mapping = aes(y = value.z,
+                                      x = value.clay, 
+                                      group = time_step)) + 
+  geom_line(orientation = "y") +
+  scale_y_reverse(name = "depth (m)") +
+  scale_x_continuous(name = "clay content (g/m2)") +
+  facet_wrap(~time_step) +
+  ggtitle("Clay movement over time"
+          , subtitle = "1 timestep = 10 years")
 
 #' [basic plot, clay content over time for each layer]
 ggplot(data = df2[["stones"]]) +
@@ -245,7 +252,9 @@ ggplot(data = df2[["stones"]]) +
   geom_line(mapping = aes(y = C, x = time_step, color = "blue")) +
   geom_line(mapping = aes(y = D, x = time_step, color = "orange")) +
   geom_line(mapping = aes(y = E, x = time_step, color = "purple"))
-  
+
+#'[run above]
+
 ```
 
 ### Erosion and Soil Formation

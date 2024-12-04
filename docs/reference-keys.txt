@@ -13,7 +13,6 @@ goal-2-bioturbation-across-organisms
 references-1
 model-building
 purpose-and-goals-1
-single-profile-diffusion
 soil-mixing-via-diffusion
 code-follows
 erosion-and-soil-formation
