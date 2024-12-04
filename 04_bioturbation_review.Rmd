@@ -1,4 +1,4 @@
-# Review: Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development
+# Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development, a Review
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, include=FALSE, warning=FALSE)
@@ -17,7 +17,7 @@ To this end, there are two broad goals:
     -   What are the different approaches to modeling bioturbation or how can the current models be classified?
     -   What are the limitations or what is the applicability of theses models? What is their purpose?
     -   What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?
-2.  Complete a review of bioturbation rates, frequency, and depth-dependence across organisms for model verification and to answer the question:
+2.  Complete a review of bioturbation rates, frequency, depth-dependence, and particle size limitations across organisms for model verification and to answer the question:
     -   How do bioturbators create structure and variability across the landscape?
 
 ## Goal 1: Bioturbation Modeling Landscape
@@ -30,16 +30,37 @@ There are a number of bioturbation models present in the literature. (Michel et 
 
 1.  Johnson et al. (2014)
 
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
-\end{equation}
+$$
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+$$
 
-2.  
+or (with erosion factor T)
+
+$$ \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz}) - T\frac{dA}{dz} $$
+
+where
+
+$$
+D(z) = D(0)e^{-z/z_{b}}
+$$
+
+where
+
+$$
+T\frac{dy}{dt} = \frac{y}{dz}\frac{\delta y}{\delta t}=\frac{dA}{dt})
+$$
+
+2.  Apples
+
+$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
 
 ### References
 
 Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., & Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>
+
+Johnson, D. L., Domier, J. E. J., & Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <https://doi.org/10.1016/j.geomorph.2004.08.014>
+
+Johnson, D. L., Domier, J. E. J., & Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <https://doi.org/10.1111/j.1467-8306.2005.00448.x>
 
 Johnson, M. O., Mudd, S. M., Pillans, B., Spooner, N. A., Keith Fifield, L., Kirkby, M. J., & Gloor, M. (2014). Quantifying the rate and depth dependence of bioturbation based on optically‐stimulated luminescence (OSL) dates and meteoric 10 Be. Earth Surface Processes and Landforms, 39(9), 1188–1196. <https://doi.org/10.1002/esp.3520>
 
@@ -64,5 +85,3 @@ Hansen, R. M. (n.d.). MOVEMENT OF ROCKS BY NORTHERN POCKET GOPI-IERS. 49.
 Miller, M. A. (1957). Burrows of the Sacramento Valley pocket gopher in flood-irrigated alfalfa fields. Hilgardia, 26(8), 431–452. <https://doi.org/10.3733/hilg.v26n08p431>
 
 Yeates, G. W., & Van Der Meulen, H. (1995). Burial of soil-surface artifacts in the presence of lumbricid earthworms. Biology and Fertility of Soils, 19(1), 73–74. <https://doi.org/10.1007/BF00336350>
-
-## 
