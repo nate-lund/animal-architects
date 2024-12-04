@@ -82,7 +82,7 @@ Where S is the concentration of material of a greater size class than movable by
 
 ### Code follows
 
-```{r diffusion, echo = TRUE}
+```{r diffusion, echo = TRUE, cache = TRUE}
 #'[run below]
 
 #'###################### [creating a data frame below] #######################
