@@ -1,8 +1,12 @@
 # Modeling Building
 
 ```{r setup, echo = FALSE, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, include=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 library(tinytex)
+```
+
+``` {r date}
+print(paste("Updated", format(Sys.time(), '%d %B, %Y')))
 ```
 
 ## Purpose and Goals
@@ -53,6 +57,8 @@ which is functionally similar to the diffusion equation:
 $$
 \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
 $$
+
+[note: bulk density should be included here as well, as a factor multiplied by the y term. it is left out for now for the sake of simplicity, and for the fact that the \# of layers in the model is undecided, and having data on both bulk density and bioturbation rate is somewhat rare]
 
 Where h~i~ is layer thickness (m). If the soil property, *y*, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as *y* ‘flows’ from layers of high to low concentration. This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. Local plus non-local mixing is described by:
 

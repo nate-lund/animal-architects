@@ -1,14 +1,13 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "`r Sys.Date()'"
+date: "Last compiled 04 December, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 output:
   bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
-
 
 # Introduction
 This is...

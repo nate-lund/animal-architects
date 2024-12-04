@@ -1,7 +1,7 @@
 # Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development, a Review
 
 ```{r setup, echo = FALSE, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, include=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 # install.packages("tinytex")
 # install_tinytex()
 library(tinytex)
