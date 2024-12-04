@@ -1,0 +1,26 @@
+# Gamma Detectors
+
+```{r setup, echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+library(tinytex)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(rlang)
+library(usethis)
+library(bookdown)
+library(knitr)
+library(rmarkdown)
+```
+
+## Purpose and Goals
+
+The purpose of the section is to organize information on gamma detector methodology, operation, and equipment inventory.
+
+### Detector specs
+
+```{r table}
+det_specs <- data.frame("detector name" = c("Alice", "Sweepea", "Popeye", "Oliveoyl"), "detector model" = c("BE3825","BE3825","GC4018","GCW4023"), "serial number" = c("13263", "8970", "9944", "1570"))
+
+kable(det_specs, "pipe")
+```

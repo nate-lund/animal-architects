@@ -2,14 +2,9 @@
 
 
 
-
-```
-## [1] "Updated 10:47, 04 December, 2024"
-```
-
 ## Purpose and Goals
 
-In a general sense, the purpose of this chapter is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.
+The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.
 
 To this end, the goal primary goal is to construct a model that integrates bioturbation, erosion, and particle size distribution on soil-profile and landscape scales. More specifically, to create a simple model, with a limited number of input parameters that can...
 

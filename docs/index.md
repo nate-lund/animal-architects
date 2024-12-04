@@ -16,6 +16,8 @@ This is my living "lab notebook" for work on bioturbation, invasive earthworms, 
 
 ## Technical Resources
 
+Markdown book: https://bookdown.org/yihui/rmarkdown-cookbook/cache.html
+
 Bookdown book: https://bookdown.org/yihui/bookdown/
 
 Setting up R and Git: https://happygitwithr.com/

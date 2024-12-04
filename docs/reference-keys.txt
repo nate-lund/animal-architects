@@ -17,3 +17,6 @@ soil-mixing-via-diffusion
 code-follows
 erosion-and-soil-formation
 references-2
+gamma-detectors
+purpose-and-goals-2
+detector-specs
