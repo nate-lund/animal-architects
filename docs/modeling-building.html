@@ -121,6 +121,7 @@
             <section class="normal" id="section-">
 <div id="modeling-building" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Modeling Building<a href="modeling-building.html#modeling-building" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<pre><code>## [1] &quot;Updated 04 December, 2024&quot;</code></pre>
 <div id="purpose-and-goals-1" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Purpose and Goals<a href="modeling-building.html#purpose-and-goals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In a general sense, the purpose of this chapter is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.</p>
@@ -168,6 +169,7 @@ V_{y, net}=D(z_i)(y_{i-a}-y_i) + D(z_i+h)(y_{i+1}-y_i)
 <p><span class="math display">\[
 \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
 \]</span></p>
+<p>[note: bulk density should be included here as well, as a factor multiplied by the y term. it is left out for now for the sake of simplicity, and for the fact that the # of layers in the model is undecided, and having data on both bulk density and bioturbation rate is somewhat rare]</p>
 <p>Where h<sub>i</sub> is layer thickness (m). If the soil property, <em>y</em>, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as <em>y</em> ‘flows’ from layers of high to low concentration. This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. Local plus non-local mixing is described by:</p>
 <p><span class="math display">\[
 placeholder.equation
