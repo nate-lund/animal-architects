@@ -1,10 +1,9 @@
-eq:binom
 introduction
 technical-resources
 about
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
-review-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
+animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development-a-review
 purpose-and-goals
 goal-1-bioturbation-modeling-landscape
 model-types
@@ -12,8 +11,9 @@ models
 references
 goal-2-bioturbation-across-organisms
 references-1
-section
-modeling-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
+modeling-building
 purpose-and-goals-1
 single-profile-diffusion
+soil-mixing-via-diffusion
+erosion-and-soil-formation
 references-2
