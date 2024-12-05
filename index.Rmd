@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled `r format(Sys.time(), '%d %B, %Y')`"
+date: "Last compiled `r format(Sys.time(), '%I:%M, %d %B, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 output:
