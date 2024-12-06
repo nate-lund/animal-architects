@@ -1,17 +1,6 @@
 # Model Building
 
-```{r setup, echo = FALSE, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-```
+
 
 ## Purpose and Goals
 
@@ -28,7 +17,7 @@ To this end, the goal primary goal is to construct a model that integrates biotu
     1.  E.g. to simulate the impact of an invasive species or introduction of bioturbators.
 5.  Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors (see Chapter \@ref(review-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development)).
 
-## Soil Mixing via Diffusion
+## Clay and Soil Transport via Diffusion
 
 The model is based on a layer system to approximate diffusion at depth. At each time step, the soil properties for each layer are calculated based on input parameters and the properties of the layer directly above and below. The model [currently] assumes steady state conditions: that erosion and soil formation are equivalent, regardless of soil depth. [Citation] says this is okay...
 
@@ -68,11 +57,11 @@ $$
 placeholder.equation
 $$
 
-Where... Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation (Mudd and Yoo, 2010) [review this citation again]. Further study on the importance of modeling non-local mixing is required.
+Where... Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.
 
 [note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]
 
-However, a primary interest of our model is the movement of material too large to be mixed by bioturbators, coarse fragments. Coarse fragments are included only in downward local soil movement. They move downwards to infill where material is excavated but are too large to be excavated themselves. Ignoring non-local and upward local mixing, flux of coarse fragments can be described by:
+However, a primary interest of our model is the movement of material too large to be mixed by bioturbators, coarse fragments. Coarse fragments are included only in downward local soil movement. They move downwards to infill where material is excavated but are too large to be excavated themselves. Ignoring non-local and upward local mixing, flux of coarse fragments can be simplified to:
 
 $$
 V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
@@ -82,7 +71,8 @@ Where S is the concentration of material of a greater size class than movable by
 
 ### Code follows
 
-```{r diffusion, echo = TRUE, cache = TRUE}
+
+``` r
 #'[run below]
 
 #'###################### [creating a data frame below] #######################
@@ -233,7 +223,11 @@ ggplot(data = df2_long, mapping = aes(y = value.z,
   facet_wrap(~time_step) +
   ggtitle("Stone movement over time"
           , subtitle = "1 timestep = 10 years")
+```
 
+<img src="05_model_building_files/figure-html/diffusion-1.png" width="672" />
+
+``` r
 #plot clay
 ggplot(data = df2_long, mapping = aes(y = value.z,
                                       x = value.clay, 
@@ -244,18 +238,21 @@ ggplot(data = df2_long, mapping = aes(y = value.z,
   facet_wrap(~time_step) +
   ggtitle("Clay movement over time"
           , subtitle = "1 timestep = 10 years")
+```
 
-#' [basic plot, clay content over time for each layer]
+<img src="05_model_building_files/figure-html/diffusion-2.png" width="672" />
+
+``` r
+#' [basic plot, stone content over time for each layer]
 ggplot(data = df2[["stones"]]) +
   geom_line(mapping = aes(y = A, x = time_step, color = "green")) +
   geom_line(mapping = aes(y = B, x = time_step, color = "red")) +
   geom_line(mapping = aes(y = C, x = time_step, color = "blue")) +
   geom_line(mapping = aes(y = D, x = time_step, color = "orange")) +
   geom_line(mapping = aes(y = E, x = time_step, color = "purple"))
-
-#'[run above]
-
 ```
+
+<img src="05_model_building_files/figure-html/diffusion-3.png" width="672" />
 
 ### Erosion and Soil Formation
 

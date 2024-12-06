@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Table of Contents | Animal Architects</title>
-  <meta name="description" content="Chapter 2 Table of Contents | Animal Architects" />
+  <title>Chapter 7 Bioturbation Models, in Revew | Animal Architects</title>
+  <meta name="description" content="Chapter 7 Bioturbation Models, in Revew | Animal Architects" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Table of Contents | Animal Architects" />
+  <meta property="og:title" content="Chapter 7 Bioturbation Models, in Revew | Animal Architects" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Table of Contents | Animal Architects" />
+  <meta name="twitter:title" content="Chapter 7 Bioturbation Models, in Revew | Animal Architects" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="hillslope-transects-erosion-pins-etc..html"/>
+<link rel="prev" href="model-building.html"/>
+<link rel="next" href="gamma-detectors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,21 +201,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="table-of-contents" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Table of Contents<a href="table-of-contents.html#table-of-contents" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="mitppc-soil-erosion" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> MITPPC Soil Erosion<a href="table-of-contents.html#mitppc-soil-erosion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bioturbation-models-in-revew" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Bioturbation Models, in Revew<a href="bioturbation-models-in-revew.html#bioturbation-models-in-revew" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="purpose-and-goals-2" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Purpose and Goals<a href="bioturbation-models-in-revew.html#purpose-and-goals-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The purpose of this section is to review the current state of the study and modeling of bioturbation.</p>
+<p>The goals are to:</p>
 <ol style="list-style-type: decimal">
-<li>Chapter <a href="#1"><strong>??</strong></a></li>
-<li>?</li>
+<li>Complete a review of the current bioturbation modeling landscape to answer the questions:
+<ul>
+<li>What are the different approaches to modeling bioturbation or how can the current models be classified?</li>
+<li>What are the limitations or what is the applicability of theses models? What is their purpose?</li>
+<li>What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?</li>
+</ul></li>
+<li>Compile annotated equations and variablies used in modeling bioturbation.</li>
 </ol>
+<div id="model-types" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Model types<a href="bioturbation-models-in-revew.html#model-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are a number of bioturbation models present in the literature. (Michel et al., 2022) provides a review of…</p>
 </div>
-<div id="animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development<a href="table-of-contents.html#animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol start="3" style="list-style-type: decimal">
-<li>Chapter</li>
+<div id="models" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Models<a href="bioturbation-models-in-revew.html#models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.</li>
 </ol>
+<p><span class="math display">\[
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+\]</span></p>
+<p>the authors include an erosion factor, T. However, its use depends on the use of meteoric 10Be for estimating long-term erosion rates.</p>
+<p><span class="math display">\[ \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz}) - T\frac{dY}{dz} \]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+D(z) = D(0)e^{-z/z_{b}}
+\]</span></p>
+<p>zb is the e-folding length scale (in metres)</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Example</li>
+</ol>
+<p><span class="math display">\[f(k) = {n \choose k} p^{k} (1-p)^{n-k}\]</span></p>
+</div>
+<div id="references-3" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> References<a href="bioturbation-models-in-revew.html#references-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., &amp; Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <a href="https://doi.org/10.1111/j.1365-2389.2009.01209.x" class="uri">https://doi.org/10.1111/j.1365-2389.2009.01209.x</a></p>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <a href="https://doi.org/10.1016/j.geomorph.2004.08.014" class="uri">https://doi.org/10.1016/j.geomorph.2004.08.014</a></p>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <a href="https://doi.org/10.1111/j.1467-8306.2005.00448.x" class="uri">https://doi.org/10.1111/j.1467-8306.2005.00448.x</a></p>
+<p>Johnson, M. O., Mudd, S. M., Pillans, B., Spooner, N. A., Keith Fifield, L., Kirkby, M. J., &amp; Gloor, M. (2014). Quantifying the rate and depth dependence of bioturbation based on optically‐stimulated luminescence (OSL) dates and meteoric 10 Be. Earth Surface Processes and Landforms, 39(9), 1188–1196. <a href="https://doi.org/10.1002/esp.3520" class="uri">https://doi.org/10.1002/esp.3520</a></p>
+<p>Matisoff, G., Ketterer, M. E., Rosén, K., Mietelski, J. W., Vitko, L. F., Persson, H., &amp; Lokas, E. (2011). Downward migration of Chernobyl-derived radionuclides in soils in Poland and Sweden. Applied Geochemistry, 26(1), 105–115. <a href="https://doi.org/10.1016/j.apgeochem.2010.11.007" class="uri">https://doi.org/10.1016/j.apgeochem.2010.11.007</a></p>
+<p>Michel, E., Néel, M.-C., Capowiez, Y., Sammartino, S., Lafolie, F., Renault, P., &amp; Pelosi, C. (2022). Making Waves: Modeling bioturbation in soils – are we burrowing in the right direction? Water Research, 216, 118342. <a href="https://doi.org/10.1016/j.watres.2022.118342" class="uri">https://doi.org/10.1016/j.watres.2022.118342</a></p>
+<p>Román‐Sánchez, A., Laguna, A., Reimann, T., Giráldez, J. V., Peña, A., &amp; Vanwalleghem, T. (2019). Bioturbation and erosion rates along the soil‐hillslope conveyor belt, part 2: Quantification using an analytical solution of the diffusion–advection equation. Earth Surface Processes and Landforms, 44(10), 2066–2080. <a href="https://doi.org/10.1002/esp.4626" class="uri">https://doi.org/10.1002/esp.4626</a></p>
+<p>Salvador-Blanes, S., Minasny, B., &amp; McBratney, A. B. (2007). Modelling long-term in situ soil profile evolution: Application to the genesis of soil profiles containing stone layers. <em>European Journal of Soil Science</em>, <em>58</em>(6), 1535–1548. <a href="https://doi.org/10.1111/j.1365-2389.2007.00961.x" class="uri">https://doi.org/10.1111/j.1365-2389.2007.00961.x</a></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -223,8 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hillslope-transects-erosion-pins-etc..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="model-building.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gamma-detectors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
