@@ -2,10 +2,6 @@
 
 
 
-## Purpose and Goals
-
-The purpose of the section is to organize information on gamma detector methodology, operation, and equipment inventory.
-
 ### Detector specs
 
 

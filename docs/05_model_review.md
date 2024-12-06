@@ -2,8 +2,6 @@
 
 
 
-## Purpose and Goals
-
 The purpose of this section is to review the current state of the study and modeling of bioturbation.
 
 The goals are to:

@@ -2,8 +2,6 @@
 
 
 
-## Purpose and Goals
-
 The purpose of this section is to organize disparate notes on bioturbation and to create a small data set of bioturbators for model verification.
 
 To this end, there are two broad goals:
