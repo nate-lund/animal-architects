@@ -29,6 +29,8 @@ $$
 
 Where D is bulk-soil diffusion (m2/yr), *s* is the surface diffusion rate (m2/yr) [think burial rate], *z* is depth (m), and *b* is a scaling factor related to organism-dependent bioturbation depth (m), assumed to be 0.28.
 
+<img src="06_model_building_files/figure-html/Dz-1.png" width="672" />
+
 When considering the impact of diffusion on a single soil property [e.g. clay or coarse fragment content], a diffusion function can be applied with a concentration value to describe the flux (g/yr) through the profile. A diffusion function using these assumptions is approximately accurate for sufficiently long timescales (Mitchel et al. 2022) (see Chapter \@ref(model-types) for more details). This is based on the assumptions that spatially, mixing/burrow locations are randomly distributed, and all burrows are infilled with material from the layer directly above, thus upward and downward diffusion are equal. Flux between two layers can then be described by:
 
 $$
@@ -71,8 +73,6 @@ Where S is the concentration of material of a greater size class than movable by
 
 
 ``` r
-#'[run below]
-
 #'###################### [creating a data frame below] #######################
 
 # number of time steps
@@ -130,20 +130,13 @@ Dz <- function(z) {
     } else {
       #' [diffusion function defined here]
       #9.81 * 10^-5 * exp(-z/0.28) #linear (Johnson et al., 2014)
-      0.005334 * exp(-z/0.28) #exponential (Johnson et al., 2014) for eq. (Yeates et a.l, 1995) for intercept
+      0.005334 * exp(-z/0.28) #exponential (Johnson et al., 2014) for eq. (Darwin 1881) for intercept
       #6.9 * 10^-5 + -1.06 * 10^-4 * z #exponential (Johnson et al., 2014)
       #0.0426 #earthworms (Yeates et a.l, 1995)
       #0.005334 #earthworms (Darwin 1881)
     }
   }
 }
-
-# #diffusion w/ depth function plotting, not needed
-# eq = function(z){0.005334 * exp(-z)}
-# ggplot(data.frame(z = c(0, 5)), aes(x = z)) +
-#   stat_function(fun = eq) +
-#   scale_y_reverse()
-
 
 #' define function that calculates net [clay-diffusion] (g/m/yr) into/out of ith layer
 clay_diff_fun <- function(Ch, Ci, Cj, zi, hi) {

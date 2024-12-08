@@ -242,6 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 D(z)=s e^{-z/b}
 \]</span></p>
 <p>Where D is bulk-soil diffusion (m2/yr), <em>s</em> is the surface diffusion rate (m2/yr) [think burial rate], <em>z</em> is depth (m), and <em>b</em> is a scaling factor related to organism-dependent bioturbation depth (m), assumed to be 0.28.</p>
+<p><img src="06_model_building_files/figure-html/Dz-1.png" width="672" /></p>
 <p>When considering the impact of diffusion on a single soil property [e.g. clay or coarse fragment content], a diffusion function can be applied with a concentration value to describe the flux (g/yr) through the profile. A diffusion function using these assumptions is approximately accurate for sufficiently long timescales (Mitchel et al. 2022) (see Chapter <a href="bioturbation-models-in-revew.html#model-types">6.0.1</a> for more details). This is based on the assumptions that spatially, mixing/burrow locations are randomly distributed, and all burrows are infilled with material from the layer directly above, thus upward and downward diffusion are equal. Flux between two layers can then be described by:</p>
 <p><span class="math display">\[
 V_{y, down}=D(z_i)(y_{i-1}-y_i)
@@ -268,156 +269,147 @@ V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
 <p>Where S is the concentration of material of a greater size class than movable by present bioturbators.</p>
 <div id="code-follows" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Code follows<a href="model-building.html#code-follows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="model-building.html#cb1-1" tabindex="-1"></a><span class="co">#&#39;[run below]</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="model-building.html#cb1-1" tabindex="-1"></a><span class="co">#&#39;###################### [creating a data frame below] #######################</span></span>
 <span id="cb1-2"><a href="model-building.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="model-building.html#cb1-3" tabindex="-1"></a><span class="co">#&#39;###################### [creating a data frame below] #######################</span></span>
-<span id="cb1-4"><a href="model-building.html#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="model-building.html#cb1-5" tabindex="-1"></a><span class="co"># number of time steps</span></span>
-<span id="cb1-6"><a href="model-building.html#cb1-6" tabindex="-1"></a>rep_times <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb1-7"><a href="model-building.html#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="model-building.html#cb1-8" tabindex="-1"></a><span class="co"># number of years per time step</span></span>
-<span id="cb1-9"><a href="model-building.html#cb1-9" tabindex="-1"></a>rep_years <span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb1-10"><a href="model-building.html#cb1-10" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="model-building.html#cb1-11" tabindex="-1"></a><span class="co"># build a data frame</span></span>
-<span id="cb1-12"><a href="model-building.html#cb1-12" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">time_step =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(rep_times <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">each =</span> <span class="dv">4</span>),</span>
-<span id="cb1-13"><a href="model-building.html#cb1-13" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>), <span class="at">times =</span> rep_times),</span>
-<span id="cb1-14"><a href="model-building.html#cb1-14" tabindex="-1"></a>                <span class="st">&quot;A&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb1-15"><a href="model-building.html#cb1-15" tabindex="-1"></a>                <span class="st">&quot;B&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb1-16"><a href="model-building.html#cb1-16" tabindex="-1"></a>                <span class="st">&quot;C&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb1-17"><a href="model-building.html#cb1-17" tabindex="-1"></a>                <span class="st">&quot;D&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb1-18"><a href="model-building.html#cb1-18" tabindex="-1"></a>                <span class="st">&quot;E&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
-<span id="cb1-19"><a href="model-building.html#cb1-19" tabindex="-1"></a>                <span class="st">&quot;F&quot;</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
-<span id="cb1-20"><a href="model-building.html#cb1-20" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="model-building.html#cb1-21" tabindex="-1"></a><span class="co">#split data frame into multiple based on index column. names accordingly</span></span>
-<span id="cb1-22"><a href="model-building.html#cb1-22" tabindex="-1"></a>df2 <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(index) <span class="sc">%&gt;%</span> <span class="fu">group_split</span>(<span class="at">.keep =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>))</span>
-<span id="cb1-23"><a href="model-building.html#cb1-23" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="model-building.html#cb1-24" tabindex="-1"></a><span class="co">#assign the top depths of each layer</span></span>
-<span id="cb1-25"><a href="model-building.html#cb1-25" tabindex="-1"></a>za <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-26"><a href="model-building.html#cb1-26" tabindex="-1"></a>zb <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-27"><a href="model-building.html#cb1-27" tabindex="-1"></a>zc <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.5</span>, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-28"><a href="model-building.html#cb1-28" tabindex="-1"></a>zd <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-29"><a href="model-building.html#cb1-29" tabindex="-1"></a>ze <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">1.5</span>, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-30"><a href="model-building.html#cb1-30" tabindex="-1"></a><span class="co"># zf_fun bottom depth, not a layer (this is needed, as zf is is what the D functions use to assess if zi + hi = 0)</span></span>
-<span id="cb1-31"><a href="model-building.html#cb1-31" tabindex="-1"></a>zf_fun <span class="ot">=</span> <span class="fl">1.75</span></span>
-<span id="cb1-32"><a href="model-building.html#cb1-32" tabindex="-1"></a>zf <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(zf_fun, <span class="at">times =</span> rep_times))</span>
-<span id="cb1-33"><a href="model-building.html#cb1-33" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="model-building.html#cb1-34" tabindex="-1"></a><span class="co">#calculate h&#39;s, layer thickness</span></span>
-<span id="cb1-35"><a href="model-building.html#cb1-35" tabindex="-1"></a>ha <span class="ot">=</span> zb <span class="sc">-</span> za</span>
-<span id="cb1-36"><a href="model-building.html#cb1-36" tabindex="-1"></a>hb <span class="ot">=</span> zc <span class="sc">-</span> zb</span>
-<span id="cb1-37"><a href="model-building.html#cb1-37" tabindex="-1"></a>hc <span class="ot">=</span> zd <span class="sc">-</span> zc</span>
-<span id="cb1-38"><a href="model-building.html#cb1-38" tabindex="-1"></a>hd <span class="ot">=</span> ze <span class="sc">-</span> zd</span>
-<span id="cb1-39"><a href="model-building.html#cb1-39" tabindex="-1"></a>he <span class="ot">=</span> zf <span class="sc">-</span> ze</span>
-<span id="cb1-40"><a href="model-building.html#cb1-40" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="model-building.html#cb1-41" tabindex="-1"></a><span class="co">#input parameters into data frames</span></span>
-<span id="cb1-42"><a href="model-building.html#cb1-42" tabindex="-1"></a>df2[[<span class="st">&quot;z&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(za, zb, zc, zd, ze)</span>
-<span id="cb1-43"><a href="model-building.html#cb1-43" tabindex="-1"></a>df2[[<span class="st">&quot;h&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(ha, hb, hc, hd, he)</span>
-<span id="cb1-44"><a href="model-building.html#cb1-44" tabindex="-1"></a><span class="co">#below is the starting clay and stone content of each layer, A:E</span></span>
-<span id="cb1-45"><a href="model-building.html#cb1-45" tabindex="-1"></a>df2[[<span class="st">&quot;clay&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb1-46"><a href="model-building.html#cb1-46" tabindex="-1"></a>df2[[<span class="st">&quot;stones&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb1-3"><a href="model-building.html#cb1-3" tabindex="-1"></a><span class="co"># number of time steps</span></span>
+<span id="cb1-4"><a href="model-building.html#cb1-4" tabindex="-1"></a>rep_times <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb1-5"><a href="model-building.html#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="model-building.html#cb1-6" tabindex="-1"></a><span class="co"># number of years per time step</span></span>
+<span id="cb1-7"><a href="model-building.html#cb1-7" tabindex="-1"></a>rep_years <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb1-8"><a href="model-building.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="model-building.html#cb1-9" tabindex="-1"></a><span class="co"># build a data frame</span></span>
+<span id="cb1-10"><a href="model-building.html#cb1-10" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">time_step =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(rep_times <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">each =</span> <span class="dv">4</span>),</span>
+<span id="cb1-11"><a href="model-building.html#cb1-11" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>), <span class="at">times =</span> rep_times),</span>
+<span id="cb1-12"><a href="model-building.html#cb1-12" tabindex="-1"></a>                <span class="st">&quot;A&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb1-13"><a href="model-building.html#cb1-13" tabindex="-1"></a>                <span class="st">&quot;B&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb1-14"><a href="model-building.html#cb1-14" tabindex="-1"></a>                <span class="st">&quot;C&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb1-15"><a href="model-building.html#cb1-15" tabindex="-1"></a>                <span class="st">&quot;D&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb1-16"><a href="model-building.html#cb1-16" tabindex="-1"></a>                <span class="st">&quot;E&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
+<span id="cb1-17"><a href="model-building.html#cb1-17" tabindex="-1"></a>                <span class="st">&quot;F&quot;</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
+<span id="cb1-18"><a href="model-building.html#cb1-18" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="model-building.html#cb1-19" tabindex="-1"></a><span class="co">#split data frame into multiple based on index column. names accordingly</span></span>
+<span id="cb1-20"><a href="model-building.html#cb1-20" tabindex="-1"></a>df2 <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(index) <span class="sc">%&gt;%</span> <span class="fu">group_split</span>(<span class="at">.keep =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>))</span>
+<span id="cb1-21"><a href="model-building.html#cb1-21" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="model-building.html#cb1-22" tabindex="-1"></a><span class="co">#assign the top depths of each layer</span></span>
+<span id="cb1-23"><a href="model-building.html#cb1-23" tabindex="-1"></a>za <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-24"><a href="model-building.html#cb1-24" tabindex="-1"></a>zb <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-25"><a href="model-building.html#cb1-25" tabindex="-1"></a>zc <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.5</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-26"><a href="model-building.html#cb1-26" tabindex="-1"></a>zd <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-27"><a href="model-building.html#cb1-27" tabindex="-1"></a>ze <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">1.5</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-28"><a href="model-building.html#cb1-28" tabindex="-1"></a><span class="co"># zf_fun bottom depth, not a layer (this is needed, as zf is is what the D functions use to assess if zi + hi = 0)</span></span>
+<span id="cb1-29"><a href="model-building.html#cb1-29" tabindex="-1"></a>zf_fun <span class="ot">=</span> <span class="fl">1.75</span></span>
+<span id="cb1-30"><a href="model-building.html#cb1-30" tabindex="-1"></a>zf <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(zf_fun, <span class="at">times =</span> rep_times))</span>
+<span id="cb1-31"><a href="model-building.html#cb1-31" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="model-building.html#cb1-32" tabindex="-1"></a><span class="co">#calculate h&#39;s, layer thickness</span></span>
+<span id="cb1-33"><a href="model-building.html#cb1-33" tabindex="-1"></a>ha <span class="ot">=</span> zb <span class="sc">-</span> za</span>
+<span id="cb1-34"><a href="model-building.html#cb1-34" tabindex="-1"></a>hb <span class="ot">=</span> zc <span class="sc">-</span> zb</span>
+<span id="cb1-35"><a href="model-building.html#cb1-35" tabindex="-1"></a>hc <span class="ot">=</span> zd <span class="sc">-</span> zc</span>
+<span id="cb1-36"><a href="model-building.html#cb1-36" tabindex="-1"></a>hd <span class="ot">=</span> ze <span class="sc">-</span> zd</span>
+<span id="cb1-37"><a href="model-building.html#cb1-37" tabindex="-1"></a>he <span class="ot">=</span> zf <span class="sc">-</span> ze</span>
+<span id="cb1-38"><a href="model-building.html#cb1-38" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="model-building.html#cb1-39" tabindex="-1"></a><span class="co">#input parameters into data frames</span></span>
+<span id="cb1-40"><a href="model-building.html#cb1-40" tabindex="-1"></a>df2[[<span class="st">&quot;z&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(za, zb, zc, zd, ze)</span>
+<span id="cb1-41"><a href="model-building.html#cb1-41" tabindex="-1"></a>df2[[<span class="st">&quot;h&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(ha, hb, hc, hd, he)</span>
+<span id="cb1-42"><a href="model-building.html#cb1-42" tabindex="-1"></a><span class="co">#below is the starting clay and stone content of each layer, A:E</span></span>
+<span id="cb1-43"><a href="model-building.html#cb1-43" tabindex="-1"></a>df2[[<span class="st">&quot;clay&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb1-44"><a href="model-building.html#cb1-44" tabindex="-1"></a>df2[[<span class="st">&quot;stones&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb1-45"><a href="model-building.html#cb1-45" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="model-building.html#cb1-46" tabindex="-1"></a><span class="co">#&#39;###################### [model calculations below] #######################</span></span>
 <span id="cb1-47"><a href="model-building.html#cb1-47" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="model-building.html#cb1-48" tabindex="-1"></a><span class="co">#&#39;###################### [model calculations below] #######################</span></span>
-<span id="cb1-49"><a href="model-building.html#cb1-49" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="model-building.html#cb1-50" tabindex="-1"></a><span class="co"># define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)</span></span>
-<span id="cb1-51"><a href="model-building.html#cb1-51" tabindex="-1"></a>Dz <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
-<span id="cb1-52"><a href="model-building.html#cb1-52" tabindex="-1"></a>  <span class="cf">if</span>(z <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb1-53"><a href="model-building.html#cb1-53" tabindex="-1"></a>    <span class="dv">0</span> <span class="co"># could an erosion factor be included here ??????</span></span>
-<span id="cb1-54"><a href="model-building.html#cb1-54" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb1-55"><a href="model-building.html#cb1-55" tabindex="-1"></a>    <span class="cf">if</span>(z <span class="sc">==</span> zf_fun) {</span>
-<span id="cb1-56"><a href="model-building.html#cb1-56" tabindex="-1"></a>      <span class="dv">0</span> <span class="co"># could a soil production factor be included here ??????</span></span>
-<span id="cb1-57"><a href="model-building.html#cb1-57" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb1-58"><a href="model-building.html#cb1-58" tabindex="-1"></a>      <span class="co">#&#39; [diffusion function defined here]</span></span>
-<span id="cb1-59"><a href="model-building.html#cb1-59" tabindex="-1"></a>      <span class="co">#9.81 * 10^-5 * exp(-z/0.28) #linear (Johnson et al., 2014)</span></span>
-<span id="cb1-60"><a href="model-building.html#cb1-60" tabindex="-1"></a>      <span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>) <span class="co">#exponential (Johnson et al., 2014) for eq. (Yeates et a.l, 1995) for intercept</span></span>
-<span id="cb1-61"><a href="model-building.html#cb1-61" tabindex="-1"></a>      <span class="co">#6.9 * 10^-5 + -1.06 * 10^-4 * z #exponential (Johnson et al., 2014)</span></span>
-<span id="cb1-62"><a href="model-building.html#cb1-62" tabindex="-1"></a>      <span class="co">#0.0426 #earthworms (Yeates et a.l, 1995)</span></span>
-<span id="cb1-63"><a href="model-building.html#cb1-63" tabindex="-1"></a>      <span class="co">#0.005334 #earthworms (Darwin 1881)</span></span>
-<span id="cb1-64"><a href="model-building.html#cb1-64" tabindex="-1"></a>    }</span>
-<span id="cb1-65"><a href="model-building.html#cb1-65" tabindex="-1"></a>  }</span>
-<span id="cb1-66"><a href="model-building.html#cb1-66" tabindex="-1"></a>}</span>
-<span id="cb1-67"><a href="model-building.html#cb1-67" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="model-building.html#cb1-68" tabindex="-1"></a><span class="co"># #diffusion w/ depth function plotting, not needed</span></span>
-<span id="cb1-69"><a href="model-building.html#cb1-69" tabindex="-1"></a><span class="co"># eq = function(z){0.005334 * exp(-z)}</span></span>
-<span id="cb1-70"><a href="model-building.html#cb1-70" tabindex="-1"></a><span class="co"># ggplot(data.frame(z = c(0, 5)), aes(x = z)) +</span></span>
-<span id="cb1-71"><a href="model-building.html#cb1-71" tabindex="-1"></a><span class="co">#   stat_function(fun = eq) +</span></span>
-<span id="cb1-72"><a href="model-building.html#cb1-72" tabindex="-1"></a><span class="co">#   scale_y_reverse()</span></span>
-<span id="cb1-73"><a href="model-building.html#cb1-73" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="model-building.html#cb1-74" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="model-building.html#cb1-75" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [clay-diffusion] (g/m/yr) into/out of ith layer</span></span>
-<span id="cb1-76"><a href="model-building.html#cb1-76" tabindex="-1"></a>clay_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Ch, Ci, Cj, zi, hi) {</span>
-<span id="cb1-77"><a href="model-building.html#cb1-77" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> (Ch <span class="sc">-</span> Ci) <span class="sc">+</span></span>
-<span id="cb1-78"><a href="model-building.html#cb1-78" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> (Cj <span class="sc">-</span> Ci)) )</span>
-<span id="cb1-79"><a href="model-building.html#cb1-79" tabindex="-1"></a>}</span>
-<span id="cb1-80"><a href="model-building.html#cb1-80" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="model-building.html#cb1-81" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [stones-diffusion] (g/m/yr) into/out of ith layer</span></span>
-<span id="cb1-82"><a href="model-building.html#cb1-82" tabindex="-1"></a>stones_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Sh, Si, Sj, zi, hi) {</span>
-<span id="cb1-83"><a href="model-building.html#cb1-83" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> Sh <span class="sc">-</span></span>
-<span id="cb1-84"><a href="model-building.html#cb1-84" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> Si) )</span>
-<span id="cb1-85"><a href="model-building.html#cb1-85" tabindex="-1"></a>}</span>
-<span id="cb1-86"><a href="model-building.html#cb1-86" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="model-building.html#cb1-87" tabindex="-1"></a></span>
-<span id="cb1-88"><a href="model-building.html#cb1-88" tabindex="-1"></a><span class="co"># for loop that fills data frame with diffusion-calculated clay contents</span></span>
-<span id="cb1-89"><a href="model-building.html#cb1-89" tabindex="-1"></a><span class="cf">for</span>(crow <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(rep_times)) {</span>
-<span id="cb1-90"><a href="model-building.html#cb1-90" tabindex="-1"></a>  <span class="cf">for</span>(ccol <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) {</span>
-<span id="cb1-91"><a href="model-building.html#cb1-91" tabindex="-1"></a>    <span class="co"># apply clay-diffusion function</span></span>
-<span id="cb1-92"><a href="model-building.html#cb1-92" tabindex="-1"></a>    df2[[<span class="st">&quot;clay&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
-<span id="cb1-93"><a href="model-building.html#cb1-93" tabindex="-1"></a>      df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb1-48"><a href="model-building.html#cb1-48" tabindex="-1"></a><span class="co"># define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)</span></span>
+<span id="cb1-49"><a href="model-building.html#cb1-49" tabindex="-1"></a>Dz <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
+<span id="cb1-50"><a href="model-building.html#cb1-50" tabindex="-1"></a>  <span class="cf">if</span>(z <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb1-51"><a href="model-building.html#cb1-51" tabindex="-1"></a>    <span class="dv">0</span> <span class="co"># could an erosion factor be included here ??????</span></span>
+<span id="cb1-52"><a href="model-building.html#cb1-52" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-53"><a href="model-building.html#cb1-53" tabindex="-1"></a>    <span class="cf">if</span>(z <span class="sc">==</span> zf_fun) {</span>
+<span id="cb1-54"><a href="model-building.html#cb1-54" tabindex="-1"></a>      <span class="dv">0</span> <span class="co"># could a soil production factor be included here ??????</span></span>
+<span id="cb1-55"><a href="model-building.html#cb1-55" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1-56"><a href="model-building.html#cb1-56" tabindex="-1"></a>      <span class="co">#&#39; [diffusion function defined here]</span></span>
+<span id="cb1-57"><a href="model-building.html#cb1-57" tabindex="-1"></a>      <span class="co">#9.81 * 10^-5 * exp(-z/0.28) #linear (Johnson et al., 2014)</span></span>
+<span id="cb1-58"><a href="model-building.html#cb1-58" tabindex="-1"></a>      <span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>) <span class="co">#exponential (Johnson et al., 2014) for eq. (Darwin 1881) for intercept</span></span>
+<span id="cb1-59"><a href="model-building.html#cb1-59" tabindex="-1"></a>      <span class="co">#6.9 * 10^-5 + -1.06 * 10^-4 * z #exponential (Johnson et al., 2014)</span></span>
+<span id="cb1-60"><a href="model-building.html#cb1-60" tabindex="-1"></a>      <span class="co">#0.0426 #earthworms (Yeates et a.l, 1995)</span></span>
+<span id="cb1-61"><a href="model-building.html#cb1-61" tabindex="-1"></a>      <span class="co">#0.005334 #earthworms (Darwin 1881)</span></span>
+<span id="cb1-62"><a href="model-building.html#cb1-62" tabindex="-1"></a>    }</span>
+<span id="cb1-63"><a href="model-building.html#cb1-63" tabindex="-1"></a>  }</span>
+<span id="cb1-64"><a href="model-building.html#cb1-64" tabindex="-1"></a>}</span>
+<span id="cb1-65"><a href="model-building.html#cb1-65" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="model-building.html#cb1-66" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [clay-diffusion] (g/m/yr) into/out of ith layer</span></span>
+<span id="cb1-67"><a href="model-building.html#cb1-67" tabindex="-1"></a>clay_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Ch, Ci, Cj, zi, hi) {</span>
+<span id="cb1-68"><a href="model-building.html#cb1-68" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> (Ch <span class="sc">-</span> Ci) <span class="sc">+</span></span>
+<span id="cb1-69"><a href="model-building.html#cb1-69" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> (Cj <span class="sc">-</span> Ci)) )</span>
+<span id="cb1-70"><a href="model-building.html#cb1-70" tabindex="-1"></a>}</span>
+<span id="cb1-71"><a href="model-building.html#cb1-71" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="model-building.html#cb1-72" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [stones-diffusion] (g/m/yr) into/out of ith layer</span></span>
+<span id="cb1-73"><a href="model-building.html#cb1-73" tabindex="-1"></a>stones_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Sh, Si, Sj, zi, hi) {</span>
+<span id="cb1-74"><a href="model-building.html#cb1-74" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> Sh <span class="sc">-</span></span>
+<span id="cb1-75"><a href="model-building.html#cb1-75" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> Si) )</span>
+<span id="cb1-76"><a href="model-building.html#cb1-76" tabindex="-1"></a>}</span>
+<span id="cb1-77"><a href="model-building.html#cb1-77" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="model-building.html#cb1-78" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="model-building.html#cb1-79" tabindex="-1"></a><span class="co"># for loop that fills data frame with diffusion-calculated clay contents</span></span>
+<span id="cb1-80"><a href="model-building.html#cb1-80" tabindex="-1"></a><span class="cf">for</span>(crow <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(rep_times)) {</span>
+<span id="cb1-81"><a href="model-building.html#cb1-81" tabindex="-1"></a>  <span class="cf">for</span>(ccol <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb1-82"><a href="model-building.html#cb1-82" tabindex="-1"></a>    <span class="co"># apply clay-diffusion function</span></span>
+<span id="cb1-83"><a href="model-building.html#cb1-83" tabindex="-1"></a>    df2[[<span class="st">&quot;clay&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb1-84"><a href="model-building.html#cb1-84" tabindex="-1"></a>      df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb1-85"><a href="model-building.html#cb1-85" tabindex="-1"></a>      rep_years <span class="sc">*</span> </span>
+<span id="cb1-86"><a href="model-building.html#cb1-86" tabindex="-1"></a>      <span class="fu">clay_diff_fun</span>(df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb1-87"><a href="model-building.html#cb1-87" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb1-88"><a href="model-building.html#cb1-88" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb1-89"><a href="model-building.html#cb1-89" tabindex="-1"></a>                   df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb1-90"><a href="model-building.html#cb1-90" tabindex="-1"></a>                   df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
+<span id="cb1-91"><a href="model-building.html#cb1-91" tabindex="-1"></a>    <span class="co"># apply stones-diffusion function</span></span>
+<span id="cb1-92"><a href="model-building.html#cb1-92" tabindex="-1"></a>    df2[[<span class="st">&quot;stones&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb1-93"><a href="model-building.html#cb1-93" tabindex="-1"></a>      df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
 <span id="cb1-94"><a href="model-building.html#cb1-94" tabindex="-1"></a>      rep_years <span class="sc">*</span> </span>
-<span id="cb1-95"><a href="model-building.html#cb1-95" tabindex="-1"></a>      <span class="fu">clay_diff_fun</span>(df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
-<span id="cb1-96"><a href="model-building.html#cb1-96" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
-<span id="cb1-97"><a href="model-building.html#cb1-97" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
-<span id="cb1-98"><a href="model-building.html#cb1-98" tabindex="-1"></a>                   df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
-<span id="cb1-99"><a href="model-building.html#cb1-99" tabindex="-1"></a>                   df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
-<span id="cb1-100"><a href="model-building.html#cb1-100" tabindex="-1"></a>    <span class="co"># apply stones-diffusion function</span></span>
-<span id="cb1-101"><a href="model-building.html#cb1-101" tabindex="-1"></a>    df2[[<span class="st">&quot;stones&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
-<span id="cb1-102"><a href="model-building.html#cb1-102" tabindex="-1"></a>      df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
-<span id="cb1-103"><a href="model-building.html#cb1-103" tabindex="-1"></a>      rep_years <span class="sc">*</span> </span>
-<span id="cb1-104"><a href="model-building.html#cb1-104" tabindex="-1"></a>      <span class="fu">stones_diff_fun</span>(df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
-<span id="cb1-105"><a href="model-building.html#cb1-105" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
-<span id="cb1-106"><a href="model-building.html#cb1-106" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
-<span id="cb1-107"><a href="model-building.html#cb1-107" tabindex="-1"></a>                    df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
-<span id="cb1-108"><a href="model-building.html#cb1-108" tabindex="-1"></a>                    df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
-<span id="cb1-109"><a href="model-building.html#cb1-109" tabindex="-1"></a>  } </span>
-<span id="cb1-110"><a href="model-building.html#cb1-110" tabindex="-1"></a>}</span>
-<span id="cb1-111"><a href="model-building.html#cb1-111" tabindex="-1"></a></span>
-<span id="cb1-112"><a href="model-building.html#cb1-112" tabindex="-1"></a><span class="co">#&#39;###################### [plotting below] #######################</span></span>
-<span id="cb1-113"><a href="model-building.html#cb1-113" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="model-building.html#cb1-114" tabindex="-1"></a><span class="co">#&#39; [creating a dataframe to plot from]</span></span>
-<span id="cb1-115"><a href="model-building.html#cb1-115" tabindex="-1"></a><span class="co"># convert df2 dataframes to long format, one data frame for each clay, stones, and z</span></span>
-<span id="cb1-116"><a href="model-building.html#cb1-116" tabindex="-1"></a>df2_clay_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;clay&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb1-117"><a href="model-building.html#cb1-117" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-118"><a href="model-building.html#cb1-118" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb1-119"><a href="model-building.html#cb1-119" tabindex="-1"></a>df2_stones_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;stones&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb1-120"><a href="model-building.html#cb1-120" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-121"><a href="model-building.html#cb1-121" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb1-122"><a href="model-building.html#cb1-122" tabindex="-1"></a><span class="co"># combine long df2 dataframes into one for plotting </span></span>
-<span id="cb1-123"><a href="model-building.html#cb1-123" tabindex="-1"></a>df2_z_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;z&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb1-124"><a href="model-building.html#cb1-124" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-125"><a href="model-building.html#cb1-125" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb1-126"><a href="model-building.html#cb1-126" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="model-building.html#cb1-127" tabindex="-1"></a><span class="co"># combine and filter the long df2&#39;s and select for only key time steps</span></span>
-<span id="cb1-128"><a href="model-building.html#cb1-128" tabindex="-1"></a>df2_long_join1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_clay_long, df2_z_long, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.clay&quot;</span>, <span class="st">&quot;.z&quot;</span>), <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
-<span id="cb1-129"><a href="model-building.html#cb1-129" tabindex="-1"></a>df2_long_join2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_long_join1, df2_stones_long, <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
-<span id="cb1-130"><a href="model-building.html#cb1-130" tabindex="-1"></a></span>
-<span id="cb1-131"><a href="model-building.html#cb1-131" tabindex="-1"></a>df2_long <span class="ot">&lt;-</span> df2_long_join2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1-132"><a href="model-building.html#cb1-132" tabindex="-1"></a>  <span class="fu">select</span>(time_step.clay, layer.clay, value.clay, value.z, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-133"><a href="model-building.html#cb1-133" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">time_step =</span> time_step.clay, <span class="at">layer =</span> layer.clay, <span class="at">value.stones =</span> value) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-134"><a href="model-building.html#cb1-134" tabindex="-1"></a>  <span class="fu">filter</span>(time_step <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> </span>
-<span id="cb1-135"><a href="model-building.html#cb1-135" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">|</span> </span>
-<span id="cb1-136"><a href="model-building.html#cb1-136" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">50</span>) <span class="sc">|</span> </span>
-<span id="cb1-137"><a href="model-building.html#cb1-137" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|</span> </span>
-<span id="cb1-138"><a href="model-building.html#cb1-138" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|</span></span>
-<span id="cb1-139"><a href="model-building.html#cb1-139" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">-</span> <span class="dv">1</span>))</span>
-<span id="cb1-140"><a href="model-building.html#cb1-140" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="model-building.html#cb1-141" tabindex="-1"></a><span class="co">#plot stones</span></span>
-<span id="cb1-142"><a href="model-building.html#cb1-142" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
-<span id="cb1-143"><a href="model-building.html#cb1-143" tabindex="-1"></a>                                      <span class="at">x =</span> value.stones, </span>
-<span id="cb1-144"><a href="model-building.html#cb1-144" tabindex="-1"></a>                                      <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
-<span id="cb1-145"><a href="model-building.html#cb1-145" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-146"><a href="model-building.html#cb1-146" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-147"><a href="model-building.html#cb1-147" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;stones content (g/m2)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-148"><a href="model-building.html#cb1-148" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step) <span class="sc">+</span></span>
-<span id="cb1-149"><a href="model-building.html#cb1-149" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Stone movement over time&quot;</span></span>
-<span id="cb1-150"><a href="model-building.html#cb1-150" tabindex="-1"></a>          , <span class="at">subtitle =</span> <span class="st">&quot;1 timestep = 10 years&quot;</span>)</span></code></pre></div>
+<span id="cb1-95"><a href="model-building.html#cb1-95" tabindex="-1"></a>      <span class="fu">stones_diff_fun</span>(df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb1-96"><a href="model-building.html#cb1-96" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb1-97"><a href="model-building.html#cb1-97" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb1-98"><a href="model-building.html#cb1-98" tabindex="-1"></a>                    df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb1-99"><a href="model-building.html#cb1-99" tabindex="-1"></a>                    df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
+<span id="cb1-100"><a href="model-building.html#cb1-100" tabindex="-1"></a>  } </span>
+<span id="cb1-101"><a href="model-building.html#cb1-101" tabindex="-1"></a>}</span>
+<span id="cb1-102"><a href="model-building.html#cb1-102" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="model-building.html#cb1-103" tabindex="-1"></a><span class="co">#&#39;###################### [plotting below] #######################</span></span>
+<span id="cb1-104"><a href="model-building.html#cb1-104" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="model-building.html#cb1-105" tabindex="-1"></a><span class="co">#&#39; [creating a dataframe to plot from]</span></span>
+<span id="cb1-106"><a href="model-building.html#cb1-106" tabindex="-1"></a><span class="co"># convert df2 dataframes to long format, one data frame for each clay, stones, and z</span></span>
+<span id="cb1-107"><a href="model-building.html#cb1-107" tabindex="-1"></a>df2_clay_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;clay&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb1-108"><a href="model-building.html#cb1-108" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-109"><a href="model-building.html#cb1-109" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb1-110"><a href="model-building.html#cb1-110" tabindex="-1"></a>df2_stones_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;stones&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb1-111"><a href="model-building.html#cb1-111" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-112"><a href="model-building.html#cb1-112" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb1-113"><a href="model-building.html#cb1-113" tabindex="-1"></a><span class="co"># combine long df2 dataframes into one for plotting </span></span>
+<span id="cb1-114"><a href="model-building.html#cb1-114" tabindex="-1"></a>df2_z_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;z&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb1-115"><a href="model-building.html#cb1-115" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-116"><a href="model-building.html#cb1-116" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb1-117"><a href="model-building.html#cb1-117" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="model-building.html#cb1-118" tabindex="-1"></a><span class="co"># combine and filter the long df2&#39;s and select for only key time steps</span></span>
+<span id="cb1-119"><a href="model-building.html#cb1-119" tabindex="-1"></a>df2_long_join1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_clay_long, df2_z_long, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.clay&quot;</span>, <span class="st">&quot;.z&quot;</span>), <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb1-120"><a href="model-building.html#cb1-120" tabindex="-1"></a>df2_long_join2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_long_join1, df2_stones_long, <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb1-121"><a href="model-building.html#cb1-121" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="model-building.html#cb1-122" tabindex="-1"></a>df2_long <span class="ot">&lt;-</span> df2_long_join2 <span class="sc">%&gt;%</span> </span>
+<span id="cb1-123"><a href="model-building.html#cb1-123" tabindex="-1"></a>  <span class="fu">select</span>(time_step.clay, layer.clay, value.clay, value.z, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-124"><a href="model-building.html#cb1-124" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">time_step =</span> time_step.clay, <span class="at">layer =</span> layer.clay, <span class="at">value.stones =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-125"><a href="model-building.html#cb1-125" tabindex="-1"></a>  <span class="fu">filter</span>(time_step <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> </span>
+<span id="cb1-126"><a href="model-building.html#cb1-126" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">|</span> </span>
+<span id="cb1-127"><a href="model-building.html#cb1-127" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">50</span>) <span class="sc">|</span> </span>
+<span id="cb1-128"><a href="model-building.html#cb1-128" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|</span> </span>
+<span id="cb1-129"><a href="model-building.html#cb1-129" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|</span></span>
+<span id="cb1-130"><a href="model-building.html#cb1-130" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb1-131"><a href="model-building.html#cb1-131" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="model-building.html#cb1-132" tabindex="-1"></a><span class="co">#plot stones</span></span>
+<span id="cb1-133"><a href="model-building.html#cb1-133" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
+<span id="cb1-134"><a href="model-building.html#cb1-134" tabindex="-1"></a>                                      <span class="at">x =</span> value.stones, </span>
+<span id="cb1-135"><a href="model-building.html#cb1-135" tabindex="-1"></a>                                      <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
+<span id="cb1-136"><a href="model-building.html#cb1-136" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-137"><a href="model-building.html#cb1-137" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-138"><a href="model-building.html#cb1-138" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;stones content (g/m2)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-139"><a href="model-building.html#cb1-139" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step) <span class="sc">+</span></span>
+<span id="cb1-140"><a href="model-building.html#cb1-140" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Stone movement over time&quot;</span></span>
+<span id="cb1-141"><a href="model-building.html#cb1-141" tabindex="-1"></a>          , <span class="at">subtitle =</span> <span class="st">&quot;1 timestep = 10 years&quot;</span>)</span></code></pre></div>
 <p><img src="06_model_building_files/figure-html/diffusion-1.png" width="672" /></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="model-building.html#cb2-1" tabindex="-1"></a><span class="co">#plot clay</span></span>
 <span id="cb2-2"><a href="model-building.html#cb2-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
