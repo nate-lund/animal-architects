@@ -1,3 +1,4 @@
+# (APPENDIX) Appendix {-}
 # Gamma Detectors
 
 ```{r setup, echo = FALSE, include=FALSE}

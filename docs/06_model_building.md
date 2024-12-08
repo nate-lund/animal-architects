@@ -21,13 +21,14 @@ The model is based on a layer system to approximate diffusion at depth. At each 
 
 ![Figure 1. Visualization of a single layer, i, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]](images/clipboard-62785000.png){width="414"}
 
+
 The first component is the change in diffusion with depth, a result of the decrease in bioturbation rate with depth noted by… (citations). Following Johnson et al. (2014), diffusion of bulk soil can be described by:
 
 $$
 D(z)=s e^{-z/b}
 $$
 
-Where D is bulk-soil diffusion (m2/yr), *s* is the surface diffusion rate (m2/yr) [think burial rate], *z* is depth (m), and *b* is a scaling factor related to organism-dependent bioturbation depth (m), assumed to be 0.28.
+Where D is bulk-soil diffusion (m2/yr), s is the surface diffusion rate (m2/yr) [think burial rate], z is depth (m), and b is a scaling factor related to organism-dependent bioturbation depth (m), assumed to be 0.28.
 
 <img src="06_model_building_files/figure-html/Dz-1.png" width="672" />
 
@@ -37,7 +38,7 @@ $$
 V_{y, down}=D(z_i)(y_{i-1}-y_i)
 $$
 
-Where *V~y~* is downward flux across layers (g/yr), *i* is the current layer, and *y* is the content of some soil property in the *i*th layer (g/m2). However, net flux into a layer requires consideration of both upward [i - 1] and downward [i + 1] movement, described by:
+Where V~y~ is downward flux across layers (g/yr), i is the current layer, and y is the content of some soil property in the ith layer (g/m2). However, net flux into a layer requires consideration of both upward [i - 1] and downward [i + 1] movement, described by:
 
 $$
 V_{y, net}=D(z_i)(y_{i-a}-y_i) + D(z_i+h)(y_{i+1}-y_i)
@@ -51,7 +52,7 @@ $$
 
 [note: bulk density should be included here as well, as a factor multiplied by the y term. it is left out for now for the sake of simplicity, and for the fact that the \# of layers in the model is undecided, and having data on both bulk density and bioturbation rate is somewhat rare]
 
-Where h~i~ is layer thickness (m). If the soil property, *y*, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as *y* ‘flows’ from layers of high to low concentration. This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. Local plus non-local mixing is described by:
+Where h~i~ is layer thickness (m). If the soil property, y, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as y ‘flows’ from layers of high to low concentration. This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. Local plus non-local mixing is described by:
 
 $$
 placeholder.equation
@@ -67,9 +68,8 @@ $$
 V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
 $$
 
-Where S is the concentration of material of a greater size class than movable by present bioturbators.
+Where S is the concentration of material of a greater size class than movable by present bioturbators. At the top and bottom of the profile, the above diffusion equations are adjusted to be zero.
 
-### Code follows
 
 
 ``` r
@@ -227,8 +227,8 @@ ggplot(data = df2_long, mapping = aes(y = value.z,
   scale_y_reverse(name = "depth (m)") +
   scale_x_continuous(name = "clay content (g/m2)") +
   facet_wrap(~time_step) +
-  ggtitle("Clay movement over time"
-          , subtitle = "1 timestep = 10 years")
+  ggtitle("Clay movement over time",
+          subtitle = "1 timestep = 10 years")
 ```
 
 <img src="06_model_building_files/figure-html/diffusion-2.png" width="672" />
@@ -249,6 +249,17 @@ ggplot(data = df2[["stones"]]) +
 
 WIP
 
-At the top and bottom of the profile, the above diffusion equations are adjusted to be zero. At the top, and erosion factor. Bulk density is assumed to be consistent throughout the profile.
+At the top, an erosion factor is included. Bulk density is assumed to be consistent throughout the profile.
 
 ## References
+Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. https://doi.org/10.1017/CBO9780511703850.
+
+Johnson, Michelle O., Simon M. Mudd, Brad Pillans, Nigel A. Spooner, L. Keith Fifield, Mike J. Kirkby, and Manuel Gloor. “Quantifying the Rate and Depth Dependence of Bioturbation Based on Optically‐stimulated Luminescence (OSL) Dates and Meteoric 10 Be.” Earth Surface Processes and Landforms 39, no. 9 (July 2014): 1188–96. https://doi.org/10.1002/esp.3520.
+
+Yeates, G. W., and H. Van Der Meulen. “Burial of Soil-Surface Artifacts in the Presence of Lumbricid Earthworms.” Biology and Fertility of Soils 19, no. 1 (January 1995): 73–74. https://doi.org/10.1007/BF00336350.
+
+Jarvis, N. J., A. Taylor, M. Larsbo, A. Etana, and K. Rosén. “Modelling the Effects of Bioturbation on the Re-Distribution of 137Cs in an Undisturbed Grassland Soil.” European Journal of Soil Science 61, no. 1 (2010): 24–34. https://doi.org/10.1111/j.1365-2389.2009.01209.x.
+
+Matisoff, Gerald, Michael E. Ketterer, Klas Rosén, Jerzy W. Mietelski, Lauren F. Vitko, Henning Persson, and Edyta Lokas. “Downward Migration of Chernobyl-Derived Radionuclides in Soils in Poland and Sweden.” Applied Geochemistry 26, no. 1 (January 2011): 105–15. https://doi.org/10.1016/j.apgeochem.2010.11.007.
+
+Meysman, Filip J.R., Volodymyr S. Malyuga, Bernard P. Boudreau, and Jack J. Middelburg. “A Generalized Stochastic Approach to Particle Dispersal in Soils and Sediments.” Geochimica et Cosmochimica Acta 72, no. 14 (July 2008): 3460–78. https://doi.org/10.1016/j.gca.2008.04.023.

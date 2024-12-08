@@ -1,4 +1,4 @@
-# (PART) Part II: Unintentioal Architects {-} 
+# (PART) Part II: Unintentional Architects {-}
 # Bioturbation, in Review
 
 
