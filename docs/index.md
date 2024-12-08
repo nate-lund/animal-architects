@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 03:12, 08 December, 2024"
+date: "Last compiled 03:26, 08 December, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -14,13 +14,12 @@ output:
 
 This is my living "lab notebook" for work on bioturbation, invasive earthworms, soil erosion, etc. It includes work on the MITPPC Jumping worm erosion project among other things.
 
-
 ## Technical Resources
 
-Markdown book: https://bookdown.org/yihui/rmarkdown-cookbook/cache.html
+-   Markdown book: <https://bookdown.org/yihui/rmarkdown-cookbook/cache.html>
 
-Bookdown book: https://bookdown.org/yihui/bookdown/
+-   Bookdown book: <https://bookdown.org/yihui/bookdown/>
 
-Setting up R and Git: https://happygitwithr.com/
+-   Setting up R and Git: <https://happygitwithr.com/>
 
-Hava's book: https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html
+-   Hava's book: <https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html>
