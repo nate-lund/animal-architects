@@ -4,5 +4,5 @@ delete_merged_file: true
 output_dir: "docs"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Section "
 view: https://github.com/nate-lund/animal-architects/blob/main/%s
