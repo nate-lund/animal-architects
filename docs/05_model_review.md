@@ -1,4 +1,4 @@
-# Bioturbation Models, in Revew
+# Bioturbation Modeling
 
 
 
@@ -10,11 +10,15 @@ The goals are to:
     -   What are the different approaches to modeling bioturbation or how can the current models be classified?
     -   What are the limitations or what is the applicability of theses models? What is their purpose?
     -   What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?
-2.  Compile annotated equations and variablies used in modeling bioturbation.
+2.  Compile annotated equations and variables used in modeling bioturbation.
 
 ### Model types
 
-There are a number of bioturbation models present in the literature. (Michel et al., 2022) provides a review of...
+There are two general approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing (Michel et al., 2022). Anomalous mixing models are applied to simulating the individual trajectory of sediment-particles, and they capture the discontinuous movement of particles in "jumps" between periods of waiting. Jump length and waiting time are bioturbator-specific stochastic variables with a variance and a mean that can be simulated by random walk models (Meysman et al., 2010 in Michel et al., 2022). Of interest to this review, if simulation time and the number of translocation events are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022). Further, "If σ and τ are finite... the ratio σ2/(2τ) is the biodiffusion coefficient. If moreover the mean μ of the jump-length distribution is non-zero, wb=μ/τ" (Michel et al., 2022).
+
+> Sources to further look into: Meysman 2008: <https://doi.org/10.1016/j.gca.2008.04.023> Meysman 2010: <https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing> Marie 2007: <https://doi.org/10.1016/j.jembe.2006.10.052>
+
+Normal mixing is described by a diffusion-advection equation and, as soil development occurs over very long timescales, is the focus of this review.
 
 ### Models
 
@@ -34,7 +38,7 @@ $$
 D(z) = D(0)e^{-z/z_{b}}
 $$
 
-zb is the e-folding length scale (in metres)
+zb is the e-folding length scale (in meters)
 
 2.  Example
 

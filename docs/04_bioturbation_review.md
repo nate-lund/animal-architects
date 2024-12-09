@@ -1,13 +1,15 @@
-# (PART) Part II: Unintentional Architects {-}
-# Bioturbation, in Review
+# Part II: Literature Review {.unnumbered}
+
+# Bioturbation Ecology
 
 
 
 The purpose of this section is to organize disparate notes on bioturbation and to create a small data set of bioturbators for model verification.
 
-To this end, there are two broad goals:
+Goals:
 
-1.  Complete a review of bioturbation rates, frequency, depth-dependence, and particle size limitations across organisms for model verification and to answer the question:
+1.  Complete a review of bioturbation rates, frequency, depth-dependence, and particle size limitations across organisms for model verification.
+2.  Qualitatively review the role of bioturbators as "unintentional architects" in landscape and soil development.
     -   How do bioturbators create structure and variability across the landscape?
 
 ## New Paths
@@ -20,7 +22,7 @@ To this end, there are two broad goals:
 
 Mudd, Simon Marius, and Kyungsoo Yoo. “Reservoir Theory for Studying the Geochemical Evolution of Soils.” Journal of Geophysical Research: Earth Surface 115, no. F3 (2010). <https://doi.org/10.1029/2009JF001591>.
 
-## Bioturbation Across Organisms
+## Bioturbation Data-mining
 
 WIP
 

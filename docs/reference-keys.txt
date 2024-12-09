@@ -5,12 +5,12 @@ mitppc-soil-erosion
 animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
-bioturbation-in-review
+bioturbation-ecology
 new-paths
 references
-bioturbation-across-organisms
+bioturbation-data-mining
 references-1
-bioturbation-models-in-revew
+bioturbation-modeling
 model-types
 models
 references-2
