@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 6 Bioturbation Modeling | Animal Architects</title>
-  <meta name="description" content="Section 6 Bioturbation Modeling | Animal Architects" />
+  <title>Section 5 Bioturbation Geo-Ecology | Animal Architects</title>
+  <meta name="description" content="Section 5 Bioturbation Geo-Ecology | Animal Architects" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 6 Bioturbation Modeling | Animal Architects" />
+  <meta property="og:title" content="Section 5 Bioturbation Geo-Ecology | Animal Architects" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 6 Bioturbation Modeling | Animal Architects" />
+  <meta name="twitter:title" content="Section 5 Bioturbation Geo-Ecology | Animal Architects" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bioturbation-geo-ecology.html"/>
-<link rel="next" href="model-building.html"/>
+<link rel="prev" href="imapct-of-vegetation-cover-on-erosion.html"/>
+<link rel="next" href="bioturbation-modeling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,57 +217,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bioturbation-modeling" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Section 6</span> Bioturbation Modeling<a href="bioturbation-modeling.html#bioturbation-modeling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of this section is to review the current state of the study and modeling of bioturbation.</p>
-<p>The goals are to:</p>
-<ol style="list-style-type: decimal">
-<li>Complete a review of the current bioturbation modeling landscape to answer the questions:
-<ul>
-<li>What are the different approaches to modeling bioturbation or how can the current models be classified?</li>
-<li>What are the limitations or what is the applicability of theses models? What is their purpose?</li>
-<li>What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?</li>
-</ul></li>
-<li>Compile annotated equations and variables used in modeling bioturbation.</li>
-</ol>
-<div id="model-types" class="section level3 hasAnchor" number="6.0.1">
-<h3><span class="header-section-number">6.0.1</span> Model types<a href="bioturbation-modeling.html#model-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There are two general approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing (Michel et al., 2022). Anomalous mixing models are applied to simulating the individual trajectory of sediment-particles, and they capture the discontinuous movement of particles in “jumps” between periods of waiting. Jump length and waiting time are bioturbator-specific stochastic variables with a variance and a mean that can be simulated by random walk models (Meysman et al., 2010 in Michel et al., 2022). Of interest to this review, if simulation time and the number of translocation events are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022). Further, “If σ and τ are finite… the ratio σ2/(2τ) is the biodiffusion coefficient. If moreover the mean μ of the jump-length distribution is non-zero, wb=μ/τ” (Michel et al., 2022).</p>
+<div id="bioturbation-geo-ecology" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Section 5</span> Bioturbation Geo-Ecology<a href="bioturbation-geo-ecology.html#bioturbation-geo-ecology" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The central idea of this section and chapter as a whole is to assess the role of animals in soil and landscape development. Specifically, to collect evidence for the statement:</p>
 <blockquote>
-<p>Sources to further look into: Meysman 2008: <a href="https://doi.org/10.1016/j.gca.2008.04.023" class="uri">https://doi.org/10.1016/j.gca.2008.04.023</a> Meysman 2010: <a href="https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing" class="uri">https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing</a> Marie 2007: <a href="https://doi.org/10.1016/j.jembe.2006.10.052" class="uri">https://doi.org/10.1016/j.jembe.2006.10.052</a></p>
+<p>Animals unintentionally create heterogeneity and homogeneity in soil and landscape development.</p>
 </blockquote>
-<p>Normal mixing is described by a diffusion-advection equation and, as soil development occurs over very long timescales, is the focus of this review.</p>
-</div>
-<div id="models" class="section level3 hasAnchor" number="6.0.2">
-<h3><span class="header-section-number">6.0.2</span> Models<a href="bioturbation-modeling.html#models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It begs the question, what kind of framework, whether qualitative or quantitative, can we create to broadly understand the role of organisms in soil and landscape development? This section focuses on the qualitative side, whereas the following modeling sections represent a quantitative approach.</p>
+<p>Goals:</p>
 <ol style="list-style-type: decimal">
-<li>Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.</li>
+<li>Complete a review of bioturbation rates, frequency, depth-dependence, and particle size limitations across organisms for model verification.</li>
+<li>Qualitatively review the role of indivudal bioturbators as “unintentional architects” in landscape and soil development.
+<ul>
+<li>How do bioturbators create structure and variability across the landscape?</li>
+</ul></li>
 </ol>
+<div id="bioturbators" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Bioturbators<a href="bioturbation-geo-ecology.html#bioturbators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Gabet et al. (2003) introduces a qualitative model for understanding sediment transport by tree throw. Gabet (2000) uses a similar approach to model hillslope morphology in gopher-activity dominated systems. The author suggests a new equation for hillslope evolution based on hillslope gradient:</p>
 <p><span class="math display">\[
-\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+q_s(\frac{cm^3}{cm*a})=176(\frac{dz}{dx})^3-189(\frac{dz}{dz})^2+68(\frac{dz}{dx})
 \]</span></p>
-<p>the authors include an erosion factor, T. However, its use depends on the use of meteoric 10Be for estimating long-term erosion rates.</p>
-<p><span class="math display">\[ \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz}) - T\frac{dY}{dz} \]</span></p>
-<p>where</p>
+<p>The following equation represents a general framework for how bioturbators move soil (qs sediment flux) on a hillslope:</p>
 <p><span class="math display">\[
-D(z) = D(0)e^{-z/z_{b}}
+q_s = \frac{vol}{event} * \frac{distance}{event} * \frac{events}{area} * \frac{events}{time}
 \]</span></p>
-<p>zb is the e-folding length scale (in meters)</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Example</li>
-</ol>
-<p><span class="math display">\[f(k) = {n \choose k} p^{k} (1-p)^{n-k}\]</span></p>
+<p>The authors in Gabet et al. (2003) also provide an overview of the role several bioturbators play in soil development and formation (physical disturbance of saprolie). References to pursue:</p>
+<ul>
+<li><p>Whitford 2000 - Ants are selective in the grain sizes they move, increases the heterogeneity of soil grain size</p></li>
+<li><p>de Bruyn &amp; Conacher 1994 - quantifies mass moved by termites</p></li>
+<li><p>Reichman &amp; Smith 1990 - vertebrate burrow diameter and characteristics</p></li>
+<li><p>Smallwood &amp; Morrison 1999 - burrow excavation dynamics of different gophers</p></li>
+<li><p>Reichman et al 1982 - Lateral soil heterogeneity from burrows</p></li>
+<li><p>Klaas et al. 2000 - Lateral soil heterogeneity from mounds</p></li>
+<li><p>Heimsath et al. 1999 - Gophers converting bedrock to soil</p></li>
+<li><p>Bowerman &amp; Redente 1998 - role of bio-intrusion on waste site disruption</p></li>
+</ul>
+<div id="references" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> References<a href="bioturbation-geo-ecology.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Gabet, Emmanuel J., O.J. Reichman, and Eric W. Seabloom. “The Effects of Bioturbation on Soil Processes and Sediment Transport.” <em>Annual Review of Earth and Planetary Sciences</em> 31, no. 1 (May 2003): 249–73. <a href="https://doi.org/10.1146/annurev.earth.31.100901.141314" class="uri">https://doi.org/10.1146/annurev.earth.31.100901.141314</a>.</p>
+<p>Gabet, Emmanuel J. “Gopher Bioturbation: Field Evidence for Non-Linear Hillslope Diffusion.” <em>Earth Surface Processes and Landforms</em> 25, no. 13 (2000): 1419–28. <a href="https://doi.org/10.1002/1096-9837(200012)25:13%3C1419::AID-ESP148%3E3.0.CO;2-1">https://doi.org/10.1002/1096-9837(200012)25:13&lt;1419::AID-ESP1483.0.CO;2-1</a>.</p>
 </div>
-<div id="references-3" class="section level3 hasAnchor" number="6.0.3">
-<h3><span class="header-section-number">6.0.3</span> References<a href="bioturbation-modeling.html#references-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., &amp; Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <a href="https://doi.org/10.1111/j.1365-2389.2009.01209.x" class="uri">https://doi.org/10.1111/j.1365-2389.2009.01209.x</a></p>
-<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <a href="https://doi.org/10.1016/j.geomorph.2004.08.014" class="uri">https://doi.org/10.1016/j.geomorph.2004.08.014</a></p>
-<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <a href="https://doi.org/10.1111/j.1467-8306.2005.00448.x" class="uri">https://doi.org/10.1111/j.1467-8306.2005.00448.x</a></p>
-<p>Johnson, M. O., Mudd, S. M., Pillans, B., Spooner, N. A., Keith Fifield, L., Kirkby, M. J., &amp; Gloor, M. (2014). Quantifying the rate and depth dependence of bioturbation based on optically‐stimulated luminescence (OSL) dates and meteoric 10 Be. Earth Surface Processes and Landforms, 39(9), 1188–1196. <a href="https://doi.org/10.1002/esp.3520" class="uri">https://doi.org/10.1002/esp.3520</a></p>
-<p>Matisoff, G., Ketterer, M. E., Rosén, K., Mietelski, J. W., Vitko, L. F., Persson, H., &amp; Lokas, E. (2011). Downward migration of Chernobyl-derived radionuclides in soils in Poland and Sweden. Applied Geochemistry, 26(1), 105–115. <a href="https://doi.org/10.1016/j.apgeochem.2010.11.007" class="uri">https://doi.org/10.1016/j.apgeochem.2010.11.007</a></p>
-<p>Michel, E., Néel, M.-C., Capowiez, Y., Sammartino, S., Lafolie, F., Renault, P., &amp; Pelosi, C. (2022). Making Waves: Modeling bioturbation in soils – are we burrowing in the right direction? Water Research, 216, 118342. <a href="https://doi.org/10.1016/j.watres.2022.118342" class="uri">https://doi.org/10.1016/j.watres.2022.118342</a></p>
-<p>Román‐Sánchez, A., Laguna, A., Reimann, T., Giráldez, J. V., Peña, A., &amp; Vanwalleghem, T. (2019). Bioturbation and erosion rates along the soil‐hillslope conveyor belt, part 2: Quantification using an analytical solution of the diffusion–advection equation. Earth Surface Processes and Landforms, 44(10), 2066–2080. <a href="https://doi.org/10.1002/esp.4626" class="uri">https://doi.org/10.1002/esp.4626</a></p>
-<p>Salvador-Blanes, S., Minasny, B., &amp; McBratney, A. B. (2007). Modelling long-term in situ soil profile evolution: Application to the genesis of soil profiles containing stone layers. <em>European Journal of Soil Science</em>, <em>58</em>(6), 1535–1548. <a href="https://doi.org/10.1111/j.1365-2389.2007.00961.x" class="uri">https://doi.org/10.1111/j.1365-2389.2007.00961.x</a></p>
+</div>
+<div id="bioturbation-data-mining" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Bioturbation Data-mining<a href="bioturbation-geo-ecology.html#bioturbation-data-mining" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>See xls file.</p>
+<div id="references-1" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> References<a href="bioturbation-geo-ecology.html#references-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cox, G. W., &amp; Allen, D. W. (n.d.). Soil translocation by pocket gophers in a Mima moundfield.</p>
+<p>Hansen, R. M. (n.d.). MOVEMENT OF ROCKS BY NORTHERN POCKET GOPI-IERS. 49.</p>
+<p>Miller, M. A. (1957). Burrows of the Sacramento Valley pocket gopher in flood-irrigated alfalfa fields. Hilgardia, 26(8), 431–452. <a href="https://doi.org/10.3733/hilg.v26n08p431" class="uri">https://doi.org/10.3733/hilg.v26n08p431</a></p>
+<p>Yeates, G. W., &amp; Van Der Meulen, H. (1995). Burial of soil-surface artifacts in the presence of lumbricid earthworms. Biology and Fertility of Soils, 19(1), 73–74. <a href="https://doi.org/10.1007/BF00336350" class="uri">https://doi.org/10.1007/BF00336350</a></p>
+</div>
+</div>
+<div id="notes-to-self" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Notes to Self<a href="bioturbation-geo-ecology.html#notes-to-self" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Based on (Mudd and Yoo, 2010), a study on mineral age and weathering. Mixing plays an important role in the application of reservoir theory and in determining turnover time. A better understanding of the rate of mixing, depth of mixing, and method of transport (i.e. local vs non-local) migth be valuable.</p></li>
+<li><p>How does the successional invasion of JW over European worms, through the displacement of Lumbricus terrestris, impact the type of mixing, I.e. local versus non local, and what are the consequences for clay movement in the soil?</p></li>
+</ul>
+<div id="references-2" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> References<a href="bioturbation-geo-ecology.html#references-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mudd, Simon Marius, and Kyungsoo Yoo. “Reservoir Theory for Studying the Geochemical Evolution of Soils.” Journal of Geophysical Research: Earth Surface 115, no. F3 (2010). <a href="https://doi.org/10.1029/2009JF001591" class="uri">https://doi.org/10.1029/2009JF001591</a>.</p>
+</div>
+</div>
+<div id="section" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> </h2>
 
 </div>
 </div>
@@ -276,8 +291,8 @@ D(z) = D(0)e^{-z/z_{b}}
           </div>
         </div>
       </div>
-<a href="bioturbation-geo-ecology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="model-building.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="imapct-of-vegetation-cover-on-erosion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bioturbation-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -316,7 +331,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/nate-lund/animal-architects/blob/main/05_model_review.Rmd",
+"link": "https://github.com/nate-lund/animal-architects/blob/main/04_bioturbation_review.Rmd",
 "text": null
 },
 "download": null,
