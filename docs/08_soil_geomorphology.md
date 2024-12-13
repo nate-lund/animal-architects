@@ -1,7 +1,9 @@
-# (PART) Chapter 3: Soil Geomorphology? (WIP) {-}
+# (PART) Chapter 3: Soil Geomorphology? (WIP) {.unnumbered}
 
 # Soil Geomophology
 
 
 
-![From Johnson et al. (1987)](images/clipboard-3909094545.png)
+Landlab notebook <https://colab.research.google.com/drive/1tJ3Fw6BJP_bqvTImmXFxgWCYR-yI1T7y?usp=sharing>
+
+![From Johnson and Watson-Stegner (1987)](images/clipboard-152616148.png)

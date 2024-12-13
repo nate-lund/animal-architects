@@ -6,7 +6,9 @@ animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-develop
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
 bioturbation-geo-ecology
-bioturbators
+bioturbation-literature-review
+gabet-et-al.-2003
+johnson-watson-stegner-1987
 references
 bioturbation-data-mining
 references-1
