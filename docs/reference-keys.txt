@@ -21,10 +21,10 @@ model-building
 clay-and-soil-transport-via-diffusion
 erosion-and-soil-formation
 references-4
-gamma-detectors
-detector-specs
 part-chapter-3-soil-geomorphology-wip
 soil-geomophology
+gamma-detectors
+detector-specs
 radionuclide-sampling-protocol
 background
 reference-site-sampling
