@@ -1,4 +1,4 @@
-# (PART) Chapter II: Literature Review {.unnumbered}
+# (PART) Chapter II: Literature Review {-}
 
 # Bioturbation Geo-Ecology
 
