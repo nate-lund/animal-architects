@@ -3,7 +3,7 @@
 # Soil Geomophology
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(include = FALSE, cache=TRUE)
+knitr::opts_chunk$set(include = FALSE, cache=TRUE, eval = FALSE)
 ```
 
 ![From Johnson et al. (1987)](images/clipboard-3909094545.png)
