@@ -23,6 +23,8 @@ erosion-and-soil-formation
 references-4
 gamma-detectors
 detector-specs
+part-chapter-3-soil-geomorphology-wip
+soil-geomophology
 radionuclide-sampling-protocol
 background
 reference-site-sampling
