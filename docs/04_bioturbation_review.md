@@ -36,7 +36,7 @@ In the context of a landscape where bioturbation is present and substantial, I p
 $$S = f(D, E, P,\frac{dD}{dz},\frac{dP}{dz})dt
 $$
 
-Where D is diffusion or mixing, E is erosion, P is soil production, and p is parent material. Soil production and diffusion notably also change with profile depth, which depends on the parent material and organisms.
+Where D is diffusion or mixing, E is erosion, and P is soil production. Soil production and diffusion notably also change with profile depth, which depends on the parent material and organisms.
 
 An alternative, more geomorphological approach (that requires a considerably long timescale) could integrate landscape-scale diffusion and stream-power-based erosion plus uplift variables into a clorpt model by the following thought process. On a landscape scale, erosion can be described by:
 

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 7 Soil Model Building | Animal Architects</title>
+  <meta name="description" content="Section 7 Soil Model Building | Animal Architects" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 7 Soil Model Building | Animal Architects" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 7 Soil Model Building | Animal Architects" />
+  
+  
+  
+
+<meta name="author" content="Nate Lund" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bioturbation-modeling.html"/>
+<link rel="next" href="soil-geomophology.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#technical-resources"><i class="fa fa-check"></i><b>1.1</b> Technical Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="about-start-here.html"><a href="about-start-here.html"><i class="fa fa-check"></i><b>2</b> About (start here)</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="about-start-here.html"><a href="about-start-here.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
+</ul></li>
+<li class="part"><span><b>I Chapter I: Earthworms and Soil Erosion</b></span></li>
+<li class="chapter" data-level="3" data-path="hillslope-transects-erosion-pins-etc..html"><a href="hillslope-transects-erosion-pins-etc..html"><i class="fa fa-check"></i><b>3</b> Hillslope Transects: Erosion Pins, etc.</a></li>
+<li class="chapter" data-level="4" data-path="imapct-of-vegetation-cover-on-erosion.html"><a href="imapct-of-vegetation-cover-on-erosion.html"><i class="fa fa-check"></i><b>4</b> Imapct of Vegetation Cover on Erosion</a></li>
+<li class="part"><span><b>II Chapter II: Literature Review</b></span></li>
+<li class="chapter" data-level="5" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html"><i class="fa fa-check"></i><b>5</b> Bioturbation Geo-ecology</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#bioturbation-literature-review"><i class="fa fa-check"></i><b>5.1</b> Bioturbation Literature Review</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#gabet-et-al.-2003"><i class="fa fa-check"></i><b>5.1.1</b> Gabet et al. (2003)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#johnson-watson-stegner-1987"><i class="fa fa-check"></i><b>5.1.2</b> Johnson &amp; Watson-Stegner (1987)</a></li>
+<li class="chapter" data-level="5.1.3" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#references"><i class="fa fa-check"></i><b>5.1.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#bioturbation-data-mining"><i class="fa fa-check"></i><b>5.2</b> Bioturbation Data-mining</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#references-1"><i class="fa fa-check"></i><b>5.2.1</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#notes-to-self"><i class="fa fa-check"></i><b>5.3</b> Notes to Self</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#references-2"><i class="fa fa-check"></i><b>5.3.1</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="bioturbation-geo-ecology.html"><a href="bioturbation-geo-ecology.html#section"><i class="fa fa-check"></i><b>5.4</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="bioturbation-modeling.html"><a href="bioturbation-modeling.html"><i class="fa fa-check"></i><b>6</b> Bioturbation Modeling</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="bioturbation-modeling.html"><a href="bioturbation-modeling.html#model-types"><i class="fa fa-check"></i><b>6.0.1</b> Model types</a></li>
+<li class="chapter" data-level="6.0.2" data-path="bioturbation-modeling.html"><a href="bioturbation-modeling.html#models"><i class="fa fa-check"></i><b>6.0.2</b> Models</a></li>
+<li class="chapter" data-level="6.0.3" data-path="bioturbation-modeling.html"><a href="bioturbation-modeling.html#references-3"><i class="fa fa-check"></i><b>6.0.3</b> References</a></li>
+</ul></li>
+<li class="part"><span><b>III Chapter 3: Soil and Landscape Evolution Modeling (WIP)</b></span></li>
+<li class="chapter" data-level="7" data-path="soil-model-building.html"><a href="soil-model-building.html"><i class="fa fa-check"></i><b>7</b> Soil Model Building</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="soil-model-building.html"><a href="soil-model-building.html#clay-and-soil-transport-via-diffusion"><i class="fa fa-check"></i><b>7.1</b> Clay and Soil Transport via Diffusion</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="soil-model-building.html"><a href="soil-model-building.html#erosion-and-soil-formation"><i class="fa fa-check"></i><b>7.1.1</b> Erosion and Soil Formation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="soil-model-building.html"><a href="soil-model-building.html#references-4"><i class="fa fa-check"></i><b>7.2</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="soil-geomophology.html"><a href="soil-geomophology.html"><i class="fa fa-check"></i><b>8</b> Soil Geomophology</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="gamma-detectors.html"><a href="gamma-detectors.html"><i class="fa fa-check"></i><b>A</b> Gamma Detectors</a>
+<ul>
+<li class="chapter" data-level="A.0.1" data-path="gamma-detectors.html"><a href="gamma-detectors.html#detector-specs"><i class="fa fa-check"></i><b>A.0.1</b> Detector specs</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html"><i class="fa fa-check"></i><b>B</b> Radionuclide Sampling Protocol</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#background"><i class="fa fa-check"></i><b>B.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#reference-site-sampling"><i class="fa fa-check"></i><b>B.1.1</b> Reference site sampling</a></li>
+<li class="chapter" data-level="B.1.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-sample-positioning"><i class="fa fa-check"></i><b>B.1.2</b> Erosion sample positioning</a></li>
+<li class="chapter" data-level="B.1.3" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-site-sampling"><i class="fa fa-check"></i><b>B.1.3</b> Erosion site sampling</a></li>
+<li class="chapter" data-level="B.1.4" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#sample-characteristics"><i class="fa fa-check"></i><b>B.1.4</b> Sample characteristics</a></li>
+<li class="chapter" data-level="B.1.5" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#bioturbation-and-nuclide-distribution"><i class="fa fa-check"></i><b>B.1.5</b> Bioturbation and nuclide distribution</a></li>
+<li class="chapter" data-level="B.1.6" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#radioisotope-sampling-protocol-for-jumping-worm-erosion-project"><i class="fa fa-check"></i><b>B.1.6</b> Radioisotope Sampling Protocol for Jumping Worm Erosion Project</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol"><i class="fa fa-check"></i><b>B.2</b> Protocol</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#materials"><i class="fa fa-check"></i><b>B.2.1</b> Materials</a></li>
+<li class="chapter" data-level="B.2.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol-adapted-from-iaea-guidelines"><i class="fa fa-check"></i><b>B.2.2</b> Protocol (adapted from IAEA guidelines)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Animal Architects</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="soil-model-building" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Section 7</span> Soil Model Building<a href="soil-model-building.html#soil-model-building" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development, across organisms.</p>
+<p>To this end, the goal primary goal is to construct a model that integrates bioturbation, erosion, and particle size distribution on soil-profile and landscape scales. More specifically, to create a simple model, with a limited number of input parameters that can…</p>
+<ol style="list-style-type: decimal">
+<li>Describe how bioturbation creates texture contrast in soils over time.
+<ol style="list-style-type: decimal">
+<li>E.g. stoneline development or clay homogenization.</li>
+</ol></li>
+<li>Describe how erosion rate and particle-size sensitive erosion rate impact texture contrast development.
+<ol style="list-style-type: decimal">
+<li>E.g. quantitatively model the dynamic denudation framework of Johnson et al. (2005a and 2005b).</li>
+</ol></li>
+<li>Describe how bioturbation drives soil texture variability across a landscape, including sediment supplied to streams.</li>
+<li>Accommodate changes in erosion and mixing rates at discrete time steps.
+<ol style="list-style-type: decimal">
+<li>E.g. to simulate the impact of an invasive species or introduction of bioturbators.</li>
+</ol></li>
+<li>Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors (see Chapter <a href="#review-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development"><strong>??</strong></a>).</li>
+</ol>
+<div id="clay-and-soil-transport-via-diffusion" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Clay and Soil Transport via Diffusion<a href="soil-model-building.html#clay-and-soil-transport-via-diffusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The model is based on a layer system to approximate diffusion at depth. At each time step, the soil properties for each layer are calculated based on input parameters and the properties of the layer directly above and below. The model [currently] assumes steady state conditions: that erosion and soil formation are equivalent, regardless of soil depth. [Citation] says this is okay…</p>
+<div class="float">
+<img src="images/clipboard-62785000.png" width="414" alt="Figure 1. Visualization of a single layer, i, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]" />
+<div class="figcaption">Figure 1. Visualization of a single layer, i, and the upper and lower layers [this figure is a png now, build in r later if I want to keep]</div>
+</div>
+<p>The first component is the change in diffusion with depth, a result of the decrease in bioturbation rate with depth noted by… (citations). Following Johnson et al. (2014), diffusion of bulk soil can be described by:</p>
+<p><span class="math display">\[
+D(z)=s e^{-z/b}
+\]</span></p>
+<p>Where D is bulk-soil diffusion (m2/yr), s is the surface diffusion rate (m2/yr) [think burial rate], z is depth (m), and b is a scaling factor related to organism-dependent bioturbation depth (m), assumed to be 0.28.</p>
+<p><img src="06_model_building_files/figure-html/Dz-1.png" width="672" /></p>
+<p>When considering the impact of diffusion on a single soil property [e.g. clay or coarse fragment content], a diffusion function can be applied with a concentration value to describe the flux (g/yr) through the profile. A diffusion function using these assumptions is approximately accurate for sufficiently long timescales (Mitchel et al. 2022) (see Chapter <a href="bioturbation-modeling.html#model-types">6.0.1</a> for more details). This is based on the assumptions that spatially, mixing/burrow locations are randomly distributed, and all burrows are infilled with material from the layer directly above, thus upward and downward diffusion are equal. Flux between two layers can then be described by:</p>
+<p><span class="math display">\[
+V_{y, down}=D(z_i)(y_{i-1}-y_i)
+\]</span></p>
+<p>Where V<sub>y</sub> is downward flux across layers (g/yr), i is the current layer, and y is the content of some soil property in the ith layer (g/m2). However, net flux into a layer requires consideration of both upward [i - 1] and downward [i + 1] movement, described by:</p>
+<p><span class="math display">\[
+V_{y, net}=D(z_i)(y_{i-a}-y_i) + D(z_i+h)(y_{i+1}-y_i)
+\]</span></p>
+<p>which is functionally similar to the diffusion equation:</p>
+<p><span class="math display">\[
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+\]</span></p>
+<p>[note: bulk density should be included here as well, as a factor multiplied by the y term. it is left out for now for the sake of simplicity, and for the fact that the # of layers in the model is undecided, and having data on both bulk density and bioturbation rate is somewhat rare]</p>
+<p>Where h<sub>i</sub> is layer thickness (m). If the soil property, y, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as y ‘flows’ from layers of high to low concentration. This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. Local plus non-local mixing is described by:</p>
+<p><span class="math display">\[
+placeholder.equation
+\]</span></p>
+<p>Where… Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.</p>
+<p>[note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]</p>
+<p>However, a primary interest of our model is the movement of material too large to be mixed by bioturbators, coarse fragments. Coarse fragments are included only in downward local soil movement. They move downwards to infill where material is excavated but are too large to be excavated themselves. Ignoring non-local and upward local mixing, flux of coarse fragments can be simplified to:</p>
+<p><span class="math display">\[
+V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
+\]</span></p>
+<p>Where S is the concentration of material of a greater size class than movable by present bioturbators. At the top and bottom of the profile, the above diffusion equations are adjusted to be zero.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="soil-model-building.html#cb7-1" tabindex="-1"></a><span class="co">#&#39;###################### [creating a data frame below] #######################</span></span>
+<span id="cb7-2"><a href="soil-model-building.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="soil-model-building.html#cb7-3" tabindex="-1"></a><span class="co"># number of time steps</span></span>
+<span id="cb7-4"><a href="soil-model-building.html#cb7-4" tabindex="-1"></a>rep_times <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb7-5"><a href="soil-model-building.html#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="soil-model-building.html#cb7-6" tabindex="-1"></a><span class="co"># number of years per time step</span></span>
+<span id="cb7-7"><a href="soil-model-building.html#cb7-7" tabindex="-1"></a>rep_years <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb7-8"><a href="soil-model-building.html#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="soil-model-building.html#cb7-9" tabindex="-1"></a><span class="co"># build a data frame</span></span>
+<span id="cb7-10"><a href="soil-model-building.html#cb7-10" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">time_step =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(rep_times <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">each =</span> <span class="dv">4</span>),</span>
+<span id="cb7-11"><a href="soil-model-building.html#cb7-11" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>), <span class="at">times =</span> rep_times),</span>
+<span id="cb7-12"><a href="soil-model-building.html#cb7-12" tabindex="-1"></a>                <span class="st">&quot;A&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb7-13"><a href="soil-model-building.html#cb7-13" tabindex="-1"></a>                <span class="st">&quot;B&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb7-14"><a href="soil-model-building.html#cb7-14" tabindex="-1"></a>                <span class="st">&quot;C&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb7-15"><a href="soil-model-building.html#cb7-15" tabindex="-1"></a>                <span class="st">&quot;D&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb7-16"><a href="soil-model-building.html#cb7-16" tabindex="-1"></a>                <span class="st">&quot;E&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
+<span id="cb7-17"><a href="soil-model-building.html#cb7-17" tabindex="-1"></a>                <span class="st">&quot;F&quot;</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
+<span id="cb7-18"><a href="soil-model-building.html#cb7-18" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="soil-model-building.html#cb7-19" tabindex="-1"></a><span class="co">#split data frame into multiple based on index column. names accordingly</span></span>
+<span id="cb7-20"><a href="soil-model-building.html#cb7-20" tabindex="-1"></a>df2 <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(index) <span class="sc">%&gt;%</span> <span class="fu">group_split</span>(<span class="at">.keep =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;h&quot;</span>, <span class="st">&quot;clay&quot;</span>, <span class="st">&quot;stones&quot;</span>))</span>
+<span id="cb7-21"><a href="soil-model-building.html#cb7-21" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="soil-model-building.html#cb7-22" tabindex="-1"></a><span class="co">#assign the top depths of each layer</span></span>
+<span id="cb7-23"><a href="soil-model-building.html#cb7-23" tabindex="-1"></a>za <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-24"><a href="soil-model-building.html#cb7-24" tabindex="-1"></a>zb <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-25"><a href="soil-model-building.html#cb7-25" tabindex="-1"></a>zc <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.5</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-26"><a href="soil-model-building.html#cb7-26" tabindex="-1"></a>zd <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-27"><a href="soil-model-building.html#cb7-27" tabindex="-1"></a>ze <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">1.5</span>, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-28"><a href="soil-model-building.html#cb7-28" tabindex="-1"></a><span class="co"># zf_fun bottom depth, not a layer (this is needed, as zf is is what the D functions use to assess if zi + hi = 0)</span></span>
+<span id="cb7-29"><a href="soil-model-building.html#cb7-29" tabindex="-1"></a>zf_fun <span class="ot">=</span> <span class="fl">1.75</span></span>
+<span id="cb7-30"><a href="soil-model-building.html#cb7-30" tabindex="-1"></a>zf <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(zf_fun, <span class="at">times =</span> rep_times))</span>
+<span id="cb7-31"><a href="soil-model-building.html#cb7-31" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="soil-model-building.html#cb7-32" tabindex="-1"></a><span class="co">#calculate h&#39;s, layer thickness</span></span>
+<span id="cb7-33"><a href="soil-model-building.html#cb7-33" tabindex="-1"></a>ha <span class="ot">=</span> zb <span class="sc">-</span> za</span>
+<span id="cb7-34"><a href="soil-model-building.html#cb7-34" tabindex="-1"></a>hb <span class="ot">=</span> zc <span class="sc">-</span> zb</span>
+<span id="cb7-35"><a href="soil-model-building.html#cb7-35" tabindex="-1"></a>hc <span class="ot">=</span> zd <span class="sc">-</span> zc</span>
+<span id="cb7-36"><a href="soil-model-building.html#cb7-36" tabindex="-1"></a>hd <span class="ot">=</span> ze <span class="sc">-</span> zd</span>
+<span id="cb7-37"><a href="soil-model-building.html#cb7-37" tabindex="-1"></a>he <span class="ot">=</span> zf <span class="sc">-</span> ze</span>
+<span id="cb7-38"><a href="soil-model-building.html#cb7-38" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="soil-model-building.html#cb7-39" tabindex="-1"></a><span class="co">#input parameters into data frames</span></span>
+<span id="cb7-40"><a href="soil-model-building.html#cb7-40" tabindex="-1"></a>df2[[<span class="st">&quot;z&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(za, zb, zc, zd, ze)</span>
+<span id="cb7-41"><a href="soil-model-building.html#cb7-41" tabindex="-1"></a>df2[[<span class="st">&quot;h&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(ha, hb, hc, hd, he)</span>
+<span id="cb7-42"><a href="soil-model-building.html#cb7-42" tabindex="-1"></a><span class="co">#below is the starting clay and stone content of each layer, A:E</span></span>
+<span id="cb7-43"><a href="soil-model-building.html#cb7-43" tabindex="-1"></a>df2[[<span class="st">&quot;clay&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb7-44"><a href="soil-model-building.html#cb7-44" tabindex="-1"></a>df2[[<span class="st">&quot;stones&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb7-45"><a href="soil-model-building.html#cb7-45" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="soil-model-building.html#cb7-46" tabindex="-1"></a><span class="co">#&#39;###################### [model calculations below] #######################</span></span>
+<span id="cb7-47"><a href="soil-model-building.html#cb7-47" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="soil-model-building.html#cb7-48" tabindex="-1"></a><span class="co"># define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)</span></span>
+<span id="cb7-49"><a href="soil-model-building.html#cb7-49" tabindex="-1"></a>Dz <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
+<span id="cb7-50"><a href="soil-model-building.html#cb7-50" tabindex="-1"></a>  <span class="cf">if</span>(z <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-51"><a href="soil-model-building.html#cb7-51" tabindex="-1"></a>    <span class="dv">0</span> <span class="co"># could an erosion factor be included here ??????</span></span>
+<span id="cb7-52"><a href="soil-model-building.html#cb7-52" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb7-53"><a href="soil-model-building.html#cb7-53" tabindex="-1"></a>    <span class="cf">if</span>(z <span class="sc">==</span> zf_fun) {</span>
+<span id="cb7-54"><a href="soil-model-building.html#cb7-54" tabindex="-1"></a>      <span class="dv">0</span> <span class="co"># could a soil production factor be included here ??????</span></span>
+<span id="cb7-55"><a href="soil-model-building.html#cb7-55" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-56"><a href="soil-model-building.html#cb7-56" tabindex="-1"></a>      <span class="co">#&#39; [diffusion function defined here]</span></span>
+<span id="cb7-57"><a href="soil-model-building.html#cb7-57" tabindex="-1"></a>      <span class="co">#9.81 * 10^-5 * exp(-z/0.28) #linear (Johnson et al., 2014)</span></span>
+<span id="cb7-58"><a href="soil-model-building.html#cb7-58" tabindex="-1"></a>      <span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>) <span class="co">#exponential (Johnson et al., 2014) for eq. (Darwin 1881) for intercept</span></span>
+<span id="cb7-59"><a href="soil-model-building.html#cb7-59" tabindex="-1"></a>      <span class="co">#6.9 * 10^-5 + -1.06 * 10^-4 * z #exponential (Johnson et al., 2014)</span></span>
+<span id="cb7-60"><a href="soil-model-building.html#cb7-60" tabindex="-1"></a>      <span class="co">#0.0426 #earthworms (Yeates et a.l, 1995)</span></span>
+<span id="cb7-61"><a href="soil-model-building.html#cb7-61" tabindex="-1"></a>      <span class="co">#0.005334 #earthworms (Darwin 1881)</span></span>
+<span id="cb7-62"><a href="soil-model-building.html#cb7-62" tabindex="-1"></a>    }</span>
+<span id="cb7-63"><a href="soil-model-building.html#cb7-63" tabindex="-1"></a>  }</span>
+<span id="cb7-64"><a href="soil-model-building.html#cb7-64" tabindex="-1"></a>}</span>
+<span id="cb7-65"><a href="soil-model-building.html#cb7-65" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="soil-model-building.html#cb7-66" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [clay-diffusion] (g/m/yr) into/out of ith layer</span></span>
+<span id="cb7-67"><a href="soil-model-building.html#cb7-67" tabindex="-1"></a>clay_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Ch, Ci, Cj, zi, hi) {</span>
+<span id="cb7-68"><a href="soil-model-building.html#cb7-68" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> (Ch <span class="sc">-</span> Ci) <span class="sc">+</span></span>
+<span id="cb7-69"><a href="soil-model-building.html#cb7-69" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> (Cj <span class="sc">-</span> Ci)) )</span>
+<span id="cb7-70"><a href="soil-model-building.html#cb7-70" tabindex="-1"></a>}</span>
+<span id="cb7-71"><a href="soil-model-building.html#cb7-71" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="soil-model-building.html#cb7-72" tabindex="-1"></a><span class="co">#&#39; define function that calculates net [stones-diffusion] (g/m/yr) into/out of ith layer</span></span>
+<span id="cb7-73"><a href="soil-model-building.html#cb7-73" tabindex="-1"></a>stones_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(Sh, Si, Sj, zi, hi) {</span>
+<span id="cb7-74"><a href="soil-model-building.html#cb7-74" tabindex="-1"></a>  (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> Sh <span class="sc">-</span></span>
+<span id="cb7-75"><a href="soil-model-building.html#cb7-75" tabindex="-1"></a>     (<span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span> hi) <span class="sc">*</span> Si) )</span>
+<span id="cb7-76"><a href="soil-model-building.html#cb7-76" tabindex="-1"></a>}</span>
+<span id="cb7-77"><a href="soil-model-building.html#cb7-77" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="soil-model-building.html#cb7-78" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="soil-model-building.html#cb7-79" tabindex="-1"></a><span class="co"># for loop that fills data frame with diffusion-calculated clay contents</span></span>
+<span id="cb7-80"><a href="soil-model-building.html#cb7-80" tabindex="-1"></a><span class="cf">for</span>(crow <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(rep_times)) {</span>
+<span id="cb7-81"><a href="soil-model-building.html#cb7-81" tabindex="-1"></a>  <span class="cf">for</span>(ccol <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) {</span>
+<span id="cb7-82"><a href="soil-model-building.html#cb7-82" tabindex="-1"></a>    <span class="co"># apply clay-diffusion function</span></span>
+<span id="cb7-83"><a href="soil-model-building.html#cb7-83" tabindex="-1"></a>    df2[[<span class="st">&quot;clay&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb7-84"><a href="soil-model-building.html#cb7-84" tabindex="-1"></a>      df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb7-85"><a href="soil-model-building.html#cb7-85" tabindex="-1"></a>      rep_years <span class="sc">*</span> </span>
+<span id="cb7-86"><a href="soil-model-building.html#cb7-86" tabindex="-1"></a>      <span class="fu">clay_diff_fun</span>(df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb7-87"><a href="soil-model-building.html#cb7-87" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb7-88"><a href="soil-model-building.html#cb7-88" tabindex="-1"></a>                   df2[[<span class="st">&quot;clay&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb7-89"><a href="soil-model-building.html#cb7-89" tabindex="-1"></a>                   df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb7-90"><a href="soil-model-building.html#cb7-90" tabindex="-1"></a>                   df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
+<span id="cb7-91"><a href="soil-model-building.html#cb7-91" tabindex="-1"></a>    <span class="co"># apply stones-diffusion function</span></span>
+<span id="cb7-92"><a href="soil-model-building.html#cb7-92" tabindex="-1"></a>    df2[[<span class="st">&quot;stones&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb7-93"><a href="soil-model-building.html#cb7-93" tabindex="-1"></a>      df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb7-94"><a href="soil-model-building.html#cb7-94" tabindex="-1"></a>      rep_years <span class="sc">*</span> </span>
+<span id="cb7-95"><a href="soil-model-building.html#cb7-95" tabindex="-1"></a>      <span class="fu">stones_diff_fun</span>(df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb7-96"><a href="soil-model-building.html#cb7-96" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb7-97"><a href="soil-model-building.html#cb7-97" tabindex="-1"></a>                    df2[[<span class="st">&quot;stones&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb7-98"><a href="soil-model-building.html#cb7-98" tabindex="-1"></a>                    df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb7-99"><a href="soil-model-building.html#cb7-99" tabindex="-1"></a>                    df2[[<span class="st">&quot;h&quot;</span>]][crow, ccol])</span>
+<span id="cb7-100"><a href="soil-model-building.html#cb7-100" tabindex="-1"></a>  } </span>
+<span id="cb7-101"><a href="soil-model-building.html#cb7-101" tabindex="-1"></a>}</span>
+<span id="cb7-102"><a href="soil-model-building.html#cb7-102" tabindex="-1"></a></span>
+<span id="cb7-103"><a href="soil-model-building.html#cb7-103" tabindex="-1"></a><span class="co">#&#39;###################### [plotting below] #######################</span></span>
+<span id="cb7-104"><a href="soil-model-building.html#cb7-104" tabindex="-1"></a></span>
+<span id="cb7-105"><a href="soil-model-building.html#cb7-105" tabindex="-1"></a><span class="co">#&#39; [creating a dataframe to plot from]</span></span>
+<span id="cb7-106"><a href="soil-model-building.html#cb7-106" tabindex="-1"></a><span class="co"># convert df2 dataframes to long format, one data frame for each clay, stones, and z</span></span>
+<span id="cb7-107"><a href="soil-model-building.html#cb7-107" tabindex="-1"></a>df2_clay_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;clay&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-108"><a href="soil-model-building.html#cb7-108" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-109"><a href="soil-model-building.html#cb7-109" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-110"><a href="soil-model-building.html#cb7-110" tabindex="-1"></a>df2_stones_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;stones&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-111"><a href="soil-model-building.html#cb7-111" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-112"><a href="soil-model-building.html#cb7-112" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-113"><a href="soil-model-building.html#cb7-113" tabindex="-1"></a><span class="co"># combine long df2 dataframes into one for plotting </span></span>
+<span id="cb7-114"><a href="soil-model-building.html#cb7-114" tabindex="-1"></a>df2_z_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;z&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-115"><a href="soil-model-building.html#cb7-115" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-116"><a href="soil-model-building.html#cb7-116" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">F =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">5</span><span class="sc">*</span>rep_times)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-117"><a href="soil-model-building.html#cb7-117" tabindex="-1"></a></span>
+<span id="cb7-118"><a href="soil-model-building.html#cb7-118" tabindex="-1"></a><span class="co"># combine and filter the long df2&#39;s and select for only key time steps</span></span>
+<span id="cb7-119"><a href="soil-model-building.html#cb7-119" tabindex="-1"></a>df2_long_join1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_clay_long, df2_z_long, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.clay&quot;</span>, <span class="st">&quot;.z&quot;</span>), <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb7-120"><a href="soil-model-building.html#cb7-120" tabindex="-1"></a>df2_long_join2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_long_join1, df2_stones_long, <span class="at">by =</span> <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb7-121"><a href="soil-model-building.html#cb7-121" tabindex="-1"></a></span>
+<span id="cb7-122"><a href="soil-model-building.html#cb7-122" tabindex="-1"></a>df2_long <span class="ot">&lt;-</span> df2_long_join2 <span class="sc">%&gt;%</span> </span>
+<span id="cb7-123"><a href="soil-model-building.html#cb7-123" tabindex="-1"></a>  <span class="fu">select</span>(time_step.clay, layer.clay, value.clay, value.z, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-124"><a href="soil-model-building.html#cb7-124" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">time_step =</span> time_step.clay, <span class="at">layer =</span> layer.clay, <span class="at">value.stones =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-125"><a href="soil-model-building.html#cb7-125" tabindex="-1"></a>  <span class="fu">filter</span>(time_step <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> </span>
+<span id="cb7-126"><a href="soil-model-building.html#cb7-126" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">|</span> </span>
+<span id="cb7-127"><a href="soil-model-building.html#cb7-127" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">50</span>) <span class="sc">|</span> </span>
+<span id="cb7-128"><a href="soil-model-building.html#cb7-128" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|</span> </span>
+<span id="cb7-129"><a href="soil-model-building.html#cb7-129" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|</span></span>
+<span id="cb7-130"><a href="soil-model-building.html#cb7-130" tabindex="-1"></a>           time_step <span class="sc">==</span> (rep_times <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb7-131"><a href="soil-model-building.html#cb7-131" tabindex="-1"></a></span>
+<span id="cb7-132"><a href="soil-model-building.html#cb7-132" tabindex="-1"></a><span class="co">#plot stones</span></span>
+<span id="cb7-133"><a href="soil-model-building.html#cb7-133" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
+<span id="cb7-134"><a href="soil-model-building.html#cb7-134" tabindex="-1"></a>                                      <span class="at">x =</span> value.stones, </span>
+<span id="cb7-135"><a href="soil-model-building.html#cb7-135" tabindex="-1"></a>                                      <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
+<span id="cb7-136"><a href="soil-model-building.html#cb7-136" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-137"><a href="soil-model-building.html#cb7-137" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-138"><a href="soil-model-building.html#cb7-138" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;stones content (g/m2)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-139"><a href="soil-model-building.html#cb7-139" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step) <span class="sc">+</span></span>
+<span id="cb7-140"><a href="soil-model-building.html#cb7-140" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Stone movement over time&quot;</span></span>
+<span id="cb7-141"><a href="soil-model-building.html#cb7-141" tabindex="-1"></a>          , <span class="at">subtitle =</span> <span class="st">&quot;1 timestep = 10 years&quot;</span>)</span></code></pre></div>
+<p><img src="06_model_building_files/figure-html/diffusion-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="soil-model-building.html#cb8-1" tabindex="-1"></a><span class="co">#plot clay</span></span>
+<span id="cb8-2"><a href="soil-model-building.html#cb8-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
+<span id="cb8-3"><a href="soil-model-building.html#cb8-3" tabindex="-1"></a>                                      <span class="at">x =</span> value.clay, </span>
+<span id="cb8-4"><a href="soil-model-building.html#cb8-4" tabindex="-1"></a>                                      <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
+<span id="cb8-5"><a href="soil-model-building.html#cb8-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="soil-model-building.html#cb8-6" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="soil-model-building.html#cb8-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;clay content (g/m2)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="soil-model-building.html#cb8-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="soil-model-building.html#cb8-9" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Clay movement over time&quot;</span>,</span>
+<span id="cb8-10"><a href="soil-model-building.html#cb8-10" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">&quot;1 timestep = 10 years&quot;</span>)</span></code></pre></div>
+<p><img src="06_model_building_files/figure-html/diffusion-2.png" width="672" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="soil-model-building.html#cb9-1" tabindex="-1"></a><span class="co">#&#39; [basic plot, stone content over time for each layer]</span></span>
+<span id="cb9-2"><a href="soil-model-building.html#cb9-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2[[<span class="st">&quot;stones&quot;</span>]]) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="soil-model-building.html#cb9-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> A, <span class="at">x =</span> time_step, <span class="at">color =</span> <span class="st">&quot;green&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="soil-model-building.html#cb9-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> B, <span class="at">x =</span> time_step, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="soil-model-building.html#cb9-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> C, <span class="at">x =</span> time_step, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="soil-model-building.html#cb9-6" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> D, <span class="at">x =</span> time_step, <span class="at">color =</span> <span class="st">&quot;orange&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="soil-model-building.html#cb9-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> E, <span class="at">x =</span> time_step, <span class="at">color =</span> <span class="st">&quot;purple&quot;</span>))</span></code></pre></div>
+<p><img src="06_model_building_files/figure-html/diffusion-3.png" width="672" /></p>
+<div id="erosion-and-soil-formation" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Erosion and Soil Formation<a href="soil-model-building.html#erosion-and-soil-formation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>WIP</p>
+<p>At the top, an erosion factor is included. Bulk density is assumed to be consistent throughout the profile.</p>
+</div>
+</div>
+<div id="references-4" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> References<a href="soil-model-building.html#references-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. <a href="https://doi.org/10.1017/CBO9780511703850" class="uri">https://doi.org/10.1017/CBO9780511703850</a>.</p>
+<p>Johnson, Michelle O., Simon M. Mudd, Brad Pillans, Nigel A. Spooner, L. Keith Fifield, Mike J. Kirkby, and Manuel Gloor. “Quantifying the Rate and Depth Dependence of Bioturbation Based on Optically‐stimulated Luminescence (OSL) Dates and Meteoric 10 Be.” Earth Surface Processes and Landforms 39, no. 9 (July 2014): 1188–96. <a href="https://doi.org/10.1002/esp.3520" class="uri">https://doi.org/10.1002/esp.3520</a>.</p>
+<p>Yeates, G. W., and H. Van Der Meulen. “Burial of Soil-Surface Artifacts in the Presence of Lumbricid Earthworms.” Biology and Fertility of Soils 19, no. 1 (January 1995): 73–74. <a href="https://doi.org/10.1007/BF00336350" class="uri">https://doi.org/10.1007/BF00336350</a>.</p>
+<p>Jarvis, N. J., A. Taylor, M. Larsbo, A. Etana, and K. Rosén. “Modelling the Effects of Bioturbation on the Re-Distribution of 137Cs in an Undisturbed Grassland Soil.” European Journal of Soil Science 61, no. 1 (2010): 24–34. <a href="https://doi.org/10.1111/j.1365-2389.2009.01209.x" class="uri">https://doi.org/10.1111/j.1365-2389.2009.01209.x</a>.</p>
+<p>Matisoff, Gerald, Michael E. Ketterer, Klas Rosén, Jerzy W. Mietelski, Lauren F. Vitko, Henning Persson, and Edyta Lokas. “Downward Migration of Chernobyl-Derived Radionuclides in Soils in Poland and Sweden.” Applied Geochemistry 26, no. 1 (January 2011): 105–15. <a href="https://doi.org/10.1016/j.apgeochem.2010.11.007" class="uri">https://doi.org/10.1016/j.apgeochem.2010.11.007</a>.</p>
+<p>Meysman, Filip J.R., Volodymyr S. Malyuga, Bernard P. Boudreau, and Jack J. Middelburg. “A Generalized Stochastic Approach to Particle Dispersal in Soils and Sediments.” Geochimica et Cosmochimica Acta 72, no. 14 (July 2008): 3460–78. <a href="https://doi.org/10.1016/j.gca.2008.04.023" class="uri">https://doi.org/10.1016/j.gca.2008.04.023</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bioturbation-modeling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="soil-geomophology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/nate-lund/animal-architects/blob/main/06_model_building.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
