@@ -1,8 +1,6 @@
-introduction
 technical-resources
+about-start-here
 table-of-contents
-mitppc-soil-erosion
-animals-as-agents-of-heterogeneity-and-homogeneity-in-soil-and-landscape-development
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
 bioturbation-geo-ecology
@@ -19,7 +17,7 @@ bioturbation-modeling
 model-types
 models
 references-3
-model-building
+soil-model-building
 clay-and-soil-transport-via-diffusion
 erosion-and-soil-formation
 references-4

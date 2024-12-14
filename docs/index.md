@@ -1,17 +1,13 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 10:20, 13 December, 2024"
+date: "Last compiled 10:59, 14 December, 2024"
 site: bookdown::bookdown_site
 documentclass: book
 output:
   bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
-
-# Introduction
-
-This is my living "lab notebook" for work on bioturbation, invasive earthworms, soil erosion, etc. It includes work on the MITPPC Jumping worm erosion project among other things.
 
 ## Technical Resources
 
