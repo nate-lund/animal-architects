@@ -15,7 +15,7 @@ notes-to-self
 references-2
 section
 bioturbation-modeling
-model-types
+model-characteristics
 models
 references-3
 soil-model-building
