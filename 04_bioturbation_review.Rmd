@@ -1,4 +1,4 @@
-# Bioturbation Review
+# Conceptual Models
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
@@ -17,7 +17,7 @@ library(rmarkdown)
 library(spelling)
 ```
 
-The central idea of this section and chapter as a whole is to assess the role of animals in soil and landscape development. Specifically, to collect evidence for the statement:
+The central idea of this section is to assess the role of animals in soil and landscape development. Specifically, to collect evidence for the statement:
 
 > Animals unintentionally create heterogeneity and homogeneity in soil and landscape development.
 
