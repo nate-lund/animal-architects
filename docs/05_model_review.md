@@ -12,7 +12,7 @@ The goals are to:
     -   What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?
 2.  Compile annotated equations and variables used in modeling bioturbation.
 
-### Model Characteristics
+## Model Characteristics
 
 There are two approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing (Michel et al., 2022). Anomalous mixing models simulate the trajectory of individual sediment particles by capturing the discontinuous movement of particles in "jumps" between periods of waiting. Jump length and waiting time are the bioturbator-specific stochastic variables of interest, and are often used in random walk models (Meysman et al., 2010 in Michel et al., 2022). Of interest to this review, if simulation time and the number of translocation events are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022). Further, "If σ and τ are finite... the ratio σ2/(2τ) is the biodiffusion coefficient. If moreover the mean μ of the jump-length distribution is non-zero, wb=μ/τ" (Michel et al., 2022).
 
@@ -24,7 +24,7 @@ Non-local mixing represents the displacement of material in which the point of e
 
 Both local and non-local mixing represent a substantial movement of material but differ in scale. Local mixing acts on a horizon to horizon scale. Non-local mixing acts on a profile scale. Given enough time and stability, either may completely 'turn over' the profile. Jarvis et al. (2010) found that models excluding non-local mixing significantly underestimate surface burial. Matisoff et al. (2011) also integrate a non-local mixing factor into their model.
 
-### Models
+## Models
 
 1.  Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.
 
@@ -44,11 +44,7 @@ $$
 
 zb is the e-folding length scale (in meters)
 
-2.  Example
-
-$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
-
-### References
+## References
 
 Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., & Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>
 
@@ -64,4 +60,4 @@ Michel, E., Néel, M.-C., Capowiez, Y., Sammartino, S., Lafolie, F., Renault, P.
 
 Román‐Sánchez, A., Laguna, A., Reimann, T., Giráldez, J. V., Peña, A., & Vanwalleghem, T. (2019). Bioturbation and erosion rates along the soil‐hillslope conveyor belt, part 2: Quantification using an analytical solution of the diffusion–advection equation. Earth Surface Processes and Landforms, 44(10), 2066–2080. <https://doi.org/10.1002/esp.4626>
 
-Salvador-Blanes, S., Minasny, B., & McBratney, A. B. (2007). Modelling long-term in situ soil profile evolution: Application to the genesis of soil profiles containing stone layers. *European Journal of Soil Science*, *58*(6), 1535–1548. <https://doi.org/10.1111/j.1365-2389.2007.00961.x>
+Salvador-Blanes, S., Minasny, B., & McBratney, A. B. (2007). Modelling long-term in situ soil profile evolution: Application to the genesis of soil profiles containing stone layers. European Journal of Soil Science, 58(6), 1535–1548. <https://doi.org/10.1111/j.1365-2389.2007.00961.x>

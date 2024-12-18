@@ -261,15 +261,24 @@ V_{y, down}=D(z_i)(y_{i-1}-y_i)
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h_i)(y_{i+1}-y_i)
 \]</span></p>
 <p>[note: bulk density is implicitly included in the y term, but might not always be]</p>
-<p>Where h<sub>i</sub> is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, <span class="math inline">\(\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})\)</span>, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z), where if <span class="math inline">\(z&gt;0\)</span>, <span class="math inline">\(D(z)=s e^{-z/b}\)</span> ; if <span class="math inline">\(z=0\)</span>, <span class="math inline">\(D(z)=0\)</span>; and if <span class="math inline">\(z=f\)</span>, <span class="math inline">\(D(z)=0\)</span>.</p>
+<p>Where h<sub>i</sub> is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, <span class="math inline">\(\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})\)</span>, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z):</p>
 <p><span class="math display">\[\begin{equation}
-f(x) =
+D(z) =
   \left\{\begin{array}{lr}
-     f_1(x), &amp; -\infty &lt; x \le a_1 \\
-     f_2(x), &amp; a_1 &lt; x \le a_2
+     s e^{-z/b}, &amp; 0 &lt; z &lt; f \\
+     0, &amp; z = 0 \\
+     0, &amp; z = f
   \end{array}\right.
 \end{equation}\]</span></p>
-<p>This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. An additional diffusion function, <span class="math inline">\(D_l(z)\)</span>, is defined for this mixing. Local plus non-local mixing is described by:</p>
+<p>This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represnets a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011). An additional piecewise diffusion function, <span class="math inline">\(D_l(z)\)</span>, is defined for non-local mixing to allow a different diffusion-depth relationship than that of local mixing.</p>
+<p><span class="math display">\[\begin{equation}
+D_l(z) =
+  \left\{\begin{array}{lr}
+     s e^{-z/b}, &amp; z &gt; 0 \\
+     \int_{0}^{f}D(z_l)dz*\frac{1}{n}\sum_{i=1}^{n}y_i &amp; z = 0 \\
+  \end{array}\right.
+\end{equation}\]</span></p>
+<p>Local plus non-local mixing is described by:</p>
 <p><span class="math display">\[
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
 \]</span></p>

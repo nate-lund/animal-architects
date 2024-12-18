@@ -1,6 +1,4 @@
-# (PART) Chapter II: Literature Review {.unnumbered}
-
-# Bioturbation Geo-ecology
+# Bioturbation Review
 
 
 
@@ -146,6 +144,10 @@ $$
 
 -   Runge (1973) and Volobuyeve (1984) thermodyanics of soil end points
 
+### (Nye, 1954)
+
+discusses the genesis of a catena of tropical soils in West Africa making reference to the role of soil fauna, here ants, earthworms, and termites, in the creation of stonelines in soils. The author compares the soil texture of termite mounds to that of the suspected termite-formed horizon and finds them similar. He makes notes about coarse fragment size relating to bedrock fracture density and the releative importance of clay illuviation in texture contrast development.
+
 ### References
 
 Gabet, Emmanuel J., O.J. Reichman, and Eric W. Seabloom. “The Effects of Bioturbation on Soil Processes and Sediment Transport.” *Annual Review of Earth and Planetary Sciences* 31, no. 1 (May 2003): 249–73. <https://doi.org/10.1146/annurev.earth.31.100901.141314>.
@@ -160,13 +162,33 @@ Johnson, D. L., and D. Watson-Stegner. “EVOLUTION MODEL OF PEDOGENESIS:” *So
 
 See xls file.
 
+### (Baxter et al., 2024)
+
+details the evolution of European mole hills over time. Authors created a table of review data w/ mole hill evolution rates. Note about the importance of disturbance regime. Moles reconstruct collapsed burrows. If burrows are frequently collapsed (e.g. by floods or human disturbance), moles will anually excavate more sediment than those in stable landscapes. This poses a challenge for measurement, because we then need both mound abundance and disturbance regime.
+
+-   Rutin, (1992); Sanders et al. (2021) on the role of burrowing animals in slope failure
+
+-   Rice, (2021) why burrowing animals are underlooked in geomorphology
+
+### (Grinnell, 1923)
+
+discusses vaguley many qualities of gophers. Suggets they may have been present for the last 200-300 years in California.
+
+### 
+
 ### References
 
-Cox, G. W., & Allen, D. W. (n.d.). Soil translocation by pocket gophers in a Mima moundfield.
+Baxter, Timothy, Sam Woor, Martin Coombes, and Heather Viles. “The Geomorphic Work of the European Mole ( [*Talpa europaea*]{.smallcaps} ): Long‐term Monitoring of Molehills Using Structure‐from‐motion Photogrammetry.” *Earth Surface Processes and Landforms*, October 13, 2024, esp.6008. <https://doi.org/10.1002/esp.6008>.
+
+Cox, G. W., & Allen, D. W. (1987). Soil translocation by pocket gophers in a Mima moundfield. Oecologia 72, 207-210.
+
+Grinnell, Joseph. “THE BURROWING RODENTS OF CALIFORNIA AS AGENTS IN SOIL FORMATIONl.” *JOURNAL OF MAMMALOGY*, 1923.
 
 Hansen, R. M. (n.d.). MOVEMENT OF ROCKS BY NORTHERN POCKET GOPI-IERS. 49.
 
 Miller, M. A. (1957). Burrows of the Sacramento Valley pocket gopher in flood-irrigated alfalfa fields. Hilgardia, 26(8), 431–452. <https://doi.org/10.3733/hilg.v26n08p431>
+
+Nye, P. H. “Some Soil-Forming Processes in the Humid Tropics.” *Journal of Soil Science* 5, no. 1 (1954): 7–21. <https://doi.org/10.1111/j.1365-2389.1954.tb02171.x>.
 
 Yeates, G. W., & Van Der Meulen, H. (1995). Burial of soil-surface artifacts in the presence of lumbricid earthworms. Biology and Fertility of Soils, 19(1), 73–74. <https://doi.org/10.1007/BF00336350>
 

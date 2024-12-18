@@ -6,3 +6,22 @@ language:
   ui:
     chapter_name: "Section "
 view: https://github.com/nate-lund/animal-architects/blob/main/%s
+
+rmd_files: [
+"index.Rmd",
+"01_about.Rmd",
+
+"02_hillslope_transects.Rmd",
+"03_vegetation_cover.Rmd",
+
+"07_review_outline.Rmd",
+"04_bioturbation_review.Rmd",
+"05_model_review.Rmd",
+"06_model_building.Rmd",
+
+"08_soil_geomorphology.Rmd",
+
+"97_gamma_detectors.Rmd",
+"98_radionuclide_protocol.Rmd"
+
+]

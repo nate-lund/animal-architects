@@ -1,6 +1,4 @@
-# (PART) Chapter 3: Soil and Landscape Evolution Modeling (WIP) {.unnumbered}
-
-# Soil Model Building
+# Model Building
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
@@ -69,18 +67,28 @@ $$
 
 [note: bulk density is implicitly included in the y term, but might not always be]
 
-Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z), where if $z>0$, $D(z)=s e^{-z/b}$ ; if $z=0$, $D(z)=0$; and if $z=f$, $D(z)=0$.
+Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z):
 
 \begin{equation}
 D(z) =
   \left\{\begin{array}{lr}
-     s e^{-z/b}, & -\infty < x \le a_1 \\
-     0, & a_1 < x \le a_2 \\
-     o, $ 
+     s e^{-z/b}, & 0 < z < f \\
+     0, & z = 0 \\
+     0, & z = f 
   \end{array}\right.
 \end{equation}
 
-This model only considers local mixing, and does not account for material that is excavated from one layer and deposited on the surface. Jarvis et al. (2010) and Mastisoff et al. (2011) suggest an additional factor in the diffusion-advection equation to account for non-local mixing. An additional diffusion function, $D_l(z)$, is defined for this mixing. Local plus non-local mixing is described by:
+This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represnets a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011). An additional piecewise diffusion function, $D_l(z)$, is defined for non-local mixing to allow a different diffusion-depth relationship than that of local mixing.
+
+\begin{equation}
+D_l(z) =
+  \left\{\begin{array}{lr}
+     s e^{-z/b}, & z > 0 \\
+     \int_{0}^{f}D(z_l)dz*\frac{1}{n}\sum_{i=1}^{n}y_i & z = 0 \\
+  \end{array}\right.
+\end{equation}
+
+Local plus non-local mixing is described by:
 
 $$
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
