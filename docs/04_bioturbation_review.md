@@ -1,8 +1,8 @@
-# Bioturbation Review
+# Conceptual Models
 
 
 
-The central idea of this section and chapter as a whole is to assess the role of animals in soil and landscape development. Specifically, to collect evidence for the statement:
+The central idea of this section is to assess the role of animals in soil and landscape development. Specifically, to collect evidence for the statement:
 
 > Animals unintentionally create heterogeneity and homogeneity in soil and landscape development.
 

@@ -1,10 +1,10 @@
 # (PART) Chapter II: Bioturbation Review and Modeling {.unnumbered}
 
-# Chapter 2: Outline
+# Structure and Purpose
 
 
 
-## Structure
+## Chapter Outline
 
 -   Introduction
 
@@ -20,7 +20,7 @@
 
 -   Numerical model
 
-    -   Background
+    -   Background: what models are out there?
 
     -   Methods
 
@@ -28,11 +28,11 @@
 
 -   Conclusion
 
-## Towards Characterizing the Roles of Animals in Soil Evolution
+## Conceptual Model
 
 Establish conceptual framework(s) for approaching the function of an organism in a soil genesis. Why?
 
--   As pedologists, we rely on conceptual models to describe morphology and 'tell the story' of a soil.
+-   As pedologists, we rely on conceptual models to describe the morphology and 'tell the story' of a soil.
 
 -   It informs the methods we use to measure bioturbation.
 
@@ -46,18 +46,24 @@ $$
 
 We need to think about...
 
-1.  Spatial variability.
+-   Spatial variability.
 
-What is the spatial distribution and frequency of these organisms' disturbance?
+    -   What is the spatial distribution and frequency of these organisms' disturbance?
 
-How can that be related to organisms/area?
+    -   How can that be related to organisms/area?
 
-How has this changed over time and what evidence is there?
+    -   How has this changed over time and what evidence is there?
 
-How is organism activity related to topography?
+    -   How is organism activity related to topography?
 
-How deeply do organisms impact the soil?
+    -   How deeply do organisms impact the soil?
 
-1.  Local vs. non-local mixing
+-   Local vs. non-local mixing
 
-2.  Mixing vs sorting
+    -   How are organisms mixing the soil?
+
+-   Mixing vs sorting
+
+    -   What are organisms moving?
+
+    -   What aren't they moving?

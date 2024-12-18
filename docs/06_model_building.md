@@ -1,4 +1,4 @@
-# Model Building
+# Numerical Model Building
 
 
 
@@ -85,6 +85,8 @@ $$
 Where S is the concentration of material of a greater size class than movable by present bioturbators. At the top and bottom of the profile, the above diffusion equations are adjusted to be zero.
 
 [input parameter table here]
+
+### Model 1: Diffusion of clay and stones. Local mixing only. 
 
 
 ``` r
