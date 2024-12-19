@@ -1,4 +1,4 @@
-# (PART) Chapter II: Bioturbation Review and Modeling {.unnumbered}
+# (PART) Chapter II: Bioturbation Review and Modeling {-}
 
 # Structure and Purpose
 

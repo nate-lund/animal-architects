@@ -72,8 +72,8 @@ Where h~i~ is the thickness of layer i (m). This is functionally similar to the 
 \begin{equation}
 D(z) =
   \left\{\begin{array}{lr}
-     s e^{-z/b}, & 0 < z < f \\
      0, & z = 0 \\
+     s e^{-z/b}, & 0 < z < f \\
      0, & z = f 
   \end{array}\right.
 \end{equation}
@@ -94,7 +94,7 @@ $$
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
 $$
 
-Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required. If the soil property, y, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as y ‘flows’ from layers of high to low concentration.
+Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.
 
 [note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]
 
@@ -108,7 +108,7 @@ Where S is the concentration of material of a greater size class than movable by
 
 [input parameter table here]
 
-### Model 1: Diffusion of clay and stones. Local mixing only. 
+### Model 1: Diffusion of clay and stones. Local mixing only.
 
 ```{r diffusion, echo = TRUE, cache = TRUE}
 #'###################### [creating a data frame below] #######################
