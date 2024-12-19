@@ -176,8 +176,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="numerical-models.html"><a href="numerical-models.html"><i class="fa fa-check"></i><b>7</b> Numerical Models</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="numerical-models.html"><a href="numerical-models.html#model-characteristics"><i class="fa fa-check"></i><b>7.1</b> Model Characteristics</a></li>
-<li class="chapter" data-level="7.2" data-path="numerical-models.html"><a href="numerical-models.html#models"><i class="fa fa-check"></i><b>7.2</b> Models</a></li>
+<li class="chapter" data-level="7.1" data-path="numerical-models.html"><a href="numerical-models.html#model-characteristics"><i class="fa fa-check"></i><b>7.1</b> Model Characteristics</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="numerical-models.html"><a href="numerical-models.html#anomalous-and-normal-mixing"><i class="fa fa-check"></i><b>7.1.1</b> Anomalous and Normal mixing</a></li>
+<li class="chapter" data-level="7.1.2" data-path="numerical-models.html"><a href="numerical-models.html#local-diffusion-and-non-local-mixing"><i class="fa fa-check"></i><b>7.1.2</b> Local diffusion and Non-local mixing</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="numerical-models.html"><a href="numerical-models.html#local-mixing-models"><i class="fa fa-check"></i><b>7.2</b> Local Mixing models</a></li>
 <li class="chapter" data-level="7.3" data-path="numerical-models.html"><a href="numerical-models.html#references-3"><i class="fa fa-check"></i><b>7.3</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="numerical-model-building.html"><a href="numerical-model-building.html"><i class="fa fa-check"></i><b>8</b> Numerical Model Building</a>
@@ -276,8 +280,8 @@ V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h_i)(y_{i+1}-y_i)
 <p><span class="math display">\[\begin{equation}
 D(z) =
   \left\{\begin{array}{lr}
-     s e^{-z/b}, &amp; 0 &lt; z &lt; f \\
      0, &amp; z = 0 \\
+     s e^{-z/b}, &amp; 0 &lt; z &lt; f \\
      0, &amp; z = f
   \end{array}\right.
 \end{equation}\]</span></p>
@@ -293,7 +297,7 @@ D_l(z) =
 <p><span class="math display">\[
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
 \]</span></p>
-<p>Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required. If the soil property, y, is included in the bulk soil being diffused, over time, diffusion will homogenize layers, as y ‘flows’ from layers of high to low concentration.</p>
+<p>Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.</p>
 <p>[note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]</p>
 <p>However, a primary interest of our model is the movement of material too large to be mixed by bioturbators, coarse fragments. Coarse fragments are included only in downward local soil movement. They move downwards to infill where material is excavated but are too large to be excavated themselves. Ignoring non-local and upward local mixing, flux of coarse fragments can be simplified to:</p>
 <p><span class="math display">\[

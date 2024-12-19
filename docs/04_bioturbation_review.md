@@ -60,9 +60,9 @@ In another form, soil formation can be described as a piecewise function of soil
 \begin{equation}
 formation(z) =
   \left\{\begin{array}{lr}
-     Erosion/deposition(z), & z = 0 \\
-     Mixing(z), & 0 < z < f \\
-     Production(z), & z = f 
+     erosion/deposition(z), & z = 0 \\
+     mixing(z), & 0 < z < f \\
+     production(z), & z = f 
   \end{array}\right.
 \end{equation}
 
