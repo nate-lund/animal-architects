@@ -54,8 +54,7 @@ $$ U can then be substituted into the cloprt model:
 
 $$
 S = f(D, U, P,\frac{dD}{dz},\frac{dP}{dz})dt
-$$
-In another form, soil formation can be described as a piecewise function of soil depth:
+$$ In another form, soil formation can be described as a piecewise function of soil depth:
 
 \begin{equation}
 formation(z) =
@@ -67,7 +66,6 @@ formation(z) =
 \end{equation}
 
 All of these equations provide only a conceptual model to identify the internal and external processes that are forming soil. They provide a lense through which soils and landscapes can be viewed. The rest of this section focuses on this qualitative side, whereas the following modeling sections represent a quantitative approach.
-
 
 Goals:
 

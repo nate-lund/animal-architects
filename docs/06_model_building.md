@@ -86,178 +86,167 @@ Where S is the concentration of material of a greater size class than movable by
 
 [input parameter table here]
 
-### Model 1: Diffusion of clay and stones. Local mixing only.
+### Model 1: Diffusion (local mixing) of included and excluded components.
 
 
 ``` r
-#'###################### [creating a data frame below] #######################
+#'###################### [creating a data frame] #######################
 
-# number of time steps
-rep_times = 1000
+#' [set] number of time steps
+time_steps = 1000
 
-# number of years per time step
-rep_years = 10
+#' [set] number of years per time step
+step_years = 10
 
 # build a data frame
-df = data.frame(time_step = rep(c(0:(rep_times - 1)), each = 4),
-                index = rep(c("z", "h", "clay", "stones"), times = rep_times),
+df = data.frame(time_step = rep(c(0:(time_steps - 1)), each = 4),
+                index = rep(c("z", "bd", "inc", "exc"), times = time_steps),
                 "A" = 0, 
                 "B" = 0, 
                 "C" = 0, 
                 "D" = 0, 
                 "E" = 0,
-                "F" = 0)
+                "F" = 0,
+                "bot" = 0)
+#' [set] layer thickness (m)
+h <- 0.25
 
 #split data frame into multiple based on index column. names accordingly
-df2 = df %>% group_by(index) %>% group_split(.keep = FALSE) %>% set_names(nm = c("z", "h", "clay", "stones"))
+df2 = df %>% group_by(index) %>% group_split(.keep = FALSE) %>% set_names(nm = c("z", "bd", "inc", "exc"))
 
-#assign the top depths of each layer
-za = c(rep(0, times = rep_times))
-zb = c(rep(0.25, times = rep_times))
-zc = c(rep(0.5, times = rep_times))
-zd = c(rep(1, times = rep_times))
-ze = c(rep(1.5, times = rep_times))
-# zf_fun bottom depth, not a layer (this is needed, as zf is is what the D functions use to assess if zi + hi = 0)
-zf_fun = 1.75
-zf = c(rep(zf_fun, times = rep_times))
+# input the top depths of each layer into data frame
+df2[["z"]][c(2, 3, 4, 5, 6, 7, 8)] = data.frame(0, h, h*2, h*3, h*4, h*5, h*6)
 
-#calculate h's, layer thickness
-ha = zb - za
-hb = zc - zb
-hc = zd - zc
-hd = ze - zd
-he = zf - ze
+#' [set] layer bd into data frame, A:F
+df2[["bd"]][c(2, 3, 4, 5, 6, 7)] = data.frame(1, 1, 1, 1, 1, 1)
 
-#input parameters into data frames
-df2[["z"]][c(2, 3, 4, 5, 6)] = data.frame(za, zb, zc, zd, ze)
-df2[["h"]][c(2, 3, 4, 5, 6)] = data.frame(ha, hb, hc, hd, he)
-#below is the starting clay and stone content of each layer, A:E
-df2[["clay"]][c(2, 3, 4, 5, 6)] = data.frame(40, 1, 1, 1, 1)
-df2[["stones"]][c(2, 3, 4, 5, 6)] = data.frame(5, 5, 5, 5, 5)
+#' [set] starting included and excluded components of each layer, A:F
+df2[["inc"]][c(2, 3, 4, 5, 6, 7)] = data.frame(40, 0, 0, 0, 0, 0)
+df2[["exc"]][c(2, 3, 4, 5, 6, 7)] = data.frame(5, 5, 5, 5, 5, 5)
 
-#'###################### [model calculations below] #######################
+#'###################### [defining functions] #######################
 
 # define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)
 Dz <- function(z) {
-  if(z == 0) {
-    0 # could an erosion factor be included here ??????
-  } else {
-    if(z == zf_fun) {
-      0 # could a soil production factor be included here ??????
-    } else {
-      #' [diffusion function defined here]
-      #9.81 * 10^-5 * exp(-z/0.28) #linear (Johnson et al., 2014)
-      0.005334 * exp(-z/0.28) #exponential (Johnson et al., 2014) for eq. (Darwin 1881) for intercept
-      #6.9 * 10^-5 + -1.06 * 10^-4 * z #exponential (Johnson et al., 2014)
-      #0.0426 #earthworms (Yeates et a.l, 1995)
-      #0.005334 #earthworms (Darwin 1881)
-    }
-  }
+  0.005334 * exp(-z/0.28) # exponential (Johnson et al., 2014) for eq. (Yeates et a.l, 1995) for intercept
+  # 6.9 * 10^-5 + -1.06 * 10^-4 * z # linear
 }
 
-#' define function that calculates net [clay-diffusion] (g/m/yr) into/out of ith layer
-clay_diff_fun <- function(Ch, Ci, Cj, zi, hi) {
-  (Dz(z = zi) * (Ch - Ci) +
-     (Dz(z = zi + hi) * (Cj - Ci)) )
-}
-
-#' define function that calculates net [stones-diffusion] (g/m/yr) into/out of ith layer
-stones_diff_fun <- function(Sh, Si, Sj, zi, hi) {
-  (Dz(z = zi) * Sh -
-     (Dz(z = zi + hi) * Si) )
-}
-
-
-# for loop that fills data frame with diffusion-calculated clay contents
-for(crow in 2:(rep_times)) {
-  for(ccol in 2:6) {
-    # apply clay-diffusion function
-    df2[["clay"]][crow, ccol] = 
-      df2[["clay"]][crow - 1, ccol] +
-      rep_years * 
-      clay_diff_fun(df2[["clay"]][crow - 1, ccol - 1],
-                   df2[["clay"]][crow - 1, ccol],
-                   df2[["clay"]][crow - 1, ccol + 1],
-                   df2[["z"]][crow, ccol],
-                   df2[["h"]][crow, ccol])
-    # apply stones-diffusion function
-    df2[["stones"]][crow, ccol] = 
-      df2[["stones"]][crow - 1, ccol] +
-      rep_years * 
-      stones_diff_fun(df2[["stones"]][crow - 1, ccol - 1],
-                    df2[["stones"]][crow - 1, ccol],
-                    df2[["stones"]][crow - 1, ccol + 1],
-                    df2[["z"]][crow, ccol],
-                    df2[["h"]][crow, ccol])
-  } 
-}
-
-#'###################### [plotting below] #######################
-
-#' [creating a dataframe to plot from]
-# convert df2 dataframes to long format, one data frame for each clay, stones, and z
-df2_clay_long <- df2[["clay"]] %>% 
-  pivot_longer(cols = c("A", "B", "C", "D", "E"), names_to = "layer") %>% 
-  mutate(F = c(1:(5*rep_times)), .keep = "unused")
-df2_stones_long <- df2[["stones"]] %>% 
-  pivot_longer(cols = c("A", "B", "C", "D", "E"), names_to = "layer") %>% 
-  mutate(F = c(1:(5*rep_times)), .keep = "unused")
-# combine long df2 dataframes into one for plotting 
-df2_z_long <- df2[["z"]] %>% 
-  pivot_longer(cols = c("A", "B", "C", "D", "E"), names_to = "layer") %>% 
-  mutate(F = c(1:(5*rep_times)), .keep = "unused")
-
-# combine and filter the long df2's and select for only key time steps
-df2_long_join1 <- left_join(df2_clay_long, df2_z_long, suffix = c(".clay", ".z"), by = "F")
-df2_long_join2 <- left_join(df2_long_join1, df2_stones_long, by = "F")
-
-df2_long <- df2_long_join2 %>% 
-  select(time_step.clay, layer.clay, value.clay, value.z, value) %>% 
-  rename(time_step = time_step.clay, layer = layer.clay, value.stones = value) %>% 
-  filter(time_step == 0 | 
-           time_step == (rep_times / 100) | 
-           time_step == (rep_times / 50) | 
-           time_step == (rep_times / 10) | 
-           time_step == (rep_times / 4) |
-           time_step == (rep_times - 1))
-
-#plot stones
-ggplot(data = df2_long, mapping = aes(y = value.z,
-                                      x = value.stones, 
-                                      group = time_step)) + 
-  geom_line(orientation = "y") +
-  scale_y_reverse(name = "depth (m)") +
-  scale_x_continuous(name = "stones content (g/m2)") +
-  facet_wrap(~time_step) +
-  ggtitle("Stone movement over time"
-          , subtitle = "1 timestep = 10 years")
+# diffusion w/ depth function plotting
+eq = function(z){0.005334 * exp(-z/0.28)}
+ggplot(data.frame(z = c(0, 3)), aes(x = z)) +
+  stat_function(fun = eq) +
+  scale_y_reverse(name = "diffusion (m2/yr)") +
+  scale_x_reverse(name = "depth (m)") +
+  coord_flip()
 ```
 
 <img src="06_model_building_files/figure-html/diffusion-1.png" width="672" />
 
 ``` r
-#plot clay
-ggplot(data = df2_long, mapping = aes(y = value.z,
-                                      x = value.clay, 
-                                      group = time_step)) + 
+# define function that calculates local inc-diffusion (g/m/yr) into/out of ith layer
+inc_diff_fun <- function(yh, yi, yj, zi, bdi) {
+  if(zi == 0) {
+    Dz(z = (zi + h)) * (yj - yi) # surface
+  } else {
+    if(zi == h * 5) {
+      Dz(z = zi) * (yh - yi) # bottom
+    } else {
+      Dz(z = zi) * yh + Dz(z = (zi + h)) * yj - yi * (Dz(z = zi) + Dz(z = zi +h)) # middle
+    }
+  }
+}
+
+# define function that calculates local exc-diffusion (g/m/yr) into/out of ith layer
+exc_diff_fun <- function(yh, yi, yj, zi, bdi) {
+  if(zi == 0) {
+    Dz(z = (zi + h)) * (0 - yi) # surface
+  } else {
+    if(zi == h * 5) {
+      Dz(z = zi) * yh # bottom
+    } else {
+      Dz(z = zi) * yh - yi * Dz(z = zi +h) # middle
+    }
+  }
+}
+
+#'###################### [model calculations] #######################
+
+# for loop that fills data frame with diffusion-calculated contents
+for(crow in 2:(time_steps)) {
+  for(ccol in 2:7) {
+    # apply inc-diffusion function
+    df2[["inc"]][crow, ccol] = 
+      df2[["inc"]][crow - 1, ccol] +
+      step_years * 
+      inc_diff_fun(df2[["inc"]][crow - 1, ccol - 1],
+                   df2[["inc"]][crow - 1, ccol],
+                   df2[["inc"]][crow - 1, ccol + 1],
+                   df2[["z"]][crow, ccol],
+                   df2[["bd"]][crow, ccol])
+    # apply exc-diffusion function
+    df2[["exc"]][crow, ccol] = 
+      df2[["exc"]][crow - 1, ccol] +
+      step_years * 
+      exc_diff_fun(df2[["exc"]][crow - 1, ccol - 1],
+                    df2[["exc"]][crow - 1, ccol],
+                    df2[["exc"]][crow - 1, ccol + 1],
+                    df2[["z"]][crow, ccol],
+                    df2[["bd"]][crow, ccol])
+  } 
+}
+
+#'###################### [creating a plotting dataframe] #######################
+
+# convert df2 dataframes to long format, one data frame for each inc, exc, and z
+df2_inc_long <- df2[["inc"]] %>% 
+  pivot_longer(cols = c("A", "B", "C", "D", "E", "F"), names_to = "layer") %>% 
+  mutate(bot = c(1:(6*time_steps)), .keep = "unused")
+df2_exc_long <- df2[["exc"]] %>% 
+  pivot_longer(cols = c("A", "B", "C", "D", "E", "F"), names_to = "layer") %>% 
+  mutate(bot = c(1:(6*time_steps)), .keep = "unused")
+df2_z_long <- df2[["z"]] %>% 
+  pivot_longer(cols = c("A", "B", "C", "D", "E", "F"), names_to = "layer") %>% 
+  mutate(bot = c(1:(6*time_steps)), .keep = "unused")
+
+# combine the long df2's
+df2_long_join1 <- left_join(df2_inc_long, df2_z_long, suffix = c(".inc", ".z"), by = "bot")
+df2_long <- left_join(df2_long_join1, df2_exc_long, by = "bot")
+
+# select for only key time steps
+df2_long_plot <- df2_long %>% 
+  select(time_step.inc, layer.inc, value.inc, value.z, value) %>% 
+  rename(time_step = time_step.inc, layer = layer.inc, value.exc = value) %>% 
+  filter(time_step == 0 | 
+           time_step == (time_steps / 100) | 
+           time_step == (time_steps / 50) | 
+           time_step == (time_steps / 10) | 
+           time_step == (time_steps / 4) |
+           time_step == (time_steps - 1))
+
+#'###################### [plotting] #######################
+
+#plot inc
+ggplot(data = df2_long_plot, mapping = aes(y = value.z,
+                                           x = value.inc, 
+                                           group = time_step)) + 
   geom_line(orientation = "y") +
   scale_y_reverse(name = "depth (m)") +
-  scale_x_continuous(name = "clay content (g/m2)") +
-  facet_wrap(~time_step) +
-  ggtitle("Clay movement over time",
-          subtitle = "1 timestep = 10 years")
+  scale_x_continuous(name = "Included component content (g/m2)") +
+  facet_wrap(~time_step)
 ```
 
 <img src="06_model_building_files/figure-html/diffusion-2.png" width="672" />
 
 ``` r
-#' [basic plot, stone content over time for each layer]
-ggplot(data = df2[["stones"]]) +
-  geom_line(mapping = aes(y = A, x = time_step, color = "green")) +
-  geom_line(mapping = aes(y = B, x = time_step, color = "red")) +
-  geom_line(mapping = aes(y = C, x = time_step, color = "blue")) +
-  geom_line(mapping = aes(y = D, x = time_step, color = "orange")) +
-  geom_line(mapping = aes(y = E, x = time_step, color = "purple"))
+#plot exc
+ggplot(data = df2_long_plot, mapping = aes(y = value.z,
+                                           x = value.exc, 
+                                           group = time_step)) + 
+  geom_line(orientation = "y") +
+  scale_y_reverse(name = "depth (m)") +
+  scale_x_continuous(name = "Excluded component content (g/m2)") +
+  facet_wrap(~time_step)
 ```
 
 <img src="06_model_building_files/figure-html/diffusion-3.png" width="672" />

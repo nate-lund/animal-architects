@@ -29,10 +29,10 @@ local-mixing-models
 references-3
 numerical-model-building
 soil-transport-via-diffusion-advection
-model-1-diffusion-of-clay-and-stones.-local-mixing-only.
+model-1-diffusion-local-mixing-of-included-and-excluded-components.
 erosion-and-soil-formation
 references-4
-soil-geomophology
+soil-geomorphology
 gamma-detectors
 detector-specs
 radionuclide-sampling-protocol
