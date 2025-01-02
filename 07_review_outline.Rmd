@@ -104,7 +104,3 @@ Discuss some examples from the real-world, like jumping worms altering the bulk 
 3.  Conclusion
 
 If you're a pedologist doing descriptions, leave a column open for animals. Note what organisms are present? How deep do they go? What is the lateral distribution/abundance of krotovinas or tree throw mounds? What structure or texture change might be a product of bioturbation?
-
-## Conceptual Model
-
-Establish conceptual framework(s) for approaching the function of an organism in a soil genesis. Why?
