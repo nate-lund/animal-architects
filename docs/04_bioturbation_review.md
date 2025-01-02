@@ -31,7 +31,8 @@ Jenny's model is factorial approach that describes the exogenous/environmental p
 
 In the context of a landscape where bioturbation is present and substantial, I propose the following approach:
 
-$$S = f(D, E, P,\frac{dD}{dz},\frac{dP}{dz})dt
+$$
+S = f(D, E, P,\frac{dD}{dz},\frac{dP}{dz})dt
 $$
 
 Where D is diffusion or mixing, E is erosion, and P is soil production. Soil production and diffusion notably also change with profile depth, which depends on the parent material and organisms.

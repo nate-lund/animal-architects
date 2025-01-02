@@ -1,69 +1,98 @@
-# (PART) Chapter II: Bioturbation Review and Modeling {-}
+# (PART) Chapter II: Bioturbation Review and Modeling {.unnumbered}
 
-# Structure and Purpose
+# Chapter Outline (start here)
 
 
 
-## Chapter Outline
+## Brief Outline
 
--   Introduction
+1.  Introduction
+2.  Conceptual models
+3.  Numerical models
+    1.  Numerical model building
+4.  Conclusion
 
-    -   Background: the significance and history of bioturbation to pedology
+## Detailed Outline
 
-    -   Purpose
+1.  Introduction
 
--   Conceptual "model"
+Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 term paper 1], to establish importance. Draw connections from pedology to ecology, geomorpohology, and hydrology or more specfically carbon, soil health, and mineral weathering [Mudd and Yoo, 2010]. Use established importance to address the need for an updated review of how we think about bioturbation, both conceptually and numerically. Provide an overview of the questions answered and ultimate purpose of this article: How can we, and how have other authors, summzarize what are animals doing to the soil?
 
-    -   Explanation: how can we categorize what are animals doing to the soil?
+2.  Conceptual models
 
-    -   Examples from the literature
+Define conceptual model: A conceptual model is a representation of the key elements of and relationships within some process or structure. Justify the need for conceptual models for animal activity:
 
--   Numerical model
+-   They provide a framework for explaining the existence of and relationships between real observations.
 
-    -   Background: what models are out there?
+-   As pedologists, we rely on conceptual models to describe morphology and 'tell the story' of a soil.
 
-    -   Methods
+-   They inform the questions we ask about and methods we use to measure a soil or animal activity.
 
-    -   Application
+-   Before constructing a numerical model, we need to identify the processes that are relevant to our aim. That aim could be describing soil genesis or contaminant transport, carbon or nutrient cycling, erosion, etc.
 
--   Conclusion
+Explore relevant conceptual models in the literature: cloprt [Jenny, 1941], soil evolution model [Johnson & Watson-Stegner, 1987], bio-mantle [Johnson, 2005], etc. A complete conceptual model of animal-soil activity might include:
 
-## Conceptual Model
+-   Spatial variability
 
-Establish conceptual framework(s) for approaching the function of an organism in a soil genesis. Why?
+    -   What is the laterial distribution of organisms' disturbance [Hartemink et al., 2020]?
 
--   As pedologists, we rely on conceptual models to describe the morphology and 'tell the story' of a soil.
+    -   How does organism activity change with depth?
 
--   It informs the methods we use to measure bioturbation.
+    -   What is the relationship between distubance size, distribution/frequency, and organisms/area?
 
--   It informs the questions we ask about a soil.
-
--   Before constructing a quantitative numerical model, we need to identify the processes that are relevant to our aim. Here, that aim is describing soil genesis, but it could be contaminant transport, carbon or nutrient cycling, erosion, etc.
-
-$$
-q_s = \frac{vol}{event} * \frac{distance}{event} * \frac{events}{area} * \frac{events}{time}
-$$
-
-We need to think about...
-
--   Spatial variability.
-
-    -   What is the spatial distribution and frequency of these organisms' disturbance?
-
-    -   How can that be related to organisms/area?
-
-    -   How has this changed over time and what evidence is there?
-
-    -   How is organism activity related to topography?
-
-    -   How deeply do organisms impact the soil?
+    -   How is organism activity related to topography or erosion?
 
 -   Local vs. non-local mixing
 
-    -   How are organisms mixing the soil?
+    -   Where is excavated material going? Are they constructing mounds and burrows or just pushing soil out of the way? If building mounds, are those mounds directly above or is soil also being moved laterally?
+
+    -   How is soil altered as it is transported [OM, structure change]?
 
 -   Mixing vs sorting
 
     -   What are organisms moving?
 
     -   What aren't they moving?
+
+    -   Where are they moving it to?
+
+-   Time
+
+    -   How are the above changing over time?
+
+    -   What kind of feed back loops might organisms being encourageing?
+
+Identifiying these characterstics might allow one to estimate the overall impact of organisms. For pedology, this might result in progressive and/or regressive soil evolution. Integrate the above factors into new conceptual models. For pedology, a clorpt model for example:
+
+$$
+S = f(D, E, P,\frac{dD}{dz},\frac{dP}{dz})dt
+$$
+
+or a more general model: $$
+q_s = \frac{vol}{event} * \frac{distance}{event} * \frac{events}{area} * \frac{events}{time}
+$$
+
+or a geomorphologist might consider:
+
+\begin{equation}
+formation(z) =
+  \left\{\begin{array}{lr}
+     erosion/deposition(z), & z = 0 \\
+     mixing(z), & 0 < z < f \\
+     production(z), & z = f 
+  \end{array}\right.
+\end{equation}
+
+Discuss some examples from the real-world, like jumping worms altering the bulk density of the top 5cm, Mima mounds, tree throw examples, or stonelines. Relate these examples to the concepts discussed above.
+
+1.  Numerical models
+
+2.  Numerical model building
+
+3.  Conclusion
+
+If you're a pedologist doing descriptions, leave a column open for animals. Note what organisms are present? How deep do they go? What is the lateral distribution/abundance of krotovinas or tree throw mounds? What structure or texture change might be a product of bioturbation?
+
+## Conceptual Model
+
+Establish conceptual framework(s) for approaching the function of an organism in a soil genesis. Why?

@@ -4,8 +4,9 @@ about-start-here
 table-of-contents
 hillslope-transects-erosion-pins-etc.
 imapct-of-vegetation-cover-on-erosion
-structure-and-purpose
-chapter-outline
+chapter-outline-start-here
+brief-outline
+detailed-outline
 conceptual-model
 conceptual-models
 bioturbation-literature-review
