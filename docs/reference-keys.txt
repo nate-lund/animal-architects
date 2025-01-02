@@ -8,7 +8,6 @@ chapter-outline-start-here
 brief-outline
 detailed-outline
 conceptual-model
-conceptual-models
 bioturbation-literature-review
 gabet-et-al.-2003
 johnson-watson-stegner-1987
@@ -19,9 +18,7 @@ baxter-et-al.-2024
 grinnell-1923
 section
 references-1
-notes-to-self
 references-2
-section-1
 numerical-models
 model-characteristics
 anomalous-and-normal-mixing
