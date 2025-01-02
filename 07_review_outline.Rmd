@@ -1,6 +1,6 @@
-# (PART) Chapter II: Bioturbation Review and Modeling {-}
+# (PART) Chapter II: Bioturbation Review and Modeling {.unnumbered}
 
-# Structure and Purpose
+# Chapter Outline (start here)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -16,29 +16,47 @@ library(rmarkdown)
 library(spelling)
 ```
 
-## Chapter Outline
+## Brief Outline
 
 -   Introduction
 
-    -   Background: the significance and history of bioturbation to pedology
+    -   Background
 
     -   Purpose
 
--   Conceptual "model"
+    -   Organizational statements
 
-    -   Explanation: how can we categorize what are animals doing to the soil?
+-   Conceptual models
+
+    -   Establish framework(s)
 
     -   Examples from the literature
 
--   Numerical model
+-   Numerical models (review)
 
-    -   Background: what models are out there?
+    -   Establish types of models, modeling
+
+    -   Examples from the literature
+
+-   Numerical models (building)
 
     -   Methods
 
-    -   Application
+    -   Application (?)
 
 -   Conclusion
+
+## Detailed Outline
+
+Introduction
+
+Provide background on significance to and history of bioturbation to pedology, ecology, etc.
+
+-   How can we, and how have other authors, categorize what are animals doing to the soil?
+
+<!-- -->
+
+-   
 
 ## Conceptual Model
 
