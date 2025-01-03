@@ -13,43 +13,71 @@ library(knitr)
 library(rmarkdown)
 ```
 
-The purpose of this section is to review the current state of the study and modeling of bioturbation.
+1.  Numerical models
 
-The goals are to:
+    1.  Transition / Justification
+    2.  Examples of numerical model use
+    3.  Characteristics of numerical models
+    4.  Review of equations from the literature
+    5.  Modeling factors of animal activity
 
-1.  Complete a review of the current bioturbation modeling landscape to answer the questions:
-    -   What are the different approaches to modeling bioturbation or how can the current models be classified?
-    -   What are the limitations or what is the applicability of theses models? What is their purpose?
-    -   What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?
-2.  Compile annotated equations and variables used in modeling bioturbation.
+## Transition / Justification
 
-## Model Characteristics
+Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones…
+
+Relevent to aquatic and terrestrial environments.
+
+## Examples of numerical model application
+
+Tracers to estiamte organism bioturbation rate, OSL for soil age.
+
+## Characteristics of Numerical models
+
+### Depth dependence
+
+Most bioturbation models consider the observation made by scientists as far back as Charles Darwin and as recently as... that organism activity declines with depth (Darwin, 1881) [citations]. Intuitively, greater soil depths are not as attractive to soil fauna as soil density incerases and the food supply diminishes (citation). However, a degree of nuance is needed to understand when this observation is relevant. Depth dependence is relevant under the following conditions. A) Organism activity does not encompas the entire profile. B) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. C) The rate of mixing is large compared to soil erosion or production. D) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be distributed by fauna nor to slow to be allowed to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope tracers.
+
+When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statisically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an expontental function. Notably, however, the shape of the funcitons described by these authors varies [Table X], which challenges attempts to broaden model application.
+
+[I need to look into this further and compare the diffusion-depth functions. also, are there other ways of estimating diffusion depth? is there a way to create a general form? what is the biggest limitation: it is maximum depth or shape? this is notwithstanding any non-local diffusion.]
+
+|                        |          |           |
+|------------------------|----------|-----------|
+| Source                 | Equation | Intercept |
+| Gray et al. (2020)     |          |           |
+| Jarvis et al. (2010)   |          |           |
+| Johnson et al. (2014)  |          |           |
+| Matisoff et al. (2011) |          |           |
+
+: Table X
 
 ### Anomalous and Normal mixing
 
-There are two broad approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing. Anomalous mixing models simulate the trajectory of individual sediment particles by capturing their discontinuous movement in "jumps" between periods of waiting (Michel et al., 2022). Jump length and waiting time, both organism-specific stochastic variables, are employed to simulate mixing over short periods of time (Meysman et al., 2010 in Michel et al., 2022). Normal mixing is analogous with a the diffusion process and is described by a diffusion-advection equation. Of interest to this review, if simulation time and the number of translocation events are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022). Further, "If σ and τ are finite... the ratio σ2/(2τ) is the biodiffusion coefficient. If moreover the mean μ of the jump-length distribution is non-zero, wb=μ/τ" (Michel et al., 2022). As soil development, the focus of this review, occurs over relativity long periods, normal mixing is the primary approach explored here.
+There are two broad approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing. Anomalous mixing models simulate the trajectory of individual sediment particles by capturing their discontinuous movement in "jumps" between periods of waiting (Michel et al., 2022). Jump length and waiting time, both organism-specific stochastic variables, are employed to simulate mixing over short periods of time (Meysman et al., 2010 in Michel et al., 2022). Normal mixing is analogous with the diffusion process and is described by a diffusion-advection equation. Of interest to this review, if simulation time and jump counts are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022) [further reading needed]. Further, the mathematics overlap, and the biodiffusion coefficient can be desribed as... [a function of jump length]. However, as soil development, the focus of this review, occurs over relativity long periods, normal mixing is the primary approach explored here.
 
-> Sources to further look into: Meysman 2008: <https://doi.org/10.1016/j.gca.2008.04.023> Meysman 2010: <https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing> Marie 2007: <https://doi.org/10.1016/j.jembe.2006.10.052>
+[Sources to further look into]
+
+-   Meysman 2008: <https://doi.org/10.1016/j.gca.2008.04.023>
+
+-   Meysman 2010: <https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing>
+
+-   Marie 2007: <https://doi.org/10.1016/j.jembe.2006.10.052>
 
 ### Local diffusion and Non-local mixing
 
-Normal mixing can be further described as the sum of two components: [local]{.underline} and [non-local]{.underline} mixing. To illustrate, imagine burying a marble at the bottom of a bucket of sand. To get the marble out, you have two options. Non-local mixing is like digging sand out and piling it up on the side. Local mixing is like forcing your hand through the loosely packed sand, displacing it as you go.
+Normal mixing is further described as the sum of two components: [local]{.underline} and [non-local]{.underline} mixing, each of which can be modeled. To illustrate the difference, imagine burying a marble at the bottom of a bucket of sand. To get the marble out, you have two options. Digging sand out and piling it up on the side is comparable to non-local mixing. Forcing your hand through the loosely packed sand, displacing it as you go, is similar to local mixing.
 
-Formally, local mixing represents the spatially random displacement of material in which the point of excavation is close to the point of deposition (Michel et al., 2022). It is also defined as movment across a distance over which the change in soil composition is minimal (Boudreau, 1986a). When mixing is described by frequent, short-distanced translocations in random directions, it is defined as local mixing, and can be approximately described by Fick's Law of diffusion (citation). Correspondingly, when soil is mixed, soil components will move diffusely across concentration gradients.
-
-Local mixing common for most bioturbators and includes ingestion/egestion, pushing/shouldering of particles, and local digging/foraging... (citations to break these down). Epi-, endo-, and epiendogeic earthworm species are all local mixers (citation). More examples...
-
-[Boudreau (1986a) suggests non-local mixing cannot be defined by diffusion. Keep reading.]
+Formally, local mixing is the random displacement of material across distances over which the change in soil composition is minimal (Boudreau, 1986a). Because translocation distance is small and randomly determined, local mixing is approximately described by a diffusion-advection equation. Correspondingly, when soil is mixed, soil components will move diffusely across concentration gradients. Local mixing is common for most bioturbators and includes ingestion/egestion, pushing/shouldering of particles, and local digging/foraging... [citation to break these down]. Epi-, endo-, and epiendogeic earthworm species are all local mixers. More examples...
 
 Non-local mixing represents the displacement of material in which the point of excavation is far from the point of deposition. Its characterized by translocation of excavated material to the soil surface followed by infilling from local material [???].
+
+[Boudreau (1986a) suggests non-local mixing cannot be defined by diffusion. Keep reading.]
 
 Non-local mixing is common for mound building and burrowing organisms like Anecic earthworm species and pocket gophers.
 
 Both local and non-local mixing represent a substantial movement of material but differ in scale. Local mixing acts on a horizon to horizon scale. Non-local mixing acts on a profile scale. Given enough time and stability, either may completely 'turn over' the profile. Jarvis et al. (2010) found that models excluding non-local mixing significantly underestimate surface burial. Matisoff et al. (2011) also integrate a non-local mixing factor into their model.
 
-Decline in organism activity with depth.
-
-## Local Mixing models
+## Review of equations from the literature
 
 Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.
 
@@ -79,9 +107,13 @@ Where w is rate of downward soil displacement or soil velocity (m/s), which can 
 
 ## References
 
+Boudreau, B. P. “Mathematics of Tracer Mixing in Sediments; I, Spatially-Dependent, Diffusive Mixing.” *American Journal of Science* 286, no. 3 (March 1, 1986): 161–98. <https://doi.org/10.2475/ajs.286.3.161>.
+
 Boudreau, B. P. “Mathematics of Tracer Mixing in Sediments; II, Nonlocal Mixing and Biological Conveyor-Belt Phenomena.” *American Journal of Science* 286, no. 3 (March 1, 1986): 199–238. <https://doi.org/10.2475/ajs.286.3.199>.
 
 Boudreau, B. P., and D. M. Imboden. “Mathematics of Tracer Mixing in Sediments; III, The Theory of Nonlocal Mixing within Sediments.” *American Journal of Science* 287, no. 7 (September 1, 1987): 693–719. <https://doi.org/10.2475/ajs.287.7.693>.
+
+Gray, Harrison J., Amanda Keen-Zebert, David J. Furbish, Gregory E. Tucker, and Shannon A. Mahan. “Depth-Dependent Soil Mixing Persists across Climate Zones.” *Proceedings of the National Academy of Sciences* 117, no. 16 (April 21, 2020): 8750–56. <https://doi.org/10.1073/pnas.1914140117>.
 
 Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., & Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>
 
