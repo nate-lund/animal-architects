@@ -105,7 +105,7 @@ Discuss some examples from the real-world, like jumping worms altering the bulk 
 
 ### Numerical models
 
-Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications (including isotope tracers).
+Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, andcan be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications (including isotope tracers).
 
 Characterize the different approaches/aspects to modeling:
 
@@ -113,7 +113,13 @@ Characterize the different approaches/aspects to modeling:
 
 -   Local diffusion vs. non-local mixing
 
--   Depth dependence
+Characterize the different techniques for estimating mixing rate and depth dependence
+
+-   Isotope tracers (Boudreau, 1986b, 1986a; Boudreau & Imboden, 1987; Jarvis et al., 2010; Matisoff et al., 2011)
+
+-   OSL (Gray et al., 2020; Johnson et al., 2014; etc.)
+
+-   Other methods? Field methods?
 
 Describe how equations in the literature incorporate these approaches, providing equations to illustrate. For example (Boudreau, 1986):
 
