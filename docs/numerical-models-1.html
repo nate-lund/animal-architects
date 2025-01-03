@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 4 Imapct of Vegetation Cover on Erosion | Animal Architects</title>
-  <meta name="description" content="Section 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <title>Section 7 Numerical Models | Animal Architects</title>
+  <meta name="description" content="Section 7 Numerical Models | Animal Architects" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <meta property="og:title" content="Section 7 Numerical Models | Animal Architects" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 4 Imapct of Vegetation Cover on Erosion | Animal Architects" />
+  <meta name="twitter:title" content="Section 7 Numerical Models | Animal Architects" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="hillslope-transects-erosion-pins-etc..html"/>
-<link rel="next" href="chapter-outline-start-here.html"/>
+<link rel="prev" href="conceptual-model.html"/>
+<link rel="next" href="numerical-model-building-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -237,20 +237,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="imapct-of-vegetation-cover-on-erosion" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Section 4</span> Imapct of Vegetation Cover on Erosion<a href="imapct-of-vegetation-cover-on-erosion.html#imapct-of-vegetation-cover-on-erosion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="numerical-models-1" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Section 7</span> Numerical Models<a href="numerical-models-1.html#numerical-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The purpose of this section is to review the current state of the study and modeling of bioturbation.</p>
+<p>The goals are to:</p>
+<ol style="list-style-type: decimal">
+<li>Complete a review of the current bioturbation modeling landscape to answer the questions:
+<ul>
+<li>What are the different approaches to modeling bioturbation or how can the current models be classified?</li>
+<li>What are the limitations or what is the applicability of theses models? What is their purpose?</li>
+<li>What spatial and temporal scale do models operate on? Soil profile or landscape? Decade or millennium?</li>
+</ul></li>
+<li>Compile annotated equations and variables used in modeling bioturbation.</li>
+</ol>
+<div id="model-characteristics" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Model Characteristics<a href="numerical-models-1.html#model-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="anomalous-and-normal-mixing" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Anomalous and Normal mixing<a href="numerical-models-1.html#anomalous-and-normal-mixing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two broad approaches to modeling bioturbation in terrestrial and aquatic environments: anomalous mixing and normal mixing. Anomalous mixing models simulate the trajectory of individual sediment particles by capturing their discontinuous movement in “jumps” between periods of waiting (Michel et al., 2022). Jump length and waiting time, both organism-specific stochastic variables, are employed to simulate mixing over short periods of time (Meysman et al., 2010 in Michel et al., 2022). Normal mixing is analogous with a the diffusion process and is described by a diffusion-advection equation. Of interest to this review, if simulation time and the number of translocation events are sufficiently large, anomalous mixing models coincide with the diffusive model (Michel et al., 2022). Further, “If σ and τ are finite… the ratio σ2/(2τ) is the biodiffusion coefficient. If moreover the mean μ of the jump-length distribution is non-zero, wb=μ/τ” (Michel et al., 2022). As soil development, the focus of this review, occurs over relativity long periods, normal mixing is the primary approach explored here.</p>
+<blockquote>
+<p>Sources to further look into: Meysman 2008: <a href="https://doi.org/10.1016/j.gca.2008.04.023" class="uri">https://doi.org/10.1016/j.gca.2008.04.023</a> Meysman 2010: <a href="https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing" class="uri">https://www.researchgate.net/publication/230736816_When_and_why_does_bioturbation_lead_to_diffusive_mixing</a> Marie 2007: <a href="https://doi.org/10.1016/j.jembe.2006.10.052" class="uri">https://doi.org/10.1016/j.jembe.2006.10.052</a></p>
+</blockquote>
+</div>
+<div id="local-diffusion-and-non-local-mixing" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Local diffusion and Non-local mixing<a href="numerical-models-1.html#local-diffusion-and-non-local-mixing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Normal mixing can be further described as the sum of two components: <u>local</u> and <u>non-local</u> mixing. To illustrate, imagine burying a marble at the bottom of a bucket of sand. To get the marble out, you have two options. Non-local mixing is like digging sand out and piling it up on the side. Local mixing is like forcing your hand through the loosely packed sand, displacing it as you go.</p>
+<p>Formally, local mixing represents the spatially random displacement of material in which the point of excavation is close to the point of deposition (Michel et al., 2022). It is also defined as movment across a distance over which the change in soil composition is minimal (Boudreau, 1986a). When mixing is described by frequent, short-distanced translocations in random directions, it is defined as local mixing, and can be approximately described by Fick’s Law of diffusion (citation). Correspondingly, when soil is mixed, soil components will move diffusely across concentration gradients.</p>
+<p>Local mixing common for most bioturbators and includes ingestion/egestion, pushing/shouldering of particles, and local digging/foraging… (citations to break these down). Epi-, endo-, and epiendogeic earthworm species are all local mixers (citation). More examples…</p>
+<p>[Boudreau (1986a) suggests non-local mixing cannot be defined by diffusion. Keep reading.]</p>
+<p>Non-local mixing represents the displacement of material in which the point of excavation is far from the point of deposition. Its characterized by translocation of excavated material to the soil surface followed by infilling from local material [???].</p>
+<p>Non-local mixing is common for mound building and burrowing organisms like Anecic earthworm species and pocket gophers.</p>
+<p>Both local and non-local mixing represent a substantial movement of material but differ in scale. Local mixing acts on a horizon to horizon scale. Non-local mixing acts on a profile scale. Given enough time and stability, either may completely ‘turn over’ the profile. Jarvis et al. (2010) found that models excluding non-local mixing significantly underestimate surface burial. Matisoff et al. (2011) also integrate a non-local mixing factor into their model.</p>
+<p>Decline in organism activity with depth.</p>
+</div>
+</div>
+<div id="local-mixing-models" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Local Mixing models<a href="numerical-models-1.html#local-mixing-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.</p>
+<p><span class="math display">\[
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+\]</span></p>
+<p>where an exponential or linear relationship between diffusion and depth is assumed:</p>
+<p><span class="math display">\[
+D(z) = D(0)e^{-z/z_{b}}
+\]</span></p>
+<p><span class="math display">\[
+D(z)=-az+D(0)
+\]</span></p>
+<p>where zb is the e-folding length scale (in meters) and a is the gradient of the slope (including where diffusion is constant w/ depth, a = 0). The diffusion equation is solved numerically using OSL data.</p>
+<p>Jarvis et al. (2010) and Matisoff et al. (2011) apply similar equations derived in Boudreau (1986) in using radioisotope tracers.</p>
+<p><span class="math display">\[
+\frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρC)
+\]</span></p>
+<p>Where w is rate of downward soil displacement or soil velocity (m/s), which can be constant or a function of depth. This function has the advantage of integrating depth-dependent soil bulk density (ρ).</p>
+</div>
+<div id="references-3" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> References<a href="numerical-models-1.html#references-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Boudreau, B. P. “Mathematics of Tracer Mixing in Sediments; II, Nonlocal Mixing and Biological Conveyor-Belt Phenomena.” <em>American Journal of Science</em> 286, no. 3 (March 1, 1986): 199–238. <a href="https://doi.org/10.2475/ajs.286.3.199" class="uri">https://doi.org/10.2475/ajs.286.3.199</a>.</p>
+<p>Boudreau, B. P., and D. M. Imboden. “Mathematics of Tracer Mixing in Sediments; III, The Theory of Nonlocal Mixing within Sediments.” <em>American Journal of Science</em> 287, no. 7 (September 1, 1987): 693–719. <a href="https://doi.org/10.2475/ajs.287.7.693" class="uri">https://doi.org/10.2475/ajs.287.7.693</a>.</p>
+<p>Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., &amp; Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. European Journal of Soil Science, 61(1), 24–34. <a href="https://doi.org/10.1111/j.1365-2389.2009.01209.x" class="uri">https://doi.org/10.1111/j.1365-2389.2009.01209.x</a></p>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005a). Animating the biodynamics of soil thickness using process vector analysis: A dynamic denudation approach to soil formation. Geomorphology, 67(1–2), 23–46. <a href="https://doi.org/10.1016/j.geomorph.2004.08.014" class="uri">https://doi.org/10.1016/j.geomorph.2004.08.014</a></p>
+<p>Johnson, D. L., Domier, J. E. J., &amp; Johnson, D. N. (2005b). Reflections on the Nature of Soil and Its Biomantle. Annals of the Association of American Geographers, 95(1), 11–31. <a href="https://doi.org/10.1111/j.1467-8306.2005.00448.x" class="uri">https://doi.org/10.1111/j.1467-8306.2005.00448.x</a></p>
+<p>Johnson, M. O., Mudd, S. M., Pillans, B., Spooner, N. A., Keith Fifield, L., Kirkby, M. J., &amp; Gloor, M. (2014). Quantifying the rate and depth dependence of bioturbation based on optically‐stimulated luminescence (OSL) dates and meteoric 10 Be. Earth Surface Processes and Landforms, 39(9), 1188–1196. <a href="https://doi.org/10.1002/esp.3520" class="uri">https://doi.org/10.1002/esp.3520</a></p>
+<p>Matisoff, G., Ketterer, M. E., Rosén, K., Mietelski, J. W., Vitko, L. F., Persson, H., &amp; Lokas, E. (2011). Downward migration of Chernobyl-derived radionuclides in soils in Poland and Sweden. Applied Geochemistry, 26(1), 105–115. <a href="https://doi.org/10.1016/j.apgeochem.2010.11.007" class="uri">https://doi.org/10.1016/j.apgeochem.2010.11.007</a></p>
+<p>Michel, E., Néel, M.-C., Capowiez, Y., Sammartino, S., Lafolie, F., Renault, P., &amp; Pelosi, C. (2022). Making Waves: Modeling bioturbation in soils – are we burrowing in the right direction? Water Research, 216, 118342. <a href="https://doi.org/10.1016/j.watres.2022.118342" class="uri">https://doi.org/10.1016/j.watres.2022.118342</a></p>
+<p>Román‐Sánchez, A., Laguna, A., Reimann, T., Giráldez, J. V., Peña, A., &amp; Vanwalleghem, T. (2019). Bioturbation and erosion rates along the soil‐hillslope conveyor belt, part 2: Quantification using an analytical solution of the diffusion–advection equation. Earth Surface Processes and Landforms, 44(10), 2066–2080. <a href="https://doi.org/10.1002/esp.4626" class="uri">https://doi.org/10.1002/esp.4626</a></p>
+<p>Salvador-Blanes, S., Minasny, B., &amp; McBratney, A. B. (2007). Modelling long-term in situ soil profile evolution: Application to the genesis of soil profiles containing stone layers. European Journal of Soil Science, 58(6), 1535–1548. <a href="https://doi.org/10.1111/j.1365-2389.2007.00961.x" class="uri">https://doi.org/10.1111/j.1365-2389.2007.00961.x</a></p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="hillslope-transects-erosion-pins-etc..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chapter-outline-start-here.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conceptual-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="numerical-model-building-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -289,7 +351,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/nate-lund/animal-architects/blob/main/03_vegetation_cover.Rmd",
+"link": "https://github.com/nate-lund/animal-architects/blob/main/05_model_review.Rmd",
 "text": null
 },
 "download": null,
