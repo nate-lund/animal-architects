@@ -38,6 +38,10 @@ references-4
 soil-geomorphology
 gamma-detectors
 detector-specs
+a-brief-history-of-pedology
+introduction-1
+history-of-pedology
+references-5
 radionuclide-sampling-protocol
 background
 reference-site-sampling

@@ -41,11 +41,11 @@ library(spelling)
 
 ## Detailed Outline
 
-### 1. Introduction
+### Introduction
 
 Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [Chapter \@ref(a-brief-history-of-pedology)], to establish importance. Draw connections from pedology to ecology, geomorpohology, and hydrology or more specifically carbon, soil health, and mineral weathering [Mudd and Yoo, 2010]. Use established importance to address the need for an updated, interdisciplinary review of how we think about bioturbation, both conceptually and numerically. Provide an overview of the questions answered and ultimate purpose of this article: How can we, and how have other authors, summarize what are animals doing to the soil?
 
-### 2. Conceptual models
+### Conceptual models
 
 Define conceptual model: A conceptual model is a representation of the key elements of and relationships within some process or structure. Justify the need for conceptual models for animal activity:
 
@@ -103,7 +103,7 @@ $$
 
 Discuss some examples from the real-world, like jumping worms altering the bulk density of the top 5cm, Mima mounds, tree throw examples, or stonelines. Relate these examples to the concepts discussed above. Make notes on the way bioturbation is measured, methods used in the literature: what are they actually measuring?
 
-### 3. Numerical models
+### Numerical models
 
 Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications (including isotope tracers).
 
@@ -123,7 +123,7 @@ $$
 
 Discuss what variables these models include, and how these models integrate the animal-soil activity factors above. What is missing (erosion)? What assumptions are being made?
 
-### 4. Numerical model building
+### Numerical model building
 
 Describe the purpose: The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.
 
@@ -131,7 +131,7 @@ Identify the key variables: erosion rate, mixing rate, local vs. non-local ratio
 
 Describe methods [very WIP, considering using python and landlab for portions, need to investigate further]
 
-### 5. Conclusion
+### Conclusion
 
 Present a summary of findings/discussion. Highlight some takeaways:
 
