@@ -13,14 +13,6 @@ library(knitr)
 library(rmarkdown)
 ```
 
-1.  Numerical models
-
-    1.  Transition / Justification
-    2.  Examples of numerical model use
-    3.  Characteristics of numerical models
-    4.  Review of equations from the literature
-    5.  Modeling factors of animal activity
-
 ## Transition / Justification
 
 Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones…
