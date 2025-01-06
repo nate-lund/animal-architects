@@ -105,7 +105,7 @@ Discuss some examples from the real-world, like jumping worms altering the bulk 
 
 ### Numerical models
 
-Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, andcan be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications (including isotope tracers).
+Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and can be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications.
 
 Characterize the different approaches/aspects to modeling:
 
