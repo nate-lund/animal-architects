@@ -9,8 +9,8 @@
 1.  Introduction
 2.  Conceptual models
     1.  Definitions / Justification
-    2.  Review of conceptual models
-    3.  Factors of animal activity
+    2.  Factors of animal activity
+    3.  Review of conceptual models
     4.  New conceptual models
     5.  Examples from the literature
 3.  Numerical models

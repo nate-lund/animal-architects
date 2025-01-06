@@ -4,7 +4,7 @@
 
 
 ```
-## [1] "Updated 07:50, 06 January, 2025"
+## [1] "Updated 08:06, 06 January, 2025"
 ```
 
 This book is dedicated to my thoughts about animals as unintentional architects, or animal architects. Through bioturbation, animals shape our soils and landscapes, but although I call them architects, their creations are not like ours. Yes, prairie gophers or night crawlers build homes to live and feed in, but the architecture I refer to is larger than any individual. It is the sum of generations of organisms. It is the ecological inheritance they create. It is order out of seemingly chaos. This idea is best illustrated through example, so take for example, Mima mounds.

@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 07:50, 06 January, 2025"
+date: "Last compiled 08:06, 06 January, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -20,3 +20,13 @@ output:
 -   Setting up R and Git: <https://happygitwithr.com/>
 
 -   Hava's book: <https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html>
+
+# Notes to Self
+
+-   Based on (Mudd and Yoo, 2010), a study on mineral age and weathering. Mixing plays an important role in the application of reservoir theory and in determining turnover time. A better understanding of the rate of mixing, depth of mixing, and method of transport (i.e. local vs non-local) migth be valuable.
+
+-   How does the successional invasion of JW over European worms, through the displacement of Lumbricus terrestris, impact the type of mixing, I.e. local versus non local, and what are the consequences for clay movement in the soil?
+
+### References
+
+Mudd, Simon Marius, and Kyungsoo Yoo. “Reservoir Theory for Studying the Geochemical Evolution of Soils.” Journal of Geophysical Research: Earth Surface 115, no. F3 (2010). <https://doi.org/10.1029/2009JF001591>.
