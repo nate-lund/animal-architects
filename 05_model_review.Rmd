@@ -154,10 +154,9 @@ plt.show()
 
 ```
 
-This model is a significant oversimplifcation of a soil-system, however. Surface erosion and depoistion can be relativley easilty introduced. is a 
+This model is a significant oversimplifcation of a soil-system, however. Surface erosion and depoistion can be relativley easilty introduced. is a
 
 Johnson et al. (2014) integrates an erosion factor into this equation.“The erosion formulation acts by advecting the age profiles up towards the profile surface at a rate T, effectively removing the surface layers (Kirkby, 1985). Thus, Equation (2) becomes” ([Johnson et al., 2014, p. 1192])
-
 
 Jarvis et al. (2010) and Matisoff et al. (2011) apply similar equations derived in Boudreau (1986) in using radioisotope tracers.
 
