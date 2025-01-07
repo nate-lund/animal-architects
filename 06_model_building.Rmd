@@ -263,12 +263,6 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
   facet_wrap(~time_step)
 ```
 
-### Erosion and Soil Formation
-
-WIP
-
-At the top, an erosion factor is included. Bulk density is assumed to be consistent throughout the profile.
-
 ## References
 
 Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. <https://doi.org/10.1017/CBO9780511703850>.
@@ -282,3 +276,51 @@ Jarvis, N. J., A. Taylor, M. Larsbo, A. Etana, and K. Rosén. “Modelling the E
 Matisoff, Gerald, Michael E. Ketterer, Klas Rosén, Jerzy W. Mietelski, Lauren F. Vitko, Henning Persson, and Edyta Lokas. “Downward Migration of Chernobyl-Derived Radionuclides in Soils in Poland and Sweden.” Applied Geochemistry 26, no. 1 (January 2011): 105–15. <https://doi.org/10.1016/j.apgeochem.2010.11.007>.
 
 Meysman, Filip J.R., Volodymyr S. Malyuga, Bernard P. Boudreau, and Jack J. Middelburg. “A Generalized Stochastic Approach to Particle Dispersal in Soils and Sediments.” Geochimica et Cosmochimica Acta 72, no. 14 (July 2008): 3460–78. <https://doi.org/10.1016/j.gca.2008.04.023>.
+
+## Python Modeling
+
+```{python}
+
+# import packages, give short names
+import matplotlib.pyplot as plt
+import numpy as np
+%matplotlib inline
+
+################ trying to do local mixing with numpy ################
+
+# establish some structures
+dz = 1 # cm
+z = np.arange(0, 100, dz, dtype=float) # creates an array of depths
+y = np.zeros(z.shape, dtype=float) # creates an array of 0's, copies the shape of z
+b = 0.01 # diffusion intercept
+D = b * np.exp(-z/100/0.28) # diffusion coefficent
+
+
+# sets y to...
+y[z == 0] += 100
+
+# prep variables
+dt = 0.2 * dz * dz / b # sets timestep size, based on Courant–Friedrichs–Lewy condition
+total_time = 10000 # years
+time_steps = int(total_time / dt) # calcaultes total number of time steps
+y_orig = y.copy() # creates a copy of the z list for use in the for loop
+y_ts2 = y.copy()
+y_ts4 = y.copy()
+
+for i in range(time_steps):
+    qy = -1 * D[0:-1] * np.diff(y) / dz # calculates the gradient of y over z, multiplies by D to get linear flux
+    dydt = -np.diff(qy) / dz # caclulates the change in y flux over z. this is the net flux for each point
+    y[1:-1] += dydt * dt # adds the net flux from y at each z EXCEPT the first and last positions 
+    if i == (time_steps / 4):
+        y_ts4[1:-1] = y[1:-1]
+    elif i == (time_steps / 2):
+        y_ts2[1:-1] = y[1:-1]
+
+plt.plot(z, y_orig, label = "Original Profile")
+plt.plot(z, y_ts4, label = "Diffused Profile quater Time")
+plt.plot(z, y_ts2, label = "Diffused Profile half Time")
+plt.plot(z, y, label = "Final Diffused Profile")
+plt.legend()
+plt.show()
+
+```
