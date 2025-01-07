@@ -2,6 +2,7 @@
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+use_condaenv("C:/Users/natha/anaconda3/envs/animalarchitects_main")
 library(tinytex)
 library(ggplot2)
 library(dplyr)
@@ -11,6 +12,7 @@ library(usethis)
 library(bookdown)
 library(knitr)
 library(rmarkdown)
+library(reticulate)
 ```
 
 The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.
@@ -67,32 +69,9 @@ $$
 
 [note: bulk density is implicitly included in the y term, but might not always be]
 
-Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z):
+Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, a small adjustment is made to eliminate diffusion.
 
-\begin{equation}
-D(z) =
-  \left\{\begin{array}{lr}
-     0, & z = 0 \\
-     s e^{-z/b}, & 0 < z < f \\
-     0, & z = f 
-  \end{array}\right.
-\end{equation}
-
-This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represnets a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011). An additional piecewise diffusion function, $D_l(z)$, is defined for non-local mixing to allow a different diffusion-depth relationship than that of local mixing.
-
-\begin{equation}
-D_l(z) =
-  \left\{\begin{array}{lr}
-     s e^{-z/b}, & z > 0 \\
-     \int_{0}^{f}D(z_l)dz*\frac{1}{n}\sum_{i=1}^{n}y_i & z = 0 \\
-  \end{array}\right.
-\end{equation}
-
-Local plus non-local mixing is described by:
-
-$$
-V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
-$$
+This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represents a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011).
 
 Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.
 
@@ -108,9 +87,9 @@ Where S is the concentration of material of a greater size class than movable by
 
 [input parameter table here]
 
-### Model 1: Diffusion (local mixing) of included and excluded components.
+### Model 1: R Diffusion (local mixing) of included and excluded components.
 
-```{r diffusion, echo = TRUE, cache = TRUE}
+```{r diffusion, echo=TRUE, cache=FALSE}
 #'###################### [creating a data frame] #######################
 
 #' [set] number of time steps
@@ -263,28 +242,13 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
   facet_wrap(~time_step)
 ```
 
-## References
+### Model 2: Python diffusion (local mixing) of included components
 
-Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. <https://doi.org/10.1017/CBO9780511703850>.
-
-Johnson, Michelle O., Simon M. Mudd, Brad Pillans, Nigel A. Spooner, L. Keith Fifield, Mike J. Kirkby, and Manuel Gloor. “Quantifying the Rate and Depth Dependence of Bioturbation Based on Optically‐stimulated Luminescence (OSL) Dates and Meteoric 10 Be.” Earth Surface Processes and Landforms 39, no. 9 (July 2014): 1188–96. <https://doi.org/10.1002/esp.3520>.
-
-Yeates, G. W., and H. Van Der Meulen. “Burial of Soil-Surface Artifacts in the Presence of Lumbricid Earthworms.” Biology and Fertility of Soils 19, no. 1 (January 1995): 73–74. <https://doi.org/10.1007/BF00336350>.
-
-Jarvis, N. J., A. Taylor, M. Larsbo, A. Etana, and K. Rosén. “Modelling the Effects of Bioturbation on the Re-Distribution of 137Cs in an Undisturbed Grassland Soil.” European Journal of Soil Science 61, no. 1 (2010): 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>.
-
-Matisoff, Gerald, Michael E. Ketterer, Klas Rosén, Jerzy W. Mietelski, Lauren F. Vitko, Henning Persson, and Edyta Lokas. “Downward Migration of Chernobyl-Derived Radionuclides in Soils in Poland and Sweden.” Applied Geochemistry 26, no. 1 (January 2011): 105–15. <https://doi.org/10.1016/j.apgeochem.2010.11.007>.
-
-Meysman, Filip J.R., Volodymyr S. Malyuga, Bernard P. Boudreau, and Jack J. Middelburg. “A Generalized Stochastic Approach to Particle Dispersal in Soils and Sediments.” Geochimica et Cosmochimica Acta 72, no. 14 (July 2008): 3460–78. <https://doi.org/10.1016/j.gca.2008.04.023>.
-
-## Python Modeling
-
-```{python}
+```{python new, echo=TRUE}
 
 # import packages, give short names
 import matplotlib.pyplot as plt
 import numpy as np
-%matplotlib inline
 
 ################ trying to do local mixing with numpy ################
 
@@ -294,7 +258,6 @@ z = np.arange(0, 100, dz, dtype=float) # creates an array of depths
 y = np.zeros(z.shape, dtype=float) # creates an array of 0's, copies the shape of z
 b = 0.01 # diffusion intercept
 D = b * np.exp(-z/100/0.28) # diffusion coefficent
-
 
 # sets y to...
 y[z == 0] += 100
@@ -316,6 +279,7 @@ for i in range(time_steps):
     elif i == (time_steps / 2):
         y_ts2[1:-1] = y[1:-1]
 
+plt.clf()
 plt.plot(z, y_orig, label = "Original Profile")
 plt.plot(z, y_ts4, label = "Diffused Profile quater Time")
 plt.plot(z, y_ts2, label = "Diffused Profile half Time")
@@ -324,3 +288,17 @@ plt.legend()
 plt.show()
 
 ```
+
+## References
+
+Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. <https://doi.org/10.1017/CBO9780511703850>.
+
+Johnson, Michelle O., Simon M. Mudd, Brad Pillans, Nigel A. Spooner, L. Keith Fifield, Mike J. Kirkby, and Manuel Gloor. “Quantifying the Rate and Depth Dependence of Bioturbation Based on Optically‐stimulated Luminescence (OSL) Dates and Meteoric 10 Be.” Earth Surface Processes and Landforms 39, no. 9 (July 2014): 1188–96. <https://doi.org/10.1002/esp.3520>.
+
+Yeates, G. W., and H. Van Der Meulen. “Burial of Soil-Surface Artifacts in the Presence of Lumbricid Earthworms.” Biology and Fertility of Soils 19, no. 1 (January 1995): 73–74. <https://doi.org/10.1007/BF00336350>.
+
+Jarvis, N. J., A. Taylor, M. Larsbo, A. Etana, and K. Rosén. “Modelling the Effects of Bioturbation on the Re-Distribution of 137Cs in an Undisturbed Grassland Soil.” European Journal of Soil Science 61, no. 1 (2010): 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>.
+
+Matisoff, Gerald, Michael E. Ketterer, Klas Rosén, Jerzy W. Mietelski, Lauren F. Vitko, Henning Persson, and Edyta Lokas. “Downward Migration of Chernobyl-Derived Radionuclides in Soils in Poland and Sweden.” Applied Geochemistry 26, no. 1 (January 2011): 105–15. <https://doi.org/10.1016/j.apgeochem.2010.11.007>.
+
+Meysman, Filip J.R., Volodymyr S. Malyuga, Bernard P. Boudreau, and Jack J. Middelburg. “A Generalized Stochastic Approach to Particle Dispersal in Soils and Sediments.” Geochimica et Cosmochimica Acta 72, no. 14 (July 2008): 3460–78. <https://doi.org/10.1016/j.gca.2008.04.023>.
