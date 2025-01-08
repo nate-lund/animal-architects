@@ -37,8 +37,8 @@ review-of-equations-from-the-literature
 references-2
 numerical-model-building-1
 soil-transport-via-diffusion-advection
-model-1-diffusion-local-mixing-of-included-and-excluded-components.
-erosion-and-soil-formation
+model-1-r-diffusion-local-mixing-of-included-and-excluded-components.
+model-2-python-diffusion-local-mixing-of-included-components
 references-3
 soil-geomorphology
 gamma-detectors

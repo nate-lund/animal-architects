@@ -196,12 +196,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#soil-transport-via-diffusion-advection"><i class="fa fa-check"></i><b>9.1</b> Soil Transport via Diffusion-Advection</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#model-1-diffusion-local-mixing-of-included-and-excluded-components."><i class="fa fa-check"></i><b>9.1.1</b> Model 1: Diffusion (local mixing) of included and excluded components.</a></li>
-<li class="chapter" data-level="9.1.2" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#erosion-and-soil-formation"><i class="fa fa-check"></i><b>9.1.2</b> Erosion and Soil Formation</a></li>
+<li class="chapter" data-level="9.1.1" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#model-1-r-diffusion-local-mixing-of-included-and-excluded-components."><i class="fa fa-check"></i><b>9.1.1</b> Model 1: R Diffusion (local mixing) of included and excluded components.</a></li>
+<li class="chapter" data-level="9.1.2" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#model-2-python-diffusion-local-mixing-of-included-components"><i class="fa fa-check"></i><b>9.1.2</b> Model 2: Python diffusion (local mixing) of included components</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="numerical-model-building-1.html"><a href="numerical-model-building-1.html#references-3"><i class="fa fa-check"></i><b>9.2</b> References</a></li>
 </ul></li>
-<li class="part"><span><b>III Chapter 3: Soil, Hillslope, and Landscape Evolution (WIP)</b></span></li>
+<li class="part"><span><b>III Chapter III: Soil, Hillslope, and Landscape Evolution (WIP)</b></span></li>
 <li class="chapter" data-level="10" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html"><i class="fa fa-check"></i><b>10</b> Soil Geomorphology</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="gamma-detectors.html"><a href="gamma-detectors.html"><i class="fa fa-check"></i><b>A</b> Gamma Detectors</a>
@@ -250,16 +250,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="numerical-models-1" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Section 8</span> Numerical Models<a href="numerical-models-1.html#numerical-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ol style="list-style-type: decimal">
-<li><p>Numerical models</p>
-<ol style="list-style-type: decimal">
-<li>Transition / Justification</li>
-<li>Examples of numerical model use</li>
-<li>Characteristics of numerical models</li>
-<li>Review of equations from the literature</li>
-<li>Modeling factors of animal activity</li>
-</ol></li>
-</ol>
 <div id="transition-justification-1" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Transition / Justification<a href="numerical-models-1.html#transition-justification-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones…</p>
@@ -273,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.3</span> Characteristics of Numerical models<a href="numerical-models-1.html#characteristics-of-numerical-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="depth-dependence" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Depth dependence<a href="numerical-models-1.html#depth-dependence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Most bioturbation models consider the observation made by scientists as far back as Charles Darwin that organism activity declines with depth (Darwin, 1881) [citations]. Intuitively, greater soil depths are not as attractive to soil fauna because of incerased soil density and a diminishing food supply (citation). However, a degree of nuance is needed to understand when this observation is relevant to modeling. Depth dependence is relevant under the following conditions. 1) Organism activity does not encompass the entire profile. 2) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. 3) The rate of mixing is large compared to soil erosion or production. 4) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be meaningfully redistributed by fauna nor to slow to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope tracers.</p>
+<p>Most bioturbation models consider the observation made by scientists as far back as Charles Darwin that organism activity declines with depth (Darwin, 1881) [citations]. Intuitively, greater soil depths are not as attractive to soil fauna because of increased soil density and a diminishing food supply (citation). However, a degree of nuance is needed to understand when this observation is relevant to modeling. Depth dependence is relevant under the following conditions. 1) Organism activity does not encompass the entire profile. 2) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. 3) The rate of mixing is large compared to soil erosion or production. 4) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be meaningfully redistributed by fauna nor to slow to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope tracers.</p>
 <p>When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statistically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an exponential function. Notably, however, the shape of the functions described by these authors varies [Table X], which challenges attempts to broaden model application.</p>
 <p>[I need to look into this further and compare the diffusion-depth functions. also, are there other ways of estimating diffusion depth? is there a way to create a general form? what is the biggest limitation: it is maximum depth or shape? this is notwithstanding any non-local diffusion.]</p>
 <table>
@@ -329,18 +319,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="review-of-equations-from-the-literature" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Review of equations from the literature<a href="numerical-models-1.html#review-of-equations-from-the-literature" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Johnson et al. (2014) provides a simple diffusion model for change in a soil property, y, with time.</p>
+<p>A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation:</p>
 <p><span class="math display">\[
-\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})
 \]</span></p>
-<p>where an exponential or linear relationship between diffusion and depth is assumed:</p>
+<p>Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that defines the diffusion-depth relationship. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z):</p>
 <p><span class="math display">\[
 D(z) = D(0)e^{-z/z_{b}}
 \]</span></p>
 <p><span class="math display">\[
 D(z)=-az+D(0)
 \]</span></p>
-<p>where zb is the e-folding length scale (in meters) and a is the gradient of the slope (including where diffusion is constant w/ depth, a = 0). The diffusion equation is solved numerically using OSL data.</p>
+<p>where zb is the e-folding length scale (0.28 here) and a is the gradient of the slope (including where diffusion is constant w/ depth, a = 0).</p>
+<p>This code uses the above the equations to simulate the movement of a theoretical one-time surface applied tracer by biodiffusion, local mixing, only.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="numerical-models-1.html#cb2-1" tabindex="-1"></a><span class="co"># import packages</span></span>
+<span id="cb2-2"><a href="numerical-models-1.html#cb2-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="numerical-models-1.html#cb2-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-4"><a href="numerical-models-1.html#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="numerical-models-1.html#cb2-5" tabindex="-1"></a><span class="co">################ local mixing with numpy ################</span></span>
+<span id="cb2-6"><a href="numerical-models-1.html#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="numerical-models-1.html#cb2-7" tabindex="-1"></a><span class="co"># build structures for data inputs</span></span>
+<span id="cb2-8"><a href="numerical-models-1.html#cb2-8" tabindex="-1"></a>dz <span class="op">=</span> <span class="dv">1</span> <span class="co"># cm</span></span>
+<span id="cb2-9"><a href="numerical-models-1.html#cb2-9" tabindex="-1"></a>z <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">100</span>, dz, dtype<span class="op">=</span><span class="bu">float</span>) <span class="co"># create an array of depths</span></span>
+<span id="cb2-10"><a href="numerical-models-1.html#cb2-10" tabindex="-1"></a>y <span class="op">=</span> np.zeros(z.shape, dtype<span class="op">=</span><span class="bu">float</span>) <span class="co"># create a blank array for y, copies shape of z</span></span>
+<span id="cb2-11"><a href="numerical-models-1.html#cb2-11" tabindex="-1"></a>p <span class="op">=</span> np.zeros(z.shape, dtype<span class="op">=</span><span class="bu">float</span>)<span class="co"># create a blank array for p, copies shape of z</span></span>
+<span id="cb2-12"><a href="numerical-models-1.html#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="numerical-models-1.html#cb2-13" tabindex="-1"></a><span class="co"># establish biodiffusion function</span></span>
+<span id="cb2-14"><a href="numerical-models-1.html#cb2-14" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.01</span> <span class="co"># diffusion intercept</span></span>
+<span id="cb2-15"><a href="numerical-models-1.html#cb2-15" tabindex="-1"></a>D <span class="op">=</span> b <span class="op">*</span> np.exp(<span class="op">-</span>z<span class="op">/</span><span class="dv">100</span><span class="op">/</span><span class="fl">0.28</span>)</span>
+<span id="cb2-16"><a href="numerical-models-1.html#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="numerical-models-1.html#cb2-17" tabindex="-1"></a><span class="co"># [set] initial y values</span></span>
+<span id="cb2-18"><a href="numerical-models-1.html#cb2-18" tabindex="-1"></a>y[z <span class="op">==</span> <span class="dv">0</span>] <span class="op">+=</span> <span class="dv">1</span> <span class="co"># mass/volume</span></span>
+<span id="cb2-19"><a href="numerical-models-1.html#cb2-19" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="numerical-models-1.html#cb2-20" tabindex="-1"></a><span class="co"># [set] initial p values</span></span>
+<span id="cb2-21"><a href="numerical-models-1.html#cb2-21" tabindex="-1"></a>p <span class="op">+=</span> <span class="dv">1</span> <span class="co"># mass/volume</span></span>
+<span id="cb2-22"><a href="numerical-models-1.html#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="numerical-models-1.html#cb2-23" tabindex="-1"></a><span class="co"># [set] total time</span></span>
+<span id="cb2-24"><a href="numerical-models-1.html#cb2-24" tabindex="-1"></a>total_time <span class="op">=</span> <span class="dv">10000</span> <span class="co"># years</span></span>
+<span id="cb2-25"><a href="numerical-models-1.html#cb2-25" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="numerical-models-1.html#cb2-26" tabindex="-1"></a><span class="co"># more variables</span></span>
+<span id="cb2-27"><a href="numerical-models-1.html#cb2-27" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> dz <span class="op">*</span> dz <span class="op">/</span> b <span class="co"># sets time step size, based on Courant–Friedrichs–Lewy condition</span></span>
+<span id="cb2-28"><a href="numerical-models-1.html#cb2-28" tabindex="-1"></a>time_steps <span class="op">=</span> <span class="bu">int</span>(total_time <span class="op">/</span> dt) <span class="co"># calculates total number of time steps</span></span>
+<span id="cb2-29"><a href="numerical-models-1.html#cb2-29" tabindex="-1"></a>y_orig <span class="op">=</span> y.copy() <span class="co"># creates a copy of the z list for use in the for loop</span></span>
+<span id="cb2-30"><a href="numerical-models-1.html#cb2-30" tabindex="-1"></a>y_ts2 <span class="op">=</span> y.copy()</span>
+<span id="cb2-31"><a href="numerical-models-1.html#cb2-31" tabindex="-1"></a>y_ts4 <span class="op">=</span> y.copy()</span>
+<span id="cb2-32"><a href="numerical-models-1.html#cb2-32" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="numerical-models-1.html#cb2-33" tabindex="-1"></a><span class="co"># in order, the for statement will: </span></span>
+<span id="cb2-34"><a href="numerical-models-1.html#cb2-34" tabindex="-1"></a>  <span class="co"># calculate the gradient of y over z, multiplies by D to get linear flux</span></span>
+<span id="cb2-35"><a href="numerical-models-1.html#cb2-35" tabindex="-1"></a>  <span class="co"># caclulate the change in y flux over z. this is the net flux for each point</span></span>
+<span id="cb2-36"><a href="numerical-models-1.html#cb2-36" tabindex="-1"></a>  <span class="co"># adds the net flux from y at each z EXCEPT the first and last positions </span></span>
+<span id="cb2-37"><a href="numerical-models-1.html#cb2-37" tabindex="-1"></a>  <span class="co"># create some extra arrays for plotting through if statment</span></span>
+<span id="cb2-38"><a href="numerical-models-1.html#cb2-38" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="numerical-models-1.html#cb2-39" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(time_steps):</span>
+<span id="cb2-40"><a href="numerical-models-1.html#cb2-40" tabindex="-1"></a>    qy <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> D[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.diff(y <span class="op">*</span> p) <span class="op">/</span> dz </span>
+<span id="cb2-41"><a href="numerical-models-1.html#cb2-41" tabindex="-1"></a>    dydt <span class="op">=</span> <span class="op">-</span>np.diff(qy) <span class="op">/</span> dz </span>
+<span id="cb2-42"><a href="numerical-models-1.html#cb2-42" tabindex="-1"></a>    y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> dydt <span class="op">*</span> dt </span>
+<span id="cb2-43"><a href="numerical-models-1.html#cb2-43" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> (time_steps <span class="op">/</span> <span class="dv">4</span>):</span>
+<span id="cb2-44"><a href="numerical-models-1.html#cb2-44" tabindex="-1"></a>        y_ts4[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-45"><a href="numerical-models-1.html#cb2-45" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="op">==</span> (time_steps <span class="op">/</span> <span class="dv">2</span>):</span>
+<span id="cb2-46"><a href="numerical-models-1.html#cb2-46" tabindex="-1"></a>        y_ts2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-47"><a href="numerical-models-1.html#cb2-47" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="numerical-models-1.html#cb2-48" tabindex="-1"></a><span class="co"># plotting at a few timesteps</span></span>
+<span id="cb2-49"><a href="numerical-models-1.html#cb2-49" tabindex="-1"></a>plt.clf()</span>
+<span id="cb2-50"><a href="numerical-models-1.html#cb2-50" tabindex="-1"></a>plt.plot(y_orig, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Original Profile&quot;</span>)</span>
+<span id="cb2-51"><a href="numerical-models-1.html#cb2-51" tabindex="-1"></a>plt.plot(y_ts4, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Diffused Profile Quater Time&quot;</span>)</span>
+<span id="cb2-52"><a href="numerical-models-1.html#cb2-52" tabindex="-1"></a>plt.plot(y_ts2, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Diffused Profile Half Time&quot;</span>)</span>
+<span id="cb2-53"><a href="numerical-models-1.html#cb2-53" tabindex="-1"></a>plt.plot(y, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Final Diffused Profile&quot;</span>)</span>
+<span id="cb2-54"><a href="numerical-models-1.html#cb2-54" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;y (mass/volume)&#39;</span>)</span>
+<span id="cb2-55"><a href="numerical-models-1.html#cb2-55" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;depth (cm)&#39;</span>)</span>
+<span id="cb2-56"><a href="numerical-models-1.html#cb2-56" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-57"><a href="numerical-models-1.html#cb2-57" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="05_model_review_files/figure-html/new-1.png" width="672" /></p>
+<p>This model is a significant oversimplifcation of a soil-system, however. Surface erosion and depoistion can be relativley easilty introduced. is a</p>
+<p>Johnson et al. (2014) integrates an erosion factor into this equation.“The erosion formulation acts by advecting the age profiles up towards the profile surface at a rate T, effectively removing the surface layers (Kirkby, 1985). Thus, Equation (2) becomes” ([Johnson et al., 2014, p. 1192])</p>
 <p>Jarvis et al. (2010) and Matisoff et al. (2011) apply similar equations derived in Boudreau (1986) in using radioisotope tracers.</p>
 <p><span class="math display">\[
 \frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρC)

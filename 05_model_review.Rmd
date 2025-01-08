@@ -2,7 +2,6 @@
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
-use_condaenv("C:/Users/natha/anaconda3/envs/animalarchitects_main")
 library(tinytex)
 library(ggplot2)
 library(dplyr)
@@ -13,6 +12,7 @@ library(bookdown)
 library(knitr)
 library(rmarkdown)
 library(reticulate)
+use_condaenv("C:/Users/natha/anaconda3/envs/animalarchitects_main")
 ```
 
 ## Transition / Justification

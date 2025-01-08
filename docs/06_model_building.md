@@ -45,32 +45,9 @@ $$
 
 [note: bulk density is implicitly included in the y term, but might not always be]
 
-Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z):
+Where h~i~ is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, $\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})$, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, a small adjustment is made to eliminate diffusion.
 
-\begin{equation}
-D(z) =
-  \left\{\begin{array}{lr}
-     0, & z = 0 \\
-     s e^{-z/b}, & 0 < z < f \\
-     0, & z = f 
-  \end{array}\right.
-\end{equation}
-
-This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represnets a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011). An additional piecewise diffusion function, $D_l(z)$, is defined for non-local mixing to allow a different diffusion-depth relationship than that of local mixing.
-
-\begin{equation}
-D_l(z) =
-  \left\{\begin{array}{lr}
-     s e^{-z/b}, & z > 0 \\
-     \int_{0}^{f}D(z_l)dz*\frac{1}{n}\sum_{i=1}^{n}y_i & z = 0 \\
-  \end{array}\right.
-\end{equation}
-
-Local plus non-local mixing is described by:
-
-$$
-V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
-$$
+This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represents a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011).
 
 Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.
 
@@ -86,7 +63,7 @@ Where S is the concentration of material of a greater size class than movable by
 
 [input parameter table here]
 
-### Model 1: Diffusion (local mixing) of included and excluded components.
+### Model 1: R Diffusion (local mixing) of included and excluded components.
 
 
 ``` r
@@ -251,11 +228,53 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
 
 <img src="06_model_building_files/figure-html/diffusion-3.png" width="672" />
 
-### Erosion and Soil Formation
+### Model 2: Python diffusion (local mixing) of included components
 
-WIP
 
-At the top, an erosion factor is included. Bulk density is assumed to be consistent throughout the profile.
+``` python
+# import packages, give short names
+import matplotlib.pyplot as plt
+import numpy as np
+
+################ trying to do local mixing with numpy ################
+
+# establish some structures
+dz = 1 # cm
+z = np.arange(0, 100, dz, dtype=float) # creates an array of depths
+y = np.zeros(z.shape, dtype=float) # creates an array of 0's, copies the shape of z
+b = 0.01 # diffusion intercept
+D = b * np.exp(-z/100/0.28) # diffusion coefficent
+
+# sets y to...
+y[z == 0] += 100
+
+# prep variables
+dt = 0.2 * dz * dz / b # sets timestep size, based on Courant–Friedrichs–Lewy condition
+total_time = 10000 # years
+time_steps = int(total_time / dt) # calcaultes total number of time steps
+y_orig = y.copy() # creates a copy of the z list for use in the for loop
+y_ts2 = y.copy()
+y_ts4 = y.copy()
+
+for i in range(time_steps):
+    qy = -1 * D[0:-1] * np.diff(y) / dz # calculates the gradient of y over z, multiplies by D to get linear flux
+    dydt = -np.diff(qy) / dz # caclulates the change in y flux over z. this is the net flux for each point
+    y[1:-1] += dydt * dt # adds the net flux from y at each z EXCEPT the first and last positions 
+    if i == (time_steps / 4):
+        y_ts4[1:-1] = y[1:-1]
+    elif i == (time_steps / 2):
+        y_ts2[1:-1] = y[1:-1]
+
+plt.clf()
+plt.plot(z, y_orig, label = "Original Profile")
+plt.plot(z, y_ts4, label = "Diffused Profile quater Time")
+plt.plot(z, y_ts2, label = "Diffused Profile half Time")
+plt.plot(z, y, label = "Final Diffused Profile")
+plt.legend()
+plt.show()
+```
+
+<img src="06_model_building_files/figure-html/new-1.png" width="672" />
 
 ## References
 
