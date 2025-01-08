@@ -31,7 +31,7 @@ Tracers to estimate organism bioturbation rate, OSL for soil age.
 
 Most bioturbation models consider the observation made by scientists as far back as Charles Darwin that organism activity declines with depth (Darwin, 1881) [citations]. Intuitively, greater soil depths are not as attractive to soil fauna because of increased soil density and a diminishing food supply (citation). However, a degree of nuance is needed to understand when this observation is relevant to modeling. Depth dependence is relevant under the following conditions. 1) Organism activity does not encompass the entire profile. 2) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. 3) The rate of mixing is large compared to soil erosion or production. 4) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be meaningfully redistributed by fauna nor to slow to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope tracers.
 
-When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statistically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an exponential function. Notably, however, the shape of the functions described by these authors varies [Table X], which challenges attempts to broaden model application.
+When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statistically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an exponential function (citation). Notably, however, the shape of the functions described by these authors varies [Table X], which challenges attempts to broaden model application.
 
 [I need to look into this further and compare the diffusion-depth functions. also, are there other ways of estimating diffusion depth? is there a way to create a general form? what is the biggest limitation: it is maximum depth or shape? this is notwithstanding any non-local diffusion.]
 
@@ -73,13 +73,13 @@ Both local and non-local mixing represent a substantial movement of material but
 
 ## Review of equations from the literature
 
-A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation:
+A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation (Johnson et al., 2014; Román‐Sánchez et al., 2019):
 
 $$
 \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})
 $$
 
-Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that defines the diffusion-depth relationship. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z):
+Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that describes the diffusion-depth relationship. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z):
 
 $$
 D(z) = D(0)e^{-z/z_{b}}
@@ -89,14 +89,15 @@ $$
 D(z)=-az+D(0)
 $$
 
-where zb is the e-folding length scale (0.28 here) and a is the gradient of the slope (including where diffusion is constant w/ depth, a = 0).
+where zb is the e-folding length scale (solved numerically as 0.28) and a is the gradient of the slope. A linear model may also be adjusted to represent constant diffusion with depth by setting a equal to zero.
 
-This code uses the above the equations to simulate the movement of a theoretical one-time surface applied tracer by biodiffusion, local mixing, only.
+*This code uses the above the equations to simulate the movement of a theoretical one-time surface applied tracer by biodiffusion, local mixing, only.*
 
 ```{python new, echo=TRUE}
 # import packages
 import matplotlib.pyplot as plt
 import numpy as np
+%matplotlib inline
 
 ################ local mixing with numpy ################
 
