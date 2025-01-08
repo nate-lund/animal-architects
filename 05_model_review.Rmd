@@ -99,7 +99,7 @@ p += 1 # mass/volume
 total_time = 10000 # years
 
 # [set] erosion/denudation rate. erosion (-)
-T = -2 # m / yr
+T = -0.005 # m / yr
 
 # establish biodiffusion function
 b = 9.81 * 10**(-5) # diffusion intercept m2/yr 
@@ -145,7 +145,7 @@ p += 1 # mass/volume
 total_time = 10000 # years
 
 # [set] erosion/denudation rate. erosion (-)
-T = -1 # m / yr
+T = -0.001 # m / yr
 
 # establish biodiffusion function
 b = 0 # diffusion intercept m2/yr 
@@ -275,7 +275,7 @@ y2_ts4 = y.copy() # output after 1/4 of total time
 for i in range(time_steps):
     qy = -1 * D[0:-1] * np.diff(y2 * p) / dz 
     diff = -np.diff(qy) / dz 
-    advec = T * np.diff(y2 * p) / dz
+    advec = T * -np.diff(y2 * p) / dz
     y2[1:-1] += (diff + advec[0:-1]) * dt 
     if i == (time_steps / 4):
         y2_ts4[1:-1] = y2[1:-1]
