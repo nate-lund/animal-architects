@@ -45,7 +45,6 @@ Where D is bulk-soil diffusion (m2/yr), s is the surface diffusion rate (m2/yr),
 ```{r Dz}
 # diffusion w/ depth function plotting
 eq = function(z){0.005334 * exp(-z/0.28)}
-eq2 = function(z){0.005334 * exp(-z/0.1)}
 ggplot(data.frame(z = c(0, 3)), aes(x = z)) +
   stat_function(fun = eq) +
   scale_y_reverse(name = "diffusion (m2/yr)") +
