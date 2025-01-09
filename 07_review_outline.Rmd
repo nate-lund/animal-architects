@@ -43,7 +43,7 @@ library(spelling)
 
 ### Introduction
 
-Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [Chapter \@ref(a-brief-history-of-pedology)], to establish importance. Draw connections from pedology to ecology, geomorpohology, and hydrology or more specifically carbon, soil health, and mineral weathering [Mudd and Yoo, 2010]. Use established importance to address the need for an updated, interdisciplinary review of how we think about bioturbation, both conceptually and numerically. Provide an overview of the questions answered and ultimate purpose of this article: How can we, and how have other authors, summarize what are animals doing to the soil?
+Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance. Draw connections from pedology to ecology, geomorpohology, and hydrology or more specifically carbon, soil health, and mineral weathering [Mudd and Yoo, 2010]. Use established importance to address the need for an updated, interdisciplinary review of how we think about bioturbation, both conceptually and numerically. Provide an overview of the questions answered and ultimate purpose of this article: How can we, and how have other authors, summarize what are animals doing to the soil?
 
 ### Conceptual models
 
@@ -124,7 +124,7 @@ Characterize the different techniques for estimating mixing rate and depth depen
 Describe how equations in the literature incorporate these approaches, providing equations to illustrate. For example (Boudreau, 1986):
 
 $$
-\frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρC)
+\frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρy)
 $$
 
 Discuss what variables these models include, and how these models integrate the animal-soil activity factors above. What is missing (erosion)? What assumptions are being made?
