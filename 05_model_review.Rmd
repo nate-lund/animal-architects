@@ -16,9 +16,9 @@ use_condaenv("C:/Users/natha/anaconda3/envs/animalarchitects_main")
 ```
 
 ```{python p_setup, echo = FALSE, include=FALSE}
-import matplotlib.pyplot as plt
-import numpy as np
-#%matplotlib inline
+# import matplotlib.pyplot as plt
+# import numpy as np
+# #%matplotlib inline
 ```
 
 ## Transition / Justification
@@ -83,6 +83,10 @@ Both local and non-local mixing represent a substantial movement of material but
 
 ```{python model_setup, echo = TRUE}
 
+import matplotlib.pyplot as plt
+import numpy as np
+#%matplotlib inline
+
 # build structures for data inputs
 dz = 0.1 # m
 z = np.arange(0, 10, dz, dtype=float) # create an array of depths
@@ -107,7 +111,7 @@ zb = 0.28 # m
 D = b * np.exp(-z/zb) # in m2/yr
 
 # more variables
-dt = 0.2 * (dz)^2 / b # sets time step size, based on Courant–Friedrichs–Lewy condition
+dt = 0.2 * dz**2 / b # sets time step size, based on Courant–Friedrichs–Lewy condition
 time_steps = int(total_time / dt) # calculates total number of time steps
 
 # plotting at a few time steps
@@ -125,53 +129,6 @@ def profile_plt(z, y_orig, y_ts4, y_ts2, y):
 
 
 ```
-```{python model_setup_copy, echo = TRUE}
-
-## copied to test erosion stuff
-
-# build structures for data inputs
-dz = 0.1 # m
-z = np.arange(0, 10, dz, dtype=float) # create an array of depths
-y = np.zeros(z.shape, dtype=float) # create a blank array for y, copies shape of z
-p = np.zeros(z.shape, dtype=float)# create a blank array for p, copies shape of z
-
-# [set] initial y values
-y = y1.copy() # mass/volume
-
-# [set] initial p values
-p += 1 # mass/volume
-
-# [set] total time
-total_time = 10000 # years
-
-# [set] erosion/denudation rate. erosion (-)
-T = -0.001 # m / yr
-
-# establish biodiffusion function
-b = 0 # diffusion intercept m2/yr 
-zb = 0.28 # m
-D = b * np.exp(-z/zb) # in m2/yr
-
-# more variables
-dt = 0.2 * (dz)^2 / b # sets time step size, based on Courant–Friedrichs–Lewy condition
-time_steps = int(total_time / dt) # calculates total number of time steps
-
-# plotting at a few time steps
-def profile_plt(z, y_orig, y_ts4, y_ts2, y):
-  plt.clf()
-  plt.plot(y_orig, -z, label = "Original Profile")
-  plt.plot(y_ts4, -z, label = "Diffused Profile Quater Time")
-  plt.plot(y_ts2, -z, label = "Diffused Profile Half Time")
-  plt.plot(y, -z, label = "Final Diffused Profile")
-  plt.xlabel('y (mass/volume)')
-  plt.ylabel('depth (m)')
-  plt.ylim(-2, 0)
-  plt.legend()
-  plt.show()
-
-
-```
-
 
 Quick note on time step size, dissucessed further later. Since this is a diffusive model, to maintain stability, we must choose a time step based on the Courant–Friedrichs–Lewy condition. Basically, the chosen time step must be sufficiently large so that a given layer or element will flow only to its immediate neighbors. It can be determined using the following equation $C=a\frac{dt}{dz^2}$, where a is diffusivity, dt time step length, and dz layer depth where $C<=1$.
 

@@ -2,6 +2,8 @@
 
 
 
+
+
 ## Transition / Justification
 
 Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and are can be informed by conceptual ones…
@@ -18,7 +20,7 @@ Tracers to estimate organism bioturbation rate, OSL for soil age.
 
 Most bioturbation models consider the observation made by scientists as far back as Charles Darwin that organism activity declines with depth (Darwin, 1881) [citations]. Intuitively, greater soil depths are not as attractive to soil fauna because of increased soil density and a diminishing food supply (citation). However, a degree of nuance is needed to understand when this observation is relevant to modeling. Depth dependence is relevant under the following conditions. 1) Organism activity does not encompass the entire profile. 2) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. 3) The rate of mixing is large compared to soil erosion or production. 4) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be meaningfully redistributed by fauna nor to slow to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope tracers.
 
-When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statistically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an exponential function. Notably, however, the shape of the functions described by these authors varies [Table X], which challenges attempts to broaden model application.
+When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. Most often, it is found by statistically fitting a function to quartz grain age or isotope tracers from samples taken at several depth increments (Gray et al., 2020; Jarvis et al. 2010; Johnson et al., 2014; Matisoff et al., 2011) [there are more studies to included here, one that I cannot find]. There is as general consensus among these studies that diffusion depth-dependence is ubiquitous across environments and is generally best described by an exponential function (citation). Notably, however, the shape of the functions described by these authors varies [Table X], which challenges attempts to broaden model application.
 
 [I need to look into this further and compare the diffusion-depth functions. also, are there other ways of estimating diffusion depth? is there a way to create a general form? what is the biggest limitation: it is maximum depth or shape? this is notwithstanding any non-local diffusion.]
 
@@ -60,43 +62,20 @@ Both local and non-local mixing represent a substantial movement of material but
 
 ## Review of equations from the literature
 
-A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation:
-
-$$
-\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})
-$$
-
-Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that defines the diffusion-depth relationship. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z):
-
-$$
-D(z) = D(0)e^{-z/z_{b}}
-$$
-
-$$
-D(z)=-az+D(0)
-$$
-
-where zb is the e-folding length scale (0.28 here) and a is the gradient of the slope (including where diffusion is constant w/ depth, a = 0).
-
-This code uses the above the equations to simulate the movement of a theoretical one-time surface applied tracer by biodiffusion, local mixing, only.
+*This first code chunk defines the shared structures and variables used by the following code chunks. It has no outputs itself.*
 
 
 ``` python
-# import packages
+
 import matplotlib.pyplot as plt
 import numpy as np
-
-################ local mixing with numpy ################
+#%matplotlib inline
 
 # build structures for data inputs
-dz = 1 # cm
-z = np.arange(0, 100, dz, dtype=float) # create an array of depths
+dz = 0.1 # m
+z = np.arange(0, 10, dz, dtype=float) # create an array of depths
 y = np.zeros(z.shape, dtype=float) # create a blank array for y, copies shape of z
 p = np.zeros(z.shape, dtype=float)# create a blank array for p, copies shape of z
-
-# establish biodiffusion function
-b = 0.01 # diffusion intercept
-D = b * np.exp(-z/100/0.28)
 
 # [set] initial y values
 y[z == 0] += 1 # mass/volume
@@ -107,50 +86,133 @@ p += 1 # mass/volume
 # [set] total time
 total_time = 10000 # years
 
+# [set] erosion/denudation rate. erosion (-)
+T = -0.005 # m / yr
+
+# establish biodiffusion function
+b = 9.81 * 10**(-5) # diffusion intercept m2/yr 
+zb = 0.28 # m
+D = b * np.exp(-z/zb) # in m2/yr
+
 # more variables
-dt = 0.2 * dz * dz / b # sets time step size, based on Courant–Friedrichs–Lewy condition
+dt = 0.2 * dz**2 / b # sets time step size, based on Courant–Friedrichs–Lewy condition
 time_steps = int(total_time / dt) # calculates total number of time steps
-y_orig = y.copy() # creates a copy of the z list for use in the for loop
-y_ts2 = y.copy()
-y_ts4 = y.copy()
+
+# plotting at a few time steps
+def profile_plt(z, y_orig, y_ts4, y_ts2, y):
+  plt.clf()
+  plt.plot(y_orig, -z, label = "Original Profile")
+  plt.plot(y_ts4, -z, label = "Diffused Profile Quater Time")
+  plt.plot(y_ts2, -z, label = "Diffused Profile Half Time")
+  plt.plot(y, -z, label = "Final Diffused Profile")
+  plt.xlabel('y (mass/volume)')
+  plt.ylabel('depth (m)')
+  plt.ylim(-2, 0)
+  plt.legend()
+  plt.show()
+
+```
+
+Quick note on time step size, dissucessed further later. Since this is a diffusive model, to maintain stability, we must choose a time step based on the Courant–Friedrichs–Lewy condition. Basically, the chosen time step must be sufficiently large so that a given layer or element will flow only to its immediate neighbors. It can be determined using the following equation $C=a\frac{dt}{dz^2}$, where a is diffusivity, dt time step length, and dz layer depth where $C<=1$.
+
+### Type 1
+
+A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation (Johnson et al., 2014; Román‐Sánchez et al., 2019):
+
+$$
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})
+$$
+
+Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that describes the diffusion-depth relationship. Note, Johnson et al. (2014) and Román‐Sánchez et al. (2019) include a $+ 1$ on the right side of the equation, a term specfic to modeling soil grain age. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z), derived from Kirkby (1985):
+
+$$
+D(z) = D(0)e^{-z/z_{b}}
+$$
+
+$$
+D(z)=-az+D(0)
+$$
+
+where zb is the e-folding length scale and a is the gradient of the slope. A linear model may also be adjusted to represent constant diffusion with depth by setting a equal to zero.
+
+*This code uses the above the equations to simulate the movement of a theoretical one-time surface applied tracer by biodiffusion, local mixing, only.*
+
+
+``` python
+# create copies of the y array for for loop
+y1 = y.copy() # final output
+y1_ts2 = y.copy() # output after 1/2 of total time
+y1_ts4 = y.copy() # output after 1/4 of total time
 
 # in order, the for statement will: 
   # calculate the gradient of y over z, multiplies by D to get linear flux
-  # caclulate the change in y flux over z. this is the net flux for each point
+  # calculate the change in y flux over z. this is the net flux for each point
   # adds the net flux from y at each z EXCEPT the first and last positions 
-  # create some extra arrays for plotting through if statment
+  # create some extra arrays for plotting through if statement
 
 for i in range(time_steps):
-    qy = -1 * D[0:-1] * np.diff(y * p) / dz 
+    qy = -1 * D[0:-1] * np.diff(y1 * p) / dz 
     dydt = -np.diff(qy) / dz 
-    y[1:-1] += dydt * dt 
+    y1[1:-1] += dydt * dt 
     if i == (time_steps / 4):
-        y_ts4[1:-1] = y[1:-1]
+        y1_ts4[1:-1] = y1[1:-1]
     elif i == (time_steps / 2):
-        y_ts2[1:-1] = y[1:-1]
+        y1_ts2[1:-1] = y1[1:-1]
 
-# plotting at a few timesteps
-plt.clf()
-plt.plot(y_orig, -z, label = "Original Profile")
-plt.plot(y_ts4, -z, label = "Diffused Profile Quater Time")
-plt.plot(y_ts2, -z, label = "Diffused Profile Half Time")
-plt.plot(y, -z, label = "Final Diffused Profile")
-plt.xlabel('y (mass/volume)')
-plt.ylabel('depth (cm)')
-plt.legend()
-plt.show()
+profile_plt(z, y, y1_ts4, y1_ts2, y1)
 ```
 
-<img src="05_model_review_files/figure-html/new-1.png" width="672" />
+<img src="05_model_review_files/figure-html/local_biodiffusion-1.png" width="672" />
 
-This model is a significant oversimplifcation of a soil-system, however. Surface erosion and depoistion can be relativley easilty introduced. is a
+This model is a significant oversimplification of a soil-system, however, and surface erosion and deposition can be relatively easily introduced. Conceptually, erosion and deposition represent the bulk advective movement of the y-profile. Erosion movies the profile upwards, and deposition (known as burial in aquatic environments) moves the profile downwards.
 
-Johnson et al. (2014) integrates an erosion factor into this equation.“The erosion formulation acts by advecting the age profiles up towards the profile surface at a rate T, effectively removing the surface layers (Kirkby, 1985). Thus, Equation (2) becomes” ([Johnson et al., 2014, p. 1192])
+*This code generates a visualization of the impact of erosion on a theoretical tracer profile. 1) tracer profile at steady state, 2) tracer profile moves downwards under deposition, and 3) tracer profile moves upwards under erosion. Soil surface at z = 0.*
+
+<img src="05_model_review_files/figure-html/erosion_visulization-3.png" width="672" />
+
+Johnson et al. (2014) and Román‐Sánchez et al. (2019) include an erosion factor, T, derived in Kirkby (1980).
+
+$$
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})+\frac{dz}{dt}\frac{dyρ}{dz}
+$$
+*This code adds advection, by erosion and deposition, to the model.*
+
+
+``` python
+# create copies of the y array for for loop
+y2 = y.copy() # final output
+y2_ts2 = y.copy() # output after 1/2 of total time
+y2_ts4 = y.copy() # output after 1/4 of total time
+
+# in order, the for statement will: 
+  # calculate the gradient of y over z, multiplies by D to get linear flux
+  # calculate the change in y flux over z. this is the net flux for each point
+  # adds the net flux from y at each z EXCEPT the first and last positions 
+  # create some extra arrays for plotting through if statement
+
+for i in range(time_steps):
+    qy = -1 * D[0:-1] * np.diff(y2 * p) / dz 
+    diff = -np.diff(qy) / dz 
+    advec = T * -np.diff(y2 * p) / dz
+    y2[1:-1] += (diff + advec[0:-1]) * dt 
+    if i == (time_steps / 4):
+        y2_ts4[1:-1] = y2[1:-1]
+    elif i == (time_steps / 2):
+        y2_ts2[1:-1] = y2[1:-1]
+
+profile_plt(z, y, y2_ts4, y2_ts2, y2)
+```
+
+<img src="05_model_review_files/figure-html/local_biodiffusion_advection-1.png" width="672" />
+
+<img src="05_model_review_files/figure-html/plot_compairson-3.png" width="672" /><img src="05_model_review_files/figure-html/plot_compairson-4.png" width="672" />
+
+### Type 2
 
 Jarvis et al. (2010) and Matisoff et al. (2011) apply similar equations derived in Boudreau (1986) in using radioisotope tracers.
 
 $$
-\frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρC)
+\frac{dρy}{dt}=\frac{d}{dz}(D(z)\frac{dρy}{dx})-wρC)
 $$
 
 Where w is rate of downward soil displacement or soil velocity (m/s), which can be constant or a function of depth. This function has the advantage of integrating depth-dependent soil bulk density (ρ).
