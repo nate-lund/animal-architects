@@ -191,8 +191,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="numerical-models-1.html"><a href="numerical-models-1.html#review-of-equations-from-the-literature"><i class="fa fa-check"></i><b>8.4</b> Review of equations from the literature</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-1-optically-stimulated-lumenscence-applications"><i class="fa fa-check"></i><b>8.4.1</b> Type 1: Optically Stimulated Lumenscence Applications</a></li>
-<li class="chapter" data-level="8.4.2" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-2"><i class="fa fa-check"></i><b>8.4.2</b> Type 2</a></li>
+<li class="chapter" data-level="8.4.1" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-1-optically-stimulated-luminescence-applications"><i class="fa fa-check"></i><b>8.4.1</b> Type 1: Optically Stimulated Luminescence Applications</a></li>
+<li class="chapter" data-level="8.4.2" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-2-isotope-tracers"><i class="fa fa-check"></i><b>8.4.2</b> Type 2: Isotope Tracers</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="numerical-models-1.html"><a href="numerical-models-1.html#references-2"><i class="fa fa-check"></i><b>8.5</b> References</a></li>
 </ul></li>
@@ -286,69 +286,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="depth-dependence" class="section level3 hasAnchor" number="8.3.3">
 <h3><span class="header-section-number">8.3.3</span> Depth dependence<a href="numerical-models-1.html#depth-dependence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most bioturbation models consider the observation made by scientists as far back as Charles Darwin that organism activity declines with depth (Darwin, 1881), with more contemporary authors attempting to quantify this decline (Vanwalleghem et al., 2013; among others). However, a degree of nuance is needed to understand when this observation is relevant to modeling. Depth dependence is relevant under the following conditions. 1) Organism activity does not encompass the entire profile. 2) The system is not in equilibrium, or too little time has passed for bioturbation to homogenize the soil profile. 3) The rate of mixing is large compared to soil erosion or production. 4) Material that is introduced to the profile decays, weathers, or is otherwise transformed at a rate neither too fast to be meaningfully redistributed by fauna nor to slow to reach equilibrium. If one or multiple of these conditions are met, a diffusion-depth function is needed. [are examples needed to illustrate this?] Boudreau (1986a) provides equations for when these conditions are met for specific radioisotope</p>
-<p>When depth dependence is relevant, a function that describes the diffusion-depth relationship is derrived. A diffusion-depth function requires three pieces of information: surface diffusion coeffiecent, maximum bioturbation depth, and the shape of the decline. There is a general consensus in the literature that the funciton’s shape is best described by an exponential function (Boudreau, 1986a; Jarvis et al. 2010; Román‐Sánchez et al., 2019; Kirkby, 1985). The remaining two parameters are both environment specific and the most influential parameters in diffusion models (Román‐Sánchez et al., 2019). They are determined through field observation, as suggested by Boudreau (1986a), or by fitting an equation to the vertical distrobutions of radioisotope tracers (Gray et al., 2020; Jarvis et al. 2010; Matisoff et al., 2011), for shorter timescales, or OSL-determined quartz grain ages, for longer timescales (Johnson et al. 2014; Román‐Sánchez et al., 2019).</p>
-<p>[erosion is also kinda imortant to this relationship, but not as.]</p>
-<p>Attempts to broaden model application are challegned by the considerable variability in theses parameters [Table X] and the relative costs of radioistope tracer or OSL analysis. However, there may be future oppertunities to estimate parameters. As disussed in the conceptual model section, holiscally conisdering the impact of soil fauna on mixing may provide insights into alternative methods. Kirkby (1985) suggests the possiblity of using a bulk density profile to estimate mixing intensity. Estimating animal or disturbance density may also play an important role.</p>
+<p>When depth dependence is relevant, a function that describes the diffusion-depth relationship is derived. A diffusion-depth function requires three pieces of information: surface diffusion coefficient, maximum bioturbation depth, and the shape of the decline. There is a general consensus in the literature that the function’s shape is best described by an exponential function (Boudreau, 1986a; Jarvis et al. 2010; Román‐Sánchez et al., 2019; Kirkby, 1985). The remaining two parameters are both environment specific and the most influential parameters in diffusion models (Román‐Sánchez et al., 2019). They are determined through field observation, as suggested by Boudreau (1986a), or by fitting an equation to the vertical distributions of radioisotope tracers (Gray et al., 2020; Jarvis et al. 2010; Matisoff et al., 2011), for shorter timescales, or OSL-determined quartz grain ages, for longer timescales (Johnson et al. 2014; Román‐Sánchez et al., 2019).</p>
+<p>[erosion is also kinda important to this relationship, but not as. Discuss how erosion is measured, briefly]</p>
+<p>Attempts to broaden model application are challenged by the considerable variability in theses parameters [Table X] and the relative costs of radioisotope tracer or OSL analysis. However, there may be future opportunities to estimate parameters. As discussed in the conceptual model section, holistically considering the impact of soil fauna on mixing may provide insights into alternative methods. Kirkby (1985) suggests the possibility of using a bulk density profile to estimate mixing intensity. Estimating animal or disturbance density may also play an important role.</p>
 </div>
 </div>
 <div id="review-of-equations-from-the-literature" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Review of equations from the literature<a href="numerical-models-1.html#review-of-equations-from-the-literature" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Because determining the animal activity-depth ratio is so important to diffusive models, it makes sense to break down the different modeling approaches by the method used to determine this relationship, OSL and isotope tracers.</p>
 <p><em>This first code chunk defines the shared structures and variables used by the following code chunks. It has no outputs itself.</em></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="numerical-models-1.html#cb2-1" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="numerical-models-1.html#cb2-2" tabindex="-1"></a><span class="co"># build structures for data inputs</span></span>
+<span id="cb2-2"><a href="numerical-models-1.html#cb2-2" tabindex="-1"></a><span class="co"># build structures for data inputs. These do not get overwritten.</span></span>
 <span id="cb2-3"><a href="numerical-models-1.html#cb2-3" tabindex="-1"></a>dz <span class="op">=</span> <span class="fl">0.1</span> <span class="co"># m</span></span>
-<span id="cb2-4"><a href="numerical-models-1.html#cb2-4" tabindex="-1"></a>z <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">10</span>, dz, dtype<span class="op">=</span><span class="bu">float</span>) <span class="co"># create an array of depths</span></span>
+<span id="cb2-4"><a href="numerical-models-1.html#cb2-4" tabindex="-1"></a>z <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">3</span>, dz, dtype<span class="op">=</span><span class="bu">float</span>) <span class="co"># create an array of depths</span></span>
 <span id="cb2-5"><a href="numerical-models-1.html#cb2-5" tabindex="-1"></a>y <span class="op">=</span> np.zeros(z.shape, dtype<span class="op">=</span><span class="bu">float</span>) <span class="co"># create a blank array for y, copies shape of z</span></span>
 <span id="cb2-6"><a href="numerical-models-1.html#cb2-6" tabindex="-1"></a>p <span class="op">=</span> np.zeros(z.shape, dtype<span class="op">=</span><span class="bu">float</span>)<span class="co"># create a blank array for p, copies shape of z</span></span>
 <span id="cb2-7"><a href="numerical-models-1.html#cb2-7" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="numerical-models-1.html#cb2-8" tabindex="-1"></a><span class="co"># [set] initial y values</span></span>
-<span id="cb2-9"><a href="numerical-models-1.html#cb2-9" tabindex="-1"></a><span class="co">#y[z == 0] += 1 # mass/volume</span></span>
+<span id="cb2-9"><a href="numerical-models-1.html#cb2-9" tabindex="-1"></a><span class="co">#y[z == 0] += 1 # mass or activity y / mass soil</span></span>
 <span id="cb2-10"><a href="numerical-models-1.html#cb2-10" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="numerical-models-1.html#cb2-11" tabindex="-1"></a><span class="co"># [set] initial p values</span></span>
-<span id="cb2-12"><a href="numerical-models-1.html#cb2-12" tabindex="-1"></a>p <span class="op">+=</span> <span class="dv">1</span> <span class="co"># mass/volume</span></span>
+<span id="cb2-12"><a href="numerical-models-1.html#cb2-12" tabindex="-1"></a>p <span class="op">+=</span> <span class="dv">1</span> <span class="co"># mass soil / volume soil</span></span>
 <span id="cb2-13"><a href="numerical-models-1.html#cb2-13" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="numerical-models-1.html#cb2-14" tabindex="-1"></a><span class="co"># [set] total time</span></span>
 <span id="cb2-15"><a href="numerical-models-1.html#cb2-15" tabindex="-1"></a>total_time <span class="op">=</span> <span class="dv">10000</span> <span class="co"># years</span></span>
 <span id="cb2-16"><a href="numerical-models-1.html#cb2-16" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="numerical-models-1.html#cb2-17" tabindex="-1"></a><span class="co"># [set] erosion/denudation rate. erosion (-)</span></span>
-<span id="cb2-18"><a href="numerical-models-1.html#cb2-18" tabindex="-1"></a>T <span class="op">=</span> <span class="op">-</span><span class="fl">0.0001</span> <span class="co"># m / yr</span></span>
+<span id="cb2-18"><a href="numerical-models-1.html#cb2-18" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">0</span> <span class="co"># m / yr</span></span>
 <span id="cb2-19"><a href="numerical-models-1.html#cb2-19" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="numerical-models-1.html#cb2-20" tabindex="-1"></a><span class="co"># establish biodiffusion function</span></span>
-<span id="cb2-21"><a href="numerical-models-1.html#cb2-21" tabindex="-1"></a>D0 <span class="op">=</span> <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>) <span class="co"># diffusion intercept m2/yr </span></span>
-<span id="cb2-22"><a href="numerical-models-1.html#cb2-22" tabindex="-1"></a>zb <span class="op">=</span> <span class="fl">0.28</span> <span class="co"># m</span></span>
-<span id="cb2-23"><a href="numerical-models-1.html#cb2-23" tabindex="-1"></a>D <span class="op">=</span> D0 <span class="op">*</span> np.exp(<span class="op">-</span>z<span class="op">/</span>zb) <span class="co"># in m2/yr</span></span>
-<span id="cb2-24"><a href="numerical-models-1.html#cb2-24" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="numerical-models-1.html#cb2-25" tabindex="-1"></a><span class="co"># more variables</span></span>
-<span id="cb2-26"><a href="numerical-models-1.html#cb2-26" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> dz<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> D0 <span class="co"># sets time step size, based on Courant–Friedrichs–Lewy condition</span></span>
-<span id="cb2-27"><a href="numerical-models-1.html#cb2-27" tabindex="-1"></a>time_steps <span class="op">=</span> <span class="bu">int</span>(total_time <span class="op">/</span> dt) <span class="co"># calculates total number of time steps</span></span>
-<span id="cb2-28"><a href="numerical-models-1.html#cb2-28" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="numerical-models-1.html#cb2-29" tabindex="-1"></a><span class="co"># plotting at a few time steps</span></span>
-<span id="cb2-30"><a href="numerical-models-1.html#cb2-30" tabindex="-1"></a><span class="kw">def</span> profile_plt(z, y_orig, y_ts4, y_ts2, y):</span>
-<span id="cb2-31"><a href="numerical-models-1.html#cb2-31" tabindex="-1"></a>  plt.clf()</span>
-<span id="cb2-32"><a href="numerical-models-1.html#cb2-32" tabindex="-1"></a>  plt.plot(y_orig, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Original Profile&quot;</span>)</span>
-<span id="cb2-33"><a href="numerical-models-1.html#cb2-33" tabindex="-1"></a>  plt.plot(y_ts4, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Profile after quater time&quot;</span>)</span>
-<span id="cb2-34"><a href="numerical-models-1.html#cb2-34" tabindex="-1"></a>  plt.plot(y_ts2, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Profile after half time&quot;</span>)</span>
-<span id="cb2-35"><a href="numerical-models-1.html#cb2-35" tabindex="-1"></a>  plt.plot(y, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Final Profile&quot;</span>)</span>
-<span id="cb2-36"><a href="numerical-models-1.html#cb2-36" tabindex="-1"></a>  plt.xlabel(<span class="st">&#39;Age since exposure to surface (yr)&#39;</span>)</span>
-<span id="cb2-37"><a href="numerical-models-1.html#cb2-37" tabindex="-1"></a>  plt.ylabel(<span class="st">&#39;Depth (m)&#39;</span>)</span>
-<span id="cb2-38"><a href="numerical-models-1.html#cb2-38" tabindex="-1"></a>  plt.ylim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb2-39"><a href="numerical-models-1.html#cb2-39" tabindex="-1"></a>  plt.legend()</span>
-<span id="cb2-40"><a href="numerical-models-1.html#cb2-40" tabindex="-1"></a>  plt.show()</span></code></pre></div>
-<p>Quick note on time step size, dissucessed further later. Since these are diffusive model, to maintain conservation of mass, we must choose a time step based on the Courant–Friedrichs–Lewy condition. Basically, the chosen time step must be sufficiently large so that a given layer will diffuse only to its immediate neighbors. It can be determined using the following equation <span class="math inline">\(C=a\frac{dt}{dz^2}\)</span>, where a is diffusivity, dt time step length, and dz layer depth where <span class="math inline">\(C&lt;=1\)</span>.</p>
-<div id="type-1-optically-stimulated-lumenscence-applications" class="section level3 hasAnchor" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Type 1: Optically Stimulated Lumenscence Applications<a href="numerical-models-1.html#type-1-optically-stimulated-lumenscence-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<span id="cb2-20"><a href="numerical-models-1.html#cb2-20" tabindex="-1"></a><span class="co"># Define the exponential diffusion equation</span></span>
+<span id="cb2-21"><a href="numerical-models-1.html#cb2-21" tabindex="-1"></a><span class="kw">def</span> D(z, D0, zb):</span>
+<span id="cb2-22"><a href="numerical-models-1.html#cb2-22" tabindex="-1"></a>    <span class="cf">return</span> D0 <span class="op">*</span> np.exp(<span class="op">-</span>z<span class="op">/</span>zb) <span class="co"># in m2/yr</span></span>
+<span id="cb2-23"><a href="numerical-models-1.html#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="numerical-models-1.html#cb2-24" tabindex="-1"></a><span class="co"># adjust timestep size</span></span>
+<span id="cb2-25"><a href="numerical-models-1.html#cb2-25" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.2</span> <span class="op">*</span> dz<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">3</span>) <span class="co"># sets time step size, based on Courant–Friedrichs–Lewy condition. Currently a general, low value</span></span>
+<span id="cb2-26"><a href="numerical-models-1.html#cb2-26" tabindex="-1"></a>time_steps <span class="op">=</span> <span class="bu">int</span>(total_time <span class="op">/</span> dt) <span class="co"># calculates total number of time steps</span></span>
+<span id="cb2-27"><a href="numerical-models-1.html#cb2-27" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="numerical-models-1.html#cb2-28" tabindex="-1"></a><span class="co"># define OSL diffusion only function</span></span>
+<span id="cb2-29"><a href="numerical-models-1.html#cb2-29" tabindex="-1"></a><span class="kw">def</span> OSL_diffusion(z, y, p, dz, dt, T, D):</span>
+<span id="cb2-30"><a href="numerical-models-1.html#cb2-30" tabindex="-1"></a>  y_copy <span class="op">=</span> y.copy()</span>
+<span id="cb2-31"><a href="numerical-models-1.html#cb2-31" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(time_steps):</span>
+<span id="cb2-32"><a href="numerical-models-1.html#cb2-32" tabindex="-1"></a>    qy <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> D[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.diff(y_copy <span class="op">*</span> p) <span class="op">/</span> dz</span>
+<span id="cb2-33"><a href="numerical-models-1.html#cb2-33" tabindex="-1"></a>    diff <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> np.diff(qy) <span class="op">/</span> dz <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-34"><a href="numerical-models-1.html#cb2-34" tabindex="-1"></a>    advec <span class="op">=</span> T <span class="op">*</span> <span class="op">-</span>np.diff(y_copy <span class="op">*</span> p) <span class="op">/</span> dz</span>
+<span id="cb2-35"><a href="numerical-models-1.html#cb2-35" tabindex="-1"></a>    dydt <span class="op">=</span> diff <span class="op">+</span> advec[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span> </span>
+<span id="cb2-36"><a href="numerical-models-1.html#cb2-36" tabindex="-1"></a>    y_copy[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> dydt <span class="op">*</span> dt</span>
+<span id="cb2-37"><a href="numerical-models-1.html#cb2-37" tabindex="-1"></a>  <span class="cf">return</span> y_copy</span>
+<span id="cb2-38"><a href="numerical-models-1.html#cb2-38" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="numerical-models-1.html#cb2-39" tabindex="-1"></a><span class="kw">def</span> OSL_plt_defaults():</span>
+<span id="cb2-40"><a href="numerical-models-1.html#cb2-40" tabindex="-1"></a>  plt.ylim(<span class="op">-</span><span class="fl">1.2</span>, <span class="dv">0</span>)</span>
+<span id="cb2-41"><a href="numerical-models-1.html#cb2-41" tabindex="-1"></a>  plt.legend()</span>
+<span id="cb2-42"><a href="numerical-models-1.html#cb2-42" tabindex="-1"></a>  plt.xlabel(<span class="st">&#39;Age since exposure to surface (yr)&#39;</span>)</span>
+<span id="cb2-43"><a href="numerical-models-1.html#cb2-43" tabindex="-1"></a>  plt.ylabel(<span class="st">&#39;Depth (m)&#39;</span>)</span>
+<span id="cb2-44"><a href="numerical-models-1.html#cb2-44" tabindex="-1"></a>  plt.show()</span></code></pre></div>
+<p>Quick note on time step size, discussed further later. Since these are diffusive models, to maintain conservation of mass, we must choose a time step based on the Courant–Friedrichs–Lewy condition. Basically, the chosen time step must be sufficiently small so that a given layer will diffuse only to its immediate neighbors. It can be determined using the following equation <span class="math inline">\(C=a\frac{dt}{dz^2}\)</span>, where a is diffusivity, dt time step length, and dz layer depth where <span class="math inline">\(C&lt;=1\)</span>.</p>
+<div id="type-1-optically-stimulated-luminescence-applications" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Type 1: Optically Stimulated Luminescence Applications<a href="numerical-models-1.html#type-1-optically-stimulated-luminescence-applications" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A variety of equations, with varying complexities, are used to describe biotubation. Most basically, it is descried be a simple diffusion equation (Johnson et al., 2014; Román‐Sánchez et al., 2019):</p>
 <p><span class="math display">\[
-\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})+1
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dA}{dz})+1
 \]</span></p>
-<p>Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a biodiffusion function that describes the diffusion-depth relationship. Note, Johnson et al. (2014) and Román‐Sánchez et al. (2019) include a <span class="math inline">\(+ 1\)</span> on the right side of the equation, a term specfic to modeling soil grain age. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z), the former introduced in Kirkby (1985):</p>
+<p>Where a is soil grain age (yr) and D(z) is a biodiffusion function that describes the diffusion-depth relationship. Note, Johnson et al. (2014) and Román‐Sánchez et al. (2019) include a <span class="math inline">\(+ 1\)</span> on the right side of the equation, a term specific to modeling soil grain age. D(z) may be linear, exponential, or constant. Although, as noted above, there is general consensus that this relationship is exponential. Johnson et al. (2014) applies the following two definitions of D(z), the former introduced in Kirkby (1985):</p>
 <p><span class="math display">\[
 D(z) = D(0)e^{-z/z_{b}}
 \]</span></p>
 <p><span class="math display">\[
 D(z)=-az+D(0)
 \]</span></p>
-<p>where zb is the e-folding length scale and a is the gradient of the slope. A linear model may also be adjusted to represent constant diffusion with depth by setting a equal to zero.</p>
+<p>where zb is the e-folding length scale and a is the gradient of the slope. A linear model may also be adjusted to represent constant diffusion with depth by setting a equal to zero. The vaules for these parameters vary (Table X).</p>
 <table>
 <caption>Table X</caption>
 <colgroup>
@@ -405,65 +410,47 @@ D(z)=-az+D(0)
 <p><em>This code plots the differing exponential D(z) equations.</em></p>
 <p><img src="05_model_review_files/figure-html/diffusion_dc-1.png" width="672" /></p>
 <p><em>This code uses the above the equations to simulate an age profile of soil grains created by biodiffusion, local mixing, only.</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="numerical-models-1.html#cb3-1" tabindex="-1"></a><span class="co"># create copies of the y array for for loop</span></span>
-<span id="cb3-2"><a href="numerical-models-1.html#cb3-2" tabindex="-1"></a>y1 <span class="op">=</span> y.copy() <span class="co"># final output</span></span>
-<span id="cb3-3"><a href="numerical-models-1.html#cb3-3" tabindex="-1"></a>y1_ts2 <span class="op">=</span> y.copy() <span class="co"># output after 1/2 of total time</span></span>
-<span id="cb3-4"><a href="numerical-models-1.html#cb3-4" tabindex="-1"></a>y1_ts4 <span class="op">=</span> y.copy() <span class="co"># output after 1/4 of total time</span></span>
-<span id="cb3-5"><a href="numerical-models-1.html#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="numerical-models-1.html#cb3-6" tabindex="-1"></a><span class="co"># in order, the for statement will: </span></span>
-<span id="cb3-7"><a href="numerical-models-1.html#cb3-7" tabindex="-1"></a>  <span class="co"># calculate the gradient of y over z, multiplies by D to get linear flux</span></span>
-<span id="cb3-8"><a href="numerical-models-1.html#cb3-8" tabindex="-1"></a>  <span class="co"># calculate the change in y flux over z. this is the net flux for each point</span></span>
-<span id="cb3-9"><a href="numerical-models-1.html#cb3-9" tabindex="-1"></a>  <span class="co"># adds the net flux from y at each z EXCEPT the first and last positions </span></span>
-<span id="cb3-10"><a href="numerical-models-1.html#cb3-10" tabindex="-1"></a>  <span class="co"># create some extra arrays for plotting through if statement</span></span>
-<span id="cb3-11"><a href="numerical-models-1.html#cb3-11" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="numerical-models-1.html#cb3-12" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(time_steps):</span>
-<span id="cb3-13"><a href="numerical-models-1.html#cb3-13" tabindex="-1"></a>    qy <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> D[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.diff(y1 <span class="op">*</span> p) <span class="op">/</span> dz </span>
-<span id="cb3-14"><a href="numerical-models-1.html#cb3-14" tabindex="-1"></a>    dydt <span class="op">=</span> <span class="op">-</span>np.diff(qy) <span class="op">/</span> dz <span class="op">+</span> <span class="dv">1</span> </span>
-<span id="cb3-15"><a href="numerical-models-1.html#cb3-15" tabindex="-1"></a>    y1[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> dydt <span class="op">*</span> dt </span>
-<span id="cb3-16"><a href="numerical-models-1.html#cb3-16" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="bu">round</span>(time_steps <span class="op">/</span> <span class="dv">4</span>):</span>
-<span id="cb3-17"><a href="numerical-models-1.html#cb3-17" tabindex="-1"></a>        y1_ts4[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y1[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb3-18"><a href="numerical-models-1.html#cb3-18" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="op">==</span> <span class="bu">round</span>(time_steps <span class="op">/</span> <span class="dv">2</span>):</span>
-<span id="cb3-19"><a href="numerical-models-1.html#cb3-19" tabindex="-1"></a>        y1_ts2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y1[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb3-20"><a href="numerical-models-1.html#cb3-20" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="numerical-models-1.html#cb3-21" tabindex="-1"></a>profile_plt(z, y, y1_ts4, y1_ts2, y1)</span></code></pre></div>
-<p><img src="05_model_review_files/figure-html/local_biodiffusion-3.png" width="672" /></p>
-<p>This model is a significant oversimplification of a soil-system, however, and surface erosion and deposition are relatively easily introduced. Conceptually, erosion and deposition represent the bulk advective movement of the y-profile. Erosion movies the profile upwards, and deposition moves the profile downwards.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="numerical-models-1.html#cb3-1" tabindex="-1"></a>Johnson <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, T, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb3-2"><a href="numerical-models-1.html#cb3-2" tabindex="-1"></a>Kirkby <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, T, D(z, <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.50</span>))</span>
+<span id="cb3-3"><a href="numerical-models-1.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="numerical-models-1.html#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="numerical-models-1.html#cb3-5" tabindex="-1"></a>plt.clf()</span>
+<span id="cb3-6"><a href="numerical-models-1.html#cb3-6" tabindex="-1"></a>plt.plot(Johnson, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Johnson et al. (2014)&quot;</span>)</span>
+<span id="cb3-7"><a href="numerical-models-1.html#cb3-7" tabindex="-1"></a>plt.plot(Kirkby, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;Kirkby (1985)&quot;</span>)</span>
+<span id="cb3-8"><a href="numerical-models-1.html#cb3-8" tabindex="-1"></a>OSL_plt_defaults()</span></code></pre></div>
+<p><img src="05_model_review_files/figure-html/local_biodiffusion1-3.png" width="672" /></p>
+<p>This model is an oversimplification of a soil-system, however, and surface erosion and deposition are relatively easily introduced. Conceptually, erosion and deposition represent the bulk advective movement of the profile. Erosion movies the profile upwards, and deposition moves the profile downwards.</p>
+<p><span class="math display">\[
+\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dA}{dz})+\frac{dz}{dt}\frac{dA}{dz}
+\]</span></p>
 <p><em>This code generates a visualization of the impact of erosion on a theoretical tracer profile. 1) tracer profile at steady state, 2) tracer profile moves downwards under deposition, and 3) tracer profile moves upwards under erosion. Soil surface at z = 0.</em></p>
 <p><img src="05_model_review_files/figure-html/erosion_visulization-5.png" width="672" /></p>
-<p>Johnson et al. (2014) and Román‐Sánchez et al. (2019) include an erosion factor, T, derived in Kirkby (1980).</p>
+<p><em>This code adds advection, by erosion and deposition, to the model.</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="numerical-models-1.html#cb4-1" tabindex="-1"></a>T1 <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, <span class="dv">0</span>, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb4-2"><a href="numerical-models-1.html#cb4-2" tabindex="-1"></a>T2 <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, <span class="op">-</span><span class="fl">0.00005</span>, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb4-3"><a href="numerical-models-1.html#cb4-3" tabindex="-1"></a>T3 <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, <span class="op">-</span><span class="fl">0.0001</span>, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb4-4"><a href="numerical-models-1.html#cb4-4" tabindex="-1"></a>T4 <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, <span class="fl">0.00005</span>, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb4-5"><a href="numerical-models-1.html#cb4-5" tabindex="-1"></a>T5 <span class="op">=</span> OSL_diffusion(z, y, p, dz, dt, <span class="fl">0.00001</span>, D(z, <span class="fl">9.81</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(<span class="op">-</span><span class="dv">5</span>), <span class="fl">0.28</span>))</span>
+<span id="cb4-6"><a href="numerical-models-1.html#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="numerical-models-1.html#cb4-7" tabindex="-1"></a>plt.clf()</span>
+<span id="cb4-8"><a href="numerical-models-1.html#cb4-8" tabindex="-1"></a>plt.plot(T1, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;T = 0&quot;</span>, color <span class="op">=</span> <span class="st">&quot;Black&quot;</span>)</span>
+<span id="cb4-9"><a href="numerical-models-1.html#cb4-9" tabindex="-1"></a>plt.plot(T2, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;T = -0.00005&quot;</span>)</span>
+<span id="cb4-10"><a href="numerical-models-1.html#cb4-10" tabindex="-1"></a>plt.plot(T3, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;T = -0.0001&quot;</span>)</span>
+<span id="cb4-11"><a href="numerical-models-1.html#cb4-11" tabindex="-1"></a>plt.plot(T4, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;T = 0.00005&quot;</span>)</span>
+<span id="cb4-12"><a href="numerical-models-1.html#cb4-12" tabindex="-1"></a>plt.plot(T4, <span class="op">-</span>z, label <span class="op">=</span> <span class="st">&quot;T = 0.0001&quot;</span>)</span>
+<span id="cb4-13"><a href="numerical-models-1.html#cb4-13" tabindex="-1"></a>OSL_plt_defaults()</span></code></pre></div>
+<p><img src="05_model_review_files/figure-html/local_biodiffusion_advection-1.png" width="672" /></p>
+<p>[this paragraph needs major work] Using OSL to estimate bioturbation model parameters permits making a few simplifying assumptions, providing an advantage over other methods. One, tracer decay can be neglected. Two, advective flow via water movement down the profile, besides illuviation of clay minerals, is minimal. It also permits analysis over much greater timescales than surface applied, fallout, and many natural radioisotope tracers allow [citation]. However, so far these models are limited to descirbing local mixing, or the cumulative impact of local and non-local mixing, not being able to represent the different mechanisms by which soil fauna mix soil. With these limitations/simplifcations in mind, in the interest of comparison, the above equations can be changed to a more general form:</p>
 <p><span class="math display">\[
 \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dyρ}{dz})+\frac{dz}{dt}\frac{dyρ}{dz}
-\]</span> <em>This code adds advection, by erosion and deposition, to the model.</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="numerical-models-1.html#cb4-1" tabindex="-1"></a><span class="co"># create copies of the y array for for loop</span></span>
-<span id="cb4-2"><a href="numerical-models-1.html#cb4-2" tabindex="-1"></a>y2 <span class="op">=</span> y.copy() <span class="co"># final output</span></span>
-<span id="cb4-3"><a href="numerical-models-1.html#cb4-3" tabindex="-1"></a>y2_ts2 <span class="op">=</span> y.copy() <span class="co"># output after 1/2 of total time</span></span>
-<span id="cb4-4"><a href="numerical-models-1.html#cb4-4" tabindex="-1"></a>y2_ts4 <span class="op">=</span> y.copy() <span class="co"># output after 1/4 of total time</span></span>
-<span id="cb4-5"><a href="numerical-models-1.html#cb4-5" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="numerical-models-1.html#cb4-6" tabindex="-1"></a><span class="co"># in order, the for statement will: </span></span>
-<span id="cb4-7"><a href="numerical-models-1.html#cb4-7" tabindex="-1"></a>  <span class="co"># calculate the gradient of y over z, multiplies by D to get linear flux</span></span>
-<span id="cb4-8"><a href="numerical-models-1.html#cb4-8" tabindex="-1"></a>  <span class="co"># calculate the change in y flux over z. this is the net flux for each point</span></span>
-<span id="cb4-9"><a href="numerical-models-1.html#cb4-9" tabindex="-1"></a>  <span class="co"># adds the net flux from y at each z EXCEPT the first and last positions </span></span>
-<span id="cb4-10"><a href="numerical-models-1.html#cb4-10" tabindex="-1"></a>  <span class="co"># create some extra arrays for plotting through if statement</span></span>
-<span id="cb4-11"><a href="numerical-models-1.html#cb4-11" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="numerical-models-1.html#cb4-12" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(time_steps):</span>
-<span id="cb4-13"><a href="numerical-models-1.html#cb4-13" tabindex="-1"></a>    qy <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> D[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> np.diff(y2 <span class="op">*</span> p) <span class="op">/</span> dz </span>
-<span id="cb4-14"><a href="numerical-models-1.html#cb4-14" tabindex="-1"></a>    diff <span class="op">=</span> <span class="op">-</span>np.diff(qy) <span class="op">/</span> dz </span>
-<span id="cb4-15"><a href="numerical-models-1.html#cb4-15" tabindex="-1"></a>    advec <span class="op">=</span> T <span class="op">*</span> <span class="op">-</span>np.diff(y2 <span class="op">*</span> p) <span class="op">/</span> dz</span>
-<span id="cb4-16"><a href="numerical-models-1.html#cb4-16" tabindex="-1"></a>    y2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+=</span> (diff <span class="op">+</span> advec[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> dt </span>
-<span id="cb4-17"><a href="numerical-models-1.html#cb4-17" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="bu">round</span>(time_steps <span class="op">/</span> <span class="dv">4</span>):</span>
-<span id="cb4-18"><a href="numerical-models-1.html#cb4-18" tabindex="-1"></a>        y2_ts4[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb4-19"><a href="numerical-models-1.html#cb4-19" tabindex="-1"></a>    <span class="cf">elif</span> i <span class="op">==</span> <span class="bu">round</span>(time_steps <span class="op">/</span> <span class="dv">2</span>):</span>
-<span id="cb4-20"><a href="numerical-models-1.html#cb4-20" tabindex="-1"></a>        y2_ts2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> y2[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb4-21"><a href="numerical-models-1.html#cb4-21" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="numerical-models-1.html#cb4-22" tabindex="-1"></a>profile_plt(z, y, y2_ts4, y2_ts2, y2)</span></code></pre></div>
-<p><img src="05_model_review_files/figure-html/local_biodiffusion_advection-1.png" width="672" /></p>
-<p><img src="05_model_review_files/figure-html/plot_compairson-3.png" width="672" /><img src="05_model_review_files/figure-html/plot_compairson-4.png" width="672" /></p>
+\]</span></p>
+<p>Where y is the concentration (mass/volume) of some component, ρ is bulk density, and D(z) is a depth-diffusion function.</p>
 </div>
-<div id="type-2" class="section level3 hasAnchor" number="8.4.2">
-<h3><span class="header-section-number">8.4.2</span> Type 2<a href="numerical-models-1.html#type-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="type-2-isotope-tracers" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Type 2: Isotope Tracers<a href="numerical-models-1.html#type-2-isotope-tracers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Jarvis et al. (2010) and Matisoff et al. (2011) apply similar equations derived in Boudreau (1986) in using radioisotope tracers.</p>
 <p><span class="math display">\[
-\frac{dρy}{dt}=\frac{d}{dz}(D(z)\frac{dρy}{dx})-wρC)
+\frac{dρy}{dt}=\frac{d}{dz}(D(z)\frac{dρy}{dx})-wρy)
 \]</span></p>
 <p>Where w is rate of downward soil displacement or soil velocity (m/s), which can be constant or a function of depth. This function has the advantage of integrating depth-dependent soil bulk density (ρ).</p>
 </div>

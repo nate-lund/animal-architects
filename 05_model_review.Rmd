@@ -16,6 +16,7 @@ use_condaenv("C:/Users/natha/anaconda3/envs/animalarchitects_main")
 ```
 
 ```{python p_setup, echo = FALSE, include=FALSE}
+# import python packages
 import matplotlib.pyplot as plt
 import numpy as np
 # %matplotlib inline
@@ -69,50 +70,55 @@ Attempts to broaden model application are challenged by the considerable variabi
 
 ## Review of equations from the literature
 
+Because determining the animal activity-depth ratio is so important to diffusive models, it makes sense to break down the different modeling approaches by the method used to determine this relationship, OSL and isotope tracers.
+
 *This first code chunk defines the shared structures and variables used by the following code chunks. It has no outputs itself.*
 
 ```{python model_setup, echo = TRUE}
 
-# build structures for data inputs
+# build structures for data inputs. These do not get overwritten.
 dz = 0.1 # m
-z = np.arange(0, 10, dz, dtype=float) # create an array of depths
+z = np.arange(0, 3, dz, dtype=float) # create an array of depths
 y = np.zeros(z.shape, dtype=float) # create a blank array for y, copies shape of z
 p = np.zeros(z.shape, dtype=float)# create a blank array for p, copies shape of z
 
 # [set] initial y values
-#y[z == 0] += 1 # mass/volume
+#y[z == 0] += 1 # mass or activity y / mass soil
 
 # [set] initial p values
-p += 1 # mass/volume
+p += 1 # mass soil / volume soil
 
 # [set] total time
 total_time = 10000 # years
 
 # [set] erosion/denudation rate. erosion (-)
-T = -0.0001 # m / yr
+T = 0 # m / yr
 
-# establish biodiffusion function
-D0 = 9.81 * 10**(-5) # diffusion intercept m2/yr 
-zb = 0.28 # m
-D = D0 * np.exp(-z/zb) # in m2/yr
+# Define the exponential diffusion equation
+def D(z, D0, zb):
+    return D0 * np.exp(-z/zb) # in m2/yr
 
-# more variables
-dt = 0.2 * dz**2 / D0 # sets time step size, based on Courant–Friedrichs–Lewy condition
+# adjust timestep size
+dt = 0.2 * dz**2 / 10**(-3) # sets time step size, based on Courant–Friedrichs–Lewy condition. Currently a general, low value
 time_steps = int(total_time / dt) # calculates total number of time steps
 
-# plotting at a few time steps
-def profile_plt(z, y_orig, y_ts4, y_ts2, y):
-  plt.clf()
-  plt.plot(y_orig, -z, label = "Original Profile")
-  plt.plot(y_ts4, -z, label = "Profile after quater time")
-  plt.plot(y_ts2, -z, label = "Profile after half time")
-  plt.plot(y, -z, label = "Final Profile")
+# define OSL diffusion only function
+def OSL_diffusion(z, y, p, dz, dt, T, D):
+  y_copy = y.copy()
+  for i in range(time_steps):
+    qy = -1 * D[0:-1] * np.diff(y_copy * p) / dz
+    diff = -1 * np.diff(qy) / dz + 1
+    advec = T * -np.diff(y_copy * p) / dz
+    dydt = diff + advec[0:-1] + 1 
+    y_copy[1:-1] += dydt * dt
+  return y_copy
+
+def OSL_plt_defaults():
+  plt.ylim(-1.2, 0)
+  plt.legend()
   plt.xlabel('Age since exposure to surface (yr)')
   plt.ylabel('Depth (m)')
-  plt.ylim(-1, 0)
-  plt.legend()
   plt.show()
-
 
 ```
 
@@ -155,23 +161,16 @@ where zb is the e-folding length scale and a is the gradient of the slope. A lin
 ```{python diffusion_dc}
 # diffusion depth comparisons (_dc0)
 
-# Define the equation
-def D_dc(z, D0, zb):
-    return D0 * np.exp(-z/zb) # in m2/yr 
-
-# Generate z values
-z_dc = np.arange(0, 3, 0.1)
-
 # Calculate y values, one array per plot
-y_dc1 = D_dc(z_dc, 10**(-3), 0.50) # Kirkby
-y_dc2 = D_dc(z_dc, 9.81 * 10**(-5), 0.28) # Johnson
-y_dc3 = D_dc(z_dc, 1.95*10**(-5), 0.28) # Roman-Sanchez
+D_dc1 = D(z, 10**(-5), 0.50) # Kirkby
+D_dc2 = D(z, 9.81 * 10**(-5), 0.28) # Johnson
+D_dc3 = D(z, 1.95*10**(-5), 0.28) # Roman-Sanchez
 
 # Plot the equation
 plt.clf()
-plt.plot(y_dc1, -z_dc, label = "Kirkby")
-plt.plot(y_dc2, -z_dc, label = "Johnson")
-plt.plot(y_dc3, -z_dc, label = "Roman-Sanchez")
+plt.plot(D_dc1, -z, label = "Kirkby")
+plt.plot(D_dc2, -z, label = "Johnson")
+plt.plot(D_dc3, -z, label = "Roman-Sanchez")
 plt.xlabel('diffusion (m2/yr)')
 plt.ylabel('depth (m)')
 plt.grid(True)
@@ -182,33 +181,21 @@ plt.show()
 
 *This code uses the above the equations to simulate an age profile of soil grains created by biodiffusion, local mixing, only.*
 
-```{python local_biodiffusion, echo=TRUE}
+```{python local_biodiffusion1, echo=TRUE}
 
-# create copies of the y array for for loop
-y1 = y.copy() # final output
-y1_ts2 = y.copy() # output after 1/2 of total time
-y1_ts4 = y.copy() # output after 1/4 of total time
+Johnson = OSL_diffusion(z, y, p, dz, dt, T, D(z, 9.81 * 10**(-5), 0.28))
+Kirkby = OSL_diffusion(z, y, p, dz, dt, T, D(z, 10**(-5), 0.50))
 
-# in order, the for statement will: 
-  # calculate the gradient of y over z, multiplies by D to get linear flux
-  # calculate the change in y flux over z. this is the net flux for each point
-  # adds the net flux from y at each z EXCEPT the first and last positions 
-  # create some extra arrays for plotting through if statement
 
-for i in range(time_steps):
-    qy = -1 * D[0:-1] * np.diff(y1 * p) / dz 
-    dydt = -np.diff(qy) / dz + 1 
-    y1[1:-1] += dydt * dt 
-    if i == round(time_steps / 4):
-        y1_ts4[1:-1] = y1[1:-1]
-    elif i == round(time_steps / 2):
-        y1_ts2[1:-1] = y1[1:-1]
-
-profile_plt(z, y, y1_ts4, y1_ts2, y1)
+plt.clf()
+plt.plot(Johnson, -z, label = "Johnson et al. (2014)")
+plt.plot(Kirkby, -z, label = "Kirkby (1985)")
+OSL_plt_defaults()
 
 ```
 
-This model is a significant oversimplification of a soil-system, however, and surface erosion and deposition are relatively easily introduced. Conceptually, erosion and deposition represent the bulk advective movement of the profile. Erosion movies the profile upwards, and deposition moves the profile downwards.
+
+This model is an oversimplification of a soil-system, however, and surface erosion and deposition are relatively easily introduced. Conceptually, erosion and deposition represent the bulk advective movement of the profile. Erosion movies the profile upwards, and deposition moves the profile downwards.
 
 $$
 \frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dA}{dz})+\frac{dz}{dt}\frac{dA}{dz}
@@ -245,28 +232,20 @@ ggplot(data = tdf, mapping = aes(y = z, x = y, group = ts)) +
 
 ```{python local_biodiffusion_advection, echo = TRUE}
 
-# create copies of the y array for for loop
-y2 = y.copy() # final output
-y2_ts2 = y.copy() # output after 1/2 of total time
-y2_ts4 = y.copy() # output after 1/4 of total time
+T1 = OSL_diffusion(z, y, p, dz, dt, 0, D(z, 9.81 * 10**(-5), 0.28))
+T2 = OSL_diffusion(z, y, p, dz, dt, -0.00005, D(z, 9.81 * 10**(-5), 0.28))
+T3 = OSL_diffusion(z, y, p, dz, dt, -0.0001, D(z, 9.81 * 10**(-5), 0.28))
+T4 = OSL_diffusion(z, y, p, dz, dt, 0.00005, D(z, 9.81 * 10**(-5), 0.28))
+T5 = OSL_diffusion(z, y, p, dz, dt, 0.00001, D(z, 9.81 * 10**(-5), 0.28))
 
-# in order, the for statement will: 
-  # calculate the gradient of y over z, multiplies by D to get linear flux
-  # calculate the change in y flux over z. this is the net flux for each point
-  # adds the net flux from y at each z EXCEPT the first and last positions 
-  # create some extra arrays for plotting through if statement
+plt.clf()
+plt.plot(T1, -z, label = "T = 0", color = "Black")
+plt.plot(T2, -z, label = "T = -0.00005")
+plt.plot(T3, -z, label = "T = -0.0001")
+plt.plot(T4, -z, label = "T = 0.00005")
+plt.plot(T4, -z, label = "T = 0.0001")
+OSL_plt_defaults()
 
-for i in range(time_steps):
-    qy = -1 * D[0:-1] * np.diff(y2 * p) / dz 
-    diff = -np.diff(qy) / dz 
-    advec = T * -np.diff(y2 * p) / dz
-    y2[1:-1] += (diff + advec[0:-1] + 1) * dt 
-    if i == round(time_steps / 4):
-        y2_ts4[1:-1] = y2[1:-1]
-    elif i == round(time_steps / 2):
-        y2_ts2[1:-1] = y2[1:-1]
-
-profile_plt(z, y, y2_ts4, y2_ts2, y2)
 
 ```
 

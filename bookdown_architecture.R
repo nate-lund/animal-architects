@@ -1,6 +1,6 @@
 # a script with the packages and code needed to build the bookdown book
 
-#packages for book making
+# packages for book making
 install.packages(c("knitr", "usethis", "bookdown"))
 install.packages(c("rmarkdown"))
 

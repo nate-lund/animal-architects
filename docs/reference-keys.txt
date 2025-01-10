@@ -34,8 +34,8 @@ anomalous-and-normal-mixing
 local-diffusion-and-non-local-mixing
 depth-dependence
 review-of-equations-from-the-literature
-type-1-optically-stimulated-lumenscence-applications
-type-2
+type-1-optically-stimulated-luminescence-applications
+type-2-isotope-tracers
 references-2
 numerical-model-building-1
 soil-transport-via-diffusion-advection
