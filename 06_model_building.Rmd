@@ -88,7 +88,7 @@ Where S is the concentration of material of a greater size class than movable by
 
 ### Model 1: R Diffusion (local mixing) of included and excluded components.
 
-```{r diffusion, echo=TRUE, cache=FALSE}
+```{r diffusion, echo=TRUE, cache=TRUE, evaluate = FALSE}
 #'###################### [creating a data frame] #######################
 
 #' [set] number of time steps
@@ -244,48 +244,7 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
 ### Model 2: Python diffusion (local mixing) of included components
 
 ```{python new, echo=TRUE}
-
-# import packages, give short names
-import matplotlib.pyplot as plt
-import numpy as np
-
-################ trying to do local mixing with numpy ################
-
-# establish some structures
-dz = 1 # cm
-z = np.arange(0, 100, dz, dtype=float) # creates an array of depths
-y = np.zeros(z.shape, dtype=float) # creates an array of 0's, copies the shape of z
-b = 0.01 # diffusion intercept
-D = b * np.exp(-z/100/0.28) # diffusion coefficent
-
-# sets y to...
-y[z == 0] += 100
-
-# prep variables
-dt = 0.2 * dz * dz / b # sets timestep size, based on Courant–Friedrichs–Lewy condition
-total_time = 10000 # years
-time_steps = int(total_time / dt) # calcaultes total number of time steps
-y_orig = y.copy() # creates a copy of the z list for use in the for loop
-y_ts2 = y.copy()
-y_ts4 = y.copy()
-
-for i in range(time_steps):
-    qy = -1 * D[0:-1] * np.diff(y) / dz # calculates the gradient of y over z, multiplies by D to get linear flux
-    dydt = -np.diff(qy) / dz # caclulates the change in y flux over z. this is the net flux for each point
-    y[1:-1] += dydt * dt # adds the net flux from y at each z EXCEPT the first and last positions 
-    if i == (time_steps / 4):
-        y_ts4[1:-1] = y[1:-1]
-    elif i == (time_steps / 2):
-        y_ts2[1:-1] = y[1:-1]
-
-plt.clf()
-plt.plot(z, y_orig, label = "Original Profile")
-plt.plot(z, y_ts4, label = "Diffused Profile quater Time")
-plt.plot(z, y_ts2, label = "Diffused Profile half Time")
-plt.plot(z, y, label = "Final Diffused Profile")
-plt.legend()
-plt.show()
-
+### WIP
 ```
 
 ## References
