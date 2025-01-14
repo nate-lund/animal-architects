@@ -18,10 +18,9 @@ rmd_files: [
 "08_chapterII_introduction",
 "04_bioturbation_review.Rmd",
 "05_model_review.Rmd",
-"06_model_building.Rmd",
 
 "08_soil_geomorphology.Rmd",
-
+"06_model_building.Rmd",
 
 "97_gamma_detectors.Rmd",
 "96_pedology_history.Rmd",
