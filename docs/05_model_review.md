@@ -192,7 +192,7 @@ OSL_plt_defaults()
 Together with the diffusion function, this equation can then be solved analytically, as detailed in Román‐Sánchez et al., (2019), to determine the values of the parameters D(0) and zb. T is best determined by other means, like cosmogenic nuclides in Johnson et al. (2014), as current diffusive models introduce too much uncertainty to estimate from age profiles directly (Román‐Sánchez et al., 2019).
 
 |  |  |  |  |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Source | Equation | D(0) (m2/yr) | zb (m) |
 | Kirkby (1985) | $D(z) = D(0)e^{-z/z_{b}}$ | $10^{-4}-10^{-2}$ | 0.50 |
 | Johnson et al. (2014) | $D(z) = D(0)e^{-z/z_{b}}$ | $9.81 * 10^{-5}$ | 0.28 |
