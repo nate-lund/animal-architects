@@ -1,19 +1,53 @@
-# (PART) Chapter III: Soil, Hillslope, and Landscape Evolution (WIP) {.unnumbered}
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# (PART) Chapter III: Modeling Soil, Hillslope, Landscape Evolution {.unnumbered}
 
 # Soil Geomorphology
 
 
 
-Landlab notebook <https://colab.research.google.com/drive/1tJ3Fw6BJP_bqvTImmXFxgWCYR-yI1T7y?usp=sharing>
+"Simplicity you can argue for."
 
-Dissertation using landlab, could be interesting to check out:
+## Important equations / variables
 
-Mahmoudi, M. (2018). **Comparing model predictions of hillslope sediment size distribution with field measurements** (Doctoral dissertation, San Francisco State University).
+Hill slope creep
+$$
+\frac{dz}{dt}=D\frac{d^2z}{dx^2}
+$$
 
-Ideas:
+Soil mixing
+$$
+\frac{dy}{dz}=D(z)\frac{dy}{dz}+\frac{dz}{dt}\frac{dy}{dz}
+$$
 
--   Use landlab to simulate hillslope evolution under different earthworms / bioturbation types? Broaden to landscape scale? Include sediment contribution to streams?
+Diffusion coefficient
+$$
+D(z)=D_0e^{-z/z_b}
+$$
+Soil Production
+$$
+P = e^{-az}
+$$
 
--   Simulate Mima mound creation by pocket gophers using a landlab module?
 
-![From Johnson and Watson-Stegner (1987)](images/clipboard-152616148.png)
+## Resources
+
+Dissertation using landlab: Mahmoudi, M. (2018). **Comparing model
+predictions of hillslope sediment size distribution with field
+measurements** (Doctoral dissertation, San Francisco State University).
+
+## Notes
+
+-   Use landlab to simulate hillslope evolution under different
+    earthworms / bioturbation types? Broaden to landscape scale? Include
+    sediment contribution to streams?
+
+-   Simulate Mima mound creation by pocket gophers using a landlab
+    module?
+
+![From Johnson and Watson-Stegner
+(1987)](images/clipboard-152616148.png)

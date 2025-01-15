@@ -1,4 +1,4 @@
-# (PART) Chapter II: Bioturbation Review and Modeling {.unnumbered}
+# (PART) Chapter II: Literature Review of Animal Activity: Concepts, Methods, and Models {.unnumbered}
 
 # Chapter Outline (start here)
 

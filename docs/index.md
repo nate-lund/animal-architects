@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 10:46, 14 January, 2025"
+date: "Last compiled 08:55, 15 January, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -21,7 +21,7 @@ output:
 
 -   Hava's book: <https://pages.github.umn.edu/blair304/cig-mgmt-data/index.html>
 
-# Notes to Self
+## Notes to Self
 
 -   Based on (Mudd and Yoo, 2010), a study on mineral age and weathering. Mixing plays an important role in the application of reservoir theory and in determining turnover time. A better understanding of the rate of mixing, depth of mixing, and method of transport (i.e. local vs non-local) migth be valuable.
 

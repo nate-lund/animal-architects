@@ -2,11 +2,6 @@
 
 
 
-
-```
-## [1] "Updated 10:46, 14 January, 2025"
-```
-
 This book is dedicated to my thoughts about animals as unintentional architects, or animal architects. Through bioturbation, animals shape our soils and landscapes, but although I call them architects, their creations are not like ours. Yes, prairie gophers or night crawlers build homes to live and feed in, but the architecture I refer to is larger than any individual. It is the sum of generations of organisms. It is the ecological inheritance they create. It is order out of seemingly chaos. This idea is best illustrated through example, so take for example, Mima mounds.
 
 ![Mima mounds in Washington. National Geographic.](images/clipboard-4281517013.png){width="583"}
@@ -19,8 +14,14 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
 **Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development**
 
--   Chapter 1: Earthworms and Soil Erosion
+-   Chapter 1: MITPPC, Earthworms, and Soil Erosion
 
--   Chapter 2: Bioturbation Review and Modeling
+    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on short-lived isotopes and erosion pins".
 
--   Chapter 3: Soil, Hillslope, Landscape Evolution
+    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on field experiment."
+
+    -   Manuscript: "Rainfall intensity and soil erosion in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes."
+
+-   Chapter 2: Literature Review of Animal Activity: Concepts, Methods, and Models
+
+-   Chapter 3: Modeling Soil, Hillslope, Landscape Evolution
