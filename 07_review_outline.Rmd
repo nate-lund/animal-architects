@@ -1,6 +1,4 @@
-# (PART) Chapter II: Literature Review of Animal Activity: Concepts, Methods, and Models {.unnumbered}
-
-# Chapter Outline (start here)
+# (PART) Chapter II {.unnumbered}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -16,7 +14,29 @@ library(rmarkdown)
 library(spelling)
 ```
 
-## Brief Outline
+# Chapter Outline
+
+Focus: Terrestrial environments, lessons from aquatic environments. Methods of papers published within the last \~20 years, concepts further back. Applications to pedology and soil-geomorphology.
+
+Three sections:
+
+1)  Overview of animal activities.
+
+Claim: Animal activities are diverse.
+
+Products: Conceptual figure representing animal activity vectors. Table of the functions of animals.
+
+2)  Measuring and quanitifying animal activities.
+
+Claim:
+
+Products: Table of measurment methods. Connections between roles and methods.
+
+3)  Applications of animal activity measurement.
+
+Claim:
+
+Products: Discussion of models.
 
 1.  Introduction
 2.  Conceptual models
@@ -31,101 +51,51 @@ library(spelling)
     3.  Characteristics of numerical models
     4.  Review of equations from the literature
     5.  Modeling factors of animal activity
-5.  Conclusion
+4.  Conclusion
 
-# Detailed Outline
+# **Animals as Soil and Landscape Architects**
 
-### Introduction
+**Introduction**
 
-Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance. Draw connections from pedology to ecology, geomorpohology, and hydrology or more specifically carbon, soil health, and mineral weathering [Mudd and Yoo, 2010]. Use established importance to address the need for an updated, interdisciplinary review of how we think about bioturbation, both conceptually and numerically. Provide an overview of the questions answered and ultimate purpose of this article: How can we, and how have other authors, summarize what are animals doing to the soil?
+Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance….
 
-### Conceptual models
+Soil or soil-adjacent scientists use many terms to describe the role living organisms play in a soil system. Broadly pedoturbation, bioturbation, fauna- and floraturbation, or biomixing (Wilkenson et al., 2009), or more specifically mounding, cratering, or burrowing (Johnson et al., 2005a), to name a few. For this discussion, I use a generalized term: animal activity. Animal activity has the advantage of being implicity process-based, i.e. animal activities are distinct from the evidence of animal activities. It also encourages thinking about the animals themselves and their relationships to each other and their environment. And finally, it suggests a degree of unintentionality. Animals, oftentimes including humans, don't understand soils or soil science. All the evidences we study are the unintentional consequences of their lifestyles, often over generations.
 
-Define conceptual model: A conceptual model is a representation of the key elements of and relationships within some process or structure. Justify the need for conceptual models for animal activity:
+There exist already a number of excellent reviews on the various roles and categorizations’ of animal activity in soils (Bétard, 2021; Gabet et al., 2003; Johnson et al., 2005b, 2005a; Johnson & Watson-Stegner, 1987; Wilkinson et al., 2009). So, although there is overlap, this paper's emphasis is on the quantification of these categories and how they can be integrated in a holistic, qualitative framework for describing soil fauna activities. *Of particular interest is the methods of measuring animal activity.* The overarching goal of this paper is to take a first, albeit small, step towards a standardized understanding of how and why animal activity is measured that can be applied across the displine of soil science... To that end, I begin with a breif discussion of the types of relevant animal behaviors and how they can be categorized.
 
--   They provide a framework for explaining the existence of and relationships between real observations.
+**What do animals do?**
 
--   As pedologists, we rely on conceptual models to describe morphology and 'tell the story' of a soil.
+Animal's are extremely diverse in their individual behaviors. Examples... turtle paper, gophers, types of earthworms... Here, I consider any behavior that translocates soil, either vertically or laterally, across a terrestrial environment.
 
--   They inform the questions we ask about and methods we use to measure a soil or animal activity.
+[Table 1. Gallery of some animal behaviors and the categories they belong to.]{.underline}
 
--   Before constructing a numerical model, we need to identify the processes that are relevant to our aim. That aim could be describing soil genesis or contaminant transport, carbon or nutrient cycling, erosion, etc.
+There are a two trends that arise from this gallery. One, animals act on lateral and vertical scales. In other words... Two, animals introduce order and variability to a system. In other words... This is visualized in figure 1.
 
-Explore relevant conceptual models in the literature: cloprt [Jenny, 1941], soil evolution model [Johnson & Watson-Stegner, 1987], bio-mantle [Johnson, 2005], etc. Identifying characteristics of animal activity might allow one to estimate the overall impact of organisms. For pedology, this might result in progressive and/or regressive soil evolution. A complete conceptual model of animal-soil activity might include:
+[Figure 1. Visualization of the categories of animal activity.]{.underline}
 
--   Spatial variability
+**Consequences of Animal Activity**
 
-    -   What is the lateral distribution of organisms' disturbance [Hartemink et al., 2020]?
+The precise behaviors of animals is the subjects of entire disciplines. However, their importance to pedology, geomorphology, and agronomy is increasingly recognized.
 
-    -   How does organism activity change with depth?
+Organism have been recognized as important factors pedogenetic factors since the time of the first pedologists. Darwin recognized the role of earthworms in hillslope formation, soil horizination, the burial of large coarse fragments, and the darkening of upper soil horizons (Darwin, 1881). Hans Jenny included organisms in the original clorpt model in 1941 *Factors.* Countless studies provide examples....
 
-    -   What is the relationship between disturbance size, distribution/frequency, and organisms/area?
+Using the framework established above (Figure 1), the animals of each study can be plotted on a quadrant.
 
-    -   How is organism activity related to topography or erosion?
+[Figure 2. Quadrant plot of animals with examples]{.underline}
 
--   Local vs. non-local mixing
+Geomorphology
 
-    -   Where is excavated material going? Are they constructing mounds and burrows or just pushing soil out of the way? If building mounds, are those mounds directly above or is soil also being moved laterally?
+Agronomy, soil health.
 
-    -   How is soil altered as it is transported [OM, structure change]?
+**Methods of measurement**
 
--   Mixing vs sorting
+...
 
-    -   What are organisms moving?
+**How our data is used**
 
-    -   What aren't they moving?
+...
 
-    -   Where are they moving it to?
-
--   Time
-
-    -   How are the above changing over time?
-
-    -   What kind of feed back loops might organisms being encouraging?
-
-Integrate the most important above factors into new conceptual models. For example:
-
-$$
-S = f(D, E, P,\frac{dD}{dz},\frac{dP}{dz})dt
-$$
-
-Where D is diffusion or mixing, E is erosion, and P is soil production. Soil production and diffusion notably also change with profile depth, which depends on the parent material and organisms.
-
-$$
-disturbance = \frac{vol}{event} * \frac{distance}{event} * \frac{events}{area} * \frac{events}{time}
-$$
-
-Discuss some examples from the real-world, like jumping worms altering the bulk density of the top 5cm, Mima mounds, tree throw examples, or stonelines. Relate these examples to the concepts discussed above. Make notes on the way bioturbation is measured, methods used in the literature: what are they actually measuring?
-
-### Numerical models
-
-Explain importance: Conceptual models alone are valuable for describing a number of processes. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and can be informed by conceptual ones... Describe how numerical models have been used in the literature and the bridges between aquatic and terrestrial applications.
-
-Characterize the different approaches/aspects to modeling:
-
--   Anomalous vs. normal mixing
-
--   Local diffusion vs. non-local mixing
-
-Characterize the different techniques for estimating mixing rate and depth dependence
-
--   Isotope tracers (Boudreau, 1986b, 1986a; Boudreau & Imboden, 1987; Jarvis et al., 2010; Matisoff et al., 2011)
-
--   OSL (Gray et al., 2020; Johnson et al., 2014; etc.)
-
--   Other methods? Field methods?
-
-Describe how equations in the literature incorporate these approaches, providing equations to illustrate. For example (Boudreau, 1986):
-
-$$
-\frac{dρy}{dt}=\frac{d}{dz}(D(z\frac{dρy}{dx})-wρy)
-$$
-
-Discuss what variables these models include, and how these models integrate the animal-soil activity factors above. What is missing (erosion)? What assumptions are being made?
-
-### Conclusion
-
-Present a summary of findings/discussion. Highlight some takeaways:
+# Notes
 
 -   If you're a pedologist doing descriptions, leave a column open for animals. Note what organisms are present? How deep do they go? What is the lateral distribution/abundance of krotovinas or tree throw mounds? What structure or texture change might be a product of bioturbation?
 
