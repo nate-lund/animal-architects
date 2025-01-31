@@ -33,7 +33,7 @@ library(spelling)
     5.  Modeling factors of animal activity
 5.  Conclusion
 
-## Detailed Outline
+# Detailed Outline
 
 ### Introduction
 

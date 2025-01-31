@@ -19,15 +19,9 @@
     3.  Characteristics of numerical models
     4.  Review of equations from the literature
     5.  Modeling factors of animal activity
-4.  Numerical model building
-    1.  Purpose / Goals
-    2.  Identification of most key factors/variables
-    3.  Assumptions and methods
-    4.  Test results
-    5.  Verification and data mined data
 5.  Conclusion
 
-## Detailed Outline
+# Detailed Outline
 
 ### Introduction
 
@@ -116,14 +110,6 @@ $$
 $$
 
 Discuss what variables these models include, and how these models integrate the animal-soil activity factors above. What is missing (erosion)? What assumptions are being made?
-
-### Numerical model building
-
-Describe the purpose: The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.
-
-Identify the key variables: erosion rate, mixing rate, local vs. non-local ratio, change in animal activity with depth, bulk density, and soil property characteristics.
-
-Describe methods [very WIP, considering using python and landlab for portions, need to investigate further]
 
 ### Conclusion
 

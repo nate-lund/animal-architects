@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Section 8 Numerical Model Building | Animal Architects</title>
-  <meta name="description" content="Section 8 Numerical Model Building | Animal Architects" />
+  <title>Section 11 Numerical Model Building | Animal Architects</title>
+  <meta name="description" content="Section 11 Numerical Model Building | Animal Architects" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Section 8 Numerical Model Building | Animal Architects" />
+  <meta property="og:title" content="Section 11 Numerical Model Building | Animal Architects" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 8 Numerical Model Building | Animal Architects" />
+  <meta name="twitter:title" content="Section 11 Numerical Model Building | Animal Architects" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="numerical-models.html"/>
-<link rel="next" href="soil-geomorphology.html"/>
+<link rel="prev" href="soil-geomorphology.html"/>
+<link rel="next" href="gamma-detectors.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,6 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#technical-resources"><i class="fa fa-check"></i><b>1.1</b> Technical Resources</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#notes-to-self"><i class="fa fa-check"></i><b>1.2</b> Notes to Self</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#references"><i class="fa fa-check"></i><b>1.2.1</b> References</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="about-start-here.html"><a href="about-start-here.html"><i class="fa fa-check"></i><b>2</b> About (start here)</a>
 <ul>
@@ -146,71 +150,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>I Chapter I: Earthworms and Soil Erosion</b></span></li>
 <li class="chapter" data-level="3" data-path="hillslope-transects-erosion-pins-etc..html"><a href="hillslope-transects-erosion-pins-etc..html"><i class="fa fa-check"></i><b>3</b> Hillslope Transects: Erosion Pins, etc.</a></li>
 <li class="chapter" data-level="4" data-path="imapct-of-vegetation-cover-on-erosion.html"><a href="imapct-of-vegetation-cover-on-erosion.html"><i class="fa fa-check"></i><b>4</b> Imapct of Vegetation Cover on Erosion</a></li>
-<li class="part"><span><b>II Chapter II: Bioturbation Review and Modeling</b></span></li>
+<li class="part"><span><b>II Chapter II: Literature Review of Animal Activity: Concepts, Methods, and Models</b></span></li>
 <li class="chapter" data-level="5" data-path="chapter-outline-start-here.html"><a href="chapter-outline-start-here.html"><i class="fa fa-check"></i><b>5</b> Chapter Outline (start here)</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chapter-outline-start-here.html"><a href="chapter-outline-start-here.html#brief-outline"><i class="fa fa-check"></i><b>5.1</b> Brief Outline</a></li>
-<li class="chapter" data-level="5.2" data-path="chapter-outline-start-here.html"><a href="chapter-outline-start-here.html#detailed-outline"><i class="fa fa-check"></i><b>5.2</b> Detailed Outline</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="conceptual-model.html"><a href="conceptual-model.html"><i class="fa fa-check"></i><b>6</b> Conceptual Model</a>
+<li class="chapter" data-level="6" data-path="detailed-outline.html"><a href="detailed-outline.html"><i class="fa fa-check"></i><b>6</b> Detailed Outline</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="conceptual-model.html"><a href="conceptual-model.html#bioturbation-literature-review"><i class="fa fa-check"></i><b>6.1</b> Bioturbation Literature Review</a>
+<li class="chapter" data-level="6.0.1" data-path="detailed-outline.html"><a href="detailed-outline.html#introduction"><i class="fa fa-check"></i><b>6.0.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.0.2" data-path="detailed-outline.html"><a href="detailed-outline.html#conceptual-models"><i class="fa fa-check"></i><b>6.0.2</b> Conceptual models</a></li>
+<li class="chapter" data-level="6.0.3" data-path="detailed-outline.html"><a href="detailed-outline.html#numerical-models"><i class="fa fa-check"></i><b>6.0.3</b> Numerical models</a></li>
+<li class="chapter" data-level="6.0.4" data-path="detailed-outline.html"><a href="detailed-outline.html#conclusion"><i class="fa fa-check"></i><b>6.0.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>7</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="conceptual-model.html"><a href="conceptual-model.html#gabet-et-al.-2003"><i class="fa fa-check"></i><b>6.1.1</b> Gabet et al. (2003)</a></li>
-<li class="chapter" data-level="6.1.2" data-path="conceptual-model.html"><a href="conceptual-model.html#johnson-watson-stegner-1987"><i class="fa fa-check"></i><b>6.1.2</b> Johnson &amp; Watson-Stegner (1987)</a></li>
-<li class="chapter" data-level="6.1.3" data-path="conceptual-model.html"><a href="conceptual-model.html#nye-1954"><i class="fa fa-check"></i><b>6.1.3</b> (Nye, 1954)</a></li>
-<li class="chapter" data-level="6.1.4" data-path="conceptual-model.html"><a href="conceptual-model.html#references"><i class="fa fa-check"></i><b>6.1.4</b> References</a></li>
+<li class="chapter" data-level="7.1" data-path="introduction-1.html"><a href="introduction-1.html#references-1"><i class="fa fa-check"></i><b>7.1</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="conceptual-model.html"><a href="conceptual-model.html#bioturbation-data-mining"><i class="fa fa-check"></i><b>6.2</b> Bioturbation Data-mining</a>
+<li class="chapter" data-level="8" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html"><i class="fa fa-check"></i><b>8</b> Conceptual Models</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="conceptual-model.html"><a href="conceptual-model.html#baxter-et-al.-2024"><i class="fa fa-check"></i><b>6.2.1</b> (Baxter et al., 2024)</a></li>
-<li class="chapter" data-level="6.2.2" data-path="conceptual-model.html"><a href="conceptual-model.html#grinnell-1923"><i class="fa fa-check"></i><b>6.2.2</b> (Grinnell, 1923)</a></li>
-<li class="chapter" data-level="6.2.3" data-path="conceptual-model.html"><a href="conceptual-model.html#section"><i class="fa fa-check"></i><b>6.2.3</b> </a></li>
-<li class="chapter" data-level="6.2.4" data-path="conceptual-model.html"><a href="conceptual-model.html#references-1"><i class="fa fa-check"></i><b>6.2.4</b> References</a></li>
-<li class="chapter" data-level="6.2.5" data-path="conceptual-model.html"><a href="conceptual-model.html#references-2"><i class="fa fa-check"></i><b>6.2.5</b> References</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="numerical-models.html"><a href="numerical-models.html"><i class="fa fa-check"></i><b>7</b> Numerical Models</a>
+<li class="chapter" data-level="8.1" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#transition-justification"><i class="fa fa-check"></i><b>8.1</b> Transition / Justification</a></li>
+<li class="chapter" data-level="8.2" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#factors-of-animal-activity"><i class="fa fa-check"></i><b>8.2</b> Factors of animal activity</a></li>
+<li class="chapter" data-level="8.3" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#review-of-conceptual-models"><i class="fa fa-check"></i><b>8.3</b> Review of conceptual models</a></li>
+<li class="chapter" data-level="8.4" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#new-conceptual-models"><i class="fa fa-check"></i><b>8.4</b> New conceptual models</a></li>
+<li class="chapter" data-level="8.5" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#examples-from-the-literature"><i class="fa fa-check"></i><b>8.5</b> Examples from the literature</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="numerical-models.html"><a href="numerical-models.html#model-characteristics"><i class="fa fa-check"></i><b>7.1</b> Model Characteristics</a>
+<li class="chapter" data-level="8.5.1" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#gabet-et-al.-2003"><i class="fa fa-check"></i><b>8.5.1</b> Gabet et al. (2003)</a></li>
+<li class="chapter" data-level="8.5.2" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#johnson-watson-stegner-1987"><i class="fa fa-check"></i><b>8.5.2</b> Johnson &amp; Watson-Stegner (1987)</a></li>
+<li class="chapter" data-level="8.5.3" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#nye-1954"><i class="fa fa-check"></i><b>8.5.3</b> (Nye, 1954)</a></li>
+<li class="chapter" data-level="8.5.4" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#baxter-et-al.-2024"><i class="fa fa-check"></i><b>8.5.4</b> (Baxter et al., 2024)</a></li>
+<li class="chapter" data-level="8.5.5" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#grinnell-1923"><i class="fa fa-check"></i><b>8.5.5</b> (Grinnell, 1923)</a></li>
+<li class="chapter" data-level="8.5.6" data-path="conceptual-models-1.html"><a href="conceptual-models-1.html#references-2"><i class="fa fa-check"></i><b>8.5.6</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="numerical-models-1.html"><a href="numerical-models-1.html"><i class="fa fa-check"></i><b>9</b> Numerical Models</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="numerical-models.html"><a href="numerical-models.html#anomalous-and-normal-mixing"><i class="fa fa-check"></i><b>7.1.1</b> Anomalous and Normal mixing</a></li>
-<li class="chapter" data-level="7.1.2" data-path="numerical-models.html"><a href="numerical-models.html#local-diffusion-and-non-local-mixing"><i class="fa fa-check"></i><b>7.1.2</b> Local diffusion and Non-local mixing</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="numerical-models.html"><a href="numerical-models.html#local-mixing-models"><i class="fa fa-check"></i><b>7.2</b> Local Mixing models</a></li>
-<li class="chapter" data-level="7.3" data-path="numerical-models.html"><a href="numerical-models.html#references-3"><i class="fa fa-check"></i><b>7.3</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="numerical-model-building.html"><a href="numerical-model-building.html"><i class="fa fa-check"></i><b>8</b> Numerical Model Building</a>
+<li class="chapter" data-level="9.1" data-path="numerical-models-1.html"><a href="numerical-models-1.html#transition-justification-1"><i class="fa fa-check"></i><b>9.1</b> Transition / Justification</a></li>
+<li class="chapter" data-level="9.2" data-path="numerical-models-1.html"><a href="numerical-models-1.html#characteristics-of-numerical-models"><i class="fa fa-check"></i><b>9.2</b> Characteristics of Numerical models</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="numerical-model-building.html"><a href="numerical-model-building.html#soil-transport-via-diffusion-advection"><i class="fa fa-check"></i><b>8.1</b> Soil Transport via Diffusion-Advection</a>
+<li class="chapter" data-level="9.2.1" data-path="numerical-models-1.html"><a href="numerical-models-1.html#anomalous-and-normal-mixing"><i class="fa fa-check"></i><b>9.2.1</b> Anomalous and Normal mixing</a></li>
+<li class="chapter" data-level="9.2.2" data-path="numerical-models-1.html"><a href="numerical-models-1.html#local-diffusion-and-non-local-mixing"><i class="fa fa-check"></i><b>9.2.2</b> Local diffusion and Non-local mixing</a></li>
+<li class="chapter" data-level="9.2.3" data-path="numerical-models-1.html"><a href="numerical-models-1.html#depth-dependence"><i class="fa fa-check"></i><b>9.2.3</b> Depth dependence</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="numerical-models-1.html"><a href="numerical-models-1.html#review-of-equations-from-the-literature"><i class="fa fa-check"></i><b>9.3</b> Review of equations from the literature</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="numerical-model-building.html"><a href="numerical-model-building.html#model-1-diffusion-local-mixing-of-included-and-excluded-components."><i class="fa fa-check"></i><b>8.1.1</b> Model 1: Diffusion (local mixing) of included and excluded components.</a></li>
-<li class="chapter" data-level="8.1.2" data-path="numerical-model-building.html"><a href="numerical-model-building.html#erosion-and-soil-formation"><i class="fa fa-check"></i><b>8.1.2</b> Erosion and Soil Formation</a></li>
+<li class="chapter" data-level="9.3.1" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-1-optically-stimulated-luminescence-applications"><i class="fa fa-check"></i><b>9.3.1</b> Type 1: Optically Stimulated Luminescence Applications</a></li>
+<li class="chapter" data-level="9.3.2" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-2-isotope-tracers"><i class="fa fa-check"></i><b>9.3.2</b> Type 2: Isotope Tracers</a></li>
+<li class="chapter" data-level="9.3.3" data-path="numerical-models-1.html"><a href="numerical-models-1.html#type-3-alternatives"><i class="fa fa-check"></i><b>9.3.3</b> Type 3: Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="numerical-model-building.html"><a href="numerical-model-building.html#references-4"><i class="fa fa-check"></i><b>8.2</b> References</a></li>
+<li class="chapter" data-level="9.4" data-path="numerical-models-1.html"><a href="numerical-models-1.html#key-parameters"><i class="fa fa-check"></i><b>9.4</b> Key Parameters</a></li>
+<li class="chapter" data-level="9.5" data-path="numerical-models-1.html"><a href="numerical-models-1.html#references-3"><i class="fa fa-check"></i><b>9.5</b> References</a></li>
 </ul></li>
-<li class="part"><span><b>III Chapter 3: Soil, Hillslope, and Landscape Evolution (WIP)</b></span></li>
-<li class="chapter" data-level="9" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html"><i class="fa fa-check"></i><b>9</b> Soil Geomorphology</a></li>
+<li class="part"><span><b>III Chapter III: Modeling Soil, Hillslope, Landscape Evolution</b></span></li>
+<li class="chapter" data-level="10" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html"><i class="fa fa-check"></i><b>10</b> Soil Geomorphology</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html#brief-outline-1"><i class="fa fa-check"></i><b>10.1</b> Brief Outline</a></li>
+<li class="chapter" data-level="10.2" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html#important-equations-variables"><i class="fa fa-check"></i><b>10.2</b> Important equations / variables</a></li>
+<li class="chapter" data-level="10.3" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html#resources"><i class="fa fa-check"></i><b>10.3</b> Resources</a></li>
+<li class="chapter" data-level="10.4" data-path="soil-geomorphology.html"><a href="soil-geomorphology.html#notes"><i class="fa fa-check"></i><b>10.4</b> Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="numerical-model-building.html"><a href="numerical-model-building.html"><i class="fa fa-check"></i><b>11</b> Numerical Model Building</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="numerical-model-building.html"><a href="numerical-model-building.html#soil-transport-via-diffusion-advection"><i class="fa fa-check"></i><b>11.1</b> Soil Transport via Diffusion-Advection</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="numerical-model-building.html"><a href="numerical-model-building.html#model-1-r-diffusion-local-mixing-of-included-and-excluded-components."><i class="fa fa-check"></i><b>11.1.1</b> Model 1: R Diffusion (local mixing) of included and excluded components.</a></li>
+<li class="chapter" data-level="11.1.2" data-path="numerical-model-building.html"><a href="numerical-model-building.html#model-2-python-diffusion-local-mixing-of-included-components"><i class="fa fa-check"></i><b>11.1.2</b> Model 2: Python diffusion (local mixing) of included components</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="numerical-model-building.html"><a href="numerical-model-building.html#references-4"><i class="fa fa-check"></i><b>11.2</b> References</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="gamma-detectors.html"><a href="gamma-detectors.html"><i class="fa fa-check"></i><b>A</b> Gamma Detectors</a>
 <ul>
 <li class="chapter" data-level="A.0.1" data-path="gamma-detectors.html"><a href="gamma-detectors.html#detector-specs"><i class="fa fa-check"></i><b>A.0.1</b> Detector specs</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html"><i class="fa fa-check"></i><b>B</b> Radionuclide Sampling Protocol</a>
+<li class="chapter" data-level="B" data-path="a-brief-history-of-pedology.html"><a href="a-brief-history-of-pedology.html"><i class="fa fa-check"></i><b>B</b> A Brief History of Pedology</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#background"><i class="fa fa-check"></i><b>B.1</b> Background</a>
-<ul>
-<li class="chapter" data-level="B.1.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#reference-site-sampling"><i class="fa fa-check"></i><b>B.1.1</b> Reference site sampling</a></li>
-<li class="chapter" data-level="B.1.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-sample-positioning"><i class="fa fa-check"></i><b>B.1.2</b> Erosion sample positioning</a></li>
-<li class="chapter" data-level="B.1.3" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-site-sampling"><i class="fa fa-check"></i><b>B.1.3</b> Erosion site sampling</a></li>
-<li class="chapter" data-level="B.1.4" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#sample-characteristics"><i class="fa fa-check"></i><b>B.1.4</b> Sample characteristics</a></li>
-<li class="chapter" data-level="B.1.5" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#bioturbation-and-nuclide-distribution"><i class="fa fa-check"></i><b>B.1.5</b> Bioturbation and nuclide distribution</a></li>
-<li class="chapter" data-level="B.1.6" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#radioisotope-sampling-protocol-for-jumping-worm-erosion-project"><i class="fa fa-check"></i><b>B.1.6</b> Radioisotope Sampling Protocol for Jumping Worm Erosion Project</a></li>
+<li class="chapter" data-level="B.1" data-path="a-brief-history-of-pedology.html"><a href="a-brief-history-of-pedology.html#introduction-2"><i class="fa fa-check"></i><b>B.1</b> Introduction</a></li>
+<li class="chapter" data-level="B.2" data-path="a-brief-history-of-pedology.html"><a href="a-brief-history-of-pedology.html#history-of-pedology"><i class="fa fa-check"></i><b>B.2</b> History of Pedology</a></li>
+<li class="chapter" data-level="B.3" data-path="a-brief-history-of-pedology.html"><a href="a-brief-history-of-pedology.html#references-5"><i class="fa fa-check"></i><b>B.3</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="B.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol"><i class="fa fa-check"></i><b>B.2</b> Protocol</a>
+<li class="chapter" data-level="C" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html"><i class="fa fa-check"></i><b>C</b> Radionuclide Sampling Protocol</a>
 <ul>
-<li class="chapter" data-level="B.2.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#materials"><i class="fa fa-check"></i><b>B.2.1</b> Materials</a></li>
-<li class="chapter" data-level="B.2.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol-adapted-from-iaea-guidelines"><i class="fa fa-check"></i><b>B.2.2</b> Protocol (adapted from IAEA guidelines)</a></li>
+<li class="chapter" data-level="C.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#background"><i class="fa fa-check"></i><b>C.1</b> Background</a>
+<ul>
+<li class="chapter" data-level="C.1.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#reference-site-sampling"><i class="fa fa-check"></i><b>C.1.1</b> Reference site sampling</a></li>
+<li class="chapter" data-level="C.1.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-sample-positioning"><i class="fa fa-check"></i><b>C.1.2</b> Erosion sample positioning</a></li>
+<li class="chapter" data-level="C.1.3" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#erosion-site-sampling"><i class="fa fa-check"></i><b>C.1.3</b> Erosion site sampling</a></li>
+<li class="chapter" data-level="C.1.4" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#sample-characteristics"><i class="fa fa-check"></i><b>C.1.4</b> Sample characteristics</a></li>
+<li class="chapter" data-level="C.1.5" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#bioturbation-and-nuclide-distribution"><i class="fa fa-check"></i><b>C.1.5</b> Bioturbation and nuclide distribution</a></li>
+<li class="chapter" data-level="C.1.6" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#radioisotope-sampling-protocol-for-jumping-worm-erosion-project"><i class="fa fa-check"></i><b>C.1.6</b> Radioisotope Sampling Protocol for Jumping Worm Erosion Project</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol"><i class="fa fa-check"></i><b>C.2</b> Protocol</a>
+<ul>
+<li class="chapter" data-level="C.2.1" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#materials"><i class="fa fa-check"></i><b>C.2.1</b> Materials</a></li>
+<li class="chapter" data-level="C.2.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol-adapted-from-iaea-guidelines"><i class="fa fa-check"></i><b>C.2.2</b> Protocol (adapted from IAEA guidelines)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -230,8 +262,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="numerical-model-building" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Section 8</span> Numerical Model Building<a href="numerical-model-building.html#numerical-model-building" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="numerical-model-building" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Section 11</span> Numerical Model Building<a href="numerical-model-building.html#numerical-model-building" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.</p>
 <p>To this end, the goal primary goal is to create a simple model, with a limited number of input parameters that can…</p>
 <ol style="list-style-type: decimal">
@@ -250,8 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li>Represent a suite of bioturbators with unique particle size preferences and mixing rates and behaviors.</li>
 </ol>
-<div id="soil-transport-via-diffusion-advection" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Soil Transport via Diffusion-Advection<a href="numerical-model-building.html#soil-transport-via-diffusion-advection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="soil-transport-via-diffusion-advection" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Soil Transport via Diffusion-Advection<a href="numerical-model-building.html#soil-transport-via-diffusion-advection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The model is based on a layer system to approximate biodiffusion at depth. The number of layers (currently only 5), layer thickness, and profile depth are user-input. At each time step, the soil properties for each layer are calculated based on input parameters and the properties of the layer directly above and below. The model currently assumes steady state conditions: that erosion and soil formation are equivalent, regardless of soil depth, and thus that soil thickness remains constant over time. [citation about steady state] says this is okay… The model is currently integrates local and non-local mixing to simulate two soil properties: one that is included in diffused material (e.g. clay) and one that is excluded from diffused material (e.g. coarse fragments).</p>
 <div class="float">
 <img src="images/clipboard-62785000.png" width="414" alt="Figure 1. Visualization of a single layer, i, and the upper and lower layers." />
@@ -272,27 +304,8 @@ V_{y, down}=D(z_i)(y_{i-1}-y_i)
 V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h_i)(y_{i+1}-y_i)
 \]</span></p>
 <p>[note: bulk density is implicitly included in the y term, but might not always be]</p>
-<p>Where h<sub>i</sub> is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, <span class="math inline">\(\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})\)</span>, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, it requires a peicewise definition of D(z):</p>
-<p><span class="math display">\[\begin{equation}
-D(z) =
-  \left\{\begin{array}{lr}
-     0, &amp; z = 0 \\
-     s e^{-z/b}, &amp; 0 &lt; z &lt; f \\
-     0, &amp; z = f
-  \end{array}\right.
-\end{equation}\]</span></p>
-<p>This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represnets a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011). An additional piecewise diffusion function, <span class="math inline">\(D_l(z)\)</span>, is defined for non-local mixing to allow a different diffusion-depth relationship than that of local mixing.</p>
-<p><span class="math display">\[\begin{equation}
-D_l(z) =
-  \left\{\begin{array}{lr}
-     s e^{-z/b}, &amp; z &gt; 0 \\
-     \int_{0}^{f}D(z_l)dz*\frac{1}{n}\sum_{i=1}^{n}y_i &amp; z = 0 \\
-  \end{array}\right.
-\end{equation}\]</span></p>
-<p>Local plus non-local mixing is described by:</p>
-<p><span class="math display">\[
-V_{y}=D(z_i)(y_{i-1}-y_i) + D(z_i+h)(y_{i+1}-y_i) \\+ D_l(z_i)(y_{i-1})-D_l(z_i+h_i)(y_i)
-\]</span></p>
+<p>Where h<sub>i</sub> is the thickness of layer i (m). This is functionally similar to the diffusion-advection equation, <span class="math inline">\(\frac{dy}{dt} = \frac{d}{dz}(D(z)\frac{dy}{dz})\)</span>, but in a more easily R-model-able format. However, because diffusion will be zero at the top and bottom of the soil profile, a small adjustment is made to eliminate diffusion.</p>
+<p>This model only considers only local mixing, and does not account for material that is excavated from one layer and deposited on the soil surface. Non-local mixing represents a considerable displacement of material and has considerable impacts on surface material contents (Jarvis et al. 2010; Mastisoff et al. 2011).</p>
 <p>Including non-local mixing complicates the model and requires more data on the behavior of bioturbators. In comparing models including and excluding non-local mixing, Jarvis et al. 2010 found models without non-local mixing underestimated surface translocation of particles (using 137Cs as tracer). Notably, the authors did not include erosion estimates in their model, which studies show is an important factor in the redistribution of material by bioturbation [citation]. Further study on the importance of modeling non-local mixing is required.</p>
 <p>[note to self: burial versus erosion rate is a well-studied topic and is worth looking into here]</p>
 <p>However, a primary interest of our model is the movement of material too large to be mixed by bioturbators, coarse fragments. Coarse fragments are included only in downward local soil movement. They move downwards to infill where material is excavated but are too large to be excavated themselves. Ignoring non-local and upward local mixing, flux of coarse fragments can be simplified to:</p>
@@ -301,167 +314,166 @@ V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
 \]</span></p>
 <p>Where S is the concentration of material of a greater size class than movable by present bioturbators. At the top and bottom of the profile, the above diffusion equations are adjusted to be zero.</p>
 <p>[input parameter table here]</p>
-<div id="model-1-diffusion-local-mixing-of-included-and-excluded-components." class="section level3 hasAnchor" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Model 1: Diffusion (local mixing) of included and excluded components.<a href="numerical-model-building.html#model-1-diffusion-local-mixing-of-included-and-excluded-components." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="numerical-model-building.html#cb2-1" tabindex="-1"></a><span class="co">#&#39;###################### [creating a data frame] #######################</span></span>
-<span id="cb2-2"><a href="numerical-model-building.html#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="numerical-model-building.html#cb2-3" tabindex="-1"></a><span class="co">#&#39; [set] number of time steps</span></span>
-<span id="cb2-4"><a href="numerical-model-building.html#cb2-4" tabindex="-1"></a>time_steps <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb2-5"><a href="numerical-model-building.html#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="numerical-model-building.html#cb2-6" tabindex="-1"></a><span class="co">#&#39; [set] number of years per time step</span></span>
-<span id="cb2-7"><a href="numerical-model-building.html#cb2-7" tabindex="-1"></a>step_years <span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb2-8"><a href="numerical-model-building.html#cb2-8" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="numerical-model-building.html#cb2-9" tabindex="-1"></a><span class="co"># build a data frame</span></span>
-<span id="cb2-10"><a href="numerical-model-building.html#cb2-10" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">time_step =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(time_steps <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">each =</span> <span class="dv">4</span>),</span>
-<span id="cb2-11"><a href="numerical-model-building.html#cb2-11" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;bd&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;exc&quot;</span>), <span class="at">times =</span> time_steps),</span>
-<span id="cb2-12"><a href="numerical-model-building.html#cb2-12" tabindex="-1"></a>                <span class="st">&quot;A&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb2-13"><a href="numerical-model-building.html#cb2-13" tabindex="-1"></a>                <span class="st">&quot;B&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb2-14"><a href="numerical-model-building.html#cb2-14" tabindex="-1"></a>                <span class="st">&quot;C&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb2-15"><a href="numerical-model-building.html#cb2-15" tabindex="-1"></a>                <span class="st">&quot;D&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
-<span id="cb2-16"><a href="numerical-model-building.html#cb2-16" tabindex="-1"></a>                <span class="st">&quot;E&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
-<span id="cb2-17"><a href="numerical-model-building.html#cb2-17" tabindex="-1"></a>                <span class="st">&quot;F&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
-<span id="cb2-18"><a href="numerical-model-building.html#cb2-18" tabindex="-1"></a>                <span class="st">&quot;bot&quot;</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
-<span id="cb2-19"><a href="numerical-model-building.html#cb2-19" tabindex="-1"></a><span class="co">#&#39; [set] layer thickness (m)</span></span>
-<span id="cb2-20"><a href="numerical-model-building.html#cb2-20" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
-<span id="cb2-21"><a href="numerical-model-building.html#cb2-21" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="numerical-model-building.html#cb2-22" tabindex="-1"></a><span class="co">#split data frame into multiple based on index column. names accordingly</span></span>
-<span id="cb2-23"><a href="numerical-model-building.html#cb2-23" tabindex="-1"></a>df2 <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(index) <span class="sc">%&gt;%</span> <span class="fu">group_split</span>(<span class="at">.keep =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;bd&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;exc&quot;</span>))</span>
-<span id="cb2-24"><a href="numerical-model-building.html#cb2-24" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="numerical-model-building.html#cb2-25" tabindex="-1"></a><span class="co"># input the top depths of each layer into data frame</span></span>
-<span id="cb2-26"><a href="numerical-model-building.html#cb2-26" tabindex="-1"></a>df2[[<span class="st">&quot;z&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">0</span>, h, h<span class="sc">*</span><span class="dv">2</span>, h<span class="sc">*</span><span class="dv">3</span>, h<span class="sc">*</span><span class="dv">4</span>, h<span class="sc">*</span><span class="dv">5</span>, h<span class="sc">*</span><span class="dv">6</span>)</span>
-<span id="cb2-27"><a href="numerical-model-building.html#cb2-27" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="numerical-model-building.html#cb2-28" tabindex="-1"></a><span class="co">#&#39; [set] layer bd into data frame, A:F</span></span>
-<span id="cb2-29"><a href="numerical-model-building.html#cb2-29" tabindex="-1"></a>df2[[<span class="st">&quot;bd&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb2-30"><a href="numerical-model-building.html#cb2-30" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="numerical-model-building.html#cb2-31" tabindex="-1"></a><span class="co">#&#39; [set] starting included and excluded components of each layer, A:F</span></span>
-<span id="cb2-32"><a href="numerical-model-building.html#cb2-32" tabindex="-1"></a>df2[[<span class="st">&quot;inc&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">40</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb2-33"><a href="numerical-model-building.html#cb2-33" tabindex="-1"></a>df2[[<span class="st">&quot;exc&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
-<span id="cb2-34"><a href="numerical-model-building.html#cb2-34" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="numerical-model-building.html#cb2-35" tabindex="-1"></a><span class="co">#&#39;###################### [defining functions] #######################</span></span>
-<span id="cb2-36"><a href="numerical-model-building.html#cb2-36" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="numerical-model-building.html#cb2-37" tabindex="-1"></a><span class="co"># define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)</span></span>
-<span id="cb2-38"><a href="numerical-model-building.html#cb2-38" tabindex="-1"></a>Dz <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
-<span id="cb2-39"><a href="numerical-model-building.html#cb2-39" tabindex="-1"></a>  <span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>) <span class="co"># exponential (Johnson et al., 2014) for eq. (Yeates et a.l, 1995) for intercept</span></span>
-<span id="cb2-40"><a href="numerical-model-building.html#cb2-40" tabindex="-1"></a>  <span class="co"># 6.9 * 10^-5 + -1.06 * 10^-4 * z # linear</span></span>
-<span id="cb2-41"><a href="numerical-model-building.html#cb2-41" tabindex="-1"></a>}</span>
-<span id="cb2-42"><a href="numerical-model-building.html#cb2-42" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="numerical-model-building.html#cb2-43" tabindex="-1"></a><span class="co"># diffusion w/ depth function plotting</span></span>
-<span id="cb2-44"><a href="numerical-model-building.html#cb2-44" tabindex="-1"></a>eq <span class="ot">=</span> <span class="cf">function</span>(z){<span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>)}</span>
-<span id="cb2-45"><a href="numerical-model-building.html#cb2-45" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>)), <span class="fu">aes</span>(<span class="at">x =</span> z)) <span class="sc">+</span></span>
-<span id="cb2-46"><a href="numerical-model-building.html#cb2-46" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> eq) <span class="sc">+</span></span>
-<span id="cb2-47"><a href="numerical-model-building.html#cb2-47" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;diffusion (m2/yr)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2-48"><a href="numerical-model-building.html#cb2-48" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb2-49"><a href="numerical-model-building.html#cb2-49" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div id="model-1-r-diffusion-local-mixing-of-included-and-excluded-components." class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Model 1: R Diffusion (local mixing) of included and excluded components.<a href="numerical-model-building.html#model-1-r-diffusion-local-mixing-of-included-and-excluded-components." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="numerical-model-building.html#cb6-1" tabindex="-1"></a><span class="co">#&#39;###################### [creating a data frame] #######################</span></span>
+<span id="cb6-2"><a href="numerical-model-building.html#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="numerical-model-building.html#cb6-3" tabindex="-1"></a><span class="co">#&#39; [set] number of time steps</span></span>
+<span id="cb6-4"><a href="numerical-model-building.html#cb6-4" tabindex="-1"></a>time_steps <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb6-5"><a href="numerical-model-building.html#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="numerical-model-building.html#cb6-6" tabindex="-1"></a><span class="co">#&#39; [set] number of years per time step</span></span>
+<span id="cb6-7"><a href="numerical-model-building.html#cb6-7" tabindex="-1"></a>step_years <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb6-8"><a href="numerical-model-building.html#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="numerical-model-building.html#cb6-9" tabindex="-1"></a><span class="co"># build a data frame</span></span>
+<span id="cb6-10"><a href="numerical-model-building.html#cb6-10" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">time_step =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(time_steps <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">each =</span> <span class="dv">4</span>),</span>
+<span id="cb6-11"><a href="numerical-model-building.html#cb6-11" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;bd&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;exc&quot;</span>), <span class="at">times =</span> time_steps),</span>
+<span id="cb6-12"><a href="numerical-model-building.html#cb6-12" tabindex="-1"></a>                <span class="st">&quot;A&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb6-13"><a href="numerical-model-building.html#cb6-13" tabindex="-1"></a>                <span class="st">&quot;B&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb6-14"><a href="numerical-model-building.html#cb6-14" tabindex="-1"></a>                <span class="st">&quot;C&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb6-15"><a href="numerical-model-building.html#cb6-15" tabindex="-1"></a>                <span class="st">&quot;D&quot;</span> <span class="ot">=</span> <span class="dv">0</span>, </span>
+<span id="cb6-16"><a href="numerical-model-building.html#cb6-16" tabindex="-1"></a>                <span class="st">&quot;E&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
+<span id="cb6-17"><a href="numerical-model-building.html#cb6-17" tabindex="-1"></a>                <span class="st">&quot;F&quot;</span> <span class="ot">=</span> <span class="dv">0</span>,</span>
+<span id="cb6-18"><a href="numerical-model-building.html#cb6-18" tabindex="-1"></a>                <span class="st">&quot;bot&quot;</span> <span class="ot">=</span> <span class="dv">0</span>)</span>
+<span id="cb6-19"><a href="numerical-model-building.html#cb6-19" tabindex="-1"></a><span class="co">#&#39; [set] layer thickness (m)</span></span>
+<span id="cb6-20"><a href="numerical-model-building.html#cb6-20" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb6-21"><a href="numerical-model-building.html#cb6-21" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="numerical-model-building.html#cb6-22" tabindex="-1"></a><span class="co">#split data frame into multiple based on index column. names accordingly</span></span>
+<span id="cb6-23"><a href="numerical-model-building.html#cb6-23" tabindex="-1"></a>df2 <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(index) <span class="sc">%&gt;%</span> <span class="fu">group_split</span>(<span class="at">.keep =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;z&quot;</span>, <span class="st">&quot;bd&quot;</span>, <span class="st">&quot;inc&quot;</span>, <span class="st">&quot;exc&quot;</span>))</span>
+<span id="cb6-24"><a href="numerical-model-building.html#cb6-24" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="numerical-model-building.html#cb6-25" tabindex="-1"></a><span class="co"># input the top depths of each layer into data frame</span></span>
+<span id="cb6-26"><a href="numerical-model-building.html#cb6-26" tabindex="-1"></a>df2[[<span class="st">&quot;z&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">0</span>, h, h<span class="sc">*</span><span class="dv">2</span>, h<span class="sc">*</span><span class="dv">3</span>, h<span class="sc">*</span><span class="dv">4</span>, h<span class="sc">*</span><span class="dv">5</span>, h<span class="sc">*</span><span class="dv">6</span>)</span>
+<span id="cb6-27"><a href="numerical-model-building.html#cb6-27" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="numerical-model-building.html#cb6-28" tabindex="-1"></a><span class="co">#&#39; [set] layer bd into data frame, A:F</span></span>
+<span id="cb6-29"><a href="numerical-model-building.html#cb6-29" tabindex="-1"></a>df2[[<span class="st">&quot;bd&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb6-30"><a href="numerical-model-building.html#cb6-30" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="numerical-model-building.html#cb6-31" tabindex="-1"></a><span class="co">#&#39; [set] starting included and excluded components of each layer, A:F</span></span>
+<span id="cb6-32"><a href="numerical-model-building.html#cb6-32" tabindex="-1"></a>df2[[<span class="st">&quot;inc&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">40</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb6-33"><a href="numerical-model-building.html#cb6-33" tabindex="-1"></a>df2[[<span class="st">&quot;exc&quot;</span>]][<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)] <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb6-34"><a href="numerical-model-building.html#cb6-34" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="numerical-model-building.html#cb6-35" tabindex="-1"></a><span class="co">#&#39;###################### [defining functions] #######################</span></span>
+<span id="cb6-36"><a href="numerical-model-building.html#cb6-36" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="numerical-model-building.html#cb6-37" tabindex="-1"></a><span class="co"># define diffusion (bioturbation) function (if statements needed for top and bottom layers) (m/yr)</span></span>
+<span id="cb6-38"><a href="numerical-model-building.html#cb6-38" tabindex="-1"></a>Dz <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
+<span id="cb6-39"><a href="numerical-model-building.html#cb6-39" tabindex="-1"></a>  <span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>) <span class="co"># exponential (Johnson et al., 2014) for eq. (Yeates et a.l, 1995) for intercept</span></span>
+<span id="cb6-40"><a href="numerical-model-building.html#cb6-40" tabindex="-1"></a>  <span class="co"># 6.9 * 10^-5 + -1.06 * 10^-4 * z # linear</span></span>
+<span id="cb6-41"><a href="numerical-model-building.html#cb6-41" tabindex="-1"></a>}</span>
+<span id="cb6-42"><a href="numerical-model-building.html#cb6-42" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="numerical-model-building.html#cb6-43" tabindex="-1"></a><span class="co"># diffusion w/ depth function plotting</span></span>
+<span id="cb6-44"><a href="numerical-model-building.html#cb6-44" tabindex="-1"></a>eq <span class="ot">=</span> <span class="cf">function</span>(z){<span class="fl">0.005334</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>z<span class="sc">/</span><span class="fl">0.28</span>)}</span>
+<span id="cb6-45"><a href="numerical-model-building.html#cb6-45" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>)), <span class="fu">aes</span>(<span class="at">x =</span> z)) <span class="sc">+</span></span>
+<span id="cb6-46"><a href="numerical-model-building.html#cb6-46" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> eq) <span class="sc">+</span></span>
+<span id="cb6-47"><a href="numerical-model-building.html#cb6-47" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;diffusion (m2/yr)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-48"><a href="numerical-model-building.html#cb6-48" tabindex="-1"></a>  <span class="fu">scale_x_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-49"><a href="numerical-model-building.html#cb6-49" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="06_model_building_files/figure-html/diffusion-1.png" width="672" /></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="numerical-model-building.html#cb3-1" tabindex="-1"></a><span class="co"># define function that calculates local inc-diffusion (g/m/yr) into/out of ith layer</span></span>
-<span id="cb3-2"><a href="numerical-model-building.html#cb3-2" tabindex="-1"></a>inc_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(yh, yi, yj, zi, bdi) {</span>
-<span id="cb3-3"><a href="numerical-model-building.html#cb3-3" tabindex="-1"></a>  <span class="cf">if</span>(zi <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb3-4"><a href="numerical-model-building.html#cb3-4" tabindex="-1"></a>    <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> (yj <span class="sc">-</span> yi) <span class="co"># surface</span></span>
-<span id="cb3-5"><a href="numerical-model-building.html#cb3-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb3-6"><a href="numerical-model-building.html#cb3-6" tabindex="-1"></a>    <span class="cf">if</span>(zi <span class="sc">==</span> h <span class="sc">*</span> <span class="dv">5</span>) {</span>
-<span id="cb3-7"><a href="numerical-model-building.html#cb3-7" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> (yh <span class="sc">-</span> yi) <span class="co"># bottom</span></span>
-<span id="cb3-8"><a href="numerical-model-building.html#cb3-8" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb3-9"><a href="numerical-model-building.html#cb3-9" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="sc">+</span> <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> yj <span class="sc">-</span> yi <span class="sc">*</span> (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">+</span> <span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span>h)) <span class="co"># middle</span></span>
-<span id="cb3-10"><a href="numerical-model-building.html#cb3-10" tabindex="-1"></a>    }</span>
-<span id="cb3-11"><a href="numerical-model-building.html#cb3-11" tabindex="-1"></a>  }</span>
-<span id="cb3-12"><a href="numerical-model-building.html#cb3-12" tabindex="-1"></a>}</span>
-<span id="cb3-13"><a href="numerical-model-building.html#cb3-13" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="numerical-model-building.html#cb3-14" tabindex="-1"></a><span class="co"># define function that calculates local exc-diffusion (g/m/yr) into/out of ith layer</span></span>
-<span id="cb3-15"><a href="numerical-model-building.html#cb3-15" tabindex="-1"></a>exc_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(yh, yi, yj, zi, bdi) {</span>
-<span id="cb3-16"><a href="numerical-model-building.html#cb3-16" tabindex="-1"></a>  <span class="cf">if</span>(zi <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb3-17"><a href="numerical-model-building.html#cb3-17" tabindex="-1"></a>    <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> (<span class="dv">0</span> <span class="sc">-</span> yi) <span class="co"># surface</span></span>
-<span id="cb3-18"><a href="numerical-model-building.html#cb3-18" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb3-19"><a href="numerical-model-building.html#cb3-19" tabindex="-1"></a>    <span class="cf">if</span>(zi <span class="sc">==</span> h <span class="sc">*</span> <span class="dv">5</span>) {</span>
-<span id="cb3-20"><a href="numerical-model-building.html#cb3-20" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="co"># bottom</span></span>
-<span id="cb3-21"><a href="numerical-model-building.html#cb3-21" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb3-22"><a href="numerical-model-building.html#cb3-22" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="sc">-</span> yi <span class="sc">*</span> <span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span>h) <span class="co"># middle</span></span>
-<span id="cb3-23"><a href="numerical-model-building.html#cb3-23" tabindex="-1"></a>    }</span>
-<span id="cb3-24"><a href="numerical-model-building.html#cb3-24" tabindex="-1"></a>  }</span>
-<span id="cb3-25"><a href="numerical-model-building.html#cb3-25" tabindex="-1"></a>}</span>
-<span id="cb3-26"><a href="numerical-model-building.html#cb3-26" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="numerical-model-building.html#cb3-27" tabindex="-1"></a><span class="co">#&#39;###################### [model calculations] #######################</span></span>
-<span id="cb3-28"><a href="numerical-model-building.html#cb3-28" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="numerical-model-building.html#cb3-29" tabindex="-1"></a><span class="co"># for loop that fills data frame with diffusion-calculated contents</span></span>
-<span id="cb3-30"><a href="numerical-model-building.html#cb3-30" tabindex="-1"></a><span class="cf">for</span>(crow <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(time_steps)) {</span>
-<span id="cb3-31"><a href="numerical-model-building.html#cb3-31" tabindex="-1"></a>  <span class="cf">for</span>(ccol <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>) {</span>
-<span id="cb3-32"><a href="numerical-model-building.html#cb3-32" tabindex="-1"></a>    <span class="co"># apply inc-diffusion function</span></span>
-<span id="cb3-33"><a href="numerical-model-building.html#cb3-33" tabindex="-1"></a>    df2[[<span class="st">&quot;inc&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
-<span id="cb3-34"><a href="numerical-model-building.html#cb3-34" tabindex="-1"></a>      df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
-<span id="cb3-35"><a href="numerical-model-building.html#cb3-35" tabindex="-1"></a>      step_years <span class="sc">*</span> </span>
-<span id="cb3-36"><a href="numerical-model-building.html#cb3-36" tabindex="-1"></a>      <span class="fu">inc_diff_fun</span>(df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
-<span id="cb3-37"><a href="numerical-model-building.html#cb3-37" tabindex="-1"></a>                   df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
-<span id="cb3-38"><a href="numerical-model-building.html#cb3-38" tabindex="-1"></a>                   df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
-<span id="cb3-39"><a href="numerical-model-building.html#cb3-39" tabindex="-1"></a>                   df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
-<span id="cb3-40"><a href="numerical-model-building.html#cb3-40" tabindex="-1"></a>                   df2[[<span class="st">&quot;bd&quot;</span>]][crow, ccol])</span>
-<span id="cb3-41"><a href="numerical-model-building.html#cb3-41" tabindex="-1"></a>    <span class="co"># apply exc-diffusion function</span></span>
-<span id="cb3-42"><a href="numerical-model-building.html#cb3-42" tabindex="-1"></a>    df2[[<span class="st">&quot;exc&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
-<span id="cb3-43"><a href="numerical-model-building.html#cb3-43" tabindex="-1"></a>      df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
-<span id="cb3-44"><a href="numerical-model-building.html#cb3-44" tabindex="-1"></a>      step_years <span class="sc">*</span> </span>
-<span id="cb3-45"><a href="numerical-model-building.html#cb3-45" tabindex="-1"></a>      <span class="fu">exc_diff_fun</span>(df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
-<span id="cb3-46"><a href="numerical-model-building.html#cb3-46" tabindex="-1"></a>                    df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
-<span id="cb3-47"><a href="numerical-model-building.html#cb3-47" tabindex="-1"></a>                    df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
-<span id="cb3-48"><a href="numerical-model-building.html#cb3-48" tabindex="-1"></a>                    df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
-<span id="cb3-49"><a href="numerical-model-building.html#cb3-49" tabindex="-1"></a>                    df2[[<span class="st">&quot;bd&quot;</span>]][crow, ccol])</span>
-<span id="cb3-50"><a href="numerical-model-building.html#cb3-50" tabindex="-1"></a>  } </span>
-<span id="cb3-51"><a href="numerical-model-building.html#cb3-51" tabindex="-1"></a>}</span>
-<span id="cb3-52"><a href="numerical-model-building.html#cb3-52" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="numerical-model-building.html#cb3-53" tabindex="-1"></a><span class="co">#&#39;###################### [creating a plotting dataframe] #######################</span></span>
-<span id="cb3-54"><a href="numerical-model-building.html#cb3-54" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="numerical-model-building.html#cb3-55" tabindex="-1"></a><span class="co"># convert df2 dataframes to long format, one data frame for each inc, exc, and z</span></span>
-<span id="cb3-56"><a href="numerical-model-building.html#cb3-56" tabindex="-1"></a>df2_inc_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;inc&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb3-57"><a href="numerical-model-building.html#cb3-57" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-58"><a href="numerical-model-building.html#cb3-58" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb3-59"><a href="numerical-model-building.html#cb3-59" tabindex="-1"></a>df2_exc_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;exc&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb3-60"><a href="numerical-model-building.html#cb3-60" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-61"><a href="numerical-model-building.html#cb3-61" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb3-62"><a href="numerical-model-building.html#cb3-62" tabindex="-1"></a>df2_z_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;z&quot;</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb3-63"><a href="numerical-model-building.html#cb3-63" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-64"><a href="numerical-model-building.html#cb3-64" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
-<span id="cb3-65"><a href="numerical-model-building.html#cb3-65" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="numerical-model-building.html#cb3-66" tabindex="-1"></a><span class="co"># combine the long df2&#39;s</span></span>
-<span id="cb3-67"><a href="numerical-model-building.html#cb3-67" tabindex="-1"></a>df2_long_join1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_inc_long, df2_z_long, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.inc&quot;</span>, <span class="st">&quot;.z&quot;</span>), <span class="at">by =</span> <span class="st">&quot;bot&quot;</span>)</span>
-<span id="cb3-68"><a href="numerical-model-building.html#cb3-68" tabindex="-1"></a>df2_long <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_long_join1, df2_exc_long, <span class="at">by =</span> <span class="st">&quot;bot&quot;</span>)</span>
-<span id="cb3-69"><a href="numerical-model-building.html#cb3-69" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="numerical-model-building.html#cb3-70" tabindex="-1"></a><span class="co"># select for only key time steps</span></span>
-<span id="cb3-71"><a href="numerical-model-building.html#cb3-71" tabindex="-1"></a>df2_long_plot <span class="ot">&lt;-</span> df2_long <span class="sc">%&gt;%</span> </span>
-<span id="cb3-72"><a href="numerical-model-building.html#cb3-72" tabindex="-1"></a>  <span class="fu">select</span>(time_step.inc, layer.inc, value.inc, value.z, value) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-73"><a href="numerical-model-building.html#cb3-73" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">time_step =</span> time_step.inc, <span class="at">layer =</span> layer.inc, <span class="at">value.exc =</span> value) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-74"><a href="numerical-model-building.html#cb3-74" tabindex="-1"></a>  <span class="fu">filter</span>(time_step <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> </span>
-<span id="cb3-75"><a href="numerical-model-building.html#cb3-75" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">|</span> </span>
-<span id="cb3-76"><a href="numerical-model-building.html#cb3-76" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">50</span>) <span class="sc">|</span> </span>
-<span id="cb3-77"><a href="numerical-model-building.html#cb3-77" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|</span> </span>
-<span id="cb3-78"><a href="numerical-model-building.html#cb3-78" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|</span></span>
-<span id="cb3-79"><a href="numerical-model-building.html#cb3-79" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">-</span> <span class="dv">1</span>))</span>
-<span id="cb3-80"><a href="numerical-model-building.html#cb3-80" tabindex="-1"></a></span>
-<span id="cb3-81"><a href="numerical-model-building.html#cb3-81" tabindex="-1"></a><span class="co">#&#39;###################### [plotting] #######################</span></span>
-<span id="cb3-82"><a href="numerical-model-building.html#cb3-82" tabindex="-1"></a></span>
-<span id="cb3-83"><a href="numerical-model-building.html#cb3-83" tabindex="-1"></a><span class="co">#plot inc</span></span>
-<span id="cb3-84"><a href="numerical-model-building.html#cb3-84" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long_plot, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
-<span id="cb3-85"><a href="numerical-model-building.html#cb3-85" tabindex="-1"></a>                                           <span class="at">x =</span> value.inc, </span>
-<span id="cb3-86"><a href="numerical-model-building.html#cb3-86" tabindex="-1"></a>                                           <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
-<span id="cb3-87"><a href="numerical-model-building.html#cb3-87" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-88"><a href="numerical-model-building.html#cb3-88" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-89"><a href="numerical-model-building.html#cb3-89" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Included component content (g/m2)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb3-90"><a href="numerical-model-building.html#cb3-90" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="numerical-model-building.html#cb7-1" tabindex="-1"></a><span class="co"># define function that calculates local inc-diffusion (g/m/yr) into/out of ith layer</span></span>
+<span id="cb7-2"><a href="numerical-model-building.html#cb7-2" tabindex="-1"></a>inc_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(yh, yi, yj, zi, bdi) {</span>
+<span id="cb7-3"><a href="numerical-model-building.html#cb7-3" tabindex="-1"></a>  <span class="cf">if</span>(zi <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-4"><a href="numerical-model-building.html#cb7-4" tabindex="-1"></a>    <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> (yj <span class="sc">-</span> yi) <span class="co"># surface</span></span>
+<span id="cb7-5"><a href="numerical-model-building.html#cb7-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb7-6"><a href="numerical-model-building.html#cb7-6" tabindex="-1"></a>    <span class="cf">if</span>(zi <span class="sc">==</span> h <span class="sc">*</span> <span class="dv">5</span>) {</span>
+<span id="cb7-7"><a href="numerical-model-building.html#cb7-7" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> (yh <span class="sc">-</span> yi) <span class="co"># bottom</span></span>
+<span id="cb7-8"><a href="numerical-model-building.html#cb7-8" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-9"><a href="numerical-model-building.html#cb7-9" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="sc">+</span> <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> yj <span class="sc">-</span> yi <span class="sc">*</span> (<span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">+</span> <span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span>h)) <span class="co"># middle</span></span>
+<span id="cb7-10"><a href="numerical-model-building.html#cb7-10" tabindex="-1"></a>    }</span>
+<span id="cb7-11"><a href="numerical-model-building.html#cb7-11" tabindex="-1"></a>  }</span>
+<span id="cb7-12"><a href="numerical-model-building.html#cb7-12" tabindex="-1"></a>}</span>
+<span id="cb7-13"><a href="numerical-model-building.html#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="numerical-model-building.html#cb7-14" tabindex="-1"></a><span class="co"># define function that calculates local exc-diffusion (g/m/yr) into/out of ith layer</span></span>
+<span id="cb7-15"><a href="numerical-model-building.html#cb7-15" tabindex="-1"></a>exc_diff_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(yh, yi, yj, zi, bdi) {</span>
+<span id="cb7-16"><a href="numerical-model-building.html#cb7-16" tabindex="-1"></a>  <span class="cf">if</span>(zi <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-17"><a href="numerical-model-building.html#cb7-17" tabindex="-1"></a>    <span class="fu">Dz</span>(<span class="at">z =</span> (zi <span class="sc">+</span> h)) <span class="sc">*</span> (<span class="dv">0</span> <span class="sc">-</span> yi) <span class="co"># surface</span></span>
+<span id="cb7-18"><a href="numerical-model-building.html#cb7-18" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb7-19"><a href="numerical-model-building.html#cb7-19" tabindex="-1"></a>    <span class="cf">if</span>(zi <span class="sc">==</span> h <span class="sc">*</span> <span class="dv">5</span>) {</span>
+<span id="cb7-20"><a href="numerical-model-building.html#cb7-20" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="co"># bottom</span></span>
+<span id="cb7-21"><a href="numerical-model-building.html#cb7-21" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb7-22"><a href="numerical-model-building.html#cb7-22" tabindex="-1"></a>      <span class="fu">Dz</span>(<span class="at">z =</span> zi) <span class="sc">*</span> yh <span class="sc">-</span> yi <span class="sc">*</span> <span class="fu">Dz</span>(<span class="at">z =</span> zi <span class="sc">+</span>h) <span class="co"># middle</span></span>
+<span id="cb7-23"><a href="numerical-model-building.html#cb7-23" tabindex="-1"></a>    }</span>
+<span id="cb7-24"><a href="numerical-model-building.html#cb7-24" tabindex="-1"></a>  }</span>
+<span id="cb7-25"><a href="numerical-model-building.html#cb7-25" tabindex="-1"></a>}</span>
+<span id="cb7-26"><a href="numerical-model-building.html#cb7-26" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="numerical-model-building.html#cb7-27" tabindex="-1"></a><span class="co">#&#39;###################### [model calculations] #######################</span></span>
+<span id="cb7-28"><a href="numerical-model-building.html#cb7-28" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="numerical-model-building.html#cb7-29" tabindex="-1"></a><span class="co"># for loop that fills data frame with diffusion-calculated contents</span></span>
+<span id="cb7-30"><a href="numerical-model-building.html#cb7-30" tabindex="-1"></a><span class="cf">for</span>(crow <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(time_steps)) {</span>
+<span id="cb7-31"><a href="numerical-model-building.html#cb7-31" tabindex="-1"></a>  <span class="cf">for</span>(ccol <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>) {</span>
+<span id="cb7-32"><a href="numerical-model-building.html#cb7-32" tabindex="-1"></a>    <span class="co"># apply inc-diffusion function</span></span>
+<span id="cb7-33"><a href="numerical-model-building.html#cb7-33" tabindex="-1"></a>    df2[[<span class="st">&quot;inc&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb7-34"><a href="numerical-model-building.html#cb7-34" tabindex="-1"></a>      df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb7-35"><a href="numerical-model-building.html#cb7-35" tabindex="-1"></a>      step_years <span class="sc">*</span> </span>
+<span id="cb7-36"><a href="numerical-model-building.html#cb7-36" tabindex="-1"></a>      <span class="fu">inc_diff_fun</span>(df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb7-37"><a href="numerical-model-building.html#cb7-37" tabindex="-1"></a>                   df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb7-38"><a href="numerical-model-building.html#cb7-38" tabindex="-1"></a>                   df2[[<span class="st">&quot;inc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb7-39"><a href="numerical-model-building.html#cb7-39" tabindex="-1"></a>                   df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb7-40"><a href="numerical-model-building.html#cb7-40" tabindex="-1"></a>                   df2[[<span class="st">&quot;bd&quot;</span>]][crow, ccol])</span>
+<span id="cb7-41"><a href="numerical-model-building.html#cb7-41" tabindex="-1"></a>    <span class="co"># apply exc-diffusion function</span></span>
+<span id="cb7-42"><a href="numerical-model-building.html#cb7-42" tabindex="-1"></a>    df2[[<span class="st">&quot;exc&quot;</span>]][crow, ccol] <span class="ot">=</span> </span>
+<span id="cb7-43"><a href="numerical-model-building.html#cb7-43" tabindex="-1"></a>      df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol] <span class="sc">+</span></span>
+<span id="cb7-44"><a href="numerical-model-building.html#cb7-44" tabindex="-1"></a>      step_years <span class="sc">*</span> </span>
+<span id="cb7-45"><a href="numerical-model-building.html#cb7-45" tabindex="-1"></a>      <span class="fu">exc_diff_fun</span>(df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">-</span> <span class="dv">1</span>],</span>
+<span id="cb7-46"><a href="numerical-model-building.html#cb7-46" tabindex="-1"></a>                    df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol],</span>
+<span id="cb7-47"><a href="numerical-model-building.html#cb7-47" tabindex="-1"></a>                    df2[[<span class="st">&quot;exc&quot;</span>]][crow <span class="sc">-</span> <span class="dv">1</span>, ccol <span class="sc">+</span> <span class="dv">1</span>],</span>
+<span id="cb7-48"><a href="numerical-model-building.html#cb7-48" tabindex="-1"></a>                    df2[[<span class="st">&quot;z&quot;</span>]][crow, ccol],</span>
+<span id="cb7-49"><a href="numerical-model-building.html#cb7-49" tabindex="-1"></a>                    df2[[<span class="st">&quot;bd&quot;</span>]][crow, ccol])</span>
+<span id="cb7-50"><a href="numerical-model-building.html#cb7-50" tabindex="-1"></a>  } </span>
+<span id="cb7-51"><a href="numerical-model-building.html#cb7-51" tabindex="-1"></a>}</span>
+<span id="cb7-52"><a href="numerical-model-building.html#cb7-52" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="numerical-model-building.html#cb7-53" tabindex="-1"></a><span class="co">#&#39;###################### [creating a plotting dataframe] #######################</span></span>
+<span id="cb7-54"><a href="numerical-model-building.html#cb7-54" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="numerical-model-building.html#cb7-55" tabindex="-1"></a><span class="co"># convert df2 dataframes to long format, one data frame for each inc, exc, and z</span></span>
+<span id="cb7-56"><a href="numerical-model-building.html#cb7-56" tabindex="-1"></a>df2_inc_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;inc&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-57"><a href="numerical-model-building.html#cb7-57" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-58"><a href="numerical-model-building.html#cb7-58" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-59"><a href="numerical-model-building.html#cb7-59" tabindex="-1"></a>df2_exc_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;exc&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-60"><a href="numerical-model-building.html#cb7-60" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-61"><a href="numerical-model-building.html#cb7-61" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-62"><a href="numerical-model-building.html#cb7-62" tabindex="-1"></a>df2_z_long <span class="ot">&lt;-</span> df2[[<span class="st">&quot;z&quot;</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-63"><a href="numerical-model-building.html#cb7-63" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;layer&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-64"><a href="numerical-model-building.html#cb7-64" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bot =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="dv">6</span><span class="sc">*</span>time_steps)), <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span>
+<span id="cb7-65"><a href="numerical-model-building.html#cb7-65" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="numerical-model-building.html#cb7-66" tabindex="-1"></a><span class="co"># combine the long df2&#39;s</span></span>
+<span id="cb7-67"><a href="numerical-model-building.html#cb7-67" tabindex="-1"></a>df2_long_join1 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_inc_long, df2_z_long, <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">&quot;.inc&quot;</span>, <span class="st">&quot;.z&quot;</span>), <span class="at">by =</span> <span class="st">&quot;bot&quot;</span>)</span>
+<span id="cb7-68"><a href="numerical-model-building.html#cb7-68" tabindex="-1"></a>df2_long <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df2_long_join1, df2_exc_long, <span class="at">by =</span> <span class="st">&quot;bot&quot;</span>)</span>
+<span id="cb7-69"><a href="numerical-model-building.html#cb7-69" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="numerical-model-building.html#cb7-70" tabindex="-1"></a><span class="co"># select for only key time steps</span></span>
+<span id="cb7-71"><a href="numerical-model-building.html#cb7-71" tabindex="-1"></a>df2_long_plot <span class="ot">&lt;-</span> df2_long <span class="sc">%&gt;%</span> </span>
+<span id="cb7-72"><a href="numerical-model-building.html#cb7-72" tabindex="-1"></a>  <span class="fu">select</span>(time_step.inc, layer.inc, value.inc, value.z, value) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-73"><a href="numerical-model-building.html#cb7-73" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">time_step =</span> time_step.inc, <span class="at">layer =</span> layer.inc, <span class="at">value.exc =</span> value) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-74"><a href="numerical-model-building.html#cb7-74" tabindex="-1"></a>  <span class="fu">filter</span>(time_step <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> </span>
+<span id="cb7-75"><a href="numerical-model-building.html#cb7-75" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">|</span> </span>
+<span id="cb7-76"><a href="numerical-model-building.html#cb7-76" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">50</span>) <span class="sc">|</span> </span>
+<span id="cb7-77"><a href="numerical-model-building.html#cb7-77" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">10</span>) <span class="sc">|</span> </span>
+<span id="cb7-78"><a href="numerical-model-building.html#cb7-78" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">|</span></span>
+<span id="cb7-79"><a href="numerical-model-building.html#cb7-79" tabindex="-1"></a>           time_step <span class="sc">==</span> (time_steps <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb7-80"><a href="numerical-model-building.html#cb7-80" tabindex="-1"></a></span>
+<span id="cb7-81"><a href="numerical-model-building.html#cb7-81" tabindex="-1"></a><span class="co">#&#39;###################### [plotting] #######################</span></span>
+<span id="cb7-82"><a href="numerical-model-building.html#cb7-82" tabindex="-1"></a></span>
+<span id="cb7-83"><a href="numerical-model-building.html#cb7-83" tabindex="-1"></a><span class="co">#plot inc</span></span>
+<span id="cb7-84"><a href="numerical-model-building.html#cb7-84" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long_plot, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
+<span id="cb7-85"><a href="numerical-model-building.html#cb7-85" tabindex="-1"></a>                                           <span class="at">x =</span> value.inc, </span>
+<span id="cb7-86"><a href="numerical-model-building.html#cb7-86" tabindex="-1"></a>                                           <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
+<span id="cb7-87"><a href="numerical-model-building.html#cb7-87" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-88"><a href="numerical-model-building.html#cb7-88" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-89"><a href="numerical-model-building.html#cb7-89" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Included component content (g/m2)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-90"><a href="numerical-model-building.html#cb7-90" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step)</span></code></pre></div>
 <p><img src="06_model_building_files/figure-html/diffusion-2.png" width="672" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="numerical-model-building.html#cb4-1" tabindex="-1"></a><span class="co">#plot exc</span></span>
-<span id="cb4-2"><a href="numerical-model-building.html#cb4-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long_plot, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
-<span id="cb4-3"><a href="numerical-model-building.html#cb4-3" tabindex="-1"></a>                                           <span class="at">x =</span> value.exc, </span>
-<span id="cb4-4"><a href="numerical-model-building.html#cb4-4" tabindex="-1"></a>                                           <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
-<span id="cb4-5"><a href="numerical-model-building.html#cb4-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="numerical-model-building.html#cb4-6" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="numerical-model-building.html#cb4-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Excluded component content (g/m2)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="numerical-model-building.html#cb4-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="numerical-model-building.html#cb8-1" tabindex="-1"></a><span class="co">#plot exc</span></span>
+<span id="cb8-2"><a href="numerical-model-building.html#cb8-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df2_long_plot, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> value.z,</span>
+<span id="cb8-3"><a href="numerical-model-building.html#cb8-3" tabindex="-1"></a>                                           <span class="at">x =</span> value.exc, </span>
+<span id="cb8-4"><a href="numerical-model-building.html#cb8-4" tabindex="-1"></a>                                           <span class="at">group =</span> time_step)) <span class="sc">+</span> </span>
+<span id="cb8-5"><a href="numerical-model-building.html#cb8-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">orientation =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="numerical-model-building.html#cb8-6" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>(<span class="at">name =</span> <span class="st">&quot;depth (m)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="numerical-model-building.html#cb8-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Excluded component content (g/m2)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="numerical-model-building.html#cb8-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>time_step)</span></code></pre></div>
 <p><img src="06_model_building_files/figure-html/diffusion-3.png" width="672" /></p>
 </div>
-<div id="erosion-and-soil-formation" class="section level3 hasAnchor" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Erosion and Soil Formation<a href="numerical-model-building.html#erosion-and-soil-formation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>WIP</p>
-<p>At the top, an erosion factor is included. Bulk density is assumed to be consistent throughout the profile.</p>
+<div id="model-2-python-diffusion-local-mixing-of-included-components" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Model 2: Python diffusion (local mixing) of included components<a href="numerical-model-building.html#model-2-python-diffusion-local-mixing-of-included-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="numerical-model-building.html#cb9-1" tabindex="-1"></a><span class="co">### WIP</span></span></code></pre></div>
 </div>
 </div>
-<div id="references-4" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> References<a href="numerical-model-building.html#references-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="references-4" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> References<a href="numerical-model-building.html#references-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Darwin, Charles. The Formation of Vegetable Mould through the Action of Worms: With Observations on Their Habits. 1st ed. Cambridge University Press, 1881. <a href="https://doi.org/10.1017/CBO9780511703850" class="uri">https://doi.org/10.1017/CBO9780511703850</a>.</p>
 <p>Johnson, Michelle O., Simon M. Mudd, Brad Pillans, Nigel A. Spooner, L. Keith Fifield, Mike J. Kirkby, and Manuel Gloor. “Quantifying the Rate and Depth Dependence of Bioturbation Based on Optically‐stimulated Luminescence (OSL) Dates and Meteoric 10 Be.” Earth Surface Processes and Landforms 39, no. 9 (July 2014): 1188–96. <a href="https://doi.org/10.1002/esp.3520" class="uri">https://doi.org/10.1002/esp.3520</a>.</p>
 <p>Yeates, G. W., and H. Van Der Meulen. “Burial of Soil-Surface Artifacts in the Presence of Lumbricid Earthworms.” Biology and Fertility of Soils 19, no. 1 (January 1995): 73–74. <a href="https://doi.org/10.1007/BF00336350" class="uri">https://doi.org/10.1007/BF00336350</a>.</p>
@@ -479,8 +491,8 @@ V_{S, net}=D(z_i)(S_i) + D(z_i+h)(S_{i+1}-S_i)
           </div>
         </div>
       </div>
-<a href="numerical-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="soil-geomorphology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="soil-geomorphology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gamma-detectors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

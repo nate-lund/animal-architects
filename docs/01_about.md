@@ -8,7 +8,7 @@ This book is dedicated to my thoughts about animals as unintentional architects,
 
 Mima mounds are a somewhat common landscape feature in the Western United states, they are thought to be formed by pocket gophers. A study by Cox and Allen (1987) revealed that in these landscapes, even though it is less energetically favorable, gophers preferentially move soil uphill. The authors suggests that because these soils are often wet, mounding soil increases aeration, plant growth, and provides safer burrowing space (Cox and Allen, 1984). So yes, locally gophers are mounding soil. But the size of these mounds (sometimes several meters) are beyond what a single gopher can produce. It is thus across generations and across the landscape we see structure and order out of individual behavior.
 
-This book is organized loosely by my dissertation chapters. Chapter 1 is about invasive earthworms and their impact on soil erosion in Minnesota's forests. It is practical research, and does/will include many field methods, data analysis, and experimental design thoughts. Soil science, ecology, and hydrology are important topics. Chapter 2 is about bioturbation in the literature: how it's perceived, how it's modeled, how it's connected to soil and landscape formation. Much thought is given to the qualitative tools we use to describe and categorize bioturbation and bioturbators. Ultimately, both a conceptual and numerical model are suggested. Chapter 3 is about modeling and using the lessons and data from prior chapters to create a quantitative framework for biological processes that drive soil, landscape, and hillslope formation. It is exists more in the realm of watershed science and geomorphology.
+This book is organized loosely by my dissertation chapters. Chapter 1 is about invasive earthworms and their impact on soil erosion in Minnesota's forests. It is practical research, and does/will include many field methods, data analysis, and experimental design thoughts. Soil science, ecology, and hydrology are important topics. Chapter 2 is about bioturbation in the literature: how it's perceived, how it's modeled, how it's connected to soil and landscape formation. Much thought is given to the qualitative tools we use to describe and categorize bioturbation and bioturbators. Chapter 3 is about modeling and using the lessons and data from prior chapters to create a quantitative framework for biological processes that drive soil, landscape, and hillslope formation.
 
 ## Table of Contents
 
@@ -16,12 +16,24 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
 -   Chapter 1: MITPPC, Earthworms, and Soil Erosion
 
-    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on short-lived isotopes and erosion pins".
+    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on short-lived isotopes and erosion pins." - 2025
 
-    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on field experiment."
+    -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on field experiment." - 2026
 
-    -   Manuscript: "Rainfall intensity and soil erosion in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes."
+    -   Manuscript: "Rainfall intensity and soil erosion in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes." - 2026
 
 -   Chapter 2: Literature Review of Animal Activity: Concepts, Methods, and Models
 
+    -   Introduction, bioturbation history
+
+    -   Conceptual models and methods
+
+    -   Numerical models
+
 -   Chapter 3: Modeling Soil, Hillslope, Landscape Evolution
+
+    -   Bioturbation model, with particle size (1D)
+
+    -   Creep/mixing/production (2D lateral)
+
+    -   Hillslope evolution (2D vertical)
