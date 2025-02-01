@@ -1,12 +1,6 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
+# (PART) Chapter III {.unnumbered}
 
-# (PART) Chapter III: Modeling Soil, Hillslope, Landscape Evolution {.unnumbered}
-
-# Soil Geomorphology
+# Modeling Soil, Hillslope, Landscape Evolution {.unnumbered}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(include = FALSE, cache=TRUE, eval = FALSE)
@@ -33,34 +27,33 @@ library(spelling)
     4.  Test results
     5.  Verification and data mined data
 
-Describe the purpose: The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.
+Describe the purpose: The purpose of this section is to create a
+quantitative framework, a model, to explore the relationship between
+bioturbation, erosion, and particle size distribution and their
+collective impact on soil profile and landscape development.
 
-Identify the key variables: erosion rate, mixing rate, local vs. non-local ratio, change in animal activity with depth, bulk density, and soil property characteristics.
+Identify the key variables: erosion rate, mixing rate, local vs.
+non-local ratio, change in animal activity with depth, bulk density, and
+soil property characteristics.
 
-Describe methods [very WIP, considering using python and landlab for portions, need to investigate further]
-
+Describe methods [very WIP, considering using python and landlab for
+portions, need to investigate further]
 
 ## Important equations / variables
 
-Hill slope creep
-$$
+Hill slope creep $$
 \frac{dz}{dt}=D\frac{d^2z}{dx^2}
 $$
 
-Soil mixing
-$$
+Soil mixing $$
 \frac{dy}{dz}=D(z)\frac{dy}{dz}+\frac{dz}{dt}\frac{dy}{dz}
 $$
 
-Diffusion coefficient
-$$
+Diffusion coefficient $$
 D(z)=D_0e^{-z/z_b}
-$$
-Soil Production
-$$
+$$ Soil Production $$
 P = e^{-az}
 $$
-
 
 ## Resources
 
@@ -76,6 +69,3 @@ measurements** (Doctoral dissertation, San Francisco State University).
 
 -   Simulate Mima mound creation by pocket gophers using a landlab
     module?
-
-![From Johnson and Watson-Stegner
-(1987)](images/clipboard-152616148.png)
