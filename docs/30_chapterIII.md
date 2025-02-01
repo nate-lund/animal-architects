@@ -1,0 +1,59 @@
+# (PART) Chapter III {.unnumbered}
+
+# Modeling Soil, Hillslope, Landscape Evolution {.unnumbered}
+
+
+
+"Simplicity you can argue for."
+
+## Brief Outline
+
+1.  Numerical model building
+    1.  Purpose / Goals
+    2.  Identification of most key factors/variables
+    3.  Assumptions and methods
+    4.  Test results
+    5.  Verification and data mined data
+
+Describe the purpose: The purpose of this section is to create a
+quantitative framework, a model, to explore the relationship between
+bioturbation, erosion, and particle size distribution and their
+collective impact on soil profile and landscape development.
+
+Identify the key variables: erosion rate, mixing rate, local vs.
+non-local ratio, change in animal activity with depth, bulk density, and
+soil property characteristics.
+
+Describe methods [very WIP, considering using python and landlab for
+portions, need to investigate further]
+
+## Important equations / variables
+
+Hill slope creep $$
+\frac{dz}{dt}=D\frac{d^2z}{dx^2}
+$$
+
+Soil mixing $$
+\frac{dy}{dz}=D(z)\frac{dy}{dz}+\frac{dz}{dt}\frac{dy}{dz}
+$$
+
+Diffusion coefficient $$
+D(z)=D_0e^{-z/z_b}
+$$ Soil Production $$
+P = e^{-az}
+$$
+
+## Resources
+
+Dissertation using landlab: Mahmoudi, M. (2018). **Comparing model
+predictions of hillslope sediment size distribution with field
+measurements** (Doctoral dissertation, San Francisco State University).
+
+## Notes
+
+-   Use landlab to simulate hillslope evolution under different
+    earthworms / bioturbation types? Broaden to landscape scale? Include
+    sediment contribution to streams?
+
+-   Simulate Mima mound creation by pocket gophers using a landlab
+    module?

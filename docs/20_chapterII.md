@@ -1,0 +1,90 @@
+# (PART) Chapter II {.unnumbered}
+
+
+
+# Chapter Outline
+
+Focus: Terrestrial environments, lessons from aquatic environments. Methods of papers published within the last \~20 years, concepts further back. Applications to pedology and soil-geomorphology.
+
+Three sections:
+
+1)  Overview of animal activities.
+
+Claim: Animal activities are diverse.
+
+Products: Conceptual figure representing animal activity vectors. Table of the functions of animals.
+
+2)  Measuring and quanitifying animal activities.
+
+Claim:
+
+Products: Table of measurment methods. Connections between roles and methods.
+
+3)  Applications of animal activity measurement.
+
+Claim:
+
+Products: Discussion of models.
+
+1.  Introduction
+2.  Conceptual models
+    1.  Definitions / Justification
+    2.  Factors of animal activity
+    3.  Review of conceptual models
+    4.  New conceptual models
+    5.  Examples from the literature
+3.  Numerical models
+    1.  Transition / Justification
+    2.  Examples of numerical model use
+    3.  Characteristics of numerical models
+    4.  Review of equations from the literature
+    5.  Modeling factors of animal activity
+4.  Conclusion
+
+# **Animals as Soil and Landscape Architects**
+
+**Introduction**
+
+Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance….
+
+Soil or soil-adjacent scientists use many terms to describe the role living organisms play in a soil system. Broadly pedoturbation, bioturbation, fauna- and floraturbation, or biomixing (Wilkenson et al., 2009), or more specifically mounding, cratering, or burrowing (Johnson et al., 2005a), to name a few. For this discussion, I use a generalized term: animal activity. Animal activity has the advantage of being implicity process-based, i.e. animal activities are distinct from the evidence of animal activities. It also encourages thinking about the animals themselves and their relationships to each other and their environment. And finally, it suggests a degree of unintentionality. Animals, oftentimes including humans, don't understand soils or soil science. All the evidences we study are the unintentional consequences of their lifestyles, often over generations.
+
+There exist already a number of excellent reviews on the various roles and categorizations’ of animal activity in soils (Bétard, 2021; Gabet et al., 2003; Johnson et al., 2005b, 2005a; Johnson & Watson-Stegner, 1987; Wilkinson et al., 2009). So, although there is overlap, this paper's emphasis is on the quantification of these categories and how they can be integrated in a holistic, qualitative framework for describing soil fauna activities. *Of particular interest is the methods of measuring animal activity.* The overarching goal of this paper is to take a first, albeit small, step towards a standardized understanding of how and why animal activity is measured that can be applied across the displine of soil science... To that end, I begin with a breif discussion of the types of relevant animal behaviors and how they can be categorized.
+
+**What do animals do?**
+
+Animal's are extremely diverse in their individual behaviors. Examples... turtle paper, gophers, types of earthworms... Here, I consider any behavior that translocates soil, either vertically or laterally, across a terrestrial environment.
+
+[Table 1. Gallery of some animal behaviors and the categories they belong to.]{.underline}
+
+There are a two trends that arise from this gallery. One, animals act on lateral and vertical scales. In other words... Two, animals introduce order and variability to a system. In other words... This is visualized in figure 1.
+
+[Figure 1. Visualization of the categories of animal activity.]{.underline}
+
+**Consequences of Animal Activity**
+
+The precise behaviors of animals is the subjects of entire disciplines. However, their importance to pedology, geomorphology, and agronomy is increasingly recognized.
+
+Organism have been recognized as important factors pedogenetic factors since the time of the first pedologists. Darwin recognized the role of earthworms in hillslope formation, soil horizination, the burial of large coarse fragments, and the darkening of upper soil horizons (Darwin, 1881). Hans Jenny included organisms in the original clorpt model in 1941 *Factors.* Countless studies provide examples....
+
+Using the framework established above (Figure 1), the animals of each study can be plotted on a quadrant.
+
+[Figure 2. Quadrant plot of animals with examples]{.underline}
+
+Geomorphology
+
+Agronomy, soil health.
+
+**Methods of measurement**
+
+...
+
+**How our data is used**
+
+...
+
+# Notes
+
+-   If you're a pedologist doing descriptions, leave a column open for animals. Note what organisms are present? How deep do they go? What is the lateral distribution/abundance of krotovinas or tree throw mounds? What structure or texture change might be a product of bioturbation?
+
+-   If you're designing a study around bioturbation, consider what you are trying to measure. Consider what methods might be most applicable. And consider what kind of shared data is needed to maximize the value of your own.
