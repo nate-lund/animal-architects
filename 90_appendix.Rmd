@@ -1,0 +1,18 @@
+# (APPENDIX) Appendix {.unnumbered}
+
+```{r setup, echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+library(tinytex)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(rlang)
+library(usethis)
+library(bookdown)
+library(knitr)
+library(rmarkdown)
+```
+
+# Appendix
+
+![From Johnson and Watson-Stegner (1987)](images/clipboard-152616148.png)
