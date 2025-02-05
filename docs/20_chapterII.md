@@ -4,6 +4,10 @@
 
 # **Animals as Soil and Landscape Architects**
 
+## "Abstract"
+
+The subject of this review is: how do animals impact the physical evolution of soils and terrestrial landscapes? Already, there is a wealth of literature on the roles of individual animals and several reviews of animal activities more broadly. I propose a framework or conceptual model for classifying these behaviors. Through preliminary searching, I identified two “axes” of animal activity: vertical and lateral. Vertically, animals either mix or layer soil. Laterally, animals create variety in surface structures and/or more broadly influence erosion processes. So, in reviewing bioturbation literature, I want to 1) summarize the impacts of animals along these axes, 2) sort papers by their emphasis to analyze trends in the literature, and 3) review current methods for assessing these categories.
+
 ## Introduction
 
 Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance….
@@ -21,6 +25,21 @@ Animal's are extremely diverse in their individual behaviors. Examples... turtle
 [Table 1. Gallery of some animal behaviors and the categories they belong to.]{.underline}
 
 There are a two trends that arise from this gallery. One, animals act on lateral and vertical scales. In other words... Two, animals introduce order and variability to a system. In other words... This is visualized in figure 1.
+
+
+``` r
+here()
+```
+
+```
+## [1] "C:/Users/natha/Desktop/git-projects/animal-architects"
+```
+
+``` r
+knitr::include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
+```
+
+![](_figures/Four panel animals.svg)<!-- -->
 
 [Figure 1. Visualization of the categories of animal activity.]{.underline}
 
@@ -129,7 +148,7 @@ $$
 $$ Together with the diffusion function, this equation can then be solved analytically, as detailed in Román‐Sánchez et al., (2019), to determine the values of the parameters D(0), zb, and soil depth. T is best determined by other means, like cosmogenic nuclides in Johnson et al. (2014), as current diffusive models introduce too much uncertainty to estimate from age profiles directly (Román‐Sánchez et al., 2019).
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Source | Equation | D(0) (m2/yr) | zb (m) |
 | Kirkby (1985) | $D(z) = D(0)e^{-z/z_{b}}$ | $10^{-4}-10^{-2}$ | 0.50 |
 | Johnson et al. (2014) | $D(z) = D(0)e^{-z/z_{b}}$ | $9.81 * 10^{-5}$ | 0.28 |
