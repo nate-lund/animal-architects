@@ -40,7 +40,7 @@ Animal's are extremely diverse in their individual behaviors. Examples... turtle
 
 There are a two trends that arise from this gallery. One, animals act on lateral and vertical scales. In other words... Two, animals introduce order and variability to a system. In other words... This is visualized in figure 1.
 
-```{r}
+```{r, fig.cap=foo}
 knitr::include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
 ```
 
