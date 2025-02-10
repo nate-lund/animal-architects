@@ -2,6 +2,10 @@
 
 
 
+## Outline
+
+How do animals impact the physical evolution of soils and terrestrial landscapes?
+
 ## Conceptual Models
 
 Define conceptual model: A conceptual model is a representation of the key elements of and relationships within some process or structure. Justify the need for conceptual models for animal activity:
@@ -123,7 +127,6 @@ formation(z) =
 \end{equation}
 
 All of these equations provide only a conceptual model to identify the internal and external processes that are forming soil. They provide a lense through which soils and landscapes can be viewed. The rest of this section focuses on this qualitative side, whereas the following modeling sections represent a quantitative approach.
-
 
 ### References
 

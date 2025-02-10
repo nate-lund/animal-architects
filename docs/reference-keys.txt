@@ -7,11 +7,11 @@ hillslope-transects-erosion-pins-etc.
 fieldwork-timeline-2025
 imapct-of-vegetation-cover-on-erosion
 animals-as-soil-and-landscape-architects
-abstract
 introduction
 conceptual-models
-methods-of-measurement
+numermeasurement
 chapter-ii-notes
+outline
 conceptual-models-1
 factors-of-animal-activity
 review-of-conceptual-models

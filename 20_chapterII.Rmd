@@ -1,7 +1,7 @@
 # (PART) Chapter II {.unnumbered}
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.width=20, fig.height=20, out.width = '100%')
 library(here)
 library(tinytex)
 library(ggplot2)
@@ -17,36 +17,43 @@ library(spelling)
 
 # **Animals as Soil and Landscape Architects**
 
-## "Abstract"
+**"Abstract"**
 
-The subject of this review is: how do animals impact the physical evolution of soils and terrestrial landscapes? Already, there is a wealth of literature on the roles of individual animals and several reviews of animal activities more broadly. I propose a framework or conceptual model for classifying these behaviors. Through preliminary searching, I identified two “axes” of animal activity: vertical and lateral. Vertically, animals either mix or layer soil. Laterally, animals create variety in surface structures and/or more broadly influence erosion processes. So, in reviewing bioturbation literature, I want to 1) summarize the impacts of animals along these axes, 2) sort papers by their emphasis to analyze trends in the literature, and 3) review current methods for assessing these categories.
+The subject of this review is: how do animals impact the physical evolution of soils and terrestrial landscapes? There is an abundance of literature on the roles of individual animals, in both case studies and reviews. I first propose a framework or conceptual model for classifying these behaviors. The model incorporates both lateral and vertical dimensions of animal activity. Vertically, animals either mix or layer soil. Laterally, animals create variety in surface structures and/or more broadly influence erosion processes. It also addresses the dual roles of animals in creating heterogeneity and homogeneity in terrestrial landscapes and soils. I next use the conceptual model to evaluate the emphases, successes, and limitations of current numerical modeling approaches. Advanced measurement techniques like optically stimulated luminescence, fallout radionuclide tracers, or image analysis, are increasingly applied to bioturbation research. These methods are often used to generate model parameters that provide generalized descriptions of bioturbation processes. There are several approaches to this model construction covered here, each of which with a unique emphasis and limitations.
 
 ## Introduction
 
 Provide a background and on role of animals in soil development. Introduce some of the important figures in pedology that discussed animal activity: Fallou, Darwin, Dokucahev, Jenny [LAAS 5050 paper can be used here], to establish importance….
 
-Soil or soil-adjacent scientists use many terms to describe the role living organisms play in a soil system. Broadly pedoturbation, bioturbation, fauna- and floraturbation, or biomixing (Wilkenson et al., 2009), or more specifically mounding, cratering, or burrowing (Johnson et al., 2005a), to name a few. For this discussion, I use a generalized term: animal activity. Animal activity has the advantage of being implicity process-based, i.e. animal activities are distinct from the evidence of animal activities. It also encourages thinking about the animals themselves and their relationships to each other and their environment. And finally, it suggests a degree of unintentionality. Animals, oftentimes including humans, don't understand soils or soil science. All the evidences we study are the unintentional consequences of their lifestyles, often over generations.
+Soil or soil-adjacent scientists use many terms to describe the role living organisms play in a soil system. Broadly pedoturbation, bioturbation, fauna- and floraturbation, or biomixing (Wilkenson et al., 2009), or more specifically mounding, cratering, or burrowing (Johnson et al., 2005a), to name a few. For this discussion, I use a generalized term: animal activity. Animal activity has the advantage of being implicitly process-based, i.e. animal activities are distinct from the evidence of animal activities. It also encourages thinking about the animals themselves and their relationships to each other and their environment. And finally, it suggests a degree of unintentionality. Animals, oftentimes including humans, don't understand soils or soil science. All the evidences we study are the unintentional consequences of their lifestyles, often over generations. Thus, the product of animal activities are a refecltion of their ecological characters rather.
 
-There exist already a number of excellent reviews on the various roles and categorizations’ of animal activity in soils (Bétard, 2021; Gabet et al., 2003; Johnson et al., 2005b, 2005a; Johnson & Watson-Stegner, 1987; Wilkinson et al., 2009). So, although there is overlap, this paper's emphasis is on the quantification of these categories and how they can be integrated in a holistic, qualitative framework for describing soil fauna activities. *Of particular interest is the methods of measuring animal activity.* The overarching goal of this paper is to take a first, albeit small, step towards a standardized understanding of how and why animal activity is measured that can be applied across the displine of soil science... To that end, I begin with a breif discussion of the types of relevant animal behaviors and how they can be categorized.
+There exist already a number of excellent reviews on the various roles and categorizations’ of animal activity in soils (Bétard, 2021; Gabet et al., 2003; Johnson et al., 2005b, 2005a; Johnson & Watson-Stegner, 1987; Wilkinson et al., 2009). So, although there is overlap, this paper's emphasis is on the quantification of these categories and how they can be integrated in a holistic, qualitative framework for describing soil fauna activities. *Of particular interest is the methods of measuring animal activity.* The overarching goal of this paper is to take a first, albeit small, step towards a standardized understanding of how and why animal activity is measured that can be applied across the discipline of soil science... To that end, I begin with a discussion of the types of relevant animal behaviors and how they can be categorized.
 
 ## Conceptual models
 
-**What do animals do?**
+**Animal behaviors and classifications**
 
-Animal's are extremely diverse in their individual behaviors. Examples... turtle paper, gophers, types of earthworms... Here, I consider any behavior that translocates soil, either vertically or laterally, across a terrestrial environment.
-
-[Table 1. Gallery of some animal behaviors and the categories they belong to.]{.underline}
-
-There are a two trends that arise from this gallery. One, animals act on lateral and vertical scales. In other words... Two, animals introduce order and variability to a system. In other words... This is visualized in figure 1.
+Animals are extremely diverse in their individual behaviors, and species ecology drives their role on the landscape. Ants, termites, gophers, and earthworms, among others, each occupy unique roles, niches, that translate to unique changes in soils and landscapes. Here, I consider any behavior that translocates soil, either vertically or laterally, across a terrestrial environment. There exists substantial inter-species difference as well–exemplified in the ecological classifications of earthworms discussed later. Throughout this cross- and inter-species variability, there are a two trends–or axes–that arise. One, animals, introduce diversity on lateral and vertical scales. And two, animals create unique impacts across timescales (Figure 1).
 
 ```{r}
-here()
-knitr::include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
+include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
 ```
 
 [Figure 1. Visualization of the categories of animal activity.]{.underline}
 
-**Consequences of Animal Activity**
+Animals work vertically. Vertical mixing of the soil is perhaps the most high-profile impact of soil dwelling animals.
+
+Earthworm species may be epigeic (litter dwellers), endogeic (soil dwellers), and anecic (burrowing surface feeders), or some combination of the three (Hale et al., 2005).
+
+Animals work laterally.
+
+Animals introduce heterogeneity.
+
+Animals introduce order.
+
+[Table 1. Gallery of some animal behaviors and the categories they belong to.]{.underline}
+
+**Case Studies of Animal Activity**
 
 The precise behaviors of animals is the subjects of entire disciplines. However, their importance to pedology, geomorphology, and agronomy is increasingly recognized.
 
@@ -60,15 +67,7 @@ Geomorphology...
 
 Agronomy, soil health...
 
-## Methods of measurement
-
-...
-
-**How our data is used**
-
-...
-
-**Using numerical models**
+## Numermeasurement
 
 Conceptual models alone are valuable for describing a number of processes, as justified above. However, quantitative, numerical models are a more powerful tool for answering questions and making predictions, and can inform and be informed by conceptual ones...
 
@@ -151,7 +150,7 @@ $$
 $$ Together with the diffusion function, this equation can then be solved analytically, as detailed in Román‐Sánchez et al., (2019), to determine the values of the parameters D(0), zb, and soil depth. T is best determined by other means, like cosmogenic nuclides in Johnson et al. (2014), as current diffusive models introduce too much uncertainty to estimate from age profiles directly (Román‐Sánchez et al., 2019).
 
 |  |  |  |  |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Source | Equation | D(0) (m2/yr) | zb (m) |
 | Kirkby (1985) | $D(z) = D(0)e^{-z/z_{b}}$ | $10^{-4}-10^{-2}$ | 0.50 |
 | Johnson et al. (2014) | $D(z) = D(0)e^{-z/z_{b}}$ | $9.81 * 10^{-5}$ | 0.28 |
