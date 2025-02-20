@@ -1,7 +1,7 @@
 # (PART) Chapter II {.unnumbered}
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=20, fig.height=20, out.width = '100%')
+knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
 library(here)
 library(tinytex)
 library(ggplot2)
@@ -35,7 +35,7 @@ There exist already a number of excellent reviews on the various roles and categ
 
 Animals are extremely diverse in their individual behaviors, and species ecology drives their role on the landscape. Ants, termites, gophers, and earthworms, among others, each occupy unique roles, niches, that translate to unique changes in soils and landscapes. Here, I consider any behavior that translocates soil, either vertically or laterally, across a terrestrial environment. There exists substantial inter-species difference as well–exemplified in the ecological classifications of earthworms discussed later. Throughout this cross- and inter-species variability, there are a two trends–or axes–that arise. One, animals, introduce diversity on lateral and vertical scales. And two, animals create unique impacts across timescales (Figure 1).
 
-```{r}
+```{r, echo = FALSE}
 include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
 ```
 
@@ -150,7 +150,7 @@ $$
 $$ Together with the diffusion function, this equation can then be solved analytically, as detailed in Román‐Sánchez et al., (2019), to determine the values of the parameters D(0), zb, and soil depth. T is best determined by other means, like cosmogenic nuclides in Johnson et al. (2014), as current diffusive models introduce too much uncertainty to estimate from age profiles directly (Román‐Sánchez et al., 2019).
 
 |  |  |  |  |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Source | Equation | D(0) (m2/yr) | zb (m) |
 | Kirkby (1985) | $D(z) = D(0)e^{-z/z_{b}}$ | $10^{-4}-10^{-2}$ | 0.50 |
 | Johnson et al. (2014) | $D(z) = D(0)e^{-z/z_{b}}$ | $9.81 * 10^{-5}$ | 0.28 |
