@@ -28,9 +28,17 @@ Canti, M.G. “Earthworm Activity and Archaeological Stratigraphy: A Review of P
 
 Chang, Chih-Han, Marie L. C. Bartz, George Brown, Mac A. Callaham, Erin K. Cameron, Andrea Dávalos, Annise Dobson, et al. “The Second Wave of Earthworm Invasions in North America: Biology, Environmental Impacts, Management and Control of Invasive Jumping Worms.” Biological Invasions 23, no. 11 (November 2021): 3291–3322. <https://doi.org/10.1007/s10530-021-02598-1>.
 
+-   Review the impacts of jumping worms on soils. Probably not usable in this review, unless as a case study of the contrast between two earthworm groups.
+
 Chiriac, Luiza Silvia, and Dumitru T Murariu. “THE ECOLOGICAL ROLE OF SOME FUNCTIONAL GROUPS OF INVERTEBRATES – A REVIEW,” n.d.
 
 Corenblit, Dov, Andreas C.W. Baas, Gudrun Bornette, José Darrozes, Sébastien Delmotte, Robert A. Francis, Angela M. Gurnell, Frédéric Julien, Robert J. Naiman, and Johannes Steiger. “Feedbacks between Geomorphology and Biota Controlling Earth Surface Processes and Landforms: A Review of Foundation Concepts and Current Understandings.” Earth-Science Reviews 106, no. 3–4 (June 2011): 307–31. <https://doi.org/10.1016/j.earscirev.2011.03.002>.
+
+-   Review of the linkages between organisms and landscape evolution. Organims are constrained by env parameters, driving evolution, but simultaneously shape the landscape, creating a feedback process.
+
+-   Animal architects are keystone species. A little heavy on genetics.
+
+-   This will but useful in talking about time: how organisms and landscapes co-evolve.
 
 Corenblit, Dov, Bruno Corbara, and Johannes Steiger. “Biogeomorphological Eco-Evolutionary Feedback between Life and Geomorphology: A Theoretical Framework Using Fossorial Mammals.” The Science of Nature 108, no. 6 (December 2021): 55. <https://doi.org/10.1007/s00114-021-01760-y>.
 
@@ -56,6 +64,14 @@ Lavelle, Patrick. “Soil Function in a Changing World: The Role of Invertebrate
 
 Mason, Richard J., and Harry Sanders. “Invertebrate Zoogeomorphology: A Review and Conceptual Framework for Rivers.” WIREs Water 8, no. 5 (September 2021): e1540. <https://doi.org/10.1002/wat2.1540>.
 
+-   Claims Zoomorphology as a field is specifically for fluvial landscapes / rivers? Reviews of the roles of various aquatic organisms in bioturbating and -eroding stream banks and beds. Interesting horizontal erosion framework.
+
+-   Body size is a primary driver of organism impact: both magnitude and direction. Larger organisms occupy more space individually, so likely have more localized impacts (greater burrow spacing). I wonder if anyone has done a study comparing burrow spacing to organism size. However, organism size also determines the size of particles they can move.
+
+-   What if I desribe the 4(ish) sections of my conceptual model, then took a moment to discuss why there is such diversity. There is also an opperunity to disucss direction (i.e. direciton of pedogenesis).
+
+-   This is a good example of a conceptual model being put forward to help us understand organisms better. Good note on invasive species.
+
 McBrearty, Sally. “Consider the Humble Termite: Termites as Agents of Post-Depositional Disturbance at African Archaeological Sites.” Journal of Archaeological Science 17, no. 2 (March 1990): 111–43. [https://doi.org/10.1016/0305-4403(90)90054-9](https://doi.org/10.1016/0305-4403(90)90054-9){.uri}.
 
 Meysman, F, J Middelburg, and C Heip. “Bioturbation: A Fresh Look at Darwin’s Last Idea.” Trends in Ecology & Evolution 21, no. 12 (December 2006): 688–95. <https://doi.org/10.1016/j.tree.2006.08.002>.
@@ -74,6 +90,10 @@ Nascimento, Diego Luciano, Mariane Chiapini, Pablo Vidal-Torrado, Jonathan D. Ph
 
 Palmer, Bryony J., Leonie E. Valentine, Manda Page, and Richard J. Hobbs. “Translocations of Digging Mammals and Their Potential for Ecosystem Restoration: A Review of Goals and Monitoring Programmes.” Mammal Review 50, no. 4 (October 2020): 382–98. <https://doi.org/10.1111/mam.12208>.
 
+-   Reviews historical to current translocations of digging mammals in Australia
+
+-   Could be used a proof that they are recognized as important to ecosystem restoration.
+
 Pawlik, Łukasz, Jonathan D. Phillips, and Pavel Šamonil. “Roots, Rock, and Regolith: Biomechanical and Biochemical Weathering by Trees and Its Impact on Hillslopes—A Critical Literature Review.” Earth-Science Reviews 159 (August 2016): 142–59. <https://doi.org/10.1016/j.earscirev.2016.06.002>.
 
 Pawlik, Łukasz, and Pavel Šamonil. “Soil Creep: The Driving Factors, Evidence and Significance for Biogeomorphic and Pedogenic Domains and Systems – A Critical Literature Review.” Earth-Science Reviews 178 (March 2018): 257–78. <https://doi.org/10.1016/j.earscirev.2018.01.008>.
@@ -90,7 +110,7 @@ Stockmann, Uta, Budiman Minasny, and Alexander McBratney. “Advances in Agronom
 
 Übernickel, Kirstin, Jaime Pizarro-Araya, Susila Bhagavathula, Leandro Paulino, and Todd A. Ehlers. “Reviews and Syntheses: Composition and Characteristics of Burrowing Animals along a Climate and Ecological Gradient, Chile.” Biogeosciences 18, no. 20 (October 18, 2021): 5573–94. <https://doi.org/10.5194/bg-18-5573-2021>.
 
--   A very thorough review (1000+ sources) on the behaviors and impacts of bioturbators, vertebrates and invertebrates, in Chile. Acknowledges prior studes are heterogenious in methods, hard to estimate impact on the landscape and do not cover other biomes besides NA.
+-   A very thorough review (1000+ sources) on the behaviors and impacts of bioturbators, vertebrates and invertebrates, in Chile. Acknowledges prior studes are heterogenious in methods, hard to estimate impact on the landscape and do not cover other biomes besides NA. We need a way to estimate the aggreagate impact of animals on the landscape.
 
 -   Covers variability in excavation rates, tunnel diameter (sorting implications?), burrow depth, geographic distribution. Touches on the need for seasonality.
 
