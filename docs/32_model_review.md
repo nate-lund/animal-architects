@@ -131,7 +131,7 @@ OSL_plt_defaults()
 *This code does the above equation*
 
 
-``` pyhton
+``` python
 
 # [set] initial y values
 yi = y.copy()
@@ -152,5 +152,4 @@ def local_diffusion(z, yi, p, dz, dt, T, D):
     dydt = diff + advec[0:-1]
     y_copy[1:-1] += dydt * dt
   return y_copy
-
 ```

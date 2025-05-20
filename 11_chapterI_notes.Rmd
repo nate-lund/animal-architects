@@ -1,4 +1,4 @@
-# Chapter II Notes
+# Chapter I Notes
 
 ```{r setup, echo = FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE)

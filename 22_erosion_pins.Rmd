@@ -1,4 +1,4 @@
-# (PART) Chapter I {.unnumbered}
+# Erosion pins
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
@@ -15,10 +15,12 @@ library(rmarkdown)
 library(spelling)
 ```
 
-# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**
+## Data
 
-WIP
+Link to location?
 
-```{r, echo = FALSE}
-include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
-```
+## Collection methods / SOPs
+
+## Analysis 1
+
+## Analysis 2

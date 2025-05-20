@@ -1,4 +1,4 @@
-# (PART) Chapter I {.unnumbered}
+# Mapping
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
@@ -13,12 +13,4 @@ library(bookdown)
 library(knitr)
 library(rmarkdown)
 library(spelling)
-```
-
-# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**
-
-WIP
-
-```{r, echo = FALSE}
-include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
 ```
