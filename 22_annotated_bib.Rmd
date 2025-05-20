@@ -98,6 +98,8 @@ Pawlik, Łukasz, Jonathan D. Phillips, and Pavel Šamonil. “Roots, Rock, and R
 
 Pawlik, Łukasz, and Pavel Šamonil. “Soil Creep: The Driving Factors, Evidence and Significance for Biogeomorphic and Pedogenic Domains and Systems – A Critical Literature Review.” Earth-Science Reviews 178 (March 2018): 257–78. <https://doi.org/10.1016/j.earscirev.2018.01.008>.
 
+-   Review of the historical development of organism-driven soil creep. Great figures. Thorough information on the role of organisms
+
 Reichman, O.J., and Eric W. Seabloom. “The Role of Pocket Gophers as Subterranean Ecosystem Engineers.” Trends in Ecology & Evolution 17, no. 1 (January 2002): 44–49. [https://doi.org/10.1016/S0169-5347(01)02329-1](https://doi.org/10.1016/S0169-5347(01)02329-1){.uri}.
 
 Reinhardt, Liam, Douglas Jerolmack, Brad J. Cardinale, Veerle Vanacker, and Justin Wright. “Dynamic Interactions of Life and Its Landscape: Feedbacks at the Interface of Geomorphology and Ecology.” Earth Surface Processes and Landforms 35, no. 1 (January 2010): 78–101. <https://doi.org/10.1002/esp.1912>.
@@ -121,5 +123,9 @@ Uvarov, Alexei V. “Inter- and Intraspecific Interactions in Lumbricid Earthwor
 Viles, H. A., L. A. Naylor, N. E. A. Carter, and D. Chaput. “Biogeomorphological Disturbance Regimes: Progress in Linking Ecological and Geomorphological Systems.” Earth Surface Processes and Landforms 33, no. 9 (August 2008): 1419–35. <https://doi.org/10.1002/esp.1717>.
 
 Wilkinson, Marshall T., Paul J. Richards, and Geoff S. Humphreys. “Breaking Ground: Pedological, Geological, and Ecological Implications of Soil Bioturbation.” Earth-Science Reviews 97, no. 1–4 (December 2009): 257–72. <https://doi.org/10.1016/j.earscirev.2009.09.005>.
+
+-   Reviews the implications of biological action in soil / geology.
+
+-   Good table w/ examples of bioturbation. Figure that outlines different kinds of mounding.
 
 Zhang, Yanming, Zhibin Zhang, and Jike Liu. “Burrowing Rodents as Ecosystem Engineers: The Ecology and Management of Plateau Zokors Myospalax Fontanierii in Alpine Meadow Ecosystems on the Tibetan Plateau.” Mammal Review 33, no. 3–4 (September 2003): 284–94. <https://doi.org/10.1046/j.1365-2907.2003.00020.x>.
