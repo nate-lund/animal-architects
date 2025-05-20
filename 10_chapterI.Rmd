@@ -1,27 +1,24 @@
-# (PART) Chapter I: Earthworms and Soil Erosion {.unnumbered}
+# (PART) Chapter II {.unnumbered}
 
-# Hillslope Transects: Erosion Pins, etc.
-
-```{r setup, echo = FALSE}
-knitr::opts_chunk$set(echo = TRUE, include=FALSE, warning=FALSE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
+library(here)
+library(tinytex)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(rlang)
+library(usethis)
+library(bookdown)
+library(knitr)
+library(rmarkdown)
+library(spelling)
 ```
 
-## Fieldwork Timeline 2025
+# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**
 
--   Early Summer, April/May:
+WIP
 
-    -   Soil sampling for FRNs, bulk density, and soil texture
-
-    -   Install sediment collectors
-
--   Mid Summer, June/July/August
-
-    -   Sample sediment collectors, biweekly
-
-    -   Sample native plant trial sediment collectors, monthly
-
-    -   Assess health of native plants
-
-    -   Following leaf littler removal: Measure erosion pins, biweekly
-
-    -   Take images of Wood Duck Trail vegetation
+```{r, echo = FALSE}
+include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
+```

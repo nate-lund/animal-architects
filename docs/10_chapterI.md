@@ -1,25 +1,9 @@
-# (PART) Chapter I: Earthworms and Soil Erosion {.unnumbered}
-
-# Hillslope Transects: Erosion Pins, etc.
+# (PART) Chapter II {.unnumbered}
 
 
 
-## Fieldwork Timeline 2025
+# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**
 
--   Early Summer, April/May:
+WIP
 
-    -   Soil sampling for FRNs, bulk density, and soil texture
-
-    -   Install sediment collectors
-
--   Mid Summer, June/July/August
-
-    -   Sample sediment collectors, biweekly
-
-    -   Sample native plant trial sediment collectors, monthly
-
-    -   Assess health of native plants
-
-    -   Following leaf littler removal: Measure erosion pins, biweekly
-
-    -   Take images of Wood Duck Trail vegetation
+<img src="_figures/Four panel animals.svg" width="50%" style="display: block; margin: auto;" />
