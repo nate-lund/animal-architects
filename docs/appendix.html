@@ -48,6 +48,7 @@
 
 
 
+
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -135,6 +136,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="...">My Awesome Book</a></li>
+<li><a href="...">John Smith</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#technical-resources"><i class="fa fa-check"></i><b>1.1</b> Technical Resources</a></li>
@@ -160,18 +165,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1" data-path="chatper-overview.html"><a href="chatper-overview.html#data-management-standards"><i class="fa fa-check"></i><b>5.1</b> Data Management Standards</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="erosion-pins.html"><a href="erosion-pins.html"><i class="fa fa-check"></i><b>6</b> Erosion pins</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="erosion-pins.html"><a href="erosion-pins.html#data"><i class="fa fa-check"></i><b>6.1</b> Data</a></li>
-<li class="chapter" data-level="6.2" data-path="erosion-pins.html"><a href="erosion-pins.html#collection-methods-sops"><i class="fa fa-check"></i><b>6.2</b> Collection methods / SOPs</a></li>
-<li class="chapter" data-level="6.3" data-path="erosion-pins.html"><a href="erosion-pins.html#analysis-1"><i class="fa fa-check"></i><b>6.3</b> Analysis 1</a></li>
-<li class="chapter" data-level="6.4" data-path="erosion-pins.html"><a href="erosion-pins.html#analysis-2"><i class="fa fa-check"></i><b>6.4</b> Analysis 2</a></li>
-</ul></li>
+<li class="chapter" data-level="6" data-path="erosion-pins.html"><a href="erosion-pins.html"><i class="fa fa-check"></i><b>6</b> Erosion pins</a></li>
 <li class="chapter" data-level="7" data-path="sediment-collectors.html"><a href="sediment-collectors.html"><i class="fa fa-check"></i><b>7</b> Sediment Collectors</a></li>
 <li class="chapter" data-level="8" data-path="fallout-radionulcides.html"><a href="fallout-radionulcides.html"><i class="fa fa-check"></i><b>8</b> Fallout Radionulcides</a></li>
 <li class="chapter" data-level="9" data-path="laser-scanner.html"><a href="laser-scanner.html"><i class="fa fa-check"></i><b>9</b> Laser Scanner</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="laser-scanner.html"><a href="laser-scanner.html#data-1"><i class="fa fa-check"></i><b>9.1</b> Data</a></li>
+<li class="chapter" data-level="9.1" data-path="laser-scanner.html"><a href="laser-scanner.html#data"><i class="fa fa-check"></i><b>9.1</b> Data</a></li>
 <li class="chapter" data-level="9.2" data-path="laser-scanner.html"><a href="laser-scanner.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.2</b> Notes to self</a></li>
 <li class="chapter" data-level="9.3" data-path="laser-scanner.html"><a href="laser-scanner.html#collecting-data"><i class="fa fa-check"></i><b>9.3</b> Collecting data</a></li>
 </ul></li>
@@ -223,6 +222,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="D.2.2" data-path="radionuclide-sampling-protocol.html"><a href="radionuclide-sampling-protocol.html#protocol-adapted-from-iaea-guidelines"><i class="fa fa-check"></i><b>D.2.2</b> Protocol (adapted from IAEA guidelines)</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">
+Proudly published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -258,6 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -298,12 +302,18 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
-"collapse": "subsection"
-}
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed",
+"download": "pdf"
+},
+"info": true
 });
 });
 </script>

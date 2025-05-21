@@ -1,12 +1,34 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 10:43, 21 May, 2025"
+date: "Last compiled 12:41, 21 May, 2025"
 site: bookdown::bookdown_site
 documentclass: book
-# output:
-#   bookdown::gitbook: default
-#   bookdown::pdf_book: default
+output:
+  bookdown::gitbook:
+    config:
+      toc:
+        collapse: section
+        scroll_highlight: true
+        before: |
+            <li><a href="...">My Awesome Book</a></li>
+            <li><a href="...">John Smith</a></li>
+        after: |
+            <li><a href="https://github.com/rstudio/bookdown">
+            Proudly published with bookdown</a></li>
+      toolbar:
+        position: fixed
+        download: ["pdf"]
+      search:
+        engine: lunr # or fuse
+        # options to control/tune search engine behavior (for
+        # fuse.js, refer to https://fusejs.io/api/options.html)
+        options: null
+      fontsettings:
+        theme: white
+        family: sans
+        size: 2
+      info: true
 ---
 
 # Index

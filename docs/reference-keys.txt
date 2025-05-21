@@ -12,14 +12,10 @@ part-2
 chatper-overview
 data-management-standards
 erosion-pins
-data
-collection-methods-sops
-analysis-1
-analysis-2
 sediment-collectors
 fallout-radionulcides
 laser-scanner
-data-1
+data
 notes-to-self-1
 collecting-data
 mapping
