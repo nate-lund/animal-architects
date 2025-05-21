@@ -19,6 +19,9 @@ analysis-2
 sediment-collectors
 fallout-radionulcides
 laser-scanner
+data-1
+notes-to-self-1
+collecting-data
 mapping
 brief-outline
 important-equations-variables

@@ -1,12 +1,12 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 11:51, 20 May, 2025"
+date: "Last compiled 10:43, 21 May, 2025"
 site: bookdown::bookdown_site
 documentclass: book
-output:
-  bookdown::gitbook: default
-  #bookdown::pdf_book: default
+# output:
+#   bookdown::gitbook: default
+#   bookdown::pdf_book: default
 ---
 
 # Index
