@@ -20,5 +20,5 @@ library(spelling)
 WIP
 
 ```{r, echo = FALSE}
-include_graphics((here("./_figures/Four panel animals.svg")), dpi= NULL)
+include_graphics((here("./_figures/chapterI/Four panel animals.svg")), dpi= NULL)
 ```

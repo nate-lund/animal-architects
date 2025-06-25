@@ -6,4 +6,4 @@
 
 WIP
 
-<img src="_figures/Four panel animals.svg" width="50%" style="display: block; margin: auto;" />
+<img src="_figures/chapterI/Four panel animals.svg" width="50%" style="display: block; margin: auto;" />

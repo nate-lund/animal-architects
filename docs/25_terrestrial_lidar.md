@@ -1,19 +1,6 @@
-# Laser Scanner
+# Terrestrial LiDAR
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
-library(here)
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(spelling)
-```
+
 
 ## Data
 

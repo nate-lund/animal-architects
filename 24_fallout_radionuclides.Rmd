@@ -63,10 +63,56 @@ Accounting for small-scale variability is also important for erosion site sampli
 
 [Sample characteristics]{.underline}
 
-Finally, it is important to consider the characteristics of individual cores and samples (cores after bulking or segmenting, final products to be analyzed). For both reference and erosion sites, core depth and radius are important to consider. The IAEA provides guidelines for both. The standard recommendation is a corer diameter of 7 – 10 cm and a total depth of 30cm for reference and erosional sites and 40 – 60 cm for depositional sites. For the most part, this is consistent in the literature (Elliott et al., 1989; Hancock et al., 2008; Nolin et al., 1993; Baccolo et al., 2023; Arata et al., 2016; and Wallbrink & Murray, 1996). However, when many replicates are being taken and bulked, one may consider using a corer of a smaller diameter. Minimizing sample volume makes easier sample processing and more consistent homogenization (Nate Lund, personal observation).
+Finally, it is important to consider the characteristics of individual cores and samples (cores after bulking or segmenting, final products to be analyzed). For both reference and erosion sites, core depth and radius are important to consider. The IAEA provides guidelines for both. The standard recommendation is a corer diameter of 7 – 10 cm and a total depth of 30cm for reference and erosional sites and 40 – 60 cm for depositional sites. For the most part, this is consistent in the literature (Elliott et al., 1989; Hancock et al., 2008; Nolin et al., 1993; Baccolo et al., 2023; Arata et al., 2016; and Wallbrink & Murray, 1996). However, when many replicates are being taken and bulked, one may consider using a corer of a smaller diameter. Minimizing sample volume makes easier sample processing and more consistent homogenization.
 
 In addition, for reference sites, the size of reference core segments is another consideration. Reference cores are segmented for three reasons: (1) to establish the reference inventory, (2) determine the depth profile of 137Cs and 210Pb (necessary for conversion models), and (3) determine the maximum depth of 137Cs and 210Pb activity to inform sampling depth (IAEA, 2014). The IAEA broadly recommends 2 – 5 cm. Smaller segments provide a more detailed activity-depth profile, but require more samples be analyzed.
 
 [Bioturbation and nuclide distribution]{.underline}
 
 Earthworm bioturbation is important factor to consider when converting from radioisotope inventories to erosion and deposition rates. Literature shows that earthworms have a significant impact on the 137Cs distribution in the profile—flattening the exponential decay expected under natural conditions (Jarvis et al., 2010; Tyler et al., 2001; VandenBygaart et al., 1998). VandenBygaart et al., 1998, also suggests a relationship between earthworm abundance and 137Cs redistribution. The consequences of this redistribution are twofold. One, bioturbation by deep-burrowing Lumbricus terrestris may extend the depth of 137Cs distribution beyond 30cm and require deeper sampling. Two, continuous mixing dilutes 137Cs concentration in eroding sediments, which without correction, may result in an underestimation of erosion rates.
+
+### References
+
+Arata, L., Meusburger, K., Frenkel, E., A’Campo-Neuen, A., Iurian, A. R., Ketterer, M. E., Mabit, L., & Alewell, C. (2016). Modelling Deposition and Erosion rates with RadioNuclides (MODERN)—Part 1: A new conversion model to derive soil redistribution rates from inventories of fallout radionuclides. *Journal of Environmental Radioactivity*, *162–163*, 45–55. <https://doi.org/10.1016/j.jenvrad.2016.05.008>
+
+Baccolo, G., El Khair, D. A., Nastasi, M., Sisti, M., Ferrè, C., Alewell, C., & Comolli, R. (2023). 210Pbxs. Is a viable alternative to 137Cs for tracing soil redistribution in mountain pastures affected by heterogeneous Chernobyl fallout. *Earth Surface Processes and Landforms*, *48*(4), 708–720. <https://doi.org/10.1002/esp.5512>
+
+Crossley, D. A., Reichle, D. E., & Edwards, C. A. (1971). Intake and turnover of radioactive cesium by earthworms (Lumbricidae). *Pedobiologia*, *11*(1), 71–76. [https://doi.org/10.1016/S0031-4056(23)00446-8](https://doi.org/10.1016/S0031-4056(23)00446-8)
+
+Elliott, G. L., Campbell, B. L., & Shelly, D. J. ; C. (1989). A caesium-137-sediment hillslope model with tests from south-eastern Australia. *Zeitschrift Für Geomorphologie*, *33*(2), 235–250.
+
+Hancock, G. R., Loughran, R. J., Evans, K. G., & Balog, R. M. (2008). Estimation of Soil Erosion Using Field and Modelling Approaches in an Undisturbed Arnhem Land Catchment, Northern Territory, Australia. *Geographical Research*, *46*(3), 333–349. <https://doi.org/10.1111/j.1745-5871.2008.00527.x>
+
+International Atomic Energy Agency & Joint FAO/IAEA Division of Nuclear Techniques in Food and Agriculture. (2014). *Guidelines for using fallout radionuclides to assess erosion and effectiveness of soil conservation strategies*.
+
+Janssen, M. P. M., Glastra, P., & Lembrechts, J. F. M. M. (1996). Uptake of cesium-134 by the earthworm species Eisenia foetida and Lumbricus rubellus. *Environmental Toxicology and Chemistry*, *15*(6), 873–877. <https://doi.org/10.1002/etc.5620150608>
+
+Jarvis, N. J., Taylor, A., Larsbo, M., Etana, A., & Rosén, K. (2010). Modelling the effects of bioturbation on the re-distribution of 137Cs in an undisturbed grassland soil. *European Journal of Soil Science*, *61*(1), 24–34. <https://doi.org/10.1111/j.1365-2389.2009.01209.x>
+
+Mabit, L., Benmansour, M., Abril, J. M., Walling, D. E., Meusburger, K., Iurian, A. R., Bernard, C., Tarján, S., Owens, P. N., Blake, W. H., & Alewell, C. (2014). Fallout 210Pb as a soil and sediment tracer in catchment sediment budget investigations: A review. *Earth-Science Reviews*, *138*, 335–351. <https://doi.org/10.1016/j.earscirev.2014.06.007>
+
+Mabit, L., K. Meusburger, E. Fulajtar, and C. Alewell. “The Usefulness of 137Cs as a Tracer for Soil Erosion Assessment: A Critical Reply to Parsons and Foster (2011).” *Earth-Science Reviews* 127 (December 2013): 300–307. <https://doi.org/10.1016/j.earscirev.2013.05.008>
+
+Nolin, M. C., Cao, Y. Z., Coote, D. R., & Wang, C. (1993). Short-range variability of fallout ^137^ Cs in an uneroded forest soil. *Canadian Journal of Soil Science*, *73*(3), 381–385. <https://doi.org/10.4141/cjss93-040>
+
+Parsons, A. J., & Foster, I. D. L. (2011). What can we learn about soil erosion from the use of 137Cs? *Earth-Science Reviews*, *108*(1–2), 101–113. <https://doi.org/10.1016/j.earscirev.2011.06.004>
+
+Tyler, A. N., Carter, S., Davidson, D. A., Long, D. J., & Tipping, R. (2001). The extent and significance of bioturbation on 137Cs distributions in upland soils. *CATENA*, *43*(2), 81–99. [https://doi.org/10.1016/S0341-8162(00)00127-2](https://doi.org/10.1016/S0341-8162(00)00127-2)
+
+VandenBygaart, A. J., Protz, R., Tomlin, A. D., & Miller, J. J. (1998). 137Cs as an indicator of earthworm activity in soils. *Applied Soil Ecology*, *9*(1–3), 167–173. [https://doi.org/10.1016/S0929-1393(98)00071-7](https://doi.org/10.1016/S0929-1393(98)00071-7)
+
+Wallbrink, P. J., & Murray, A. S. (1996). Determining Soil Loss Using the Inventory Ratio of Excess Lead-210 to Cesium-137. *Soil Science Society of America Journal*, *60*(4), 1201–1208. <https://doi.org/10.2136/sssaj1996.03615995006000040035x>
+
+## Protocol
+
+Updated 9/18/2024 (adapted from IAEA guidelines)
+
+1.  Prior to sampling, either just in the field or using GIS, determine and flag the location of all points you will take cores from. Reference diagram above. Note: Samples should be taken avoiding trees, large roots, downed logs, or any other large disturbance.
+2.  Label all bags before sampling.
+3.  Insert the soil corer vertically, not perpendicular to the hillslope, down to 30cm.
+4.  Pull the corer straight up, and immediately turn the corer sideways to prevent soil from falling out. For very loose or sandy soils, you may need to place a hand at the mouth of the core as it is pulled out.
+5.  For reference site replicates segment in the corer. If possible, sharpie depth increments onto the corer before you start.
+6.  Store cores in labeled bags as soon as possible.
+7.  Using the towel and brush, clean out the corer between samples—especially the mouth of the corer. It is not necessary to clean between sample replicates. But it is necessary to clean between reference replicates.
+8.  If collecting toe- or foot-slope cores, reinsert the corer to continue sampling down to 60 cm.
+9.  Repeat.
