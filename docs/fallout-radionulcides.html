@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Section 8 Fallout Radionulcides | Animal Architects</title>
   <meta name="description" content="Section 8 Fallout Radionulcides | Animal Architects" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Section 8 Fallout Radionulcides | Animal Architects" />
   <meta property="og:type" content="book" />
@@ -136,8 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="...">My Awesome Book</a></li>
-<li><a href="...">John Smith</a></li>
+<li><a href="...">Animal "Architects</a></li>
+<li><a href="...">Nate Lund</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a>
@@ -177,7 +177,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.1" data-path="erosion-pins.html"><a href="erosion-pins.html#installation"><i class="fa fa-check"></i><b>6.2.1</b> Installation</a></li>
 <li class="chapter" data-level="6.2.2" data-path="erosion-pins.html"><a href="erosion-pins.html#measuring"><i class="fa fa-check"></i><b>6.2.2</b> Measuring</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="erosion-pins.html"><a href="erosion-pins.html#methods"><i class="fa fa-check"></i><b>6.3</b> Methods</a></li>
+<li class="chapter" data-level="6.3" data-path="erosion-pins.html"><a href="erosion-pins.html#dataset-building"><i class="fa fa-check"></i><b>6.3</b> Dataset Building</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="erosion-pins.html"><a href="erosion-pins.html#creating-elevation-slope-and-curvature-dems"><i class="fa fa-check"></i><b>6.3.1</b> Creating elevation, slope, and curvature DEMs</a></li>
+<li class="chapter" data-level="6.3.2" data-path="erosion-pins.html"><a href="erosion-pins.html#extracting-elevation-slope-and-curvature-from-dems-to-gps-points."><i class="fa fa-check"></i><b>6.3.2</b> Extracting elevation, slope, and curvature from DEMS to GPS points.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="erosion-pins.html"><a href="erosion-pins.html#visaulizing-etc"><i class="fa fa-check"></i><b>6.4</b> Visaulizing etc</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="erosion-pins.html"><a href="erosion-pins.html#spatial-plots"><i class="fa fa-check"></i><b>6.4.1</b> Spatial Plots</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="sediment-collectors.html"><a href="sediment-collectors.html"><i class="fa fa-check"></i><b>7</b> Sediment Collectors</a></li>
 <li class="chapter" data-level="8" data-path="fallout-radionulcides.html"><a href="fallout-radionulcides.html"><i class="fa fa-check"></i><b>8</b> Fallout Radionulcides</a>
@@ -226,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">
-Proudly published with bookdown</a></li>
+Published with Bookdown</a></li>
 
 </ul>
 
@@ -337,48 +345,48 @@ Proudly published with bookdown</a></li>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/nate-lund/animal-architects/blob/main/24_fallout_radionuclides.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "lunr",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-},
-"toolbar": {
-"position": "fixed",
-"download": "pdf"
-},
-"info": true
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/nate-lund/animal-architects/blob/main/24_fallout_radionuclides.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "lunr",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "fixed",
+    "download": "pdf"
+  },
+  "info": true
 });
 });
 </script>

@@ -18,7 +18,11 @@ references
 protocol
 installation
 measuring
-methods
+dataset-building
+creating-elevation-slope-and-curvature-dems
+extracting-elevation-slope-and-curvature-from-dems-to-gps-points.
+visaulizing-etc
+spatial-plots
 sediment-collectors
 fallout-radionulcides
 background-sampling

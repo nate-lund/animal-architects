@@ -17,7 +17,7 @@ library(spelling)
 
 ## Data Management Standards
 
-1.  All data will live at minimum in GitHub. Some may also live in Google Drive.
+1.  All data lives here: https://drive.google.com/drive/folders/1U_dDV5fqiS8c45q0lABcSAs1f9mAx4nu?usp=sharing
 
 2.  *Metadata*. Metadata will be generated to describe all data in a .txt format and will be stored alongside the data for each survey. Metadata will describe contributors, site characteristics, survey conditions, naming conventions, collection methods and devices, and analyses performed.
 
