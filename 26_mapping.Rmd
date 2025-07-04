@@ -121,16 +121,17 @@ arb_1m_slope <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope")
 arb_1m_curvature <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature")
 ```
 
+
 ```{r, eval = TRUE, cache = TRUE}
 
 # Crop the raster
-cropped_raster <- crop(arb_1m_dem, extent(c(min(arb_geo_data$latitude) + 500,
-                                            max(arb_geo_data$latitude) + 500,
-                                            min(arb_geo_data$longitude) + 500,
-                                            max(arb_geo_data$longitude + 500))))
+# cropped_raster <- crop(arb_1m_dem, extent(c(min(arb_geo_data$latitude) + 500,
+#                                             max(arb_geo_data$latitude) + 500,
+#                                             min(arb_geo_data$longitude) + 500,
+#                                             max(arb_geo_data$longitude + 500))))
 
 # format dem
-arb_dem_map <- as.data.frame(cropped_raster, xy = TRUE) %>% 
+arb_dem_map <- as.data.frame(arb_1m_dem, xy = TRUE) %>% 
   rename("elevation" = "Z")
 
 ggplot(data = arb_dem_map) +
@@ -139,9 +140,6 @@ ggplot(data = arb_dem_map) +
   labs(title = "Digital Elevation Model", fill = "Elevation") +
   coord_equal() +
   theme_minimal()
-
-
-
 
 ```
 
