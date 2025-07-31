@@ -8,7 +8,6 @@
 
 
 ``` python
-
 # build structures for data inputs. These do not get overwritten.
 dz = 0.1 # m
 z = np.arange(0, 3, dz, dtype=float) # create an array of depths
@@ -43,7 +42,26 @@ def OSL_plt_defaults():
 
 *This code plots the differing exponential D(z) equations.*
 
-<img src="32_model_review_files/figure-html/diffusion_dc-1.png" width="672" />
+
+``` python
+# diffusion depth comparisons (_dc0)
+
+# Calculate y values, one array per plot
+D_dc1 = D(z, 10**(-5), 0.50) # Kirkby
+D_dc2 = D(z, 9.81 * 10**(-5), 0.28) # Johnson
+D_dc3 = D(z, 1.95*10**(-5), 0.28) # Roman-Sanchez
+
+# Plot the equation
+plt.clf()
+plt.plot(D_dc1, -z, label = "Kirkby")
+plt.plot(D_dc2, -z, label = "Johnson")
+plt.plot(D_dc3, -z, label = "Roman-Sanchez")
+plt.xlabel('diffusion (m2/yr)')
+plt.ylabel('depth (m)')
+plt.grid(True)
+plt.legend()
+plt.show()
+```
 
 *This code uses the above the equations to simulate an age profile of soil grains created by biodiffusion, local mixing, only.*
 
@@ -70,11 +88,32 @@ plt.plot(Kirkby, -z, label = "Kirkby (1985)")
 OSL_plt_defaults()
 ```
 
-<img src="32_model_review_files/figure-html/local_biodiffusion1-3.png" width="672" />
-
 *This code generates a visualization of the impact of erosion on a theoretical tracer profile. 1) tracer profile at steady state, 2) tracer profile moves downwards under deposition, and 3) tracer profile moves upwards under erosion. Soil surface at z = 0.*
 
-<img src="32_model_review_files/figure-html/erosion_visulization-5.png" width="672" />
+
+``` r
+eq = function(z){
+  0.01 * exp(-z/0.15/100)
+  }
+
+tdf <- data.frame(z = rep((1:100), 3), ts = c(rep(1, times=100), rep(2, times=100), rep(3, times=100)), y = 0)
+
+tdf$y[1:100] = eq(tdf$z[1:100])
+tdf$y[101:200] = eq(tdf$z[1:100] - 20)
+tdf$y[201:300] = eq(tdf$z[1:100] + 20)
+tdf$y[101:120] = NA
+
+ggplot(data = tdf, mapping = aes(y = z, x = y, group = ts)) +
+  scale_y_reverse(name = "z (cm)") +
+  scale_x_reverse(name = "y", 
+                  breaks = c()) +
+  #coord_flip() +
+  geom_line() +
+  ggtitle("Visualization of net-zero, deposistion, and erosion.") +
+  facet_wrap(~ts, scales = "fixed") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+```
 
 *This code adds advection, by erosion and deposition, to the model.*
 
@@ -94,8 +133,6 @@ plt.plot(T4, -z, label = "T = 0.00005", linestyle='--')
 plt.plot(T5, -z, label = "T = 0.0001", linestyle='--')
 OSL_plt_defaults()
 ```
-
-<img src="32_model_review_files/figure-html/local_biodiffusion_advection-1.png" width="672" />
 
 *This code uses the above function to do some "tracer" plotting with different deposition values.*
 
@@ -126,13 +163,10 @@ plt.plot(smart3, -z, label = "T = +0.001", linestyle='--')
 OSL_plt_defaults()
 ```
 
-<img src="32_model_review_files/figure-html/nonOSL_diffusion-3.png" width="672" />
-
 *This code does the above equation*
 
 
 ``` python
-
 # [set] initial y values
 yi = y.copy()
 yi[z == 0] += 1 # mass or activity y / mass soil

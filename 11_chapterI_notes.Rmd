@@ -1,20 +1,20 @@
 # Chapter I Notes
 
-```{r setup, echo = FALSE, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
-# install.packages("tinytex")
-# install_tinytex()
-# install.packages("spelling")
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(spelling)
+```{r setup, include=FALSE}
+# chunk options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
+
+# libraries needed
+libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling")
+
+# install missing libraries
+installed_libs <- libs %in% rownames(installed.packages())
+if (any(installed_libs == F)) {
+  install.packages(libs[!installed_libs])
+}
+
+# load libraries
+lapply(libs, library, character.only = T)
 ```
 
 ## Outline

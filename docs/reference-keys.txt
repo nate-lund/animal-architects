@@ -1,7 +1,7 @@
 index
 technical-resources
 notes-to-self
-about-old
+about-wip
 table-of-contents
 animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity
 chapter-i-notes

@@ -145,12 +145,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#technical-resources"><i class="fa fa-check"></i><b>1.1</b> Technical Resources</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#notes-to-self"><i class="fa fa-check"></i><b>1.2</b> Notes to Self</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="about-old.html"><a href="about-old.html"><i class="fa fa-check"></i><b>2</b> About (old)</a>
+<li class="chapter" data-level="2" data-path="about-wip.html"><a href="about-wip.html"><i class="fa fa-check"></i><b>2</b> About (WIP)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="about-old.html"><a href="about-old.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
+<li class="chapter" data-level="2.1" data-path="about-wip.html"><a href="about-wip.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
 </ul></li>
 <li class="part"><span><b>I Chapter I</b></span></li>
-<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><i class="fa fa-check"></i><b>3</b> <strong>Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity</strong></a></li>
+<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><i class="fa fa-check"></i><b>3</b> <strong>Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity</strong>```</a></li>
 <li class="chapter" data-level="4" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html"><i class="fa fa-check"></i><b>4</b> Chapter I Notes</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html#outline"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
@@ -264,37 +264,9 @@ Published with Bookdown</a></li>
 <h1><span class="header-section-number">A</span> Gamma Detectors<a href="gamma-detectors.html#gamma-detectors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="detector-specs" class="section level3 hasAnchor" number="12.0.1">
 <h3><span class="header-section-number">A.0.1</span> Detector specs<a href="gamma-detectors.html#detector-specs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table>
-<thead>
-<tr class="header">
-<th align="left">detector.name</th>
-<th align="left">detector.model</th>
-<th align="left">serial.number</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Alice</td>
-<td align="left">BE3825</td>
-<td align="left">13263</td>
-</tr>
-<tr class="even">
-<td align="left">Sweepea</td>
-<td align="left">BE3825</td>
-<td align="left">8970</td>
-</tr>
-<tr class="odd">
-<td align="left">Popeye</td>
-<td align="left">GC4018</td>
-<td align="left">9944</td>
-</tr>
-<tr class="even">
-<td align="left">Oliveoyl</td>
-<td align="left">GCW4023</td>
-<td align="left">1570</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="gamma-detectors.html#cb27-1" tabindex="-1"></a>det_specs <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;detector name&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Sweepea&quot;</span>, <span class="st">&quot;Popeye&quot;</span>, <span class="st">&quot;Oliveoyl&quot;</span>), <span class="st">&quot;detector model&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;BE3825&quot;</span>,<span class="st">&quot;BE3825&quot;</span>,<span class="st">&quot;GC4018&quot;</span>,<span class="st">&quot;GCW4023&quot;</span>), <span class="st">&quot;serial number&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;13263&quot;</span>, <span class="st">&quot;8970&quot;</span>, <span class="st">&quot;9944&quot;</span>, <span class="st">&quot;1570&quot;</span>))</span>
+<span id="cb27-2"><a href="gamma-detectors.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="gamma-detectors.html#cb27-3" tabindex="-1"></a><span class="fu">kable</span>(det_specs, <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

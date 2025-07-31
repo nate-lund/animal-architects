@@ -1,4 +1,4 @@
-# About (old)
+# About (WIP)
 
 
 
@@ -14,7 +14,17 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
 **Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development**
 
--   Chapter 1: MITPPC, Earthworms, and Soil Erosion
+
+-   Chapter 1: Literature Review of Animal Activity: Concepts, Methods, and Models
+
+    -   Introduction, bioturbation history
+
+    -   Conceptual models and methods
+
+    -   Numerical models
+    
+    
+-   Chapter 2: MITPPC, Earthworms, and Soil Erosion
 
     -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on short-lived isotopes and erosion pins." - 2025
 
@@ -22,13 +32,6 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
     -   Manuscript: "Rainfall intensity and soil erosion in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes." - 2026
 
--   Chapter 2: Literature Review of Animal Activity: Concepts, Methods, and Models
-
-    -   Introduction, bioturbation history
-
-    -   Conceptual models and methods
-
-    -   Numerical models
 
 -   Chapter 3: Modeling Soil, Hillslope, Landscape Evolution
 

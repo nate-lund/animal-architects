@@ -1,17 +1,20 @@
-# About (old)
+# About (WIP)
 
-```{r setup, echo = FALSE, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(spelling)
+```{r setup, include = FALSE}
+# chunk options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
+
+# libraries needed
+libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling")
+
+# install missing libraries
+installed_libs <- libs %in% rownames(installed.packages())
+if (any(installed_libs == F)) {
+  install.packages(libs[!installed_libs])
+}
+
+# load libraries
+lapply(libs, library, character.only = T)
 ```
 
 This book is dedicated to my thoughts about animals as unintentional architects, or animal architects. Through bioturbation, animals shape our soils and landscapes, but although I call them architects, their creations are not like ours. Yes, prairie gophers or night crawlers build homes to live and feed in, but the architecture I refer to is larger than any individual. It is the sum of generations of organisms. It is the ecological inheritance they create. It is order out of seemingly chaos. This idea is best illustrated through example, so take for example, Mima mounds.
@@ -26,7 +29,17 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
 **Animals as Agents of Heterogeneity and Homogeneity in Soil and Landscape Development**
 
--   Chapter 1: MITPPC, Earthworms, and Soil Erosion
+
+-   Chapter 1: Literature Review of Animal Activity: Concepts, Methods, and Models
+
+    -   Introduction, bioturbation history
+
+    -   Conceptual models and methods
+
+    -   Numerical models
+    
+    
+-   Chapter 2: MITPPC, Earthworms, and Soil Erosion
 
     -   Manuscript: "soil erosion rates in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes based on short-lived isotopes and erosion pins." - 2025
 
@@ -34,13 +47,6 @@ This book is organized loosely by my dissertation chapters. Chapter 1 is about i
 
     -   Manuscript: "Rainfall intensity and soil erosion in jumping worm-infested vs. Lumbricus spp.-infested forested hillslopes." - 2026
 
--   Chapter 2: Literature Review of Animal Activity: Concepts, Methods, and Models
-
-    -   Introduction, bioturbation history
-
-    -   Conceptual models and methods
-
-    -   Numerical models
 
 -   Chapter 3: Modeling Soil, Hillslope, Landscape Evolution
 

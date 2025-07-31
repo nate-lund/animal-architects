@@ -2,6 +2,7 @@
 
 
 
+
 The purpose of this section is to create a quantitative framework, a model, to explore the relationship between bioturbation, erosion, and particle size distribution and their collective impact on soil profile and landscape development.
 
 To this end, the goal primary goal is to create a simple model, with a limited number of input parameters that can...
@@ -29,7 +30,18 @@ $$
 
 Where D is bulk-soil diffusion (m2/yr), s is the surface diffusion rate (m2/yr), z is depth (m), and b is the e-folding length scale related to organism-dependent bioturbation depth (m) [assumed to be 0.28].
 
-<img src="31_chapterIII_notes_files/figure-html/Dz-1.png" width="672" />
+
+``` r
+# diffusion w/ depth function plotting
+eq = function(z){0.005334 * exp(-z/0.28)}
+ggplot(data.frame(z = c(0, 3)), aes(x = z)) +
+  stat_function(fun = eq) +
+  scale_y_reverse(name = "diffusion (m2/yr)") +
+  scale_x_reverse(name = "depth (m)") +
+  coord_flip() +
+  ggtitle("Decline in diffusion with depth"
+          , subtitle = "s = 0.005334 (Darwin 1881); b = 0.28 (Johnson et al. 2014)")
+```
 
 When considering the impact of diffusion on a single soil property, a biodiffusion function can be applied with a concentration value to describe the flux (g/yr) through the profile. Diffusion-advection is a relatively substantial simplification of the bioturbation process where periods of sediment inactivity are interuppted by trans location events. However, prior studies show that the application of a diffusion-advection equation is appropraite if simulation time and the number of translocation events are sufficiently large (Mitchel et al. 2022). Flux between two layers can then be described by:
 
@@ -116,11 +128,8 @@ ggplot(data.frame(z = c(0, 3)), aes(x = z)) +
   scale_y_reverse(name = "diffusion (m2/yr)") +
   scale_x_reverse(name = "depth (m)") +
   coord_flip()
-```
 
-<img src="31_chapterIII_notes_files/figure-html/diffusion-1.png" width="672" />
 
-``` r
 # define function that calculates local inc-diffusion (g/m/yr) into/out of ith layer
 inc_diff_fun <- function(yh, yi, yj, zi, bdi) {
   if(zi == 0) {
@@ -211,11 +220,7 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
   scale_y_reverse(name = "depth (m)") +
   scale_x_continuous(name = "Included component content (g/m2)") +
   facet_wrap(~time_step)
-```
 
-<img src="31_chapterIII_notes_files/figure-html/diffusion-2.png" width="672" />
-
-``` r
 #plot exc
 ggplot(data = df2_long_plot, mapping = aes(y = value.z,
                                            x = value.exc, 
@@ -225,8 +230,6 @@ ggplot(data = df2_long_plot, mapping = aes(y = value.z,
   scale_x_continuous(name = "Excluded component content (g/m2)") +
   facet_wrap(~time_step)
 ```
-
-<img src="31_chapterIII_notes_files/figure-html/diffusion-3.png" width="672" />
 
 ### Model 2: Python diffusion (local mixing) of included components
 

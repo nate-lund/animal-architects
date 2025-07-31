@@ -5,9 +5,8 @@
 ### Detector specs
 
 
-|detector.name |detector.model |serial.number |
-|:-------------|:--------------|:-------------|
-|Alice         |BE3825         |13263         |
-|Sweepea       |BE3825         |8970          |
-|Popeye        |GC4018         |9944          |
-|Oliveoyl      |GCW4023        |1570          |
+``` r
+det_specs <- data.frame("detector name" = c("Alice", "Sweepea", "Popeye", "Oliveoyl"), "detector model" = c("BE3825","BE3825","GC4018","GCW4023"), "serial number" = c("13263", "8970", "9944", "1570"))
+
+kable(det_specs, "pipe")
+```

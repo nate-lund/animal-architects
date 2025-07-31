@@ -1,17 +1,20 @@
 # A Brief History of Pedology
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(spelling)
+# chunk options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
+
+# libraries needed
+libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling")
+
+# install missing libraries
+installed_libs <- libs %in% rownames(installed.packages())
+if (any(installed_libs == F)) {
+  install.packages(libs[!installed_libs])
+}
+
+# load libraries
+lapply(libs, library, character.only = T)
 ```
 
 ## Introduction

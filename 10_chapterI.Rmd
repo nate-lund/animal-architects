@@ -1,24 +1,20 @@
 # (PART) Chapter I {.unnumbered}
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, width = 300, warning = FALSE, out.width = "50%", fig.show = 'hold', fig.align = "center")
-library(here)
-library(tinytex)
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(rlang)
-library(usethis)
-library(bookdown)
-library(knitr)
-library(rmarkdown)
-library(spelling)
+# chunk options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
+
+# libraries needed
+libs <- c()
+
+# install missing libraries
+installed_libs <- libs %in% rownames(installed.packages())
+if (any(installed_libs == F)) {
+  install.packages(libs[!installed_libs])
+}
+
+# load libraries
+lapply(libs, library, character.only = T)
 ```
 
-# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**
-
-WIP
-
-```{r, echo = FALSE}
-include_graphics((here("./_figures/chapterI/Four panel animals.svg")), dpi= NULL)
-```
+# **Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity**```
