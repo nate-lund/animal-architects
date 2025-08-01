@@ -17,26 +17,48 @@ if (any(installed_libs == F)) {
 lapply(libs, library, character.only = T)
 ```
 
-## Data
-
-Temporary home: <https://drive.google.com/drive/folders/1ZYsJej_rGxnZyThFrdr3AuWrt8Xvgb4f?usp=drive_link>
-
 ## Notes to self
 
 -   Traveling with the scanner. Scanner can be traveled with easily. Check scanner box and duffel bag with tripods. Battery is okay to be checked. Cary on camera.
-
--   Data download. To download data, power on and insert formatted (?) USB drive. Navigate to Settings \> File Browser. Mark all the needed files. Press Action \> Copy \> Media (switch to usb) \> Insert \> Ok. Remove drive and insert into computer.
 
 -   Software. GoldenSoftwareSurfer (demo) eases transforming from point clouds to 2D grids. Can likely get a license from Steve.
 
 ## Collecting data
 
-Before turning scanner on, make sure the camera is connected and also on (if using).
+Project setup. *This should only have to be done once (unless changed between projects) but it is best to verify.* Before collecting data, make sure to:
 
-Camera calibration settings.
+-   Create a new project, named simply ("YYYY-MM-DD_siteID")
 
-Before collecting data, make sure to: create a new project, turn Scanpos auto ON, and select the correct pattern. Note, if the position does not update between scans, it is basically impossible to separate the two. The patterns we use are:
+-   Turn Scanpos auto ON. Note, if the position does not update between scans, it is basically impossible to separate the two.
 
--   For normal scans - Pattern.50 (2 minute scan)
+-   Select the correct pattern. For normal scans use Pattern.50 (2 minute scan). For higher resolution use Pattern.30 (5 minute scan)
 
--   For higher resolution - Pattern.30 (5 minute scan)
+-   Check the GPS mounting settings (in Settings \> Peripherals \> GPS).
+
+-   Turn on image acquisition. Remove lens cap.
+
+-   Camera calibration should be on AUTO to account for variable light conditions.
+
+Data download. To download data, power on and insert formatted USB drive. Navigate to Settings \> File Browser. Mark all the needed files. Press Action \> Copy \> Media (switch to usb) \> Insert \> Ok. Remove drive and insert into computer.
+
+Data storage. Data is stored in OneDrive and backed up to my personal computer and an external hard drive. Should be backed up to external drive frequently using SyncBackFree (help here: <https://www.2brightsparks.com/syncback/help/index.html?welcome.htm>).
+
+## Data pre-processing
+
+There are a number of pieces of software used for LiDAR point cloud processing:
+
+1\. RiSCAN Pro is the proprietary scanner software used for data collection, scan registration, and GPS registration. Golden software Surfer
+
+Data collection. (WIP, found in protocol)
+
+Scan upload. Scans in the format (.riproject) can be imported into RiSCAN by using Help \> Download and Convert.
+
+Scan registration.
+
+Scan colorization.
+
+2\. LAStools (or TeraScan with proper licensing) is used for classifying point clouds into 3D grids. LAStools has similar functionality to the lidR package and provides many tools for analysis.
+
+Classification.
+
+3\. Golden software Surfer is used to generate 2D rasters from classified 3D grids.

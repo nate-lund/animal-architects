@@ -11,7 +11,7 @@ output:
         collapse: section
         scroll_highlight: true
         before: |
-            <li><a href="...">Animal "Architects</a></li>
+            <li><a href="...">Animal Architects</a></li>
             <li><a href="...">Nate Lund</a></li>
         after: |
             <li><a href="https://github.com/rstudio/bookdown">
