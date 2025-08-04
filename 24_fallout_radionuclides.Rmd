@@ -129,12 +129,12 @@ Import GPS data points saved in the G-drive (collected using Field Maps and down
 ```{r}
 # load frn transect points
 arb_gps_raw <- 
-  read.csv("G:/My Drive/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv") %>% 
+  read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv") %>% 
   select(Latitude, Longitude) %>% 
   filter(Latitude < 45) # arb and lr are in the same file, split into 2
   
 lr_gps_raw <- 
-  read.csv("G:/My Drive/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv") %>% 
+  read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv") %>% 
   select(Latitude, Longitude) %>% 
   filter(Latitude > 45)
 
@@ -151,14 +151,14 @@ Import dems from drive (created in 26_mapping).
 
 ```{r}
 # lr
-lr_1m_dem <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
-lr_1m_slope <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
-lr_1m_curvature <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
+lr_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
+lr_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
+lr_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
 
 # arb
-arb_1m_dem <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem")
-arb_1m_slope <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope")
-arb_1m_curvature <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature")
+arb_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem")
+arb_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope")
+arb_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature")
 ```
 
 Extract elevation, slope, and curvature (in 1/m) at gps points.
@@ -179,11 +179,11 @@ Export data sets to drive.
 
 ```{r}
 # export as shape files (.shp)
-write_sf(arb_NAD, "G:/My Drive/_data/_fallout_radionuclides/_arb_geo_data_shp/arb_geo_data.shp")
-write_sf(lr_NAD, "G:/My Drive/_data/_fallout_radionuclides/_lr_geo_data_shp/lr_geo_data.shp")
+write_sf(arb_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_arb_geo_data_shp/arb_geo_data.shp")
+write_sf(lr_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_lr_geo_data_shp/lr_geo_data.shp")
 
 # export as tables (.csv)
-write.csv(arb_NAD, "G:/My Drive/_data/_fallout_radionuclides/arb_geo_data.csv", quote = 1)
-write.csv(lr_NAD, "G:/My Drive/_data/_fallout_radionuclides/lr_geo_data.csv", quote = 1)
+write.csv(arb_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/arb_geo_data.csv", quote = 1)
+write.csv(lr_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/lr_geo_data.csv", quote = 1)
 ```
 

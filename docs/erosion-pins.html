@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="...">Animal "Architects</a></li>
+<li><a href="...">Animal Architects</a></li>
 <li><a href="...">Nate Lund</a></li>
 
 <li class="divider"></li>
@@ -150,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="about-wip.html"><a href="about-wip.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
 </ul></li>
 <li class="part"><span><b>I Chapter I</b></span></li>
-<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><i class="fa fa-check"></i><b>3</b> <strong>Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity</strong>```</a></li>
+<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><i class="fa fa-check"></i><b>3</b> Animal Architects: A Conceptual Model for Geomorphic and Pedologic Animal Activity</a></li>
 <li class="chapter" data-level="4" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html"><i class="fa fa-check"></i><b>4</b> Chapter I Notes</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html#outline"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
@@ -201,9 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html"><i class="fa fa-check"></i><b>9</b> Terrestrial LiDAR</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data"><i class="fa fa-check"></i><b>9.1</b> Data</a></li>
-<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.2</b> Notes to self</a></li>
-<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.3</b> Collecting data</a></li>
+<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.1</b> Notes to self</a></li>
+<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.2</b> Collecting data</a></li>
+<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data-pre-processing"><i class="fa fa-check"></i><b>9.3</b> Data pre-processing</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>10</b> Mapping</a>
 <ul>
@@ -332,52 +332,54 @@ Published with Bookdown</a></li>
 <div id="extracting-elevation-slope-and-curvature-from-dems-to-gps-points." class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Extracting elevation, slope, and curvature from DEMS to GPS points.<a href="erosion-pins.html#extracting-elevation-slope-and-curvature-from-dems-to-gps-points." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Import GPS data points saved in the G-drive (collected using Field Maps and downloaded through Arc Online). Transform into NAD83 zone 15N.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="erosion-pins.html#cb1-1" tabindex="-1"></a><span class="co"># load erosion pin points,</span></span>
-<span id="cb1-2"><a href="erosion-pins.html#cb1-2" tabindex="-1"></a>arb_gps_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="erosion-pins.html#cb1-3" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="erosion-pins.html#cb1-4" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&lt;</span> <span class="dv">45</span>) <span class="co"># arb and lr are in the same file, split into 2</span></span>
-<span id="cb1-5"><a href="erosion-pins.html#cb1-5" tabindex="-1"></a>  </span>
-<span id="cb1-6"><a href="erosion-pins.html#cb1-6" tabindex="-1"></a>lr_gps_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="erosion-pins.html#cb1-7" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="erosion-pins.html#cb1-8" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&gt;</span> <span class="dv">45</span>)</span>
-<span id="cb1-9"><a href="erosion-pins.html#cb1-9" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="erosion-pins.html#cb1-10" tabindex="-1"></a><span class="co"># above points are theoretically in WGS84. this tells r they are (which in R the crs is EPSG: 4326). this also makes them a simple features feature (sf)</span></span>
-<span id="cb1-11"><a href="erosion-pins.html#cb1-11" tabindex="-1"></a>arb_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arb_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb1-12"><a href="erosion-pins.html#cb1-12" tabindex="-1"></a>lr_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(lr_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb1-13"><a href="erosion-pins.html#cb1-13" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="erosion-pins.html#cb1-14" tabindex="-1"></a><span class="co"># transform from WGS84 to NAD83 zone 15N to match lidar (EPSG: 4269)</span></span>
-<span id="cb1-15"><a href="erosion-pins.html#cb1-15" tabindex="-1"></a>arb_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arb_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
-<span id="cb1-16"><a href="erosion-pins.html#cb1-16" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(lr_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
-<span id="cb1-17"><a href="erosion-pins.html#cb1-17" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="erosion-pins.html#cb1-18" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> lr_NAD[<span class="sc">-</span><span class="dv">31</span>,] <span class="co"># remove junk point</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="erosion-pins.html#cb4-1" tabindex="-1"></a><span class="co"># load erosion pin points,</span></span>
+<span id="cb4-2"><a href="erosion-pins.html#cb4-2" tabindex="-1"></a>arb_gps_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="erosion-pins.html#cb4-3" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="erosion-pins.html#cb4-4" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&lt;</span> <span class="dv">45</span>) <span class="co"># arb and lr are in the same file, split into 2</span></span>
+<span id="cb4-5"><a href="erosion-pins.html#cb4-5" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="erosion-pins.html#cb4-6" tabindex="-1"></a><span class="co">#C:/Users/natha/OneDrive/Onedrive Documents</span></span>
+<span id="cb4-7"><a href="erosion-pins.html#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="erosion-pins.html#cb4-8" tabindex="-1"></a>lr_gps_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="erosion-pins.html#cb4-9" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-10"><a href="erosion-pins.html#cb4-10" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&gt;</span> <span class="dv">45</span>)</span>
+<span id="cb4-11"><a href="erosion-pins.html#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="erosion-pins.html#cb4-12" tabindex="-1"></a><span class="co"># above points are theoretically in WGS84. this tells r they are (which in R the crs is EPSG: 4326). this also makes them a simple features feature (sf)</span></span>
+<span id="cb4-13"><a href="erosion-pins.html#cb4-13" tabindex="-1"></a>arb_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arb_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb4-14"><a href="erosion-pins.html#cb4-14" tabindex="-1"></a>lr_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(lr_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb4-15"><a href="erosion-pins.html#cb4-15" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="erosion-pins.html#cb4-16" tabindex="-1"></a><span class="co"># transform from WGS84 to NAD83 zone 15N to match lidar (EPSG: 4269)</span></span>
+<span id="cb4-17"><a href="erosion-pins.html#cb4-17" tabindex="-1"></a>arb_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arb_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
+<span id="cb4-18"><a href="erosion-pins.html#cb4-18" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(lr_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
+<span id="cb4-19"><a href="erosion-pins.html#cb4-19" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="erosion-pins.html#cb4-20" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> lr_NAD[<span class="sc">-</span><span class="dv">31</span>,] <span class="co"># remove junk point</span></span></code></pre></div>
 <p>Import dems from drive (created in 26_mapping).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="erosion-pins.html#cb2-1" tabindex="-1"></a><span class="co"># lr</span></span>
-<span id="cb2-2"><a href="erosion-pins.html#cb2-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
-<span id="cb2-3"><a href="erosion-pins.html#cb2-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
-<span id="cb2-4"><a href="erosion-pins.html#cb2-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
-<span id="cb2-5"><a href="erosion-pins.html#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="erosion-pins.html#cb2-6" tabindex="-1"></a><span class="co"># arb</span></span>
-<span id="cb2-7"><a href="erosion-pins.html#cb2-7" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
-<span id="cb2-8"><a href="erosion-pins.html#cb2-8" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
-<span id="cb2-9"><a href="erosion-pins.html#cb2-9" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="erosion-pins.html#cb5-1" tabindex="-1"></a><span class="co"># lr</span></span>
+<span id="cb5-2"><a href="erosion-pins.html#cb5-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
+<span id="cb5-3"><a href="erosion-pins.html#cb5-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
+<span id="cb5-4"><a href="erosion-pins.html#cb5-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
+<span id="cb5-5"><a href="erosion-pins.html#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="erosion-pins.html#cb5-6" tabindex="-1"></a><span class="co"># arb</span></span>
+<span id="cb5-7"><a href="erosion-pins.html#cb5-7" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
+<span id="cb5-8"><a href="erosion-pins.html#cb5-8" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
+<span id="cb5-9"><a href="erosion-pins.html#cb5-9" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
 <p>Extract elevation, slope, and curvature (in 1/m) at gps points.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="erosion-pins.html#cb3-1" tabindex="-1"></a><span class="co"># arb</span></span>
-<span id="cb3-2"><a href="erosion-pins.html#cb3-2" tabindex="-1"></a>arb_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_dem, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb3-3"><a href="erosion-pins.html#cb3-3" tabindex="-1"></a>arb_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_slope, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb3-4"><a href="erosion-pins.html#cb3-4" tabindex="-1"></a>arb_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_curvature, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb3-5"><a href="erosion-pins.html#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="erosion-pins.html#cb3-6" tabindex="-1"></a><span class="co"># lr</span></span>
-<span id="cb3-7"><a href="erosion-pins.html#cb3-7" tabindex="-1"></a>lr_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_dem, lr_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb3-8"><a href="erosion-pins.html#cb3-8" tabindex="-1"></a>lr_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_slope, lr_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb3-9"><a href="erosion-pins.html#cb3-9" tabindex="-1"></a>lr_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_curvature, lr_NAD)[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="erosion-pins.html#cb6-1" tabindex="-1"></a><span class="co"># arb</span></span>
+<span id="cb6-2"><a href="erosion-pins.html#cb6-2" tabindex="-1"></a>arb_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_dem, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb6-3"><a href="erosion-pins.html#cb6-3" tabindex="-1"></a>arb_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_slope, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb6-4"><a href="erosion-pins.html#cb6-4" tabindex="-1"></a>arb_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_curvature, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb6-5"><a href="erosion-pins.html#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="erosion-pins.html#cb6-6" tabindex="-1"></a><span class="co"># lr</span></span>
+<span id="cb6-7"><a href="erosion-pins.html#cb6-7" tabindex="-1"></a>lr_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_dem, lr_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb6-8"><a href="erosion-pins.html#cb6-8" tabindex="-1"></a>lr_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_slope, lr_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb6-9"><a href="erosion-pins.html#cb6-9" tabindex="-1"></a>lr_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_curvature, lr_NAD)[,<span class="dv">2</span>]</span></code></pre></div>
 <p>Export data sets to drive.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="erosion-pins.html#cb4-1" tabindex="-1"></a><span class="co"># export as shape files (.shp)</span></span>
-<span id="cb4-2"><a href="erosion-pins.html#cb4-2" tabindex="-1"></a><span class="fu">write_sf</span>(arb_NAD, <span class="st">&quot;G:/My Drive/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
-<span id="cb4-3"><a href="erosion-pins.html#cb4-3" tabindex="-1"></a><span class="fu">write_sf</span>(lr_NAD, <span class="st">&quot;G:/My Drive/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
-<span id="cb4-4"><a href="erosion-pins.html#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="erosion-pins.html#cb4-5" tabindex="-1"></a><span class="co"># export as tables (.csv)</span></span>
-<span id="cb4-6"><a href="erosion-pins.html#cb4-6" tabindex="-1"></a><span class="fu">write.csv</span>(arb_NAD, <span class="st">&quot;G:/My Drive/_data/_erosion_pins/arb_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span>
-<span id="cb4-7"><a href="erosion-pins.html#cb4-7" tabindex="-1"></a><span class="fu">write.csv</span>(lr_NAD, <span class="st">&quot;G:/My Drive/_data/_erosion_pins/lr_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="erosion-pins.html#cb7-1" tabindex="-1"></a><span class="co"># export as shape files (.shp)</span></span>
+<span id="cb7-2"><a href="erosion-pins.html#cb7-2" tabindex="-1"></a><span class="fu">write_sf</span>(arb_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
+<span id="cb7-3"><a href="erosion-pins.html#cb7-3" tabindex="-1"></a><span class="fu">write_sf</span>(lr_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
+<span id="cb7-4"><a href="erosion-pins.html#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="erosion-pins.html#cb7-5" tabindex="-1"></a><span class="co"># export as tables (.csv)</span></span>
+<span id="cb7-6"><a href="erosion-pins.html#cb7-6" tabindex="-1"></a><span class="fu">write.csv</span>(arb_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/arb_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span>
+<span id="cb7-7"><a href="erosion-pins.html#cb7-7" tabindex="-1"></a><span class="fu">write.csv</span>(lr_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/lr_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="visualizing-etc." class="section level2 hasAnchor" number="6.4">
@@ -385,38 +387,38 @@ Published with Bookdown</a></li>
 <div id="spatial-plots" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Spatial Plots<a href="erosion-pins.html#spatial-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Import GPS and dem data.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="erosion-pins.html#cb5-1" tabindex="-1"></a><span class="co"># import shape files</span></span>
-<span id="cb5-2"><a href="erosion-pins.html#cb5-2" tabindex="-1"></a>arb_geo_shp <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
-<span id="cb5-3"><a href="erosion-pins.html#cb5-3" tabindex="-1"></a>lr_geo_shp <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
-<span id="cb5-4"><a href="erosion-pins.html#cb5-4" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="erosion-pins.html#cb5-5" tabindex="-1"></a><span class="co"># import elevation slope curvature data</span></span>
-<span id="cb5-6"><a href="erosion-pins.html#cb5-6" tabindex="-1"></a>arb_geo_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/arb_geo_data.csv&quot;</span>)</span>
-<span id="cb5-7"><a href="erosion-pins.html#cb5-7" tabindex="-1"></a>lr_geo_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_erosion_pins/lr_geo_data.csv&quot;</span>)</span>
-<span id="cb5-8"><a href="erosion-pins.html#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="erosion-pins.html#cb5-9" tabindex="-1"></a><span class="co"># merge two above</span></span>
-<span id="cb5-10"><a href="erosion-pins.html#cb5-10" tabindex="-1"></a>arb_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(arb_geo_shp)</span>
-<span id="cb5-11"><a href="erosion-pins.html#cb5-11" tabindex="-1"></a>arb_geo_data <span class="ot">&lt;-</span> <span class="fu">rename</span>(arb_geo_data, <span class="st">&quot;latitude&quot;</span> <span class="ot">=</span> X, <span class="st">&quot;longitude&quot;</span> <span class="ot">=</span> geometry)</span>
-<span id="cb5-12"><a href="erosion-pins.html#cb5-12" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="erosion-pins.html#cb5-13" tabindex="-1"></a>lr_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(lr_geo_shp)</span>
-<span id="cb5-14"><a href="erosion-pins.html#cb5-14" tabindex="-1"></a>lr_geo_data <span class="ot">&lt;-</span> <span class="fu">rename</span>(lr_geo_data, <span class="st">&quot;latitude&quot;</span> <span class="ot">=</span> X, <span class="st">&quot;longitude&quot;</span> <span class="ot">=</span> geometry)</span>
-<span id="cb5-15"><a href="erosion-pins.html#cb5-15" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="erosion-pins.html#cb5-16" tabindex="-1"></a><span class="co"># dems</span></span>
-<span id="cb5-17"><a href="erosion-pins.html#cb5-17" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
-<span id="cb5-18"><a href="erosion-pins.html#cb5-18" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
-<span id="cb5-19"><a href="erosion-pins.html#cb5-19" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
-<span id="cb5-20"><a href="erosion-pins.html#cb5-20" tabindex="-1"></a></span>
-<span id="cb5-21"><a href="erosion-pins.html#cb5-21" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
-<span id="cb5-22"><a href="erosion-pins.html#cb5-22" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
-<span id="cb5-23"><a href="erosion-pins.html#cb5-23" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="erosion-pins.html#cb8-1" tabindex="-1"></a><span class="co"># import shape files</span></span>
+<span id="cb8-2"><a href="erosion-pins.html#cb8-2" tabindex="-1"></a>arb_geo_shp <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
+<span id="cb8-3"><a href="erosion-pins.html#cb8-3" tabindex="-1"></a>lr_geo_shp <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
+<span id="cb8-4"><a href="erosion-pins.html#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="erosion-pins.html#cb8-5" tabindex="-1"></a><span class="co"># import elevation slope curvature data</span></span>
+<span id="cb8-6"><a href="erosion-pins.html#cb8-6" tabindex="-1"></a>arb_geo_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/arb_geo_data.csv&quot;</span>)</span>
+<span id="cb8-7"><a href="erosion-pins.html#cb8-7" tabindex="-1"></a>lr_geo_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/lr_geo_data.csv&quot;</span>)</span>
+<span id="cb8-8"><a href="erosion-pins.html#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="erosion-pins.html#cb8-9" tabindex="-1"></a><span class="co"># merge two above</span></span>
+<span id="cb8-10"><a href="erosion-pins.html#cb8-10" tabindex="-1"></a>arb_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(arb_geo_shp)</span>
+<span id="cb8-11"><a href="erosion-pins.html#cb8-11" tabindex="-1"></a>arb_geo_data <span class="ot">&lt;-</span> <span class="fu">rename</span>(arb_geo_data, <span class="st">&quot;latitude&quot;</span> <span class="ot">=</span> X, <span class="st">&quot;longitude&quot;</span> <span class="ot">=</span> geometry)</span>
+<span id="cb8-12"><a href="erosion-pins.html#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="erosion-pins.html#cb8-13" tabindex="-1"></a>lr_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">st_coordinates</span>(lr_geo_shp)</span>
+<span id="cb8-14"><a href="erosion-pins.html#cb8-14" tabindex="-1"></a>lr_geo_data <span class="ot">&lt;-</span> <span class="fu">rename</span>(lr_geo_data, <span class="st">&quot;latitude&quot;</span> <span class="ot">=</span> X, <span class="st">&quot;longitude&quot;</span> <span class="ot">=</span> geometry)</span>
+<span id="cb8-15"><a href="erosion-pins.html#cb8-15" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="erosion-pins.html#cb8-16" tabindex="-1"></a><span class="co"># dems</span></span>
+<span id="cb8-17"><a href="erosion-pins.html#cb8-17" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
+<span id="cb8-18"><a href="erosion-pins.html#cb8-18" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
+<span id="cb8-19"><a href="erosion-pins.html#cb8-19" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
+<span id="cb8-20"><a href="erosion-pins.html#cb8-20" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="erosion-pins.html#cb8-21" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
+<span id="cb8-22"><a href="erosion-pins.html#cb8-22" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
+<span id="cb8-23"><a href="erosion-pins.html#cb8-23" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
 <p>Plotting fun</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="erosion-pins.html#cb6-1" tabindex="-1"></a>arb_geo_data<span class="sc">$</span>site <span class="ot">=</span> <span class="cn">NA</span></span>
-<span id="cb6-2"><a href="erosion-pins.html#cb6-2" tabindex="-1"></a>arb_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;ASH&quot;</span></span>
-<span id="cb6-3"><a href="erosion-pins.html#cb6-3" tabindex="-1"></a>arb_geo_data[<span class="dv">16</span><span class="sc">:</span><span class="dv">30</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;MAG&quot;</span></span>
-<span id="cb6-4"><a href="erosion-pins.html#cb6-4" tabindex="-1"></a>arb_geo_data[<span class="dv">31</span><span class="sc">:</span><span class="dv">45</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;WD&quot;</span></span>
-<span id="cb6-5"><a href="erosion-pins.html#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="erosion-pins.html#cb6-6" tabindex="-1"></a><span class="fu">ggplot</span>(arb_geo_data, <span class="at">mapping =</span> <span class="fu">aes</span>(latitude, longitude, <span class="at">group =</span> site, <span class="at">color =</span> curvature)) <span class="sc">+</span></span>
-<span id="cb6-7"><a href="erosion-pins.html#cb6-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb6-8"><a href="erosion-pins.html#cb6-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="erosion-pins.html#cb9-1" tabindex="-1"></a>arb_geo_data<span class="sc">$</span>site <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb9-2"><a href="erosion-pins.html#cb9-2" tabindex="-1"></a>arb_geo_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;ASH&quot;</span></span>
+<span id="cb9-3"><a href="erosion-pins.html#cb9-3" tabindex="-1"></a>arb_geo_data[<span class="dv">16</span><span class="sc">:</span><span class="dv">30</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;MAG&quot;</span></span>
+<span id="cb9-4"><a href="erosion-pins.html#cb9-4" tabindex="-1"></a>arb_geo_data[<span class="dv">31</span><span class="sc">:</span><span class="dv">45</span>,]<span class="sc">$</span>site <span class="ot">=</span> <span class="st">&quot;WD&quot;</span></span>
+<span id="cb9-5"><a href="erosion-pins.html#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="erosion-pins.html#cb9-6" tabindex="-1"></a><span class="fu">ggplot</span>(arb_geo_data, <span class="at">mapping =</span> <span class="fu">aes</span>(latitude, longitude, <span class="at">group =</span> site, <span class="at">color =</span> curvature)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="erosion-pins.html#cb9-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="erosion-pins.html#cb9-8" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site)</span></code></pre></div>
 <p><img src="22_erosion_pins_files/figure-html/unnamed-chunk-6-1.png" width="45%" style="display: block; margin: auto;" /></p>
 
 </div>

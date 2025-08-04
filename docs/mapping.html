@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="...">Animal "Architects</a></li>
+<li><a href="...">Animal Architects</a></li>
 <li><a href="...">Nate Lund</a></li>
 
 <li class="divider"></li>
@@ -150,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="about-wip.html"><a href="about-wip.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
 </ul></li>
 <li class="part"><span><b>I Chapter I</b></span></li>
-<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><i class="fa fa-check"></i><b>3</b> <strong>Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity</strong>```</a></li>
+<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><i class="fa fa-check"></i><b>3</b> Animal Architects: A Conceptual Model for Geomorphic and Pedologic Animal Activity</a></li>
 <li class="chapter" data-level="4" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html"><i class="fa fa-check"></i><b>4</b> Chapter I Notes</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html#outline"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
@@ -201,9 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html"><i class="fa fa-check"></i><b>9</b> Terrestrial LiDAR</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data"><i class="fa fa-check"></i><b>9.1</b> Data</a></li>
-<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.2</b> Notes to self</a></li>
-<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.3</b> Collecting data</a></li>
+<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.1</b> Notes to self</a></li>
+<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.2</b> Collecting data</a></li>
+<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data-pre-processing"><i class="fa fa-check"></i><b>9.3</b> Data pre-processing</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>10</b> Mapping</a>
 <ul>
@@ -275,88 +275,88 @@ Published with Bookdown</a></li>
 <li><p>SF: <a href="https://r-spatial.github.io/sf/articles/sf1.html#reading-and-writing" class="uri">https://r-spatial.github.io/sf/articles/sf1.html#reading-and-writing</a></p></li>
 </ul>
 <p>Elevation, slope, and curvature can be extracted from Minnesota LiDAR data found at MNTopo (<a href="http://arcgis.dnr.state.mn.us/maps/mntopo/" class="uri">http://arcgis.dnr.state.mn.us/maps/mntopo/</a>). The raw LiDAR data can be downloaded directly from the website. LiDAR data is in NAD83 w/ elevation in meters.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="mapping.html#cb11-1" tabindex="-1"></a><span class="co"># load laz fliles from arb (in NAD83). filter for only ground-classified points (-keep_class 2)</span></span>
-<span id="cb11-2"><a href="mapping.html#cb11-2" tabindex="-1"></a>arb_las1 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/_lidar/4342-05-13.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
-<span id="cb11-3"><a href="mapping.html#cb11-3" tabindex="-1"></a>arb_las2 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/_lidar/4342-05-12.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
-<span id="cb11-4"><a href="mapping.html#cb11-4" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="mapping.html#cb11-5" tabindex="-1"></a><span class="co"># load laz files from lr</span></span>
-<span id="cb11-6"><a href="mapping.html#cb11-6" tabindex="-1"></a>lr_las1 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-08.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
-<span id="cb11-7"><a href="mapping.html#cb11-7" tabindex="-1"></a>lr_las2 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-09.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
-<span id="cb11-8"><a href="mapping.html#cb11-8" tabindex="-1"></a>lr_las3 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-08.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
-<span id="cb11-9"><a href="mapping.html#cb11-9" tabindex="-1"></a>lr_las4 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-09.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="mapping.html#cb14-1" tabindex="-1"></a><span class="co"># load laz fliles from arb (in NAD83). filter for only ground-classified points (-keep_class 2)</span></span>
+<span id="cb14-2"><a href="mapping.html#cb14-2" tabindex="-1"></a>arb_las1 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/_lidar/4342-05-13.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
+<span id="cb14-3"><a href="mapping.html#cb14-3" tabindex="-1"></a>arb_las2 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/_lidar/4342-05-12.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
+<span id="cb14-4"><a href="mapping.html#cb14-4" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="mapping.html#cb14-5" tabindex="-1"></a><span class="co"># load laz files from lr</span></span>
+<span id="cb14-6"><a href="mapping.html#cb14-6" tabindex="-1"></a>lr_las1 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-08.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
+<span id="cb14-7"><a href="mapping.html#cb14-7" tabindex="-1"></a>lr_las2 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-09.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
+<span id="cb14-8"><a href="mapping.html#cb14-8" tabindex="-1"></a>lr_las3 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-08.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span>
+<span id="cb14-9"><a href="mapping.html#cb14-9" tabindex="-1"></a>lr_las4 <span class="ot">&lt;-</span> <span class="fu">readLAS</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-09.laz&quot;</span>, <span class="at">filter =</span> <span class="st">&quot;-keep_class 2&quot;</span>)</span></code></pre></div>
 <p>Transform coordinate reference system to NAD83 zone 15N (ESPG 26915). Fit a digital terrain model to the data using the triangular irregular network algorithm (not as computationally intense, default settings). Terrain function (<a href="https://www.rdocumentation.org/packages/raster/versions/3.6-32/topics/terrain" class="uri">https://www.rdocumentation.org/packages/raster/versions/3.6-32/topics/terrain</a>)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="mapping.html#cb12-1" tabindex="-1"></a><span class="co"># transform to NAD83 zone 15N (ESPG 26915)</span></span>
-<span id="cb12-2"><a href="mapping.html#cb12-2" tabindex="-1"></a><span class="fu">epsg</span>(arb_las1) <span class="co"># report the current coordinate system</span></span>
-<span id="cb12-3"><a href="mapping.html#cb12-3" tabindex="-1"></a><span class="fu">st_crs</span>(arb_las1) <span class="ot">&lt;-</span> <span class="dv">26915</span> <span class="co"># set to  NAD83 zone 15N</span></span>
-<span id="cb12-4"><a href="mapping.html#cb12-4" tabindex="-1"></a><span class="fu">st_crs</span>(arb_las2) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
-<span id="cb12-5"><a href="mapping.html#cb12-5" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las1) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
-<span id="cb12-6"><a href="mapping.html#cb12-6" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las2) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
-<span id="cb12-7"><a href="mapping.html#cb12-7" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las3) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
-<span id="cb12-8"><a href="mapping.html#cb12-8" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las4) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
-<span id="cb12-9"><a href="mapping.html#cb12-9" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="mapping.html#cb12-10" tabindex="-1"></a><span class="co"># fit DEM using triangular irregular network, this is similar to LAStools stuff too</span></span>
-<span id="cb12-11"><a href="mapping.html#cb12-11" tabindex="-1"></a>arb_dem1 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(arb_las1, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-12"><a href="mapping.html#cb12-12" tabindex="-1"></a>arb_dem2 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(arb_las2, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-13"><a href="mapping.html#cb12-13" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="mapping.html#cb12-14" tabindex="-1"></a>lr_dem1 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las1, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-15"><a href="mapping.html#cb12-15" tabindex="-1"></a>lr_dem2 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las2, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-16"><a href="mapping.html#cb12-16" tabindex="-1"></a>lr_dem3 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las3, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-17"><a href="mapping.html#cb12-17" tabindex="-1"></a>lr_dem4 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las4, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
-<span id="cb12-18"><a href="mapping.html#cb12-18" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="mapping.html#cb12-19" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="mapping.html#cb12-20" tabindex="-1"></a><span class="co"># merge DEMS</span></span>
-<span id="cb12-21"><a href="mapping.html#cb12-21" tabindex="-1"></a>arb_dem <span class="ot">&lt;-</span> <span class="fu">mosaic</span>(arb_dem1, arb_dem2)</span>
-<span id="cb12-22"><a href="mapping.html#cb12-22" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="mapping.html#cb12-23" tabindex="-1"></a>lr_dem <span class="ot">&lt;-</span> <span class="fu">mosaic</span>(lr_dem1, lr_dem2, lr_dem3, lr_dem4)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="mapping.html#cb15-1" tabindex="-1"></a><span class="co"># transform to NAD83 zone 15N (ESPG 26915)</span></span>
+<span id="cb15-2"><a href="mapping.html#cb15-2" tabindex="-1"></a><span class="fu">epsg</span>(arb_las1) <span class="co"># report the current coordinate system</span></span>
+<span id="cb15-3"><a href="mapping.html#cb15-3" tabindex="-1"></a><span class="fu">st_crs</span>(arb_las1) <span class="ot">&lt;-</span> <span class="dv">26915</span> <span class="co"># set to  NAD83 zone 15N</span></span>
+<span id="cb15-4"><a href="mapping.html#cb15-4" tabindex="-1"></a><span class="fu">st_crs</span>(arb_las2) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
+<span id="cb15-5"><a href="mapping.html#cb15-5" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las1) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
+<span id="cb15-6"><a href="mapping.html#cb15-6" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las2) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
+<span id="cb15-7"><a href="mapping.html#cb15-7" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las3) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
+<span id="cb15-8"><a href="mapping.html#cb15-8" tabindex="-1"></a><span class="fu">st_crs</span>(lr_las4) <span class="ot">&lt;-</span> <span class="dv">26915</span></span>
+<span id="cb15-9"><a href="mapping.html#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="mapping.html#cb15-10" tabindex="-1"></a><span class="co"># fit DEM using triangular irregular network, this is similar to LAStools stuff too</span></span>
+<span id="cb15-11"><a href="mapping.html#cb15-11" tabindex="-1"></a>arb_dem1 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(arb_las1, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-12"><a href="mapping.html#cb15-12" tabindex="-1"></a>arb_dem2 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(arb_las2, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-13"><a href="mapping.html#cb15-13" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="mapping.html#cb15-14" tabindex="-1"></a>lr_dem1 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las1, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-15"><a href="mapping.html#cb15-15" tabindex="-1"></a>lr_dem2 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las2, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-16"><a href="mapping.html#cb15-16" tabindex="-1"></a>lr_dem3 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las3, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-17"><a href="mapping.html#cb15-17" tabindex="-1"></a>lr_dem4 <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(lr_las4, <span class="at">res =</span> <span class="dv">1</span>, <span class="at">algorithm =</span> <span class="fu">tin</span>())</span>
+<span id="cb15-18"><a href="mapping.html#cb15-18" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="mapping.html#cb15-19" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="mapping.html#cb15-20" tabindex="-1"></a><span class="co"># merge DEMS</span></span>
+<span id="cb15-21"><a href="mapping.html#cb15-21" tabindex="-1"></a>arb_dem <span class="ot">&lt;-</span> <span class="fu">mosaic</span>(arb_dem1, arb_dem2)</span>
+<span id="cb15-22"><a href="mapping.html#cb15-22" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="mapping.html#cb15-23" tabindex="-1"></a>lr_dem <span class="ot">&lt;-</span> <span class="fu">mosaic</span>(lr_dem1, lr_dem2, lr_dem3, lr_dem4)</span></code></pre></div>
 <p>Create new rasters using dems for slope and curvature. Slope is in degrees. Curvature is calculated in the direction of maximum slope (profile). Positive values indicate upward covex.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="mapping.html#cb13-1" tabindex="-1"></a><span class="co"># slope (in degrees)</span></span>
-<span id="cb13-2"><a href="mapping.html#cb13-2" tabindex="-1"></a>arb_slope <span class="ot">&lt;-</span> <span class="fu">terrain</span>(arb_dem, <span class="st">&quot;slope&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
-<span id="cb13-3"><a href="mapping.html#cb13-3" tabindex="-1"></a>lr_slope <span class="ot">&lt;-</span> <span class="fu">terrain</span>(lr_dem, <span class="st">&quot;slope&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
-<span id="cb13-4"><a href="mapping.html#cb13-4" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="mapping.html#cb13-5" tabindex="-1"></a><span class="co"># curvature</span></span>
-<span id="cb13-6"><a href="mapping.html#cb13-6" tabindex="-1"></a>arb_curvature <span class="ot">&lt;-</span> <span class="fu">curvature</span>(arb_dem, <span class="at">type =</span> <span class="st">&quot;profile&quot;</span>)</span>
-<span id="cb13-7"><a href="mapping.html#cb13-7" tabindex="-1"></a>lr_curvature <span class="ot">&lt;-</span> <span class="fu">curvature</span>(lr_dem, <span class="at">type =</span> <span class="st">&quot;profile&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="mapping.html#cb16-1" tabindex="-1"></a><span class="co"># slope (in degrees)</span></span>
+<span id="cb16-2"><a href="mapping.html#cb16-2" tabindex="-1"></a>arb_slope <span class="ot">&lt;-</span> <span class="fu">terrain</span>(arb_dem, <span class="st">&quot;slope&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb16-3"><a href="mapping.html#cb16-3" tabindex="-1"></a>lr_slope <span class="ot">&lt;-</span> <span class="fu">terrain</span>(lr_dem, <span class="st">&quot;slope&quot;</span>, <span class="at">unit =</span> <span class="st">&quot;degrees&quot;</span>)</span>
+<span id="cb16-4"><a href="mapping.html#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="mapping.html#cb16-5" tabindex="-1"></a><span class="co"># curvature</span></span>
+<span id="cb16-6"><a href="mapping.html#cb16-6" tabindex="-1"></a>arb_curvature <span class="ot">&lt;-</span> <span class="fu">curvature</span>(arb_dem, <span class="at">type =</span> <span class="st">&quot;profile&quot;</span>)</span>
+<span id="cb16-7"><a href="mapping.html#cb16-7" tabindex="-1"></a>lr_curvature <span class="ot">&lt;-</span> <span class="fu">curvature</span>(lr_dem, <span class="at">type =</span> <span class="st">&quot;profile&quot;</span>)</span></code></pre></div>
 <p>Export models to G-Drive.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="mapping.html#cb14-1" tabindex="-1"></a><span class="co"># arb</span></span>
-<span id="cb14-2"><a href="mapping.html#cb14-2" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_dem, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-3"><a href="mapping.html#cb14-3" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="mapping.html#cb14-4" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_slope, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-5"><a href="mapping.html#cb14-5" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="mapping.html#cb14-6" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_curvature, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-7"><a href="mapping.html#cb14-7" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="mapping.html#cb14-8" tabindex="-1"></a><span class="co"># lr</span></span>
-<span id="cb14-9"><a href="mapping.html#cb14-9" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_dem, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-10"><a href="mapping.html#cb14-10" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="mapping.html#cb14-11" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_slope, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-12"><a href="mapping.html#cb14-12" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="mapping.html#cb14-13" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_curvature, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="mapping.html#cb17-1" tabindex="-1"></a><span class="co"># arb</span></span>
+<span id="cb17-2"><a href="mapping.html#cb17-2" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_dem, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-3"><a href="mapping.html#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="mapping.html#cb17-4" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_slope, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-5"><a href="mapping.html#cb17-5" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="mapping.html#cb17-6" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(arb_curvature, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-7"><a href="mapping.html#cb17-7" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="mapping.html#cb17-8" tabindex="-1"></a><span class="co"># lr</span></span>
+<span id="cb17-9"><a href="mapping.html#cb17-9" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_dem, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-10"><a href="mapping.html#cb17-10" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="mapping.html#cb17-11" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_slope, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-12"><a href="mapping.html#cb17-12" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="mapping.html#cb17-13" tabindex="-1"></a>terra<span class="sc">::</span><span class="fu">writeRaster</span>(lr_curvature, <span class="at">filetype =</span> <span class="st">&quot;GTiff&quot;</span>, <span class="at">filename =</span> <span class="fu">file.path</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>), <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="visualzing-sites" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Visualzing Sites<a href="mapping.html#visualzing-sites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="mapping.html#cb15-1" tabindex="-1"></a><span class="co"># import data</span></span>
-<span id="cb15-2"><a href="mapping.html#cb15-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
-<span id="cb15-3"><a href="mapping.html#cb15-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
-<span id="cb15-4"><a href="mapping.html#cb15-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
-<span id="cb15-5"><a href="mapping.html#cb15-5" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="mapping.html#cb15-6" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
-<span id="cb15-7"><a href="mapping.html#cb15-7" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
-<span id="cb15-8"><a href="mapping.html#cb15-8" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="mapping.html#cb16-1" tabindex="-1"></a><span class="co"># Crop the raster</span></span>
-<span id="cb16-2"><a href="mapping.html#cb16-2" tabindex="-1"></a><span class="co"># cropped_raster &lt;- crop(arb_1m_dem, extent(c(min(arb_geo_data$latitude) + 500,</span></span>
-<span id="cb16-3"><a href="mapping.html#cb16-3" tabindex="-1"></a><span class="co">#                                             max(arb_geo_data$latitude) + 500,</span></span>
-<span id="cb16-4"><a href="mapping.html#cb16-4" tabindex="-1"></a><span class="co">#                                             min(arb_geo_data$longitude) + 500,</span></span>
-<span id="cb16-5"><a href="mapping.html#cb16-5" tabindex="-1"></a><span class="co">#                                             max(arb_geo_data$longitude + 500))))</span></span>
-<span id="cb16-6"><a href="mapping.html#cb16-6" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="mapping.html#cb16-7" tabindex="-1"></a><span class="co"># format dem</span></span>
-<span id="cb16-8"><a href="mapping.html#cb16-8" tabindex="-1"></a>arb_dem_map <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(arb_1m_dem, <span class="at">xy =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-9"><a href="mapping.html#cb16-9" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;elevation&quot;</span> <span class="ot">=</span> <span class="st">&quot;Z&quot;</span>)</span>
-<span id="cb16-10"><a href="mapping.html#cb16-10" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="mapping.html#cb16-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arb_dem_map) <span class="sc">+</span></span>
-<span id="cb16-12"><a href="mapping.html#cb16-12" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> elevation)) <span class="sc">+</span></span>
-<span id="cb16-13"><a href="mapping.html#cb16-13" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb16-14"><a href="mapping.html#cb16-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Digital Elevation Model&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Elevation&quot;</span>) <span class="sc">+</span></span>
-<span id="cb16-15"><a href="mapping.html#cb16-15" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
-<span id="cb16-16"><a href="mapping.html#cb16-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="mapping.html#cb18-1" tabindex="-1"></a><span class="co"># import data</span></span>
+<span id="cb18-2"><a href="mapping.html#cb18-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
+<span id="cb18-3"><a href="mapping.html#cb18-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
+<span id="cb18-4"><a href="mapping.html#cb18-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
+<span id="cb18-5"><a href="mapping.html#cb18-5" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="mapping.html#cb18-6" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
+<span id="cb18-7"><a href="mapping.html#cb18-7" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
+<span id="cb18-8"><a href="mapping.html#cb18-8" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="mapping.html#cb19-1" tabindex="-1"></a><span class="co"># Crop the raster</span></span>
+<span id="cb19-2"><a href="mapping.html#cb19-2" tabindex="-1"></a><span class="co"># cropped_raster &lt;- crop(arb_1m_dem, extent(c(min(arb_geo_data$latitude) + 500,</span></span>
+<span id="cb19-3"><a href="mapping.html#cb19-3" tabindex="-1"></a><span class="co">#                                             max(arb_geo_data$latitude) + 500,</span></span>
+<span id="cb19-4"><a href="mapping.html#cb19-4" tabindex="-1"></a><span class="co">#                                             min(arb_geo_data$longitude) + 500,</span></span>
+<span id="cb19-5"><a href="mapping.html#cb19-5" tabindex="-1"></a><span class="co">#                                             max(arb_geo_data$longitude + 500))))</span></span>
+<span id="cb19-6"><a href="mapping.html#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="mapping.html#cb19-7" tabindex="-1"></a><span class="co"># format dem</span></span>
+<span id="cb19-8"><a href="mapping.html#cb19-8" tabindex="-1"></a>arb_dem_map <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(arb_1m_dem, <span class="at">xy =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-9"><a href="mapping.html#cb19-9" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;elevation&quot;</span> <span class="ot">=</span> <span class="st">&quot;Z&quot;</span>)</span>
+<span id="cb19-10"><a href="mapping.html#cb19-10" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="mapping.html#cb19-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> arb_dem_map) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="mapping.html#cb19-12" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">fill =</span> elevation)) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="mapping.html#cb19-13" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb19-14"><a href="mapping.html#cb19-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Digital Elevation Model&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Elevation&quot;</span>) <span class="sc">+</span></span>
+<span id="cb19-15"><a href="mapping.html#cb19-15" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb19-16"><a href="mapping.html#cb19-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="26_mapping_files/figure-html/unnamed-chunk-6-1.png" width="45%" style="display: block; margin: auto;" /></p>
 
 </div>

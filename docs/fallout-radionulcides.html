@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="...">Animal "Architects</a></li>
+<li><a href="...">Animal Architects</a></li>
 <li><a href="...">Nate Lund</a></li>
 
 <li class="divider"></li>
@@ -150,7 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="about-wip.html"><a href="about-wip.html#table-of-contents"><i class="fa fa-check"></i><b>2.1</b> Table of Contents</a></li>
 </ul></li>
 <li class="part"><span><b>I Chapter I</b></span></li>
-<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity.html"><i class="fa fa-check"></i><b>3</b> <strong>Animal Architects: A Conceptual Model for Geomorphic and Pedological Animal Activity</strong>```</a></li>
+<li class="chapter" data-level="3" data-path="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><a href="animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity.html"><i class="fa fa-check"></i><b>3</b> Animal Architects: A Conceptual Model for Geomorphic and Pedologic Animal Activity</a></li>
 <li class="chapter" data-level="4" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html"><i class="fa fa-check"></i><b>4</b> Chapter I Notes</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="chapter-i-notes.html"><a href="chapter-i-notes.html#outline"><i class="fa fa-check"></i><b>4.1</b> Outline</a></li>
@@ -201,9 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html"><i class="fa fa-check"></i><b>9</b> Terrestrial LiDAR</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data"><i class="fa fa-check"></i><b>9.1</b> Data</a></li>
-<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.2</b> Notes to self</a></li>
-<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.3</b> Collecting data</a></li>
+<li class="chapter" data-level="9.1" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#notes-to-self-1"><i class="fa fa-check"></i><b>9.1</b> Notes to self</a></li>
+<li class="chapter" data-level="9.2" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#collecting-data"><i class="fa fa-check"></i><b>9.2</b> Collecting data</a></li>
+<li class="chapter" data-level="9.3" data-path="terrestrial-lidar.html"><a href="terrestrial-lidar.html#data-pre-processing"><i class="fa fa-check"></i><b>9.3</b> Data pre-processing</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>10</b> Mapping</a>
 <ul>
@@ -334,52 +334,52 @@ Published with Bookdown</a></li>
 <div id="extracting-elevation-slope-and-curvature-from-dems-to-gps-points.-1" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Extracting elevation, slope, and curvature from DEMS to GPS points.<a href="fallout-radionulcides.html#extracting-elevation-slope-and-curvature-from-dems-to-gps-points.-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Import GPS data points saved in the G-drive (collected using Field Maps and downloaded through Arc Online). Transform into NAD83 zone 15N.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fallout-radionulcides.html#cb7-1" tabindex="-1"></a><span class="co"># load frn transect points</span></span>
-<span id="cb7-2"><a href="fallout-radionulcides.html#cb7-2" tabindex="-1"></a>arb_gps_raw <span class="ot">&lt;-</span> </span>
-<span id="cb7-3"><a href="fallout-radionulcides.html#cb7-3" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="fallout-radionulcides.html#cb7-4" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-5"><a href="fallout-radionulcides.html#cb7-5" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&lt;</span> <span class="dv">45</span>) <span class="co"># arb and lr are in the same file, split into 2</span></span>
-<span id="cb7-6"><a href="fallout-radionulcides.html#cb7-6" tabindex="-1"></a>  </span>
-<span id="cb7-7"><a href="fallout-radionulcides.html#cb7-7" tabindex="-1"></a>lr_gps_raw <span class="ot">&lt;-</span> </span>
-<span id="cb7-8"><a href="fallout-radionulcides.html#cb7-8" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-9"><a href="fallout-radionulcides.html#cb7-9" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-10"><a href="fallout-radionulcides.html#cb7-10" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&gt;</span> <span class="dv">45</span>)</span>
-<span id="cb7-11"><a href="fallout-radionulcides.html#cb7-11" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="fallout-radionulcides.html#cb7-12" tabindex="-1"></a><span class="co"># above points are theoretically in WGS84. this tells r they are (which in R the crs is EPSG: 4326). this also makes them a simple features feature (sf)</span></span>
-<span id="cb7-13"><a href="fallout-radionulcides.html#cb7-13" tabindex="-1"></a>arb_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arb_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb7-14"><a href="fallout-radionulcides.html#cb7-14" tabindex="-1"></a>lr_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(lr_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb7-15"><a href="fallout-radionulcides.html#cb7-15" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="fallout-radionulcides.html#cb7-16" tabindex="-1"></a><span class="co"># transform from WGS84 to NAD83 zone 15N to match lidar (EPSG: 4269)</span></span>
-<span id="cb7-17"><a href="fallout-radionulcides.html#cb7-17" tabindex="-1"></a>arb_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arb_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
-<span id="cb7-18"><a href="fallout-radionulcides.html#cb7-18" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(lr_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fallout-radionulcides.html#cb10-1" tabindex="-1"></a><span class="co"># load frn transect points</span></span>
+<span id="cb10-2"><a href="fallout-radionulcides.html#cb10-2" tabindex="-1"></a>arb_gps_raw <span class="ot">&lt;-</span> </span>
+<span id="cb10-3"><a href="fallout-radionulcides.html#cb10-3" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="fallout-radionulcides.html#cb10-4" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="fallout-radionulcides.html#cb10-5" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&lt;</span> <span class="dv">45</span>) <span class="co"># arb and lr are in the same file, split into 2</span></span>
+<span id="cb10-6"><a href="fallout-radionulcides.html#cb10-6" tabindex="-1"></a>  </span>
+<span id="cb10-7"><a href="fallout-radionulcides.html#cb10-7" tabindex="-1"></a>lr_gps_raw <span class="ot">&lt;-</span> </span>
+<span id="cb10-8"><a href="fallout-radionulcides.html#cb10-8" tabindex="-1"></a>  <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_transect_gps/FRN_Sampling_Points_0.csv&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-9"><a href="fallout-radionulcides.html#cb10-9" tabindex="-1"></a>  <span class="fu">select</span>(Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-10"><a href="fallout-radionulcides.html#cb10-10" tabindex="-1"></a>  <span class="fu">filter</span>(Latitude <span class="sc">&gt;</span> <span class="dv">45</span>)</span>
+<span id="cb10-11"><a href="fallout-radionulcides.html#cb10-11" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="fallout-radionulcides.html#cb10-12" tabindex="-1"></a><span class="co"># above points are theoretically in WGS84. this tells r they are (which in R the crs is EPSG: 4326). this also makes them a simple features feature (sf)</span></span>
+<span id="cb10-13"><a href="fallout-radionulcides.html#cb10-13" tabindex="-1"></a>arb_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arb_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb10-14"><a href="fallout-radionulcides.html#cb10-14" tabindex="-1"></a>lr_gps <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(lr_gps_raw, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>), <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb10-15"><a href="fallout-radionulcides.html#cb10-15" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="fallout-radionulcides.html#cb10-16" tabindex="-1"></a><span class="co"># transform from WGS84 to NAD83 zone 15N to match lidar (EPSG: 4269)</span></span>
+<span id="cb10-17"><a href="fallout-radionulcides.html#cb10-17" tabindex="-1"></a>arb_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(arb_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span>
+<span id="cb10-18"><a href="fallout-radionulcides.html#cb10-18" tabindex="-1"></a>lr_NAD <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(lr_gps, <span class="at">crs =</span> <span class="dv">26915</span>)</span></code></pre></div>
 <p>Import dems from drive (created in 26_mapping).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="fallout-radionulcides.html#cb8-1" tabindex="-1"></a><span class="co"># lr</span></span>
-<span id="cb8-2"><a href="fallout-radionulcides.html#cb8-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
-<span id="cb8-3"><a href="fallout-radionulcides.html#cb8-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
-<span id="cb8-4"><a href="fallout-radionulcides.html#cb8-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
-<span id="cb8-5"><a href="fallout-radionulcides.html#cb8-5" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="fallout-radionulcides.html#cb8-6" tabindex="-1"></a><span class="co"># arb</span></span>
-<span id="cb8-7"><a href="fallout-radionulcides.html#cb8-7" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
-<span id="cb8-8"><a href="fallout-radionulcides.html#cb8-8" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
-<span id="cb8-9"><a href="fallout-radionulcides.html#cb8-9" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fallout-radionulcides.html#cb11-1" tabindex="-1"></a><span class="co"># lr</span></span>
+<span id="cb11-2"><a href="fallout-radionulcides.html#cb11-2" tabindex="-1"></a>lr_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem&quot;</span>)</span>
+<span id="cb11-3"><a href="fallout-radionulcides.html#cb11-3" tabindex="-1"></a>lr_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope&quot;</span>)</span>
+<span id="cb11-4"><a href="fallout-radionulcides.html#cb11-4" tabindex="-1"></a>lr_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature&quot;</span>)</span>
+<span id="cb11-5"><a href="fallout-radionulcides.html#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="fallout-radionulcides.html#cb11-6" tabindex="-1"></a><span class="co"># arb</span></span>
+<span id="cb11-7"><a href="fallout-radionulcides.html#cb11-7" tabindex="-1"></a>arb_1m_dem <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem&quot;</span>)</span>
+<span id="cb11-8"><a href="fallout-radionulcides.html#cb11-8" tabindex="-1"></a>arb_1m_slope <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope&quot;</span>)</span>
+<span id="cb11-9"><a href="fallout-radionulcides.html#cb11-9" tabindex="-1"></a>arb_1m_curvature <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature&quot;</span>)</span></code></pre></div>
 <p>Extract elevation, slope, and curvature (in 1/m) at gps points.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="fallout-radionulcides.html#cb9-1" tabindex="-1"></a><span class="co"># arb</span></span>
-<span id="cb9-2"><a href="fallout-radionulcides.html#cb9-2" tabindex="-1"></a>arb_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_dem, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb9-3"><a href="fallout-radionulcides.html#cb9-3" tabindex="-1"></a>arb_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_slope, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb9-4"><a href="fallout-radionulcides.html#cb9-4" tabindex="-1"></a>arb_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_curvature, arb_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb9-5"><a href="fallout-radionulcides.html#cb9-5" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="fallout-radionulcides.html#cb9-6" tabindex="-1"></a><span class="co"># lr</span></span>
-<span id="cb9-7"><a href="fallout-radionulcides.html#cb9-7" tabindex="-1"></a>lr_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_dem, lr_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb9-8"><a href="fallout-radionulcides.html#cb9-8" tabindex="-1"></a>lr_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_slope, lr_NAD)[,<span class="dv">2</span>]</span>
-<span id="cb9-9"><a href="fallout-radionulcides.html#cb9-9" tabindex="-1"></a>lr_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_curvature, lr_NAD)[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="fallout-radionulcides.html#cb12-1" tabindex="-1"></a><span class="co"># arb</span></span>
+<span id="cb12-2"><a href="fallout-radionulcides.html#cb12-2" tabindex="-1"></a>arb_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_dem, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb12-3"><a href="fallout-radionulcides.html#cb12-3" tabindex="-1"></a>arb_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_slope, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb12-4"><a href="fallout-radionulcides.html#cb12-4" tabindex="-1"></a>arb_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(arb_1m_curvature, arb_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb12-5"><a href="fallout-radionulcides.html#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="fallout-radionulcides.html#cb12-6" tabindex="-1"></a><span class="co"># lr</span></span>
+<span id="cb12-7"><a href="fallout-radionulcides.html#cb12-7" tabindex="-1"></a>lr_NAD<span class="sc">$</span>elevation <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_dem, lr_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb12-8"><a href="fallout-radionulcides.html#cb12-8" tabindex="-1"></a>lr_NAD<span class="sc">$</span>slope <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_slope, lr_NAD)[,<span class="dv">2</span>]</span>
+<span id="cb12-9"><a href="fallout-radionulcides.html#cb12-9" tabindex="-1"></a>lr_NAD<span class="sc">$</span>curvature <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">extract</span>(lr_1m_curvature, lr_NAD)[,<span class="dv">2</span>]</span></code></pre></div>
 <p>Export data sets to drive.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fallout-radionulcides.html#cb10-1" tabindex="-1"></a><span class="co"># export as shape files (.shp)</span></span>
-<span id="cb10-2"><a href="fallout-radionulcides.html#cb10-2" tabindex="-1"></a><span class="fu">write_sf</span>(arb_NAD, <span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
-<span id="cb10-3"><a href="fallout-radionulcides.html#cb10-3" tabindex="-1"></a><span class="fu">write_sf</span>(lr_NAD, <span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
-<span id="cb10-4"><a href="fallout-radionulcides.html#cb10-4" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="fallout-radionulcides.html#cb10-5" tabindex="-1"></a><span class="co"># export as tables (.csv)</span></span>
-<span id="cb10-6"><a href="fallout-radionulcides.html#cb10-6" tabindex="-1"></a><span class="fu">write.csv</span>(arb_NAD, <span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/arb_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span>
-<span id="cb10-7"><a href="fallout-radionulcides.html#cb10-7" tabindex="-1"></a><span class="fu">write.csv</span>(lr_NAD, <span class="st">&quot;G:/My Drive/_data/_fallout_radionuclides/lr_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="fallout-radionulcides.html#cb13-1" tabindex="-1"></a><span class="co"># export as shape files (.shp)</span></span>
+<span id="cb13-2"><a href="fallout-radionulcides.html#cb13-2" tabindex="-1"></a><span class="fu">write_sf</span>(arb_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_arb_geo_data_shp/arb_geo_data.shp&quot;</span>)</span>
+<span id="cb13-3"><a href="fallout-radionulcides.html#cb13-3" tabindex="-1"></a><span class="fu">write_sf</span>(lr_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/_lr_geo_data_shp/lr_geo_data.shp&quot;</span>)</span>
+<span id="cb13-4"><a href="fallout-radionulcides.html#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="fallout-radionulcides.html#cb13-5" tabindex="-1"></a><span class="co"># export as tables (.csv)</span></span>
+<span id="cb13-6"><a href="fallout-radionulcides.html#cb13-6" tabindex="-1"></a><span class="fu">write.csv</span>(arb_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/arb_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span>
+<span id="cb13-7"><a href="fallout-radionulcides.html#cb13-7" tabindex="-1"></a><span class="fu">write.csv</span>(lr_NAD, <span class="st">&quot;C:/Users/natha/OneDrive/Onedrive Documents/_data/_fallout_radionuclides/lr_geo_data.csv&quot;</span>, <span class="at">quote =</span> <span class="dv">1</span>)</span></code></pre></div>
 
 </div>
 </div>

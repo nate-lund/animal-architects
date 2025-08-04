@@ -14,7 +14,9 @@
   lapply(libs, library, character.only = T)
 
 
-# the function used to compile the book, run before commiting
+# the function used to compile the book, run before committing
 render_book("index.Rmd", output_format = "bookdown::gitbook", output_dir = "docs",  new_session = TRUE)
+
+#preview_chapter("26_mapping.Rmd", output_format = "word_document")
 
 print("done")

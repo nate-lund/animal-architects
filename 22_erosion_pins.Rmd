@@ -115,11 +115,13 @@ Import GPS data points saved in the G-drive (collected using Field Maps and down
 
 ```{r}
 # load erosion pin points,
-arb_gps_raw <- read.csv("G:/My Drive/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv") %>% 
+arb_gps_raw <- read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv") %>% 
   select(Latitude, Longitude) %>% 
   filter(Latitude < 45) # arb and lr are in the same file, split into 2
   
-lr_gps_raw <- read.csv("G:/My Drive/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv") %>% 
+#C:/Users/natha/OneDrive/Onedrive Documents
+
+lr_gps_raw <- read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv") %>% 
   select(Latitude, Longitude) %>% 
   filter(Latitude > 45)
 
@@ -138,14 +140,14 @@ Import dems from drive (created in 26_mapping).
 
 ```{r}
 # lr
-lr_1m_dem <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
-lr_1m_slope <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
-lr_1m_curvature <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
+lr_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
+lr_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
+lr_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
 
 # arb
-arb_1m_dem <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem")
-arb_1m_slope <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope")
-arb_1m_curvature <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature")
+arb_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem")
+arb_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope")
+arb_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature")
 ```
 
 Extract elevation, slope, and curvature (in 1/m) at gps points.
@@ -166,12 +168,12 @@ Export data sets to drive.
 
 ```{r}
 # export as shape files (.shp)
-write_sf(arb_NAD, "G:/My Drive/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp")
-write_sf(lr_NAD, "G:/My Drive/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp")
+write_sf(arb_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp")
+write_sf(lr_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp")
 
 # export as tables (.csv)
-write.csv(arb_NAD, "G:/My Drive/_data/_erosion_pins/arb_geo_data.csv", quote = 1)
-write.csv(lr_NAD, "G:/My Drive/_data/_erosion_pins/lr_geo_data.csv", quote = 1)
+write.csv(arb_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/arb_geo_data.csv", quote = 1)
+write.csv(lr_NAD, "C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/lr_geo_data.csv", quote = 1)
 ```
 
 
@@ -183,12 +185,12 @@ Import GPS and dem data.
 
 ```{r, eval = TRUE}
 # import shape files
-arb_geo_shp <- read_sf("G:/My Drive/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp")
-lr_geo_shp <- read_sf("G:/My Drive/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp")
+arb_geo_shp <- read_sf("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_arb_geo_data_shp/arb_geo_data.shp")
+lr_geo_shp <- read_sf("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/_lr_geo_data_shp/lr_geo_data.shp")
 
 # import elevation slope curvature data
-arb_geo_data <- read.csv("G:/My Drive/_data/_erosion_pins/arb_geo_data.csv")
-lr_geo_data <- read.csv("G:/My Drive/_data/_erosion_pins/lr_geo_data.csv")
+arb_geo_data <- read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/arb_geo_data.csv")
+lr_geo_data <- read.csv("C:/Users/natha/OneDrive/Onedrive Documents/_data/_erosion_pins/lr_geo_data.csv")
 
 # merge two above
 arb_geo_data[1:2] <- st_coordinates(arb_geo_shp)
@@ -198,13 +200,13 @@ lr_geo_data[1:2] <- st_coordinates(lr_geo_shp)
 lr_geo_data <- rename(lr_geo_data, "latitude" = X, "longitude" = geometry)
 
 # dems
-lr_1m_dem <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
-lr_1m_slope <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
-lr_1m_curvature <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
+lr_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
+lr_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
+lr_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
 
-arb_1m_dem <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem")
-arb_1m_slope <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope")
-arb_1m_curvature <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature")
+arb_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem")
+arb_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope")
+arb_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature")
 ```
 
 Plotting fun

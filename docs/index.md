@@ -1,7 +1,7 @@
 ---
 title: "Animal Architects"
 author: "Nate Lund"
-date: "Last compiled 02:43, 31 July, 2025"
+date: "Last compiled 02:14, 04 August, 2025"
 site: bookdown::bookdown_site
 documentclass: book
 output:
@@ -11,7 +11,7 @@ output:
         collapse: section
         scroll_highlight: true
         before: |
-            <li><a href="...">Animal "Architects</a></li>
+            <li><a href="...">Animal Architects</a></li>
             <li><a href="...">Nate Lund</a></li>
         after: |
             <li><a href="https://github.com/rstudio/bookdown">

@@ -3,7 +3,7 @@ technical-resources
 notes-to-self
 about-wip
 table-of-contents
-animal-architects-a-conceptual-model-for-geomorphic-and-pedological-animal-activity
+animal-architects-a-conceptual-model-for-geomorphic-and-pedologic-animal-activity
 chapter-i-notes
 outline
 numerical-models
@@ -30,9 +30,9 @@ protocol-1
 dataset-building-1
 extracting-elevation-slope-and-curvature-from-dems-to-gps-points.-1
 terrestrial-lidar
-data
 notes-to-self-1
 collecting-data
+data-pre-processing
 mapping
 creating-dems-and-other-rasters-from-mn-lidar-data
 visualzing-sites

@@ -39,14 +39,14 @@ Elevation, slope, and curvature can be extracted from Minnesota LiDAR data found
 
 ```{r}
 # load laz fliles from arb (in NAD83). filter for only ground-classified points (-keep_class 2)
-arb_las1 <- readLAS("G:/My Drive/_data/_mapping/_arb_topo/_lidar/4342-05-13.laz", filter = "-keep_class 2")
-arb_las2 <- readLAS("G:/My Drive/_data/_mapping/_arb_topo/_lidar/4342-05-12.laz", filter = "-keep_class 2")
+arb_las1 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/_lidar/4342-05-13.laz", filter = "-keep_class 2")
+arb_las2 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/_lidar/4342-05-12.laz", filter = "-keep_class 2")
 
 # load laz files from lr
-lr_las1 <- readLAS("G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-08.laz", filter = "-keep_class 2")
-lr_las2 <- readLAS("G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-09.laz", filter = "-keep_class 2")
-lr_las3 <- readLAS("G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-08.laz", filter = "-keep_class 2")
-lr_las4 <- readLAS("G:/My Drive/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-09.laz", filter = "-keep_class 2")
+lr_las1 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-08.laz", filter = "-keep_class 2")
+lr_las2 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-30-09.laz", filter = "-keep_class 2")
+lr_las3 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-08.laz", filter = "-keep_class 2")
+lr_las4 <- readLAS("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/_lidar/3542-31-09.laz", filter = "-keep_class 2")
 
 ```
 
@@ -94,31 +94,31 @@ Export models to G-Drive.
 
 ```{r}
 # arb
-terra::writeRaster(arb_dem, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem"), overwrite=TRUE)
+terra::writeRaster(arb_dem, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem"), overwrite=TRUE)
 
-terra::writeRaster(arb_slope, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope"), overwrite=TRUE)
+terra::writeRaster(arb_slope, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope"), overwrite=TRUE)
 
-terra::writeRaster(arb_curvature, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature"), overwrite=TRUE)
+terra::writeRaster(arb_curvature, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature"), overwrite=TRUE)
 
 # lr
-terra::writeRaster(lr_dem, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem"), overwrite=TRUE)
+terra::writeRaster(lr_dem, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem"), overwrite=TRUE)
 
-terra::writeRaster(lr_slope, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope"), overwrite=TRUE)
+terra::writeRaster(lr_slope, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope"), overwrite=TRUE)
 
-terra::writeRaster(lr_curvature, filetype = "GTiff", filename = file.path("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature"), overwrite=TRUE)
+terra::writeRaster(lr_curvature, filetype = "GTiff", filename = file.path("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature"), overwrite=TRUE)
 ```
 
 ## Visualzing Sites
 
 ```{r, eval = TRUE}
 # import data
-lr_1m_dem <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
-lr_1m_slope <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
-lr_1m_curvature <- rast("G:/My Drive/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
+lr_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_dem")
+lr_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_slope")
+lr_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_lake_rebecca_topo/lr_1m_curvature")
 
-arb_1m_dem <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_dem")
-arb_1m_slope <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_slope")
-arb_1m_curvature <- rast("G:/My Drive/_data/_mapping/_arb_topo/arb_1m_curvature")
+arb_1m_dem <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_dem")
+arb_1m_slope <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_slope")
+arb_1m_curvature <- rast("C:/Users/natha/OneDrive/Onedrive Documents/_data/_mapping/_arb_topo/arb_1m_curvature")
 ```
 
 
