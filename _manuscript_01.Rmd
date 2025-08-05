@@ -1,0 +1,26 @@
+---
+title: "Manuscript 1"
+output:
+  word_document: default
+  html_document: default
+date: "2025-08-04"
+---
+
+```{r setup, include=FALSE}
+# chunk options
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
+
+# libraries needed
+libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling")
+
+# install missing libraries
+installed_libs <- libs %in% rownames(installed.packages())
+if (any(installed_libs == F)) {
+  install.packages(libs[!installed_libs])
+}
+
+# load libraries
+lapply(libs, library, character.only = T)
+```
+
+??
