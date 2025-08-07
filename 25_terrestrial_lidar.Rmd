@@ -5,7 +5,7 @@
 knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
 
 # libraries needed
-libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling")
+libs <- c("tinytex", "ggplot2", "dplyr", "tidyr", "rlang", "usethis", "bookdown", "knitr", "rmarkdown", "spelling", "lidR", "shapefiles", "sf", "terra", "raster", "ggplot2", "easypackages", "spatialEco", "rasterVis")
 
 # install missing libraries
 installed_libs <- libs %in% rownames(installed.packages())
@@ -17,48 +17,19 @@ if (any(installed_libs == F)) {
 lapply(libs, library, character.only = T)
 ```
 
-## Notes to self
+## Classifing LiDAR point clouds
 
--   Traveling with the scanner. Scanner can be traveled with easily. Check scanner box and duffel bag with tripods. Battery is okay to be checked. Cary on camera.
+Technical resources
 
--   Software. GoldenSoftwareSurfer (demo) eases transforming from point clouds to 2D grids. Can likely get a license from Steve.
+-   sf manual: <https://cran.r-project.org/web/packages/sf/sf.pdf>
 
-## Collecting data
+-   lidR manual: <https://r-lidar.github.io/lidRbook/>
 
-Project setup. *This should only have to be done once (unless changed between projects) but it is best to verify.* Before collecting data, make sure to:
+-   shapefiles manual: <https://cran.r-project.org/web/packages/shapefiles/shapefiles.pdf>
 
--   Create a new project, named simply ("YYYY-MM-DD_siteID")
+-   MNtopo <https://files.dnr.state.mn.us/aboutdnr/gis/mntopo/mntopo_help_document.pdf>
 
--   Turn Scanpos auto ON. Note, if the position does not update between scans, it is basically impossible to separate the two.
+-   EPSG info: <https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf>
 
--   Select the correct pattern. For normal scans use Pattern.50 (2 minute scan). For higher resolution use Pattern.30 (5 minute scan)
+-   SF: https://r-spatial.github.io/sf/articles/sf1.html#reading-and-writing
 
--   Check the GPS mounting settings (in Settings \> Peripherals \> GPS).
-
--   Turn on image acquisition. Remove lens cap.
-
--   Camera calibration should be on AUTO to account for variable light conditions.
-
-Data download. To download data, power on and insert formatted USB drive. Navigate to Settings \> File Browser. Mark all the needed files. Press Action \> Copy \> Media (switch to usb) \> Insert \> Ok. Remove drive and insert into computer.
-
-Data storage. Data is stored in OneDrive and backed up to my personal computer and an external hard drive. Should be backed up to external drive frequently using SyncBackFree (help here: <https://www.2brightsparks.com/syncback/help/index.html?welcome.htm>).
-
-## Data pre-processing
-
-There are a number of pieces of software used for LiDAR point cloud processing:
-
-1\. RiSCAN Pro is the proprietary scanner software used for data collection, scan registration, and GPS registration. Golden software Surfer
-
-Data collection. (WIP, found in protocol)
-
-Scan upload. Scans in the format (.riproject) can be imported into RiSCAN by using Help \> Download and Convert.
-
-Scan registration.
-
-Scan colorization.
-
-2\. LAStools (or TeraScan with proper licensing) is used for classifying point clouds into 3D grids. LAStools has similar functionality to the lidR package and provides many tools for analysis.
-
-Classification.
-
-3\. Golden software Surfer is used to generate 2D rasters from classified 3D grids.

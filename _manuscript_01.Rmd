@@ -1,8 +1,6 @@
 ---
 title: "Manuscript 1"
-output:
-  word_document: default
-  html_document: default
+output: html_document
 date: "2025-08-04"
 ---
 
