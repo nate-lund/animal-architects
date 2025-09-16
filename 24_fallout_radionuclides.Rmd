@@ -1,3 +1,9 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
 # Fallout Radionulcides
 
 ```{r setup, include = FALSE}
@@ -21,7 +27,8 @@ lapply(libs, library, character.only = T)
 
 ### Extracting elevation, slope, and curvature from DEMS to GPS points.
 
-Import GPS data points saved in the G-drive (collected using Field Maps and downloaded through Arc Online). Transform into NAD83 zone 15N.
+Import GPS data points saved in the G-drive (collected using Field Maps
+and downloaded through Arc Online). Transform into NAD83 zone 15N.
 
 ```{r}
 # load frn transect points
@@ -84,3 +91,22 @@ write.csv(arb_NAD, "C:/Users/natha/Documents/local_data/_data/_fallout_radionucl
 write.csv(lr_NAD, "C:/Users/natha/Documents/local_data/_data/_fallout_radionuclides/lr_geo_data.csv", quote = 1)
 ```
 
+## Mass Balnce of 210-Pb
+
+```{r}
+1 - exp(log(2)/22.3 * 22.3)
+
+```
+
+
+$$
+A_{\text{total}} = \int_0^\infty R \cdot e^{-\lambda t} \, dt = \frac{R}{\lambda}
+$$
+
+$$
+\text{Fraction} = \frac{A_{\text{recent}}}{A_{\text{total}}} = 1 - e^{-\lambda \cdot 22.3}
+$$
+
+$$
+\text{Fraction deposited in last } T \text{ years} = 1 - e^{-\lambda T}
+$$

@@ -33,3 +33,30 @@ Technical resources
 
 -   SF: https://r-spatial.github.io/sf/articles/sf1.html#reading-and-writing
 
+```{r}
+# install.packages('lidRviewer', repos = 'https://r-lidar.r-universe.dev')
+
+library(lidRviewer)
+
+# testing
+las <- readLAS("C:/Users/natha/Documents/local_data/_data/_terrestrial_lidar/_processed_scans/2025-03-27_TLS_MAG_NL/Arb_Mar25_1_all_wgs84utm15N_classified-002.laz")
+
+
+summary(las)
+
+plot(las, color = "Classification", size = 3, bg = "white") 
+
+# set coordinate system
+st_crs(las) <- 26915
+
+las_check(las)
+
+
+
+# Plot las object by scan angle, 
+# make the background white, 
+# display XYZ axis and  scale colors
+plot(las, color = "RGB", bg = "white", axis = TRUE, legend = TRUE)
+
+```
+
