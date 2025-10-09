@@ -5,7 +5,7 @@
 knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
 
 # libraries needed
-libs <- c("lidR", "shapefiles", "sf", "terra", "raster", "tidyr", "dplyr", "ggplot2", "easypackages", "spatialEco")
+libs <- c("lidR", "shapefiles", "sf", "terra", "raster", "tidyr", "dplyr", "ggplot2", "easypackages", "spatialEco","here")
 
 # install missing libraries
 installed_libs <- libs %in% rownames(installed.packages())
@@ -17,7 +17,34 @@ if (any(installed_libs == F)) {
 lapply(libs, library, character.only = T)
 ```
 
+```{r data_directory, include = FALSE}
+# enter the file path for the highest level folder you're working in 
+data_folder <- "C:/Users/natha/Box/box_data/_data/_erosion_pins"
+
+# when a file is needed, call the hert() function
+hert <- function(file) {
+  file_path = paste(data_folder, file, sep = "")
+  return(file_path)
+}
+
+# for example:
+# data_frame = read.csv(hert("more_data/measurements_data.csv"))
+
+```
+
 ## Dataset Building
+
+### Data analysis basics
+
+Pull in the data from box and some pre-processing.
+
+```{r}
+raw_df <- read.csv(hert("/measurements_data.csv"))
+
+head(raw_df)
+
+
+```
 
 ### Extracting elevation, slope, and curvature from DEMS to GPS points.
 
@@ -25,7 +52,7 @@ Import GPS data points saved in the G-drive (collected using Field Maps and down
 
 ```{r}
 # load erosion pin points,
-arb_gps_raw <- read.csv("C:/Users/natha/Documents/local_data/_data/_erosion_pins/_transect_gps/Erosion_Pin_Transects_1.csv") %>% 
+arb_gps_raw <- read.csv(hert("_transect_gps/Erosion_Pin_Transects_1.csv")) %>% 
   select(Latitude, Longitude) %>% 
   filter(Latitude < 45) # arb and lr are in the same file, split into 2
 
@@ -83,7 +110,6 @@ write_sf(lr_NAD, "C:/Users/natha/Documents/local_data/_data/_erosion_pins/_lr_ge
 write.csv(arb_NAD, "C:/Users/natha/Documents/local_data/_data/_erosion_pins/arb_geo_data.csv", quote = 1)
 write.csv(lr_NAD, "C:/Users/natha/Documents/local_data/_data/_erosion_pins/lr_geo_data.csv", quote = 1)
 ```
-
 
 ## Visualizing etc.
 
