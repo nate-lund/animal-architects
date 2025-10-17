@@ -33,26 +33,26 @@ hert <- function(file) {
 #'[cleaning up the data]
 
 # Pull in the data from box and some pre-processing.
-  input <- read.csv(hert("/measurements_data.csv"))
+input <- read.csv(hert("/measurements_data.csv"))
 
 # preview
-  head(input)
+head(input)
 
 # we need to first average the duplicate measurements for each pin.
-  input$mm_ch <- (input$mm1_ch + input$mm2_ch) / 2 # for changes
-  input$mm_bl <- (input$mm2_bl + input$mm2_bl.1) / 2 # for baseline
-  
+input$mm_ch <- (input$mm1_ch + input$mm2_ch) / 2 # for changes
+input$mm_bl <- (input$mm2_bl + input$mm2_bl.1) / 2 # for baseline
+
 # convert date to days past
-  input$date_date <- as.Date(input$date) # format date column
-  input$dayof <- as.numeric(input$date_date) - 20283 + 195 # convert to days since 1970-01-01
-  
+input$date_date <- as.Date(input$date) # format date column
+input$dayof <- as.numeric(input$date_date) - 20283 + 195 # convert to days since 1970-01-01
+
 # create and index column, a uniqe ID for each mm
-  input$index <- (paste(input$site, input$forest, input$transect, input$slope_pos, input$pin.., sep = "_"))
-  input$index_num <- as.numeric(factor(input$index))
-  
+input$index <- (paste(input$site, input$forest, input$transect, input$slope_pos, input$pin.., sep = "_"))
+input$index_num <- as.numeric(factor(input$index))
+
 # filter the dataset to remove unneeded columns
-  clean <- input %>% select(date_date, dayof, index_num, worms, site, forest, transect, slope_pos, pin.., mm_ch, mm_bl) %>% 
-    rename(pin = pin..)
+clean <- input %>% select(date_date, dayof, index_num, worms, site, forest, transect, slope_pos, pin.., mm_ch, mm_bl) %>% 
+  rename(pin = pin..)
 
 # arrange pins unique pin, in order of date
 clean_sorted <- clean %>% 
@@ -61,7 +61,7 @@ clean_sorted <- clean %>%
   mutate(dmm = 0) # add a dmm column for later
 
 # number of unique pins, should be 216
-  nindex <- length(unique(clean_sorted$index))
+nindex <- length(unique(clean_sorted$index))
 
 # create a list, where each item is a data frame with all the measurements of each pin 
 df_list <- vector(mode = "list", length = nindex) # empty list
@@ -85,6 +85,8 @@ for(i in 2:nindex) { # for loop to stack dataframes one list at a time
   master_df <- merge(master_df, df_list[[i]], all = TRUE)
 } 
 
+write.csv(master_df, hert("master_df.csv"))
+  
 #'###################### [analysis] #######################
 
 # clean up data frame to remove outliers (greater than 3sd from the mean)

@@ -1,11 +1,11 @@
-# Erosion pins
+# Erosion Pin Data Workflow
 
 ```{r setup, include = FALSE}
 # chunk options
 knitr::opts_chunk$set(eval = FALSE, echo = TRUE, width = 300, warning = FALSE, out.width = "45%", fig.show = 'hold', fig.align = "center")
 
 # libraries needed
-libs <- c("lidR", "shapefiles", "sf", "terra", "raster", "tidyr", "dplyr", "ggplot2", "easypackages", "spatialEco","here")
+libs <- c("lidR", "shapefiles", "sf", "terra", "raster", "tidyr", "tidyverse","dplyr", "ggplot2", "easypackages", "spatialEco","here", "performance", "RColorBrewer", "lme4", "nlme")
 
 # install missing libraries
 installed_libs <- libs %in% rownames(installed.packages())
@@ -15,38 +15,201 @@ if (any(installed_libs == F)) {
 
 # load libraries
 lapply(libs, library, character.only = T)
-```
 
-```{r data_directory, include = FALSE}
 # enter the file path for the highest level folder you're working in 
-data_folder <- "C:/Users/natha/Box/box_data/_data/_erosion_pins"
+data_folder <- "C:/Users/natha/Box/box_data/_data/_erosion_pins/"
 
 # when a file is needed, call the hert() function
+# for example: data_frame = read.csv(hert("more_data/measurements_data.csv"))
 hert <- function(file) {
   file_path = paste(data_folder, file, sep = "")
   return(file_path)
 }
 
-# for example:
-# data_frame = read.csv(hert("more_data/measurements_data.csv"))
 
 ```
 
-## Dataset Building
+## Measurement Data
 
-### Data analysis basics
-
-Pull in the data from box and some pre-processing.
+Pull in the data from box and do some pre-processing.
 
 ```{r}
-raw_df <- read.csv(hert("/measurements_data.csv"))
 
-head(raw_df)
+# Pull in the data from box and some pre-processing.
+input <- read.csv(hert("measurements_data.csv"))
+
+# we need to first average the duplicate measurements for each pin.
+input$mm_ch <- (input$mm1_ch + input$mm2_ch) / 2 # for changes
+input$mm_bl <- (input$mm2_bl + input$mm2_bl.1) / 2 # for baseline
+  
+# convert date to days past
+input$date_date <- as.Date(input$date) # format date column
+input$dayof <- as.numeric(input$date_date) - 20283 + 195 # convert to days since 1970-01-01
+  
+# create and index column, a unique ID for each mm
+input$index <- (paste(input$site, input$forest, input$transect, input$slope_pos, input$pin.., sep = "_"))
+input$index_num <- as.numeric(factor(input$index))
+
+# filter the dataset to remove unneeded columns
+clean <- input %>%
+  select(date_date, dayof, index_num, worms, site, 
+         forest, transect, slope_pos, pin.., mm_ch, mm_bl) %>% 
+  rename(pin = pin..)
+  
+
+# arrange pins unique pin, in order of date
+clean_sorted <- clean %>% 
+  arrange(index_num) %>% # sort
+  mutate(dt = 0) %>% # add a dt column for later
+  mutate(dmm = 0) # add a dmm column for later
+
+# number of unique pins, should be 216
+nindex <- length(unique(clean_sorted$index))
+
+# create a list, where each item is a data frame with all the measurements of each pin
+df_list <- vector(mode = "list", length = nindex) # empty list
+for(i in 1:nindex) {
+  df_list[[i]] <- clean_sorted %>% filter(index_num == i)
+} 
 
 
 ```
 
-### Extracting elevation, slope, and curvature from DEMS to GPS points.
+Differencing erosion pin measurments
+
+```{r}
+
+for(i in 1:nindex){ # out for loop selects each data frame (individual pin) in the list
+  for(j in 2:6) { # inner for loop goes throughe each column of list 
+    df_list[[i]][j,12] <- df_list[[i]][j, 2] - df_list[[i]][j - 1, 2] # subtracts today's day of from last measurement's
+    df_list[[i]][j,13] <- df_list[[i]][j - 1, 11] - df_list[[i]][j, 10] # subtracts today's mm from last baseline
+  }
+}
+  
+
+#  rebuild the data frame
+  master_df <- df_list[[1]] # jank start to the for loop, needs a base
+for(i in 2:nindex) { # for loop to stack dataframes one list at a time
+  master_df <- merge(master_df, df_list[[i]], all = TRUE)
+} 
+
+print(master_df)
+  
+```
+
+Statistical analysis
+
+```{r}
+# clean up data frame to remove outliers (greater than 3sd from the mean)
+master <- master_df %>%
+  mutate(abs_dmm = abs(dmm)) %>% # create abs_dmm column
+  filter(abs_dmm < sd(master_df$dmm)*3 & dt > 0) # filter to remove inital sites and outliers
+
+```
+
+
+```{r}
+  
+#'###################### [for individual pin data]
+
+masteri <- master %>% 
+  group_by(forest, transect, slope_pos, pin) %>%
+  mutate(dhdt = abs_dmm / dt) %>% 
+  summarize(dhdt_ = sum(dhdt), abs_dh = sum(abs_dmm), worms = first(worms)) %>% 
+  mutate(dhdt = dhdt_ * 365 / 10 ) # dhdt in cm/yr
+
+
+# arrange the data for later plotting
+  masteri$forest <- factor(masteri$forest, 
+                           levels=c("ASH", "LRE", "LRW", "MAG", "WD", "LRJ"))
+
+  
+  
+# FOREST SPECEFIC boxplot for dhdt
+ggplot(data = masteri, mapping = aes(x = forest, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Forest") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(fill = "Worms")
+
+# WORM boxplot for abs_dmm/dt
+ggplot(data = masteri, mapping = aes(x = worms, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos)+ 
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Worms") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position = "none")
+
+# FOREST SPECEFIC boxplot for dhdt
+ggplot(data = masteri, mapping = aes(x = forest, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Forest") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(fill = "Worms")
+
+###############################non -abs
+masteri <- master %>% 
+  group_by(forest, transect, slope_pos, pin) %>%
+  mutate(dhdt = abs_dmm / dt) %>% 
+  summarize(dhdt_ = sum(dhdt), abs_dh = sum(abs_dmm), worms = first(worms)) %>% 
+  mutate(dhdt = dhdt_ * 365 / 10 ) # dhdt in cm/yr
+
+
+# arrange the data for later plotting
+  masteri$forest <- factor(masteri$forest, 
+                           levels=c("ASH", "LRE", "LRW", "MAG", "WD", "LRJ"))
+
+  
+  
+# FOREST SPECEFIC boxplot for dhdt
+ggplot(data = masteri, mapping = aes(x = forest, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Forest") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(fill = "Worms")
+
+# WORM boxplot for abs_dmm/dt
+ggplot(data = masteri, mapping = aes(x = worms, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos)+ 
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Worms") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position = "none")
+
+# FOREST SPECEFIC boxplot for dhdt
+ggplot(data = masteri, mapping = aes(x = forest, y = dhdt, fill = worms)) +
+  geom_boxplot() +
+  facet_wrap(~slope_pos) +
+  scale_fill_manual(values = c("JW" = "#D6604D", "EW"= "#4393C3")) +
+  scale_y_continuous(name = "Change in Pins (cm / yr)") +
+  scale_x_discrete(name = "Forest") +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(fill = "Worms")
+
+```
+
+## GPS Data
 
 Import GPS data points saved in the G-drive (collected using Field Maps and downloaded through Arc Online). Transform into NAD83 zone 15N.
 
